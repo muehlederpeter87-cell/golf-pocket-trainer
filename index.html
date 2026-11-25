@@ -9,8 +9,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="apple-mobile-web-app-title" content="Golf Pocket Trainer" />
   <meta name="application-name" content="Golf Pocket Trainer" />
-  <meta name="description" content="Golf Pocket Trainer v4.29.0 – Material Design 3 Golf Technik-, Trainings-, Rules-, Scratch-Blueprint-, Komparator-, Warm-up-, Video-Analyse-, 40-Tage-Challenge- & Gamification-Statistik-Begleiter" />
-  <title>Golf Pocket Trainer (v4.29.0)</title>
+  <meta name="description" content="Golf Pocket Trainer v4.30.0 – Material Design 3 Golf Technik-, Trainings-, Rules-, Scratch-Blueprint-, Komparator-, Warm-up-, Video-Analyse-, 40-Tage-Challenge- & Gamification-Statistik-Begleiter" />
+  <title>Golf Pocket Trainer (v4.30.0)</title>
 
   <link rel="manifest" href="manifest.webmanifest" />
   <link rel="icon" type="image/png" sizes="48x48" href="icons/favicon-48.png" />
@@ -2335,7 +2335,7 @@
         <div class="md-brand-text-wrap">
           <div style="display: flex; align-items: center; gap: 0.4rem;">
             <h1 class="md-brand-title">Golf Pocket Trainer</h1>
-            <span class="md-version-badge font-mono">v4.29.0</span>
+            <span class="md-version-badge font-mono">v4.30.0</span>
           </div>
           <p class="md-brand-sub">Dein Trainings- &amp; Platzbegleiter</p>
         </div>
@@ -2412,7 +2412,7 @@
               <span class="material-symbols-rounded" style="color: var(--md-sys-color-on-surface-variant);">history</span>
               <span>Versionsverlauf</span>
             </span>
-            <span class="font-mono" style="font-size: 0.72rem; color: var(--md-sys-color-on-surface-variant);">v4.29.0</span>
+            <span class="font-mono" style="font-size: 0.72rem; color: var(--md-sys-color-on-surface-variant);">v4.30.0</span>
           </button>
         </div>
       </div>
@@ -3229,7 +3229,7 @@
        ======================================================================== -->
   <footer class="md-footer">
     <div class="md-container" style="display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; flex-wrap: wrap;">
-      <span><strong>Golf Pocket Trainer</strong> (<span class="font-mono">v4.29.0</span>) &bull; Dein interaktiver Trainings- &amp; Platzbegleiter</span>
+      <span><strong>Golf Pocket Trainer</strong> (<span class="font-mono">v4.30.0</span>) &bull; Dein interaktiver Trainings- &amp; Platzbegleiter</span>
       <button type="button" onclick="openChangelogModal()" class="md-text-btn" style="height: 1.85rem;">Versionsverlauf ansehen</button>
     </div>
   </footer>
@@ -3352,7 +3352,7 @@
       <div class="md-dialog-header">
         <div>
           <span class="md-assist-badge" style="background-color: var(--md-sys-color-tertiary-container); color: var(--md-sys-color-on-tertiary-container);">Release Notes &amp; Wartung</span>
-          <h2 id="changelogTitle" class="font-display" style="font-size: 1.25rem; font-weight: 800; margin-top: 0.3rem;">Versionsverlauf (v1.0.0 – v4.29.0)</h2>
+          <h2 id="changelogTitle" class="font-display" style="font-size: 1.25rem; font-weight: 800; margin-top: 0.3rem;">Versionsverlauf (v1.0.0 – v4.30.0)</h2>
         </div>
         <button type="button" onclick="closeChangelogModal()" class="md-icon-btn" aria-label="Schließen">
           <span class="material-symbols-rounded">close</span>
@@ -3367,20 +3367,32 @@
   </div>
 
   <!-- ========================================================================
-       COMPLETE SELF-CONTAINED JAVASCRIPT ENGINE (v4.29.0)
+       COMPLETE SELF-CONTAINED JAVASCRIPT ENGINE (v4.30.0)
        ======================================================================== -->
   <div id="appToast" class="md-toast" role="status" aria-live="polite"></div>
   <input type="file" id="backupFileInput" accept="application/json,.json" hidden onchange="handleBackupFile(event)" />
 
   <script>
-    const APP_VERSION = 'v4.29.0';
+    const APP_VERSION = 'v4.30.0';
 
     const CHANGELOG_ENTRIES = [
       {
-        version: 'v4.29.0',
+        version: 'v4.30.0',
         date: 'Aktuell',
-        title: 'Schlankere Tab-Leiste & geordnetes Menü',
+        title: 'Passende Trainings-Videos für alle Drills',
         latest: true,
+        notes: [
+          'Jeder der 38 Drills hat jetzt ein eigenes, passendes YouTube-Video (vorher teilten sich alle Drills 5 Videos zum Training zu Hause).',
+          'Fast alle Videos sind auf Deutsch, u. a. von GOLFSTUN.DE, Golf.de, Golfen mit Freude, Vaughan spielt den Platz und Einstellig Golf. Das Uhr-System für Wedges ist auf Englisch.',
+          'Auch die 14 Einheiten der 40-Tage-Challenge zeigen jetzt thematisch passende Videos.',
+          'Im Player stehen der echte Videotitel und der Kanal.'
+        ]
+      },
+      {
+        version: 'v4.29.0',
+        date: 'Vorherige Version',
+        title: 'Schlankere Tab-Leiste & geordnetes Menü',
+        latest: false,
         notes: [
           'Die Tab-Leiste hat nur noch 4 Bereiche für das tägliche Training: Heute, Training, Technik und Regeln.',
           'Training zeigt Drills, Warm-up und Challenge. Technik zeigt Schlagtechnik und Video.',
@@ -3391,7 +3403,7 @@
       },
       {
         version: 'v4.28.0',
-        date: 'Vorherige Version',
+        date: 'Meilenstein 53',
         title: 'Neue Navigation mit 5 Bereichen',
         latest: false,
         notes: [
@@ -4333,10 +4345,10 @@
           'Steigere das Tempo erst, wenn 5 Bälle in Folge ohne Berührung sauber starten.'
         ],
         successGoal: '8 von 10 Drives starten rechts vom Ziel oder gerade, ohne die Haube zu treffen.',
-        videoId: 'YcPgyMCWohU',
-        videoTitle: 'Schwungbahn von innen trainieren',
-        videoChannel: 'PL Performance Golf',
-        videoDuration: '11:08'
+        videoId: 'xRsbZTr38zc',
+        videoTitle: 'Basket Gate – Übung gegen den Slice beim Golf',
+        videoChannel: 'GOLFSTUN.DE',
+        videoDuration: ''
       },
       {
         id: 'drill-driver-step',
@@ -4351,10 +4363,10 @@
           'Schwinge flüssig durch, während der Oberkörper hinter dem Ball bleibt.'
         ],
         successGoal: 'Spürbar bessere Gewichtsverlagerung und höherer, kraftvoller Ballstart.',
-        videoId: 'YcPgyMCWohU',
-        videoTitle: 'Dynamische Gewichtsverlagerung beim Drive',
-        videoChannel: 'PL Performance Golf',
-        videoDuration: '11:08'
+        videoId: '98wdSn_D0JI',
+        videoTitle: 'Golf Training Drive: Gewicht richtig verteilt = längere Drives',
+        videoChannel: 'Golf.de',
+        videoDuration: ''
       },
       {
         id: 'drill-iron-towel',
@@ -4369,10 +4381,10 @@
           'Halte dabei 60 % Startgewicht links und führe die Hände vor dem Schlägerkopf durch den Ball.'
         ],
         successGoal: '10 saubere Treffer in Folge, ohne dass das Handtuch verrutscht.',
-        videoId: 'iSQaUtaZ2uw',
-        videoTitle: 'Fette Schläge vermeiden & Kompression verbessern',
-        videoChannel: 'Birgit Bettergolf',
-        videoDuration: '02:03'
+        videoId: 'dKkA0KyVNKw',
+        videoTitle: 'Konstante Eisen dank Handtuch-Drill',
+        videoChannel: 'Golfundich',
+        videoDuration: ''
       },
       {
         id: 'drill-iron-line',
@@ -4387,10 +4399,10 @@
           'Jedes Divot muss exakt AUF oder ZIELSEITIG VOR der Linie beginnen.'
         ],
         successGoal: 'Mindestens 8 von 10 Divots beginnen zielseitig vor der Linie.',
-        videoId: 'iSQaUtaZ2uw',
-        videoTitle: 'Low-Point beim Eisenschlag kontrollieren',
-        videoChannel: 'Birgit Bettergolf',
-        videoDuration: '02:03'
+        videoId: 'fIRndq3lXlk',
+        videoTitle: 'Zuerst der Ball, dann der Boden (Golf Technik)',
+        videoChannel: 'Einfach besser golfen',
+        videoDuration: ''
       },
       {
         id: 'drill-wedge-towel',
@@ -4405,10 +4417,10 @@
           'Wiederhole die Übung auf 45 m (9 Uhr) und 60 m (10 Uhr).'
         ],
         successGoal: 'Mindestens 4 von 6 Bällen landen innerhalb eines 2-Meter-Radius um das Handtuch.',
-        videoId: 'iSQaUtaZ2uw',
-        videoTitle: 'Wedge-Distanzen präzise steuern',
-        videoChannel: 'Birgit Bettergolf',
-        videoDuration: '02:03'
+        videoId: 'wqTFfCZxQOY',
+        videoTitle: 'Das Wedge Book: Der Spickzettel für dein Short Game',
+        videoChannel: 'TaylorMade Golf Europe',
+        videoDuration: ''
       },
       {
         id: 'drill-wedge-onehand',
@@ -4423,10 +4435,10 @@
           'Spüre, wie sich die Brustkorb-Rotation mit dem Schlägerkopf synchronisiert.'
         ],
         successGoal: 'Kein Eingraben der Vorderkante – weiche, hohe Flugkurve.',
-        videoId: 'iSQaUtaZ2uw',
-        videoTitle: 'Bounce beim Pitchen richtig einsetzen',
-        videoChannel: 'Birgit Bettergolf',
-        videoDuration: '02:03'
+        videoId: 'SEXD-jqF088',
+        videoTitle: 'Eine einfache Methode, Bounce deines Wedges zu nutzen',
+        videoChannel: 'Einstellig Golf',
+        videoDuration: ''
       },
       {
         id: 'drill-putt-gate',
@@ -4441,10 +4453,10 @@
           'Halte den Kopf still, bis der Ball das Tor passiert hat.'
         ],
         successGoal: '15 von 20 Putts laufen berührungsfrei durch das Tor ins Loch.',
-        videoId: 'hX2hdEG9i9M',
-        videoTitle: 'Startlinie & Pendel beim Putten verbessern',
-        videoChannel: 'Golfpro Sascha Elender',
-        videoDuration: '05:45'
+        videoId: 'lS_B2dkpZB0',
+        videoTitle: 'Putt-Training: Richtungskontrolle beim Putten',
+        videoChannel: 'GOLFSTUN.DE',
+        videoDuration: ''
       },
       {
         id: 'drill-putt-ladder',
@@ -4459,10 +4471,10 @@
           'Jeder Ball muss weiter rollen als der vorherige, aber innerhalb von 60 cm hinter seinem Tee stoppen.'
         ],
         successGoal: 'Alle 4 Stufen in einem Durchgang ohne 3-Putt-Distanz absolvieren.',
-        videoId: 'sU2STUlVNpU',
-        videoTitle: 'Längenkontrolle & Tempo auf dem Grün',
-        videoChannel: 'Karl Villwock Golf',
-        videoDuration: '06:05'
+        videoId: 'PI9o7pwJpbc',
+        videoTitle: 'Putts richtig dosieren – Längenkontrolle beim Putten',
+        videoChannel: 'GOLFSTUN.DE',
+        videoDuration: ''
       },
       {
         id: 'drill-basics-rails',
@@ -4477,10 +4489,10 @@
           'Prüfe vor dem Abzug, ob Hüfte und Schultern exakt parallel zu Stick 2 stehen.'
         ],
         successGoal: '100 % reproduzierbare Ausrichtung ohne unbewusstes Rechts-Zielen.',
-        videoId: 'YcPgyMCWohU',
-        videoTitle: 'Ausrichtung & Setup wie auf der Tour',
-        videoChannel: 'PL Performance Golf',
-        videoDuration: '11:08'
+        videoId: 'EjK3jMyGE5w',
+        videoTitle: 'Ausrichtungsstäbe: Das unterschätzte Tool – 7 Trainingsideen',
+        videoChannel: 'Vaughan spielt den Platz',
+        videoDuration: ''
       },
       {
         id: 'drill-basics-gripcheck',
@@ -4495,10 +4507,10 @@
           'Schwinge im 70%-Tempo und achte darauf, dass sich der Griff im Umkehrpunkt nicht verdreht.'
         ],
         successGoal: 'Spürbar freiere Handgelenksaktion und geradere Ballstarts.',
-        videoId: 'iSQaUtaZ2uw',
-        videoTitle: 'Neutraler Golfgriff Schritt für Schritt',
-        videoChannel: 'Birgit Bettergolf',
-        videoDuration: '02:03'
+        videoId: '8eXEvgmWB5M',
+        videoTitle: 'Neutraler Golfgriff – so greifst du den Schläger richtig',
+        videoChannel: 'Golfreich',
+        videoDuration: ''
       },
       {
         id: 'drill-shaping-9window',
@@ -4513,10 +4525,10 @@
           'Wechsle bei jedem Ball bewusst die Flugkurve ab.'
         ],
         successGoal: 'Mindestens 10 von 16 Bällen zeigen die jeweils geplante Kurvenrichtung.',
-        videoId: 'YcPgyMCWohU',
-        videoTitle: 'Draw und Fade kontrolliert spielen',
-        videoChannel: 'PL Performance Golf',
-        videoDuration: '11:08'
+        videoId: '_hE4UVhA1kU',
+        videoTitle: 'Golf Training Schwung: So einfach sind Draw und Fade',
+        videoChannel: 'Golf.de',
+        videoDuration: ''
       },
       {
         id: 'drill-shaping-startline',
@@ -4531,10 +4543,10 @@
           'Für einen Fade muss jeder Ball LINKS am Stick vorbeistarten und nach rechts kurven.'
         ],
         successGoal: 'Verständnis und Kontrolle über Startrichtung vs. Kurve.',
-        videoId: 'YcPgyMCWohU',
-        videoTitle: 'Startrichtung beim Shot-Shaping steuern',
-        videoChannel: 'PL Performance Golf',
-        videoDuration: '11:08'
+        videoId: 'ZnDJUYbsEIE',
+        videoTitle: 'Fade & Draw – Die Unterschiede',
+        videoChannel: 'GOLFSTUN.DE',
+        videoDuration: ''
       },
       {
         id: 'drill-warmup-par4',
@@ -4549,10 +4561,10 @@
           'Falls der Fairway-Korridor verfehlt wurde, folgt ein realistischer Recovery-Chip mit dem Wedge.'
         ],
         successGoal: '2 simulierte Pars in Folge vor dem Gang zu Tee 1.',
-        videoId: 'YcPgyMCWohU',
-        videoTitle: 'Auf der Range wie auf dem Platz trainieren',
-        videoChannel: 'PL Performance Golf',
-        videoDuration: '11:08'
+        videoId: 'FJAxpE2N1pU',
+        videoTitle: 'Von der Driving Range auf den Platz bringen – so klappt’s!',
+        videoChannel: 'Einfach besser golfen',
+        videoDuration: ''
       },
       {
         id: 'drill-warmup-1ball',
@@ -4567,10 +4579,10 @@
           'Bewerte jeden Schlag ehrlich mit Fairway/Grün getroffen oder verfehlt.'
         ],
         successGoal: 'Mindestens 6 von 9 Bällen landen im gewählten Zielkorridor.',
-        videoId: 'YcPgyMCWohU',
-        videoTitle: 'Pre-Shot-Routine & Fokus unter Druck',
-        videoChannel: 'PL Performance Golf',
-        videoDuration: '11:08'
+        videoId: 'TBdcRyDz6AM',
+        videoTitle: 'Platznahes Driving Range Training',
+        videoChannel: 'HIO Fitting',
+        videoDuration: ''
       },
       {
         id: 'drill-indoor-ruler',
@@ -4585,10 +4597,10 @@
           'Fällt der Ball seitlich vom Lineal herunter, war das Schlägerblatt im Treffmoment um mehr als 1° verdreht.'
         ],
         successGoal: '10 Putts in Folge über das komplette 1-Meter-Lineal ins Glas rollen lassen.',
-        videoId: 'hX2hdEG9i9M',
-        videoTitle: 'Putten üben Zuhause auf dem Teppich',
-        videoChannel: 'Golfpro Sascha Elender',
-        videoDuration: '05:45'
+        videoId: 'Aw8qsRdLXuk',
+        videoTitle: 'Die richtige Puttbewegung zu Hause trainieren',
+        videoChannel: 'GOLFSTUN.DE',
+        videoDuration: ''
       },
       {
         id: 'drill-indoor-mirror',
@@ -4603,10 +4615,10 @@
           'Löse den Griff, schüttle die Arme aus und baue das Setup 10-mal hintereinander in unter 8 Sekunden exakt wieder auf.'
         ],
         successGoal: '10 identische, athletische Setups ohne Nachkorrigieren im Spiegel.',
-        videoId: '2tGI0wrxhLw',
-        videoTitle: 'Golftraining für zu Hause: Technik & Kontrolle',
-        videoChannel: 'Christopher Godson',
-        videoDuration: '03:12'
+        videoId: 'BtgECjQ4qkw',
+        videoTitle: 'Training Tuesday – Setup-Position',
+        videoChannel: 'Golfschule Matthias Kraus',
+        videoDuration: ''
       },
       {
         id: 'drill-indoor-wallhip',
@@ -4621,10 +4633,10 @@
           'Drehe in den Abschwung: Jetzt muss die linke Gesäßhälfte die Wand berühren – löst sich das Becken von der Wand, hast du Early Extension.'
         ],
         successGoal: '15 langsame, kontrollierte Wiederholungen mit dauerhaftem Wandkontakt.',
-        videoId: 'YcPgyMCWohU',
-        videoTitle: 'Kann man im Wohnzimmer wirklich besser Golf spielen?',
-        videoChannel: 'PGA Patrick Limbecker',
-        videoDuration: '11:08'
+        videoId: 'AmUjUjOJnDw',
+        videoTitle: 'Der Einsatz der Hüfte im Golfschwung (Übung für zu Hause)',
+        videoChannel: 'GOLFSTUN.DE',
+        videoDuration: ''
       },
       {
         id: 'drill-indoor-cushion',
@@ -4639,10 +4651,10 @@
           'Konzentriere dich darauf, den Schaumstoffball sanft auf dem Kissen landen zu lassen, ohne die Handgelenke zu knicken.'
         ],
         successGoal: '10 von 15 Schaumstoffbällen landen direkt auf dem Sofakissen.',
-        videoId: 'sU2STUlVNpU',
-        videoTitle: 'Kurzspiel & Gefühl zu Hause trainieren',
-        videoChannel: 'Karl Villwock Golf',
-        videoDuration: '06:05'
+        videoId: 'HoJl7K68Nqg',
+        videoTitle: 'Golf Training Indoor: Chippen im Wohnzimmer',
+        videoChannel: 'Golf.de',
+        videoDuration: ''
       },
       {
         id: 'drill-driver-teeheight',
@@ -4657,10 +4669,10 @@
           'Passe Tee-Höhe oder Abstand zum Ball an, bis die Abdrücke mittig bis leicht oberhalb der Mitte liegen.'
         ],
         successGoal: 'Mindestens 7 von 12 Treffern im mittleren Drittel der Schlagfläche.',
-        videoId: 'YcPgyMCWohU',
-        videoTitle: 'Dynamische Gewichtsverlagerung beim Drive',
-        videoChannel: 'PL Performance Golf',
-        videoDuration: '11:08'
+        videoId: 'mdg8cPBe7xQ',
+        videoTitle: 'Driver immer mittig treffen – für mehr Länge und geradere Drives',
+        videoChannel: 'Peter Lepitschnik Golfprofessional',
+        videoDuration: ''
       },
       {
         id: 'drill-driver-fairway',
@@ -4675,10 +4687,10 @@
           'Zähle, wie viele Bälle zwischen den beiden Zielen landen.'
         ],
         successGoal: '6 von 10 Drives landen im Fairway-Korridor.',
-        videoId: 'YcPgyMCWohU',
-        videoTitle: 'Ausrichtung & Setup wie auf der Tour',
-        videoChannel: 'PL Performance Golf',
-        videoDuration: '11:08'
+        videoId: '9hysjHR60wg',
+        videoTitle: 'Besser Ausrichten und Zielen auf der Driving Range',
+        videoChannel: 'GOLFSTUN.DE',
+        videoDuration: ''
       },
       {
         id: 'drill-driver-tempo',
@@ -4693,10 +4705,10 @@
           '4 Bälle mit vollem Tempo, aber nur so schnell, dass du das Finish noch halten kannst.'
         ],
         successGoal: 'Bei allen 12 Schlägen ein stabiles Finish für 3 Sekunden.',
-        videoId: 'YcPgyMCWohU',
-        videoTitle: 'Dynamische Gewichtsverlagerung beim Drive',
-        videoChannel: 'PL Performance Golf',
-        videoDuration: '11:08'
+        videoId: 'n_N7idygwaQ',
+        videoTitle: 'Tempo und Rhythmus trainieren – aber wie die Profis!',
+        videoChannel: 'Vaughan spielt den Platz',
+        videoDuration: ''
       },
       {
         id: 'drill-iron-compression',
@@ -4711,10 +4723,10 @@
           'Kontrolliere nach jedem Schlag, ob das Divot erst nach der Ballposition beginnt.'
         ],
         successGoal: '10 von 15 Divots beginnen nach dem Ball.',
-        videoId: 'iSQaUtaZ2uw',
-        videoTitle: 'Fette Schläge vermeiden & Kompression verbessern',
-        videoChannel: 'Birgit Bettergolf',
-        videoDuration: '02:03'
+        videoId: 'bkOibbs86g8',
+        videoTitle: 'Perfekter Treffmoment mit den Eisen – der beste Drill',
+        videoChannel: 'Florian Raggl Golf',
+        videoDuration: ''
       },
       {
         id: 'drill-iron-carryladder',
@@ -4729,10 +4741,10 @@
           'Vergleiche die Abstände zwischen den Schlägern – sie sollten gleichmäßig sein.'
         ],
         successGoal: 'Du kennst deine Carry-Distanzen und die Abstände betragen ca. 10–12 m pro Schläger.',
-        videoId: 'iSQaUtaZ2uw',
-        videoTitle: 'Low-Point beim Eisenschlag kontrollieren',
-        videoChannel: 'Birgit Bettergolf',
-        videoDuration: '02:03'
+        videoId: 'MJCG7gvGC0I',
+        videoTitle: 'Effektiver trainieren auf der Driving Range',
+        videoChannel: 'GOLFSTUN.DE',
+        videoDuration: ''
       },
       {
         id: 'drill-iron-gate',
@@ -4747,10 +4759,10 @@
           'Steigere auf Dreiviertel-Schwünge, sobald 5 Schläge in Folge sauber durch das Tor gehen.'
         ],
         successGoal: '8 von 10 Dreiviertel-Schwüngen ohne Berührung der Tees.',
-        videoId: 'iSQaUtaZ2uw',
-        videoTitle: 'Low-Point beim Eisenschlag kontrollieren',
-        videoChannel: 'Birgit Bettergolf',
-        videoDuration: '02:03'
+        videoId: 'azKdhUB3cy4',
+        videoTitle: 'Versuche, diesen Teil des Golfballs zu treffen',
+        videoChannel: 'Golfen mit Freude',
+        videoDuration: ''
       },
       {
         id: 'drill-wedge-clock',
@@ -4766,10 +4778,10 @@
           'Merke dir die Carry-Distanz jeder Länge – das sind deine festen Wedge-Distanzen.'
         ],
         successGoal: 'Die Bälle einer Rückschwunglänge streuen weniger als 5 m in der Länge.',
-        videoId: 'iSQaUtaZ2uw',
-        videoTitle: 'Wedge-Distanzen präzise steuern',
-        videoChannel: 'Birgit Bettergolf',
-        videoDuration: '02:03'
+        videoId: 'wB1MShqS9Oo',
+        videoTitle: 'Wedge Clock System: 7:30, 9 & 10:30 (Englisch)',
+        videoChannel: 'FLYT Golf',
+        videoDuration: ''
       },
       {
         id: 'drill-chip-ladder',
@@ -4785,10 +4797,10 @@
           'Beobachte, wie weit jeder Schläger danach rollt.'
         ],
         successGoal: 'Du kennst das Verhältnis von Flug zu Rollen für jeden Schläger (etwa Eisen 8 1:3, PW 1:2, SW 1:1).',
-        videoId: 'sU2STUlVNpU',
-        videoTitle: 'Kurzspiel & Gefühl trainieren',
-        videoChannel: 'Karl Villwock Golf',
-        videoDuration: '06:05'
+        videoId: '67tzqp2q-tE',
+        videoTitle: 'Golf Training Chip: Flach spielen, hoch gewinnen',
+        videoChannel: 'Golf.de',
+        videoDuration: ''
       },
       {
         id: 'drill-chip-updown',
@@ -4804,10 +4816,10 @@
           'Zähle, wie oft du mit maximal 2 Schlägen eingelocht hast (Up and Down).'
         ],
         successGoal: '4 von 9 Up and Downs (für Single-Handicapper: 6 von 9).',
-        videoId: 'sU2STUlVNpU',
-        videoTitle: 'Kurzspiel & Gefühl trainieren',
-        videoChannel: 'Karl Villwock Golf',
-        videoDuration: '06:05'
+        videoId: 'qhGOG_otW18',
+        videoTitle: 'Platznah trainieren – Up & Down',
+        videoChannel: 'GOLFSTUN.DE',
+        videoDuration: ''
       },
       {
         id: 'drill-bunker-line',
@@ -4823,10 +4835,10 @@
           'Lege jetzt den Ball 5 cm vor die Linie und spiele ihn mit offener Schlagfläche heraus.'
         ],
         successGoal: '8 von 10 Bällen landen beim ersten Versuch auf dem Grün.',
-        videoId: 'iSQaUtaZ2uw',
-        videoTitle: 'Bounce beim Pitchen richtig einsetzen',
-        videoChannel: 'Birgit Bettergolf',
-        videoDuration: '02:03'
+        videoId: 'f7nalUCMRQY',
+        videoTitle: 'Bunkerschlag: Golf-Übung für den richtigen Treffmoment',
+        videoChannel: 'GOLFSTUN.DE',
+        videoDuration: ''
       },
       {
         id: 'drill-putt-clock',
@@ -4841,10 +4853,10 @@
           'Nach einer vollen Runde ohne Fehler rückst du auf 1,5 m zurück.'
         ],
         successGoal: '12 Putts in Folge (3 volle Runden) ohne Fehlschlag.',
-        videoId: 'hX2hdEG9i9M',
-        videoTitle: 'Startlinie & Pendel beim Putten verbessern',
-        videoChannel: 'Golfpro Sascha Elender',
-        videoDuration: '05:45'
+        videoId: 'wIKaMMFbHeY',
+        videoTitle: 'Die Konstanz beim Putten verbessern (Putt-Übung)',
+        videoChannel: 'GOLFSTUN.DE',
+        videoDuration: ''
       },
       {
         id: 'drill-putt-lagzone',
@@ -4859,10 +4871,10 @@
           'Zähle jeden Ball, der im Kreis liegen bleibt – so vermeidest du Drei-Putts.'
         ],
         successGoal: '12 von 15 Bällen bleiben im Kreis liegen.',
-        videoId: 'sU2STUlVNpU',
-        videoTitle: 'Längenkontrolle & Tempo auf dem Grün',
-        videoChannel: 'Karl Villwock Golf',
-        videoDuration: '06:05'
+        videoId: 'dDgoduUHncA',
+        videoTitle: 'Schnelle Grüns kontrollieren (… und langsame auch)',
+        videoChannel: 'GOLFSTUN.DE',
+        videoDuration: ''
       },
       {
         id: 'drill-putt-pressure',
@@ -4877,10 +4889,10 @@
           'Bei einem Fehlschlag fängst du wieder bei null an.'
         ],
         successGoal: '10 Putts in Folge einlochen.',
-        videoId: 'hX2hdEG9i9M',
-        videoTitle: 'Startlinie & Pendel beim Putten verbessern',
-        videoChannel: 'Golfpro Sascha Elender',
-        videoDuration: '05:45'
+        videoId: 'VMBqHXYalis',
+        videoTitle: 'Gerade putten – Technik-Grundlagen für einen konstanten Putt',
+        videoChannel: 'GOLFSTUN.DE',
+        videoDuration: ''
       },
       {
         id: 'drill-basics-ballpos',
@@ -4895,10 +4907,10 @@
           'Schlage je 4 Bälle und kontrolliere die Ballposition vor jedem Schlag am Stick.'
         ],
         successGoal: 'Du findest die richtige Ballposition für alle drei Schläger ohne Hinsehen.',
-        videoId: 'YcPgyMCWohU',
-        videoTitle: 'Ausrichtung & Setup wie auf der Tour',
-        videoChannel: 'PL Performance Golf',
-        videoDuration: '11:08'
+        videoId: 'JZrsILHBqTk',
+        videoTitle: 'Das Setup: richtig am Ball stehen (Ansprechposition)',
+        videoChannel: 'GOLFSTUN.DE',
+        videoDuration: ''
       },
       {
         id: 'drill-basics-finish',
@@ -4913,10 +4925,10 @@
           'Wackelst du, zählt der Schlag nicht – das Tempo ist dann zu hoch.'
         ],
         successGoal: '10 von 10 Schlägen mit stabilem Finish.',
-        videoId: 'YcPgyMCWohU',
-        videoTitle: 'Dynamische Gewichtsverlagerung beim Drive',
-        videoChannel: 'PL Performance Golf',
-        videoDuration: '11:08'
+        videoId: 'WNw-X-uIdLQ',
+        videoTitle: 'Rotation und stabiles Finish für einen konstanteren Golfschwung',
+        videoChannel: 'GOLFSTUN.DE',
+        videoDuration: ''
       },
       {
         id: 'drill-shaping-height',
@@ -4931,10 +4943,10 @@
           'Hoch: Ball eine Ballbreite weiter links, hohes Finish. Spiele je 4 Bälle und wechsle die Reihenfolge.'
         ],
         successGoal: 'Drei klar unterscheidbare Flughöhen mit demselben Schläger.',
-        videoId: 'YcPgyMCWohU',
-        videoTitle: 'Startrichtung beim Shot-Shaping steuern',
-        videoChannel: 'PL Performance Golf',
-        videoDuration: '11:08'
+        videoId: 'gwEtK6cl3zM',
+        videoTitle: 'Hohe und flache Bälle schlagen – mehr Kontrolle mit den Eisen',
+        videoChannel: 'GOLFSTUN.DE',
+        videoDuration: ''
       },
       {
         id: 'drill-warmup-random',
@@ -4949,10 +4961,10 @@
           'Jeder Schlag bekommt die volle Pre-Shot-Routine – genau wie auf der Runde.'
         ],
         successGoal: '9 von 14 Schlägen landen im gewählten Zielbereich.',
-        videoId: 'YcPgyMCWohU',
-        videoTitle: 'Auf der Range wie auf dem Platz trainieren',
-        videoChannel: 'PL Performance Golf',
-        videoDuration: '11:08'
+        videoId: 'Bof1-F_vPYQ',
+        videoTitle: 'Richtig trainieren auf der Driving Range',
+        videoChannel: 'GolfLemming',
+        videoDuration: ''
       },
       {
         id: 'drill-warmup-routine',
@@ -4967,10 +4979,10 @@
           'Halte Reihenfolge und Dauer bei jedem Schlag gleich.'
         ],
         successGoal: '10 von 10 Routinen dauern 15–25 Sekunden.',
-        videoId: 'YcPgyMCWohU',
-        videoTitle: 'Pre-Shot-Routine & Fokus unter Druck',
-        videoChannel: 'PL Performance Golf',
-        videoDuration: '11:08'
+        videoId: 'DFgsG6MXJW0',
+        videoTitle: 'Die einfachste Lösung gegen Nervosität: die Pre-Shot-Routine',
+        videoChannel: 'Golfen mit Freude',
+        videoDuration: ''
       },
       {
         id: 'drill-indoor-towelarms',
@@ -4985,10 +4997,10 @@
           'Drei Sätze mit je 10 Schwüngen, dazwischen kurz lockern.'
         ],
         successGoal: '30 Schwünge, ohne dass das Handtuch herunterfällt.',
-        videoId: '2tGI0wrxhLw',
-        videoTitle: 'Golftraining für zu Hause: Technik & Kontrolle',
-        videoChannel: 'Christopher Godson',
-        videoDuration: '03:12'
+        videoId: 'gQ_7X0_BhCc',
+        videoTitle: 'Im Golfschwung „connected“ bleiben? Die Handtuchübung genauer betrachtet',
+        videoChannel: 'Bausek Golf DE',
+        videoDuration: ''
       },
       {
         id: 'drill-indoor-slowmo',
@@ -5003,10 +5015,10 @@
           'Schwinge langsam weiter bis ins Finish und halte es ebenfalls 2 Sekunden.'
         ],
         successGoal: '15 kontrollierte Wiederholungen mit sauberer Top-Position.',
-        videoId: '2tGI0wrxhLw',
-        videoTitle: 'Golftraining für zu Hause: Technik & Kontrolle',
-        videoChannel: 'Christopher Godson',
-        videoDuration: '03:12'
+        videoId: 'X0CkxbgR6jA',
+        videoTitle: 'Mache diese Golfschwung-Übung jeden Tag für den ganzen Winter',
+        videoChannel: 'Golfen mit Freude',
+        videoDuration: ''
       }
     ];
 
@@ -5459,7 +5471,7 @@
     const CHALLENGE_40_SESSIONS = [
       {
         day: 1, sessionNum: 1, focus: 'Fundament · Griff, Setup & Ausrichtung',
-        duration: '30 Min.', videoId: 'iSQaUtaZ2uw',
+        duration: '30 Min.', videoId: '8eXEvgmWB5M',
         levels: {
           beginner: {
             title: 'Tag 1: Neutraler Griff & Eisenbahnschienen-Setup',
@@ -5492,7 +5504,7 @@
       },
       {
         day: 4, sessionNum: 2, focus: 'Putting · Startlinie & Längenkontrolle',
-        duration: '30 Min.', videoId: 'hX2hdEG9i9M',
+        duration: '30 Min.', videoId: 'lS_B2dkpZB0',
         levels: {
           beginner: {
             title: 'Tag 4: Ruhiges Schulter-Pendel & 1-Meter-Sicherheit',
@@ -5525,7 +5537,7 @@
       },
       {
         day: 7, sessionNum: 3, focus: 'Eisenschläge · Erst der Ball, dann der Rasen',
-        duration: '35 Min.', videoId: 'iSQaUtaZ2uw',
+        duration: '35 Min.', videoId: 'fIRndq3lXlk',
         levels: {
           beginner: {
             title: 'Tag 7: Sauberer Ballkontakt mit dem Handtuch-Drill',
@@ -5558,7 +5570,7 @@
       },
       {
         day: 10, sessionNum: 4, focus: 'Kurzspiel · Chippen & Landepunkt-Kontrolle',
-        duration: '35 Min.', videoId: 'sU2STUlVNpU',
+        duration: '35 Min.', videoId: '67tzqp2q-tE',
         levels: {
           beginner: {
             title: 'Tag 10: Flacher Chip wie ein Putt (70 % Gewicht links)',
@@ -5591,7 +5603,7 @@
       },
       {
         day: 13, sessionNum: 5, focus: 'Driver · Aufwärtswinkel & Fairway-Kontrolle',
-        duration: '35 Min.', videoId: 'YcPgyMCWohU',
+        duration: '35 Min.', videoId: 'mdg8cPBe7xQ',
         levels: {
           beginner: {
             title: 'Tag 13: Tee-Höhe, Spine Tilt (+10°) & Balance',
@@ -5624,7 +5636,7 @@
       },
       {
         day: 16, sessionNum: 6, focus: 'Pitching · Uhren-System (30–70 m)',
-        duration: '35 Min.', videoId: 'iSQaUtaZ2uw',
+        duration: '35 Min.', videoId: 'wqTFfCZxQOY',
         levels: {
           beginner: {
             title: 'Tag 16: Bounce nutzen & 8/9/10-Uhr-Schwung',
@@ -5655,7 +5667,7 @@
       },
       {
         day: 19, sessionNum: 7, focus: 'Halbzeit-Check · Druck- & Platz-Simulation',
-        duration: '40 Min.', videoId: 'YcPgyMCWohU',
+        duration: '40 Min.', videoId: 'FJAxpE2N1pU',
         levels: {
           beginner: {
             title: 'Tag 19: Halbzeit-Test (Kein zweiter Versuch)',
@@ -5686,7 +5698,7 @@
       },
       {
         day: 22, sessionNum: 8, focus: 'Shot-Shaping · Draw & Fade Kontrolle',
-        duration: '35 Min.', videoId: 'YcPgyMCWohU',
+        duration: '35 Min.', videoId: '_hE4UVhA1kU',
         levels: {
           beginner: {
             title: 'Tag 22: Startrichtung vs. Kurve verstehen',
@@ -5717,7 +5729,7 @@
       },
       {
         day: 25, sessionNum: 9, focus: 'Scoring Zone · 50 bis 100 Meter',
-        duration: '35 Min.', videoId: 'iSQaUtaZ2uw',
+        duration: '35 Min.', videoId: 'SEXD-jqF088',
         levels: {
           beginner: {
             title: 'Tag 25: Sicherheit aus 50–80 Metern',
@@ -5747,7 +5759,7 @@
       },
       {
         day: 28, sessionNum: 10, focus: 'Grün-Dominanz · Lag-Putting & kurze Putts',
-        duration: '35 Min.', videoId: 'sU2STUlVNpU',
+        duration: '35 Min.', videoId: 'PI9o7pwJpbc',
         levels: {
           beginner: {
             title: 'Tag 28: Zwei-Putt-Garantie auf jedem Grün',
@@ -5777,7 +5789,7 @@
       },
       {
         day: 31, sessionNum: 11, focus: 'Lange Schläge · Hybrid, Fairwayholz & Driver',
-        duration: '40 Min.', videoId: 'YcPgyMCWohU',
+        duration: '40 Min.', videoId: '98wdSn_D0JI',
         levels: {
           beginner: {
             title: 'Tag 31: Hybrid vom Fairway & sichere Abschläge',
@@ -5808,7 +5820,7 @@
       },
       {
         day: 34, sessionNum: 12, focus: 'Short-Game Mix · Bunker, Lob & Chip',
-        duration: '35 Min.', videoId: 'sU2STUlVNpU',
+        duration: '35 Min.', videoId: 'f7nalUCMRQY',
         levels: {
           beginner: {
             title: 'Tag 34: Bunker-Angst abbauen & sicher rauskommen',
@@ -5838,7 +5850,7 @@
       },
       {
         day: 37, sessionNum: 13, focus: 'Generalprobe · 15-Minuten Turnier-Warm-up + Test',
-        duration: '40 Min.', videoId: 'YcPgyMCWohU',
+        duration: '40 Min.', videoId: 'DFgsG6MXJW0',
         levels: {
           beginner: {
             title: 'Tag 37: Deine persönliche Runden-Vorbereitung',
@@ -5868,7 +5880,7 @@
       },
       {
         day: 40, sessionNum: 14, focus: 'Finale · 40-Tage-Abschluss-Challenge',
-        duration: '45 Min.', videoId: 'YcPgyMCWohU',
+        duration: '45 Min.', videoId: 'Bof1-F_vPYQ',
         levels: {
           beginner: {
             title: 'Tag 40: Abschluss-Challenge – Bereit für die Platzrunde!',
@@ -7424,6 +7436,18 @@
       if (lbl) lbl.textContent = hidden ? 'So trainierst du effektiv' : 'Anleitung ausblenden';
     }
 
+    function openDrillVideo(drillId) {
+      const d = TRAINING_DRILLS.find(x => x.id === drillId);
+      if (d && d.videoId) openVideoModal(d.videoId, d.videoTitle, d.disciplineLabel, d.videoChannel);
+    }
+
+    function openChallengeVideo(sessionNum) {
+      const sess = CHALLENGE_40_SESSIONS.find(x => x.sessionNum === sessionNum);
+      if (!sess) return;
+      const meta = TRAINING_DRILLS.find(d => d.videoId === sess.videoId);
+      openVideoModal(sess.videoId, meta ? meta.videoTitle : sess.focus, `40-Tage Challenge · Tag ${sess.day}`, meta ? meta.videoChannel : 'YouTube');
+    }
+
     function toggleDrillCompleted(drillId) {
       if (completedDrills.has(drillId)) {
         completedDrills.delete(drillId);
@@ -7506,7 +7530,7 @@
                   <h2 class="font-display" style="font-size: 1.05rem; font-weight: 800; margin-top: 0.35rem;">${d.title}</h2>
                 </div>
 
-                <div class="md-drill-thumb" onclick="openVideoModal('${d.videoId}', '${d.title.replace(/'/g, "\\'")}', '${d.disciplineLabel}', '${d.videoChannel}')" title="Video-Tutorial abspielen">
+                <div class="md-drill-thumb" onclick="openDrillVideo('${d.id}')" title="Video-Tutorial abspielen">
                   <img src="https://i.ytimg.com/vi/${d.videoId}/mqdefault.jpg" alt="${d.videoTitle}" loading="lazy" onerror="this.onerror=null;this.src=THUMB_FALLBACK" />
                   <div class="md-drill-play-overlay">
                     <span class="material-symbols-rounded filled" style="color: #FFFFFF; font-size: 28px;">play_circle</span>
@@ -7529,9 +7553,9 @@
             </div>
 
             <div style="padding: 0.85rem 1.25rem; border-top: 1px solid var(--md-sys-color-outline-variant); display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; background-color: var(--md-sys-color-surface-container-low);">
-              <button type="button" onclick="openVideoModal('${d.videoId}', '${d.title.replace(/'/g, "\\'")}', '${d.disciplineLabel}', '${d.videoChannel}')" class="md-text-btn">
+              <button type="button" onclick="openDrillVideo('${d.id}')" class="md-text-btn" title="${d.videoTitle.replace(/"/g, '&quot;')}">
                 <span class="material-symbols-rounded" style="font-size: 18px;">smart_display</span>
-                <span>Tutorial (${d.videoDuration})</span>
+                <span>Video · ${d.videoChannel}</span>
               </button>
 
               <button type="button" onclick="toggleDrillCompleted('${d.id}')" class="${isDone ? 'md-filled-btn' : 'md-outlined-btn'}" style="height: 2.15rem;">
@@ -8763,7 +8787,7 @@
           </div>
 
           <div style="display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; flex-wrap: wrap; padding-top: 0.35rem; border-top: 1px solid var(--md-sys-color-outline-variant);">
-            <button type="button" onclick="openVideoModal('${activeSession.videoId}', '${plan.title.replace(/'/g, "\\'")}', '40-Tage Challenge · Tag ${activeSession.day}', 'Golf Pocket Trainer')" class="md-text-btn">
+            <button type="button" onclick="openChallengeVideo(${activeSession.sessionNum})" class="md-text-btn">
               <span class="material-symbols-rounded" style="font-size: 18px;">smart_display</span>
               <span>Übungs-Video</span>
             </button>
