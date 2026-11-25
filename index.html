@@ -9,8 +9,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="apple-mobile-web-app-title" content="Golf Pocket Trainer" />
   <meta name="application-name" content="Golf Pocket Trainer" />
-  <meta name="description" content="Golf Pocket Trainer v4.19.0 – Material Design 3 Golf Technik-, Trainings-, Rules-, Scratch-Blueprint-, Komparator-, Warm-up-, Video-Analyse-, 40-Tage-Challenge- & Gamification-Statistik-Begleiter" />
-  <title>Golf Pocket Trainer (v4.19.0)</title>
+  <meta name="description" content="Golf Pocket Trainer v4.20.0 – Material Design 3 Golf Technik-, Trainings-, Rules-, Scratch-Blueprint-, Komparator-, Warm-up-, Video-Analyse-, 40-Tage-Challenge- & Gamification-Statistik-Begleiter" />
+  <title>Golf Pocket Trainer (v4.20.0)</title>
 
   <link rel="manifest" href="manifest.webmanifest" />
   <link rel="icon" type="image/png" sizes="48x48" href="icons/favicon-48.png" />
@@ -262,7 +262,8 @@
        3. GOOGLE MATERIAL 3 TOP APP BAR (COMPACT 64PX, NON-STICKY)
        ========================================================================== */
     .md-top-app-bar {
-      position: relative;
+      position: sticky;
+      top: 0;
       z-index: 35;
       background-color: var(--md-sys-color-surface);
       transition: background-color 0.25s cubic-bezier(0.2, 0, 0, 1);
@@ -670,6 +671,46 @@
       font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 24;
     }
 
+    .nav-short { display: none; }
+
+    /* Handy: Tab-Leiste fest am unteren Bildschirmrand (Daumen-Reichweite) */
+    @media (max-width: 639px) {
+      .md-nav-section {
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 40;
+        padding: 0;
+        background-color: var(--md-sys-color-surface-container);
+        border-top: 1px solid var(--md-sys-color-outline-variant);
+        padding-bottom: env(safe-area-inset-bottom, 0px);
+      }
+      .md-nav-section .md-container { padding: 0 0.25rem; }
+      .md-nav-bar {
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+        gap: 0.1rem;
+        border-radius: 0;
+        padding: 0.35rem 0;
+        background: transparent;
+      }
+      .md-nav-destination {
+        flex-direction: column;
+        gap: 0.1rem;
+        padding: 0.3rem 0.1rem;
+        min-height: 3.1rem;
+        border-radius: 1rem;
+        font-size: 0.64rem;
+        line-height: 1.1;
+        white-space: nowrap;
+      }
+      .md-nav-destination .material-symbols-rounded { font-size: 22px !important; }
+      .nav-long { display: none; }
+      .nav-short { display: inline; }
+      body { padding-bottom: calc(4.6rem + env(safe-area-inset-bottom, 0px)); }
+      .md-toast { bottom: calc(5.4rem + env(safe-area-inset-bottom, 0px)); }
+    }
+
     /* ==========================================================================
        5. MATERIAL 3 CARDS, TONAL BANNER, FILTER CHIPS & SEGMENTED BUTTONS
        ========================================================================== */
@@ -857,6 +898,11 @@
 
     .md-segmented-btn:last-child {
       border-right: none;
+    }
+
+    @media (max-width: 480px) {
+      .md-segmented-group { display: flex; flex-wrap: nowrap; width: 100%; }
+      .md-segmented-btn { flex: 1 1 auto; min-width: 0; padding: 0 0.5rem; font-size: clamp(0.72rem, 3.5vw, 0.81rem); white-space: nowrap; }
     }
 
     .md-segmented-btn:hover {
@@ -1539,7 +1585,8 @@
     .md-swing-viewport {
       position: relative;
       width: 100%;
-      aspect-ratio: 16 / 10;
+      margin-inline: auto;
+      aspect-ratio: 16 / 10; /* wird per JS an das Seitenverhältnis des Clips angepasst */
       background-color: #0B110D;
       border-radius: 1.25rem;
       overflow: hidden;
@@ -2109,7 +2156,7 @@
         <div class="md-brand-text-wrap">
           <div style="display: flex; align-items: center; gap: 0.4rem;">
             <h1 class="md-brand-title">Golf Pocket Trainer</h1>
-            <span class="md-version-badge font-mono">v4.19.0</span>
+            <span class="md-version-badge font-mono">v4.20.0</span>
           </div>
           <p class="md-brand-sub">Statistik &bull; Check-in &bull; Drills &bull; Rules &bull; Scratch</p>
         </div>
@@ -2187,7 +2234,7 @@
               <span class="material-symbols-rounded" style="color: var(--md-sys-color-on-surface-variant);">history</span>
               <span>Versionsverlauf</span>
             </span>
-            <span class="font-mono" style="font-size: 0.72rem; color: var(--md-sys-color-on-surface-variant);">v4.19.0</span>
+            <span class="font-mono" style="font-size: 0.72rem; color: var(--md-sys-color-on-surface-variant);">v4.20.0</span>
           </button>
         </div>
       </div>
@@ -2202,7 +2249,7 @@
       <div class="md-nav-bar" role="tablist">
         <button type="button" class="md-nav-destination" data-tab="technique" onclick="switchMainTab('technique')">
           <span class="material-symbols-rounded" style="font-size: 18px;">sports_golf</span>
-          <span>Schlagtechnik</span>
+          <span class="nav-long">Schlagtechnik</span><span class="nav-short">Technik</span>
         </button>
         <button type="button" class="md-nav-destination" data-tab="warmup" onclick="switchMainTab('warmup')">
           <span class="material-symbols-rounded" style="font-size: 18px;">timer</span>
@@ -2214,7 +2261,7 @@
         </button>
         <button type="button" class="md-nav-destination" data-tab="comparator" onclick="switchMainTab('comparator')">
           <span class="material-symbols-rounded" style="font-size: 18px;">compare_arrows</span>
-          <span>Komparator</span>
+          <span class="nav-long">Komparator</span><span class="nav-short">Vergleich</span>
         </button>
         <button type="button" class="md-nav-destination" data-tab="rules" onclick="switchMainTab('rules')">
           <span class="material-symbols-rounded" style="font-size: 18px;">gavel</span>
@@ -2724,6 +2771,11 @@
               <span class="md-rec-dot"></span>
               <span id="btnRecordLabel">Aufnahme starten</span>
             </button>
+
+            <button type="button" id="btnSaveSwingClip" onclick="saveSwingClip()" class="md-outlined-btn hidden">
+              <span class="material-symbols-rounded" style="font-size: 18px;">download</span>
+              <span>Clip speichern</span>
+            </button>
           </div>
 
           <div>
@@ -3024,7 +3076,7 @@
        ======================================================================== -->
   <footer class="md-footer">
     <div class="md-container" style="display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; flex-wrap: wrap;">
-      <span><strong>Golf Pocket Trainer</strong> (<span class="font-mono">v4.19.0</span>) &bull; Dein interaktiver Trainings- &amp; Platzbegleiter</span>
+      <span><strong>Golf Pocket Trainer</strong> (<span class="font-mono">v4.20.0</span>) &bull; Dein interaktiver Trainings- &amp; Platzbegleiter</span>
       <button type="button" onclick="openChangelogModal()" class="md-text-btn" style="height: 1.85rem;">Versionsverlauf ansehen</button>
     </div>
   </footer>
@@ -3032,71 +3084,68 @@
   <!-- ========================================================================
        MATERIAL 3 DIALOG: WHAT'S NEW / NEUERUNGEN POP-UP ON APP START
        ======================================================================== -->
-  <div id="challengePromoModal" class="md-dialog-scrim" onclick="if(event.target.id==='challengePromoModal') closeChallengePromoModal(false)">
+  <div id="challengePromoModal" class="md-dialog-scrim" onclick="if(event.target.id==='challengePromoModal') closeChallengePromoModal()">
     <div class="md-dialog" style="max-width: 36rem;" role="dialog" aria-modal="true" aria-labelledby="challengePromoTitle">
       <div class="md-dialog-header">
         <div>
           <span class="md-assist-badge">
             <span class="material-symbols-rounded filled" style="font-size: 16px;">auto_awesome</span>
-            <span>Neu im Golf Pocket Trainer · v4.17.0</span>
+            <span>Neu im Golf Pocket Trainer · <span id="promoVersionLabel"></span></span>
           </span>
           <h2 id="challengePromoTitle" class="font-display" style="font-size: 1.3rem; font-weight: 800; margin-top: 0.4rem;">Was ist neu in der App?</h2>
         </div>
-        <button type="button" onclick="closeChallengePromoModal(false)" class="md-icon-btn" aria-label="Schließen">
+        <button type="button" onclick="closeChallengePromoModal()" class="md-icon-btn" aria-label="Schließen">
           <span class="material-symbols-rounded">close</span>
         </button>
       </div>
 
       <div class="md-dialog-body">
         <p style="font-size: 0.88rem; color: var(--md-sys-color-on-surface-variant); line-height: 1.5;">
-          Wir haben den <strong>Golf Pocket Trainer</strong> um neue Trainings-Werkzeuge, persönliche Auswertungen und Gamification erweitert – alles direkt erreichbar über das Menü <strong>„F“</strong> oben rechts:
+          Weitere Tools wie Statistik, Challenge, Video-Analyse und Checkliste findest du im Menü <strong>⋮</strong> oben rechts.
         </p>
 
         <div style="background-color: var(--md-sys-color-surface-container); border-radius: 1.1rem; padding: 0.95rem 1.05rem; display: flex; flex-direction: column; gap: 0.7rem;">
           <div style="display: flex; align-items: flex-start; gap: 0.65rem; font-size: 0.83rem;">
-            <span class="material-symbols-rounded filled" style="font-size: 20px; color: var(--md-sys-color-primary); margin-top: 1px;">monitoring</span>
+            <span class="material-symbols-rounded filled" style="font-size: 20px; color: var(--md-sys-color-primary); margin-top: 1px;">dock_to_bottom</span>
             <div>
-              <strong>Persönliche Statistik &amp; Gamification (Neu!):</strong>
-              <div style="color: var(--md-sys-color-on-surface-variant); margin-top: 0.1rem;">Sammle XP, steige über 6 Golfer-Levels auf (vom <em>Range-Rookie</em> bis zur <em>Scratch-Legende</em>), schalte 9 Abzeichen frei und verfolge deinen 14-Tage-Zeitverlauf.</div>
-            </div>
-          </div>
-
-          <div style="display: flex; align-items: flex-start; gap: 0.65rem; font-size: 0.83rem;">
-            <span class="material-symbols-rounded filled" style="font-size: 20px; color: var(--md-sys-color-primary); margin-top: 1px;">calendar_month</span>
-            <div>
-              <strong>40-Tage Golf-Challenge:</strong>
-              <div style="color: var(--md-sys-color-on-surface-variant); margin-top: 0.1rem;">14 strukturierte Trainingstage (alle 3 Tage) inklusive Kalender, Spiellevel-Auswahl und Video-Guides.</div>
+              <strong>Feste Navigation (Neu!):</strong>
+              <div style="color: var(--md-sys-color-on-surface-variant); margin-top: 0.1rem;">Die Tab-Leiste bleibt unten am Bildschirm, und die Kopfzeile mit dem Menü bleibt oben. So wechselst du jederzeit den Bereich, auch mitten in langen Seiten.</div>
             </div>
           </div>
 
           <div style="display: flex; align-items: flex-start; gap: 0.65rem; font-size: 0.83rem;">
             <span class="material-symbols-rounded filled" style="font-size: 20px; color: var(--md-sys-color-primary); margin-top: 1px;">videocam</span>
             <div>
-              <strong>Video-Schwunganalyse:</strong>
-              <div style="color: var(--md-sys-color-on-surface-variant); margin-top: 0.1rem;">Schwungclips laden oder live aufnehmen, in Zeitlupe (bis 0.1x) prüfen und Wirbelsäulen- &amp; Schwunglinien einblenden.</div>
+              <strong>Video-Schwunganalyse (verbessert):</strong>
+              <div style="color: var(--md-sys-color-on-surface-variant); margin-top: 0.1rem;">Hochformat-Clips füllen jetzt das Bild, und Aufnahmen lassen sich mit „Clip speichern“ sichern. Zeitlupe bis 0.1x, Wirbelsäulen- &amp; Schwunglinien.</div>
             </div>
           </div>
 
           <div style="display: flex; align-items: flex-start; gap: 0.65rem; font-size: 0.83rem;">
-            <span class="material-symbols-rounded filled" style="font-size: 20px; color: var(--md-sys-color-primary); margin-top: 1px;">emoji_events</span>
+            <span class="material-symbols-rounded filled" style="font-size: 20px; color: var(--md-sys-color-primary); margin-top: 1px;">monitoring</span>
             <div>
-              <strong>Scratch (HCP 0), Rules &amp; Winter-Drills:</strong>
-              <div style="color: var(--md-sys-color-on-surface-variant); margin-top: 0.1rem;">Interaktive Wedge-Matrix, DECADE-Kursmanagement, aktuelle R&amp;A/ÖGV/DGV-Golfregeln und Wohnzimmer-Drills.</div>
+              <strong>Statistik &amp; Gamification:</strong>
+              <div style="color: var(--md-sys-color-on-surface-variant); margin-top: 0.1rem;">Sammle XP, steige über 6 Golfer-Levels auf (vom <em>Range-Rookie</em> bis zur <em>Scratch-Legende</em>) und schalte <span id="promoBadgeCount">10</span> Abzeichen frei. Der Tages-Check-in zählt jetzt ab Mitternacht deiner Ortszeit.</div>
+            </div>
+          </div>
+
+          <div style="display: flex; align-items: flex-start; gap: 0.65rem; font-size: 0.83rem;">
+            <span class="material-symbols-rounded filled" style="font-size: 20px; color: var(--md-sys-color-primary); margin-top: 1px;">backup</span>
+            <div>
+              <strong>Sicher &amp; offline:</strong>
+              <div style="color: var(--md-sys-color-on-surface-variant); margin-top: 0.1rem;">Sichere deinen Fortschritt im Menü ⋮ unter „Daten sichern“. Die App lässt sich installieren und läuft auch ohne Netz. Vor dem Zurücksetzen von Fortschritt wirst du jetzt gefragt.</div>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="md-dialog-actions" style="justify-content: space-between; flex-wrap: wrap;">
-        <button type="button" onclick="closeChallengePromoModal(true)" class="md-text-btn" style="font-size: 0.78rem; color: var(--md-sys-color-on-surface-variant);">
-          Nicht mehr anzeigen
-        </button>
+      <div class="md-dialog-actions" style="justify-content: flex-end; flex-wrap: wrap;">
         <div style="display: flex; align-items: center; gap: 0.45rem;">
           <button type="button" onclick="startChallengeFromPromo()" class="md-tonal-btn">
             <span class="material-symbols-rounded" style="font-size: 18px;">monitoring</span>
             <span>Zur Statistik</span>
           </button>
-          <button type="button" onclick="closeChallengePromoModal(false)" class="md-filled-btn">
+          <button type="button" onclick="closeChallengePromoModal()" class="md-filled-btn">
             <span>Los geht's</span>
           </button>
         </div>
@@ -3168,7 +3217,7 @@
       <div class="md-dialog-header">
         <div>
           <span class="md-assist-badge" style="background-color: var(--md-sys-color-tertiary-container); color: var(--md-sys-color-on-tertiary-container);">Release Notes &amp; Wartung</span>
-          <h2 id="changelogTitle" class="font-display" style="font-size: 1.25rem; font-weight: 800; margin-top: 0.3rem;">Versionsverlauf (v1.0.0 – v4.19.0)</h2>
+          <h2 id="changelogTitle" class="font-display" style="font-size: 1.25rem; font-weight: 800; margin-top: 0.3rem;">Versionsverlauf (v1.0.0 – v4.20.0)</h2>
         </div>
         <button type="button" onclick="closeChangelogModal()" class="md-icon-btn" aria-label="Schließen">
           <span class="material-symbols-rounded">close</span>
@@ -3183,20 +3232,33 @@
   </div>
 
   <!-- ========================================================================
-       COMPLETE SELF-CONTAINED JAVASCRIPT ENGINE (v4.19.0)
+       COMPLETE SELF-CONTAINED JAVASCRIPT ENGINE (v4.20.0)
        ======================================================================== -->
   <div id="appToast" class="md-toast" role="status" aria-live="polite"></div>
   <input type="file" id="backupFileInput" accept="application/json,.json" hidden onchange="handleBackupFile(event)" />
 
   <script>
-    const APP_VERSION = 'v4.19.0';
+    const APP_VERSION = 'v4.20.0';
 
     const CHANGELOG_ENTRIES = [
       {
-        version: 'v4.19.0',
+        version: 'v4.20.0',
         date: 'Aktuell',
-        title: 'Installierbare App & Offline-Modus (PWA)',
+        title: 'Feste Navigation, bessere Video-Analyse & Fixes',
         latest: true,
+        notes: [
+          'Die Tab-Leiste sitzt am Handy jetzt fest unten, die Kopfzeile mit dem Menü bleibt beim Scrollen oben.',
+          'Video-Analyse: Hochformat-Clips füllen das Bild, Aufnahmen lassen sich per „Clip speichern“ sichern, die Anzeige „Aufnahme läuft“ verschwindet korrekt.',
+          'Check-in, Streak und Verlauf rechnen jetzt mit deiner Ortszeit statt UTC (vorher konnte der Tag am späten Abend/frühen Morgen falsch zählen).',
+          'Vor dem Zurücksetzen von Fortschritt, Checkliste und Verlauf erscheint eine Sicherheitsabfrage.',
+          'Der „Neu im Golf Pocket Trainer“-Dialog erscheint nur einmal pro Version und enthält korrekte Angaben.',
+          'Kleine Korrekturen: Stufenauswahl der Challenge in einer Zeile, Key-Frame-Zeiten ohne Umbruch, Fälligkeits-Hinweise ohne doppelte Klammern.'
+        ]
+      },
+      {
+        version: 'v4.19.0',
+        date: 'Vorherige Version',
+        title: 'Installierbare App & Offline-Modus (PWA)',
         notes: [
           'Der Golf Pocket Trainer lässt sich jetzt auf dem Startbildschirm installieren und funktioniert danach auch ohne Netz, etwa auf dem Platz.',
           'Schriften, Icons und Vorschaubilder werden beim ersten Online-Besuch zwischengespeichert. YouTube-Videos benötigen weiterhin Internet.',
@@ -4746,7 +4808,7 @@
 
     // 40-Day Golf Challenge State (every 3 days: Day 1, 4, 7, 10, ..., 40 => 14 sessions)
     let challengeLevel = 'beginner';
-    let challengeStartDate = new Date().toISOString().slice(0, 10);
+    let challengeStartDate = localDateKey();
     let selectedChallengeDay = 1;
     let completedChallengeDays = new Set();
 
@@ -4762,6 +4824,8 @@
     let swingRecordedChunks = [];
     let isSwingRecording = false;
     let swingObjectUrl = null;
+    let swingRecordedBlob = null;
+    let swingRecordedMime = 'video/webm';
     let swingOverlayLines = { spine: true, plane: true, hip: true };
     let swingKeyframes = { setup: null, top: null, impact: null, finish: null };
 
@@ -5218,6 +5282,14 @@
        ======================================================================== */
     /* --- Speicher-Schema & robuste Helfer (v4.18.0) --- */
     const STORAGE_SCHEMA_VERSION = 1;
+    /* --- Lokale Kalendertage (v4.20.0) ---
+       toISOString() liefert UTC: in Wien wechselte der „Tag" dadurch erst um 1 bzw. 2 Uhr nachts. */
+    function localDateKey(input) {
+      const d = input instanceof Date ? input : (input === undefined ? new Date() : new Date(input));
+      if (isNaN(d.getTime())) return '';
+      return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+    }
+
     // Alte Backups (vor der Umbenennung) tragen die ID 'golf-pocket-guide' und bleiben importierbar.
     const BACKUP_APP_IDS = ['golf-pocket-trainer', 'golf-pocket-guide'];
     const CHALLENGE_LEVELS = ['beginner', 'intermediate', 'advanced'];
@@ -5364,7 +5436,7 @@
       }
     }
 
-    /* --- Offline / PWA (v4.19.0) --- */
+    /* --- Offline / PWA (v4.20.0) --- */
     const THUMB_FALLBACK = 'data:image/svg+xml;utf8,' + encodeURIComponent(
       '<svg xmlns="http://www.w3.org/2000/svg" width="240" height="135" viewBox="0 0 240 135">' +
       '<rect width="240" height="135" fill="#146C38"/>' +
@@ -6828,7 +6900,13 @@
       renderDrillsView();
     }
 
+    // Bestätigung vor dem Löschen von Fortschritt
+    function confirmReset(what) {
+      return window.confirm(`${what} wirklich zurücksetzen?\n\nDas kann nicht rückgängig gemacht werden. Tipp: Sichere vorher deine Daten im Menü ⋮ unter „Daten sichern“.`);
+    }
+
     function resetCompletedDrills() {
+      if (!confirmReset('Die abgehakten Drills')) return;
       const visible = currentTrainingFilter === 'all'
         ? TRAINING_DRILLS
         : TRAINING_DRILLS.filter(d => d.discipline === currentTrainingFilter);
@@ -7291,6 +7369,7 @@
     }
 
     function resetScratchMastered() {
+      if (!confirmReset('Deinen Scratch-Fortschritt')) return;
       masteredScratchPillars.forEach(id => removeActivityEvent(`scratch-${id}`));
       masteredScratchPillars.clear();
       savePersistedState();
@@ -7401,6 +7480,8 @@
         URL.revokeObjectURL(swingObjectUrl);
       }
       swingObjectUrl = URL.createObjectURL(file);
+      swingRecordedBlob = null;
+      setSwingSaveButtonVisible(false);
       const video = document.getElementById('swingVideoPlayer');
       const placeholder = document.getElementById('swingViewportPlaceholder');
       const statusText = document.getElementById('swingCameraStatusText');
@@ -7421,8 +7502,49 @@
       if (!video) return;
       const dur = Number.isFinite(video.duration) ? video.duration : 0;
       document.getElementById('swingDurationReadout').textContent = `${dur.toFixed(2).replace('.', ',')} s`;
+      fitSwingViewportToVideo();
       updateSwingScrubberUI();
       drawSwingOverlayCanvas();
+    }
+
+    // Passt das Videofeld dem Seitenverhältnis an (Hochformat-Clips füllen so das Bild statt eines schmalen Streifens).
+    // Die Höhe wird auf ca. 62 % der Bildschirmhöhe begrenzt, damit die Bedienelemente erreichbar bleiben.
+    function fitSwingViewportToVideo() {
+      const viewport = document.getElementById('swingViewport');
+      const video = document.getElementById('swingVideoPlayer');
+      if (!viewport || !video) return;
+      const w = video.videoWidth, h = video.videoHeight;
+      if (!w || !h) { resetSwingViewportFit(); return; }
+      const ratio = Math.min(2.4, Math.max(0.4, w / h));
+      viewport.style.aspectRatio = `${w} / ${h}`;
+      viewport.style.width = `min(100%, ${(62 * ratio).toFixed(2)}vh)`;
+    }
+
+    function resetSwingViewportFit() {
+      const viewport = document.getElementById('swingViewport');
+      if (!viewport) return;
+      viewport.style.aspectRatio = '';
+      viewport.style.width = '';
+    }
+
+    function setSwingSaveButtonVisible(visible) {
+      document.getElementById('btnSaveSwingClip')?.classList.toggle('hidden', !visible);
+    }
+
+    function saveSwingClip() {
+      if (!swingRecordedBlob) return;
+      const ext = /mp4/i.test(swingRecordedMime) ? 'mp4' : 'webm';
+      const d = new Date();
+      const stamp = `${localDateKey(d)}_${String(d.getHours()).padStart(2, '0')}${String(d.getMinutes()).padStart(2, '0')}`;
+      const url = URL.createObjectURL(swingRecordedBlob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `golf-schwung-${stamp}.${ext}`;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      setTimeout(() => URL.revokeObjectURL(url), 2000);
+      showToast('Clip gespeichert.');
     }
 
     function updateSwingScrubberUI() {
@@ -7539,8 +7661,11 @@
       const camLabel = document.getElementById('btnCameraLabel');
       const statusText = document.getElementById('swingCameraStatusText');
       if (recBtn) recBtn.classList.add('hidden');
+      const recLabel = document.getElementById('btnRecordLabel');
+      if (recLabel) recLabel.textContent = 'Aufnahme starten';
       if (camLabel) camLabel.textContent = 'Kamera starten';
       if (showPlaceholder) {
+        resetSwingViewportFit();
         document.getElementById('swingViewportPlaceholder')?.classList.remove('hidden');
         if (statusText) statusText.textContent = 'Kamera beendet';
       }
@@ -7558,13 +7683,17 @@
           return;
         }
         swingRecordedChunks = [];
+        swingRecordedBlob = null;
+        setSwingSaveButtonVisible(false);
         try {
           swingMediaRecorder = new MediaRecorder(swingCameraStream);
           swingMediaRecorder.ondataavailable = (e) => {
             if (e.data && e.data.size > 0) swingRecordedChunks.push(e.data);
           };
           swingMediaRecorder.onstop = () => {
-            const blob = new Blob(swingRecordedChunks, { type: 'video/webm' });
+            swingRecordedMime = swingMediaRecorder.mimeType || 'video/webm';
+            const blob = new Blob(swingRecordedChunks, { type: swingRecordedMime });
+            swingRecordedBlob = blob;
             if (swingObjectUrl) URL.revokeObjectURL(swingObjectUrl);
             swingObjectUrl = URL.createObjectURL(blob);
             stopSwingCamera(false);
@@ -7574,7 +7703,8 @@
               video.src = swingObjectUrl;
               video.load();
             }
-            if (statusText) statusText.textContent = 'Aufnahme gespeichert – bereit für Zeitlupe & Analyse';
+            setSwingSaveButtonVisible(true);
+            if (statusText) statusText.textContent = 'Aufnahme bereit für Zeitlupe & Analyse – mit „Clip speichern“ sicherst du sie.';
           };
           swingMediaRecorder.start();
           isSwingRecording = true;
@@ -7633,8 +7763,8 @@
       if (!viewport || !canvas) return;
 
       const rect = viewport.getBoundingClientRect();
-      const w = Math.max(300, Math.round(rect.width));
-      const h = Math.max(180, Math.round(rect.height));
+      const w = Math.max(1, Math.round(rect.width));
+      const h = Math.max(1, Math.round(rect.height));
       const dpr = Math.min(window.devicePixelRatio || 1, 2);
 
       if (canvas.width !== w * dpr || canvas.height !== h * dpr) {
@@ -7733,13 +7863,13 @@
           <div class="md-keyframe-tile">
             <div style="display: flex; align-items: center; justify-content: space-between; gap: 0.35rem;">
               <strong style="font-size: 0.82rem;">${p.label}</strong>
-              <span class="font-mono" style="font-size: 0.75rem; font-weight: 700; color: var(--md-sys-color-primary);">
+              <span class="font-mono" style="font-size: 0.75rem; font-weight: 700; color: var(--md-sys-color-primary); white-space: nowrap;">
                 ${hasVal ? `${val.toFixed(2).replace('.', ',')} s` : '--:--'}
               </span>
             </div>
             <div style="display: flex; gap: 0.35rem; margin-top: 0.15rem;">
-              <button type="button" onclick="setSwingKeyframe('${p.key}')" class="md-outlined-btn" style="flex: 1; height: 1.85rem; padding: 0 0.45rem; font-size: 0.72rem;">Markieren</button>
-              <button type="button" onclick="jumpToSwingKeyframe('${p.key}')" class="md-tonal-btn" style="flex: 1; height: 1.85rem; padding: 0 0.45rem; font-size: 0.72rem;" ${hasVal ? '' : 'disabled style="opacity:0.45;cursor:not-allowed;"'}>Springen</button>
+              <button type="button" onclick="setSwingKeyframe('${p.key}')" class="md-outlined-btn" style="flex: 1; min-width: 0; height: 2.5rem; padding: 0 0.35rem; font-size: 0.72rem;">Markieren</button>
+              <button type="button" onclick="jumpToSwingKeyframe('${p.key}')" class="md-tonal-btn" style="flex: 1; min-width: 0; height: 2.5rem; padding: 0 0.35rem; font-size: 0.72rem;${hasVal ? '' : ' opacity: 0.45; cursor: not-allowed;'}" ${hasVal ? '' : 'disabled'}>Springen</button>
             </div>
           </div>
         `;
@@ -7820,6 +7950,7 @@
     }
 
     function resetChallenge40Progress() {
+      if (!confirmReset('Deinen Challenge-Fortschritt')) return;
       completedChallengeDays.forEach(d => removeActivityEvent(`chal-${d}`));
       completedChallengeDays.clear();
       selectedChallengeDay = 1;
@@ -7846,7 +7977,7 @@
       const dateInput = document.getElementById('challengeStartDateInput');
       if (dateInput) dateInput.value = challengeStartDate;
 
-      const todayIso = new Date().toISOString().slice(0, 10);
+      const todayIso = localDateKey();
       const nextSession = CHALLENGE_40_SESSIONS.find(s => !completedChallengeDays.has(s.day));
       const nextBannerText = document.getElementById('challengeNextWorkoutText');
       if (nextBannerText) {
@@ -7857,14 +7988,14 @@
           const nextIso = getChallengeIsoForDay(challengeStartDate, nextSession.day);
           let timingHint = '';
           if (nextIso === todayIso) {
-            timingHint = ' (Heute fällig!)';
+            timingHint = ', heute fällig';
           } else if (nextIso > todayIso) {
             const diffDays = Math.round((new Date(nextIso) - new Date(todayIso)) / 86400000);
-            timingHint = diffDays === 1 ? ' (Morgen fällig)' : ` (in ${diffDays} Tagen)`;
+            timingHint = diffDays === 1 ? ', morgen fällig' : `, in ${diffDays} Tagen`;
           } else {
-            timingHint = ' (Bereit zum Nachholen)';
+            timingHint = ', bereit zum Nachholen';
           }
-          nextBannerText.innerHTML = `Nächste Einheit: <strong>Tag ${nextSession.day} (${nextDateStr}${timingHint})</strong> – ${nextSession.focus}`;
+          nextBannerText.innerHTML = `Nächste Einheit: <strong>Tag ${nextSession.day} (${nextDateStr})</strong>${timingHint} – ${nextSession.focus}`;
         }
       }
 
@@ -8012,6 +8143,7 @@
     }
 
     function resetChecklist() {
+      if (!confirmReset('Die Checkliste')) return;
       checkedSet.forEach(id => removeActivityEvent(`chk-${id}`));
       checkedSet.clear();
       savePersistedState();
@@ -8048,17 +8180,18 @@
       const daySet = new Set();
       activityLog.forEach(item => {
         if (item.timestamp) {
-          daySet.add(item.timestamp.slice(0, 10));
+          const dayKey = localDateKey(item.timestamp);
+          if (dayKey) daySet.add(dayKey);
         }
       });
 
       let streak = 0;
       const cursor = new Date();
-      const todayKey = cursor.toISOString().slice(0, 10);
+      const todayKey = localDateKey(cursor);
       if (!daySet.has(todayKey)) {
         cursor.setDate(cursor.getDate() - 1);
       }
-      while (daySet.has(cursor.toISOString().slice(0, 10))) {
+      while (daySet.has(localDateKey(cursor))) {
         streak++;
         cursor.setDate(cursor.getDate() - 1);
       }
@@ -8067,6 +8200,7 @@
     }
 
     function clearActivityLogHistory() {
+      if (!confirmReset('Den gesamten Aktivitätsverlauf (inkl. XP und Abzeichen)')) return;
       activityLog = [];
       savePersistedState();
       updateStatsMenuBadge();
@@ -8118,7 +8252,7 @@
     }
 
     function submitDailyCheckin() {
-      const todayKey = new Date().toISOString().slice(0, 10);
+      const todayKey = localDateKey();
       const focusInput = document.getElementById('dailyCheckinFocusInput');
       const focusGoal = (focusInput?.value || '').trim() || 'Sauberer Rhythmus & Fokus bei jedem Schlag';
 
@@ -8141,7 +8275,7 @@
     }
 
     function renderDailyCheckinCard() {
-      const todayKey = new Date().toISOString().slice(0, 10);
+      const todayKey = localDateKey();
       const todayEntry = dailyCheckins[todayKey];
       const card = document.getElementById('dailyCheckinCard');
       const badge = document.getElementById('dailyCheckinStatusBadge');
@@ -8268,7 +8402,7 @@
       const days14 = [];
       const countByDay = new Map();
       activityLog.forEach(item => {
-        const key = (item.timestamp || '').slice(0, 10);
+        const key = localDateKey(item.timestamp);
         if (key) countByDay.set(key, (countByDay.get(key) || 0) + 1);
       });
 
@@ -8276,7 +8410,7 @@
       for (let i = 13; i >= 0; i--) {
         const d = new Date();
         d.setDate(d.getDate() - i);
-        const iso = d.toISOString().slice(0, 10);
+        const iso = localDateKey(d);
         const label = `${String(d.getDate()).padStart(2, '0')}.${String(d.getMonth() + 1).padStart(2, '0')}`;
         const count = countByDay.get(iso) || 0;
         sum14 += count;
@@ -8471,22 +8605,26 @@
       document.getElementById('changelogModal')?.classList.remove('open');
     }
 
+    // Der Dialog erscheint pro App-Version genau einmal. Wer früher „Nicht mehr anzeigen“ gewählt hat, sieht ihn nicht mehr.
     function openChallengePromoModal() {
       try {
         if (localStorage.getItem('gpg_hide_whatsnew_v415') === '1') return;
+        if (localStorage.getItem('gpg_whatsnew_seen') === APP_VERSION) return;
       } catch (e) {}
+      const versionLabel = document.getElementById('promoVersionLabel');
+      if (versionLabel) versionLabel.textContent = APP_VERSION;
+      const badgeCount = document.getElementById('promoBadgeCount');
+      if (badgeCount) badgeCount.textContent = String(getGamificationAchievements().length);
       document.getElementById('challengePromoModal')?.classList.add('open');
     }
 
-    function closeChallengePromoModal(dontShowAgain = false) {
-      if (dontShowAgain) {
-        try { localStorage.setItem('gpg_hide_whatsnew_v415', '1'); } catch (e) {}
-      }
+    function closeChallengePromoModal() {
+      try { localStorage.setItem('gpg_whatsnew_seen', APP_VERSION); } catch (e) {}
       document.getElementById('challengePromoModal')?.classList.remove('open');
     }
 
     function startChallengeFromPromo() {
-      closeChallengePromoModal(false);
+      closeChallengePromoModal();
       switchMainTab('stats');
     }
 
@@ -8496,12 +8634,12 @@
         closeChecklistDrawer();
         closeVideoModal();
         closeChangelogModal();
-        closeChallengePromoModal(false);
+        closeChallengePromoModal();
       }
     });
 
     window.addEventListener('resize', () => {
-      if (currentMainTab === 'video') drawSwingOverlayCanvas();
+      if (currentMainTab === 'video') { fitSwingViewportToVideo(); drawSwingOverlayCanvas(); }
     });
 
     /* ========================================================================
