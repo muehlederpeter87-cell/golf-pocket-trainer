@@ -9,8 +9,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="apple-mobile-web-app-title" content="Golf Pocket Trainer" />
   <meta name="application-name" content="Golf Pocket Trainer" />
-  <meta name="description" content="Golf Pocket Trainer v4.31.0 – Material Design 3 Golf Technik-, Trainings-, Rules-, Scratch-Blueprint-, Komparator-, Warm-up-, Video-Analyse-, 40-Tage-Challenge- & Gamification-Statistik-Begleiter" />
-  <title>Golf Pocket Trainer (v4.31.0)</title>
+  <meta name="description" content="Golf Pocket Trainer v4.32.0 – Material Design 3 Golf Technik-, Trainings-, Rules-, Scratch-Blueprint-, Komparator-, Warm-up-, Video-Analyse-, 40-Tage-Challenge- & Gamification-Statistik-Begleiter" />
+  <title>Golf Pocket Trainer (v4.32.0)</title>
 
   <link rel="manifest" href="manifest.webmanifest" />
   <link rel="icon" type="image/png" sizes="48x48" href="icons/favicon-48.png" />
@@ -1356,6 +1356,70 @@
       opacity: 0.68;
     }
 
+    .md-phase-card.active-phase {
+      border-color: var(--md-sys-color-primary);
+    }
+
+    .md-warmup-current {
+      background-color: var(--md-sys-color-surface-container-lowest);
+      color: var(--md-sys-color-on-surface);
+      border-radius: 1.1rem;
+      padding: 0.9rem 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+
+    .md-warmup-current .md-warmup-current-title {
+      font-size: 0.98rem;
+      font-weight: 800;
+      line-height: 1.3;
+    }
+
+    .md-warmup-current .md-warmup-current-details {
+      font-size: 0.85rem;
+      line-height: 1.48;
+      color: var(--md-sys-color-on-surface-variant);
+    }
+
+    .md-warmup-current.flash {
+      animation: warmupFlash 1.2s ease-out;
+    }
+
+    @keyframes warmupFlash {
+      0% { box-shadow: 0 0 0 0 var(--md-sys-color-primary); }
+      40% { box-shadow: 0 0 0 6px var(--md-sys-color-primary); }
+      100% { box-shadow: 0 0 0 0 transparent; }
+    }
+
+    .md-warmup-next {
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-align: center;
+      min-height: 1.1em;
+    }
+
+    .md-warmup-next.soon {
+      font-weight: 800;
+    }
+
+    .md-warmup-signal-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 34px;
+      height: 34px;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      background-color: var(--md-sys-color-surface-container-lowest);
+      color: var(--md-sys-color-on-surface);
+    }
+
+    .md-warmup-signal-btn[aria-pressed="false"] {
+      opacity: 0.6;
+    }
+
     .md-drills-grid {
       display: grid;
       grid-template-columns: minmax(0, 1fr);
@@ -2335,7 +2399,7 @@
         <div class="md-brand-text-wrap">
           <div style="display: flex; align-items: center; gap: 0.4rem;">
             <h1 class="md-brand-title">Golf Pocket Trainer</h1>
-            <span class="md-version-badge font-mono">v4.31.0</span>
+            <span class="md-version-badge font-mono">v4.32.0</span>
           </div>
           <p class="md-brand-sub">Dein Trainings- &amp; Platzbegleiter</p>
         </div>
@@ -2412,7 +2476,7 @@
               <span class="material-symbols-rounded" style="color: var(--md-sys-color-on-surface-variant);">history</span>
               <span>Versionsverlauf</span>
             </span>
-            <span class="font-mono" style="font-size: 0.72rem; color: var(--md-sys-color-on-surface-variant);">v4.31.0</span>
+            <span class="font-mono" style="font-size: 0.72rem; color: var(--md-sys-color-on-surface-variant);">v4.32.0</span>
           </button>
         </div>
       </div>
@@ -2572,12 +2636,13 @@
       <article class="md-card-elevated md-card-pad" style="display: flex; flex-direction: column; gap: 0.85rem;">
         <div style="display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; flex-wrap: wrap;">
           <div>
-            <span id="warmupBallsBadge" class="md-assist-badge">23 Bälle (16 Range + 7 Putting)</span>
+            <span id="warmupBallsBadge" class="md-assist-badge">20 Bälle (13 Range + 7 Putting)</span>
             <h2 id="warmupHeading" class="font-display" style="font-size: 1.25rem; font-weight: 800; margin-top: 0.35rem;">15-Minuten Warm-up vor der normalen Runde</h2>
           </div>
-          <div class="md-segmented-group">
-            <button type="button" id="btnWarmup15" class="md-segmented-btn selected" onclick="selectWarmupRoutine('round15')">15 Min. Runde</button>
-            <button type="button" id="btnWarmup45" class="md-segmented-btn" onclick="selectWarmupRoutine('tournament45')">45 Min. Turnier</button>
+          <div class="md-segmented-group" role="group" aria-label="Warm-up-Dauer wählen">
+            <button type="button" data-warmup-key="quick5" class="md-segmented-btn" onclick="selectWarmupRoutine('quick5')">5 Min. Notfall</button>
+            <button type="button" data-warmup-key="round15" class="md-segmented-btn selected" onclick="selectWarmupRoutine('round15')">15 Min. Runde</button>
+            <button type="button" data-warmup-key="tournament45" class="md-segmented-btn" onclick="selectWarmupRoutine('tournament45')">45 Min. Turnier</button>
           </div>
         </div>
         <p id="warmupMottoText" style="font-size: 0.85rem; font-style: italic; color: var(--md-sys-color-on-surface-variant);"></p>
@@ -2587,7 +2652,12 @@
         <article class="md-card-elevated md-timer-surface">
           <div style="display: flex; align-items: center; justify-content: space-between;">
             <span style="font-weight: 800; font-size: 0.92rem;">Live Warm-up Timer</span>
-            <span id="timerStatusBadge" class="md-assist-badge" style="background-color: var(--md-sys-color-surface-container-lowest); color: var(--md-sys-color-on-surface);">Bereit</span>
+            <div style="display: flex; align-items: center; gap: 0.4rem;">
+              <button type="button" id="warmupSignalBtn" class="md-warmup-signal-btn" onclick="toggleWarmupSignal()" aria-pressed="true" title="Ton &amp; Vibration beim Phasenwechsel">
+                <span class="material-symbols-rounded" style="font-size: 18px;">notifications_active</span>
+              </button>
+              <span id="timerStatusBadge" class="md-assist-badge" style="background-color: var(--md-sys-color-surface-container-lowest); color: var(--md-sys-color-on-surface);">Bereit</span>
+            </div>
           </div>
 
           <div class="md-timer-dial">
@@ -2599,12 +2669,6 @@
               <div id="timerReadout" class="font-mono" style="font-size: 1.75rem; font-weight: 800;">15:00</div>
               <div style="font-size: 0.7rem; color: var(--md-sys-color-on-surface-variant);">Restzeit</div>
             </div>
-          </div>
-
-          <div id="timerActivePhaseText" style="font-size: 0.82rem; font-weight: 700; text-align: center;">Phase 1: Dynamische Mobilisation</div>
-
-          <div id="tee1ReadyBanner" class="hidden" style="background-color: var(--md-sys-color-primary); color: var(--md-sys-color-on-primary); border-radius: 0.9rem; padding: 0.65rem; text-align: center; font-weight: 700; font-size: 0.85rem;">
-            Warm-up abgeschlossen – Viel Erfolg an Tee 1!
           </div>
 
           <div style="display: flex; align-items: center; justify-content: center; gap: 0.5rem;">
@@ -2620,13 +2684,20 @@
               <span class="material-symbols-rounded" style="font-size: 18px;">replay</span>
             </button>
           </div>
+
+          <div id="warmupCurrentPhaseCard" class="md-warmup-current" aria-live="polite"></div>
+          <div id="warmupNextPhaseText" class="md-warmup-next"></div>
+
+          <div id="tee1ReadyBanner" class="hidden" style="background-color: var(--md-sys-color-primary); color: var(--md-sys-color-on-primary); border-radius: 0.9rem; padding: 0.65rem; text-align: center; font-weight: 700; font-size: 0.85rem;">
+            Warm-up abgeschlossen – Viel Erfolg an Tee 1!
+          </div>
         </article>
 
         <article class="md-card-outlined md-card-pad" style="display: flex; flex-direction: column; justify-content: space-between; gap: 0.85rem;">
           <div style="display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; flex-wrap: wrap;">
             <div>
               <h3 class="font-display" style="font-size: 1rem; font-weight: 800;">Intensitäts- &amp; Zeitverlauf</h3>
-              <p style="font-size: 0.78rem; color: var(--md-sys-color-on-surface-variant);">Tippe auf einen Balken, um direkt in die Phase zu springen</p>
+              <p style="font-size: 0.78rem; color: var(--md-sys-color-on-surface-variant);">Tippe auf einen Balken, um direkt in die Phase zu springen. Wechselzeiten zwischen Range und Grün sind eingeplant.</p>
             </div>
             <button type="button" onclick="jumpToDrillsFromWarmup()" class="md-text-btn">
               <span>Platz-Simulations-Drills</span>
@@ -2638,7 +2709,8 @@
       </div>
 
       <article class="md-card-outlined md-card-pad">
-        <h3 class="font-display" style="font-size: 1.05rem; font-weight: 800;">Phasen-Checkliste (Antippen zum Abhaken)</h3>
+        <h3 class="font-display" style="font-size: 1.05rem; font-weight: 800;">Phasen-Checkliste</h3>
+        <p style="font-size: 0.78rem; color: var(--md-sys-color-on-surface-variant); margin-top: 0.2rem;">Läuft der Timer, wird jede Phase am Ende automatisch abgehakt. Antippen hakt ab oder nimmt das Häkchen zurück.</p>
         <div id="warmupPhasesGrid" class="md-phases-grid"></div>
       </article>
     </section>
@@ -3078,7 +3150,7 @@
           <span class="md-today-icon"><span class="material-symbols-rounded filled">timer</span></span>
           <span class="md-today-text">
             <span class="md-today-label">Vor der Runde</span>
-            <span class="md-today-title">Warm-up mit Timer (15 oder 45 Min.)</span>
+            <span class="md-today-title">Warm-up mit Timer (5, 15 oder 45 Min.)</span>
           </span>
           <span class="material-symbols-rounded md-today-chevron" aria-hidden="true">chevron_right</span>
         </button>
@@ -3229,7 +3301,7 @@
        ======================================================================== -->
   <footer class="md-footer">
     <div class="md-container" style="display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; flex-wrap: wrap;">
-      <span><strong>Golf Pocket Trainer</strong> (<span class="font-mono">v4.31.0</span>) &bull; Dein interaktiver Trainings- &amp; Platzbegleiter</span>
+      <span><strong>Golf Pocket Trainer</strong> (<span class="font-mono">v4.32.0</span>) &bull; Dein interaktiver Trainings- &amp; Platzbegleiter</span>
       <button type="button" onclick="openChangelogModal()" class="md-text-btn" style="height: 1.85rem;">Versionsverlauf ansehen</button>
     </div>
   </footer>
@@ -3352,7 +3424,7 @@
       <div class="md-dialog-header">
         <div>
           <span class="md-assist-badge" style="background-color: var(--md-sys-color-tertiary-container); color: var(--md-sys-color-on-tertiary-container);">Release Notes &amp; Wartung</span>
-          <h2 id="changelogTitle" class="font-display" style="font-size: 1.25rem; font-weight: 800; margin-top: 0.3rem;">Versionsverlauf (v1.0.0 – v4.31.0)</h2>
+          <h2 id="changelogTitle" class="font-display" style="font-size: 1.25rem; font-weight: 800; margin-top: 0.3rem;">Versionsverlauf (v1.0.0 – v4.32.0)</h2>
         </div>
         <button type="button" onclick="closeChangelogModal()" class="md-icon-btn" aria-label="Schließen">
           <span class="material-symbols-rounded">close</span>
@@ -3367,20 +3439,35 @@
   </div>
 
   <!-- ========================================================================
-       COMPLETE SELF-CONTAINED JAVASCRIPT ENGINE (v4.31.0)
+       COMPLETE SELF-CONTAINED JAVASCRIPT ENGINE (v4.32.0)
        ======================================================================== -->
   <div id="appToast" class="md-toast" role="status" aria-live="polite"></div>
   <input type="file" id="backupFileInput" accept="application/json,.json" hidden onchange="handleBackupFile(event)" />
 
   <script>
-    const APP_VERSION = 'v4.31.0';
+    const APP_VERSION = 'v4.32.0';
 
     const CHANGELOG_ENTRIES = [
       {
-        version: 'v4.31.0',
+        version: 'v4.32.0',
         date: 'Aktuell',
-        title: 'Schlagtechnik-Videos passend zu jeder Variante',
+        title: 'Warm-up überarbeitet: Rückwärts-Aufbau, Notfall-Variante & smarter Timer',
         latest: true,
+        notes: [
+          'Das 45-Min.-Turnier-Warm-up folgt jetzt wirklich dem Rückwärts-Aufbau: Mobilisation → Putten → Chip/Pitch/Bunker → Wedges → Eisen → Abschläge mit Simulation von Loch 1–3 → Übergang zu Tee 1.',
+          'Das 15-Min.-Warm-up plant eine Minute für den Weg zum Grün ein. Der Abschlag-Test erfolgt mit dem Schläger, den du an Tee 1 wirklich spielst.',
+          'Neu: „5 Min. Notfall“ für den Fall, dass du knapp am Platz ankommst.',
+          'Der Timer bleibt bei gesperrtem Handy korrekt und hält den Bildschirm während des Warm-ups an.',
+          'Ton und Vibration beim Phasenwechsel und 30 Sekunden vorher (oben im Timer abschaltbar).',
+          'Unter dem Timer stehen jetzt Schläger, Bälle und Aufgabe der aktuellen Phase sowie die nächste Phase. Abgelaufene Phasen werden automatisch abgehakt.',
+          'Hinweis: Wegen der neuen Abläufe wurden die bisherigen Warm-up-Häkchen einmalig zurückgesetzt. Dein Verlauf bleibt erhalten.'
+        ]
+      },
+      {
+        version: 'v4.31.0',
+        date: 'Vorherige Version',
+        title: 'Schlagtechnik-Videos passend zu jeder Variante',
+        latest: false,
         notes: [
           'Grünbunker zeigt jetzt Rory McIlroy im Bunker in Super-Zeitlupe (vorher: Chip-Video), mit eigenen Phasen und Tipps.',
           'Draw & Fade zeigt einen Zeitlupen-Vergleich von Draw- und Fade-Schwung (vorher: allgemeines Schwung-Video).',
@@ -3390,7 +3477,7 @@
       },
       {
         version: 'v4.30.0',
-        date: 'Vorherige Version',
+        date: 'Meilenstein 55',
         title: 'Passende Trainings-Videos für alle Drills',
         latest: false,
         notes: [
@@ -4272,73 +4359,126 @@
        WARM-UP ROUTINES DATA (15 MIN & 45 MIN)
        ======================================================================== */
     const WARMUP_ROUTINES = {
+      quick5: {
+        totalMinutes: 5,
+        buttonLabel: '5 Min. Notfall',
+        activityLabel: 'Notfall-Warm-up (5 Min.)',
+        totalBallsLabel: '5 Putts · keine Range nötig',
+        heading: '5-Minuten Notfall-Warm-up (knapp am Tee)',
+        mentalMotto: '„Wenig Zeit ist kein Grund für Hektik: Lockere den Körper, hol dir das Grüntempo und geh mit einem klaren Plan für den ersten Schlag zu Tee 1.“',
+        phases: [
+          {
+            id: 'mob', startMin: 0, endMin: 2, club: 'Ohne Ball', intensity: 35, color: '#3A6470',
+            title: 'Mobilisation im Schnelldurchlauf',
+            details: 'Armkreisen, Rumpfdrehung mit dem Schläger hinter den Schultern (5x je Seite), Hüftkreisen und 5 lockere Probeschwünge, die langsam länger werden.'
+          },
+          {
+            id: 'putt', startMin: 2, endMin: 4, club: 'Putter (5 Putts)', intensity: 40, color: '#4E6354',
+            title: 'Grüntempo prüfen',
+            details: '3 lange Putts (8–12 m) nur fürs Tempo, ohne aufs Loch zu zielen. Danach 2 Putts aus 1 m ins Loch.'
+          },
+          {
+            id: 'tee1', startMin: 4, endMin: 5, club: 'Schläger für Tee 1', intensity: 60, color: '#0284C7',
+            title: 'Tee-1-Plan festlegen',
+            details: 'Lege Schläger und Zielkorridor für den ersten Abschlag fest und mach 3 Probeschwünge mit voller Pre-Shot-Routine. Am ersten Loch lieber sicher als lang.'
+          }
+        ]
+      },
       round15: {
         totalMinutes: 15,
-        totalBallsLabel: '23 Bälle (16 Range + 7 Putting)',
+        buttonLabel: '15 Min. Runde',
+        activityLabel: 'Runden-Warm-up (15 Min.)',
+        totalBallsLabel: '20 Bälle (13 Range + 7 Putting)',
         heading: '15-Minuten Warm-up vor der normalen Runde',
         mentalMotto: '„Auf der Range vor der Runde wird nicht an der Technik geschraubt – du prüfst nur dein heutiges Tempo und deine Startrichtung.“',
         phases: [
           {
-            startMin: 0, endMin: 3, club: 'Ohne Ball / 2 Eisen', intensity: 35, color: '#3A6470',
+            id: 'mob', startMin: 0, endMin: 3, club: 'Ohne Ball / 2 Eisen', intensity: 35, color: '#3A6470',
             title: 'Phase 1: Dynamische Mobilisation',
             details: 'Armkreisen, Brustwirbelsäulen-Rotation mit Schläger hinter den Schultern (10x je Seite), Hüftkreisen und 6 lockere Probeschwünge auf Grashöhe.'
           },
           {
-            startMin: 3, endMin: 7, club: 'Pitching Wedge (6 Bälle)', intensity: 65, color: '#146C38',
+            id: 'wedge', startMin: 3, endMin: 6, club: 'Wedge (5 Bälle)', intensity: 60, color: '#146C38',
             title: 'Phase 2: Kontakt & Rhythmus finden',
-            details: '3 halbe Schwünge (50 m) für sauberen Ball-Boden-Kontakt, danach 3 rhythmische 3/4-Schwünge auf ein klares Ziel auf der Range.'
+            details: '2 halbe Schwünge für sauberen Ball-Boden-Kontakt, danach 3 rhythmische 3/4-Schwünge auf ein klares Ziel auf der Range.'
           },
           {
-            startMin: 7, endMin: 11, club: 'Eisen 7 + Driver (10 Bälle)', intensity: 85, color: '#0284C7',
-            title: 'Phase 3: Vollschwung & Abschlag-Simulation',
-            details: '6 Bälle mit dem Eisen 7 im 3:1-Rhythmus, anschließend 4 Drives – davon die letzten 2 Bälle mit voller Pre-Shot-Routine für Tee 1.'
+            id: 'full', startMin: 6, endMin: 10, club: 'Eisen 7 + Tee-1-Schläger (8 Bälle)', intensity: 80, color: '#0284C7',
+            title: 'Phase 3: Vollschwung & Tee-1-Simulation',
+            details: '5 Bälle mit dem Eisen 7 bei ca. 80 % Tempo – nur Rhythmus und Startrichtung prüfen. Danach 3 Bälle mit dem Schläger, den du an Tee 1 spielst; den letzten mit voller Pre-Shot-Routine auf den Zielkorridor von Loch 1.'
           },
           {
-            startMin: 11, endMin: 15, club: 'Putter (7 Bälle)', intensity: 50, color: '#4E6354',
+            id: 'walk', startMin: 10, endMin: 11, club: 'Wechsel', intensity: 15, color: '#6B7280',
+            title: 'Wechsel zum Putting-Grün',
+            details: 'Schläger einpacken, zum Übungsgrün gehen und dabei ruhig durchatmen. Bälle und Tee für die Putts bereitlegen.'
+          },
+          {
+            id: 'putt', startMin: 11, endMin: 15, club: 'Putter (7 Bälle)', intensity: 45, color: '#4E6354',
             title: 'Phase 4: Grün-Geschwindigkeit & 1-m-Putts',
-            details: '4 lange Lag-Putts (8–12 m) auf ein Tee zur Tempo-Kalibrierung der heutigen Grüngeschwindigkeit, danach 3 kurze Putts (1 m) ins Loch für Selbstvertrauen.'
+            details: '4 lange Lag-Putts (8–12 m) auf ein Tee zur Tempo-Kalibrierung der heutigen Grüngeschwindigkeit, danach 3 kurze Putts (1 m) ins Loch. Der letzte Putt muss fallen – dann gehst du zu Tee 1.'
           }
         ]
       },
       tournament45: {
         totalMinutes: 45,
-        totalBallsLabel: '53 Bälle (43 Range/Kurzspiel + 10 Putting)',
-        heading: '45-Minuten Turnier-Warm-up (Pro-Ablauf)',
+        buttonLabel: '45 Min. Turnier',
+        activityLabel: 'Turnier-Warm-up (45 Min.)',
+        totalBallsLabel: '53 Bälle (30 Range + 10 Kurzspiel + 13 Putting)',
+        heading: '45-Minuten Turnier-Warm-up (Rückwärts-Aufbau)',
         mentalMotto: '„Baue dein Warm-up rückwärts auf: Vom kurzen Gefühl auf dem Grün über präzise Wedges bis zur exakten Simulation der ersten 3 Spielbahnen.“',
         phases: [
           {
-            startMin: 0, endMin: 8, club: 'Mobilisation & Band', intensity: 30, color: '#3A6470',
+            id: 'mob', startMin: 0, endMin: 5, club: 'Ohne Ball / Band', intensity: 30, color: '#3A6470',
             title: 'Phase 1: Aktives Aufwärmen & Balance',
-            details: 'Ausfallschritte mit Oberkörperdrehung, Schulter- und Hüftmobilisation sowie 10 beidseitige Probeschwünge (rechts- und linkshändig) zur Aktivierung der Rumpfmuskulatur.'
+            details: 'Ausfallschritte mit Oberkörperdrehung, Schulter- und Hüftmobilisation sowie 10 Probeschwünge, abwechselnd in Schlag- und Gegenrichtung, zur Aktivierung der Rumpfmuskulatur.'
           },
           {
-            startMin: 8, endMin: 16, club: 'Sand & Pitching Wedge (12 Bälle)', intensity: 60, color: '#146C38',
-            title: 'Phase 2: Wedge-Distanzkontrolle (20 / 40 / 60 m)',
-            details: 'Je 4 Bälle auf 20 m, 40 m und 60 m (Uhren-System 8, 9, 10 Uhr) – Fokus auf sauberen Bounce-Kontakt und exakte Längensteuerung.'
+            id: 'putt', startMin: 5, endMin: 12, club: 'Putter (10 Putts)', intensity: 40, color: '#4E6354',
+            title: 'Phase 2: Putting-Tempo (lang vor kurz)',
+            details: '6 lange Putts (10–15 m) bergauf und bergab in eine 1-Meter-Zone rund ums Loch, danach 4 Putts aus 1 m. Ziel: die heutige Grüngeschwindigkeit im Gefühl haben.'
           },
           {
-            startMin: 16, endMin: 26, club: 'Eisen 8, 6 & Hybrid (18 Bälle)', intensity: 85, color: '#0284C7',
-            title: 'Phase 3: Eisen-Progression & Flugkurven-Check',
-            details: 'Je 6 Bälle mit Eisen 8, Eisen 6 und Hybrid. Beobachte deine heutige natürliche Tendenz (leichter Draw oder Fade) und akzeptiere sie für die Runde.'
+            id: 'short', startMin: 12, endMin: 20, club: 'Wedges (10 Bälle)', intensity: 50, color: '#146C38',
+            title: 'Phase 3: Chip, Pitch & Bunker',
+            details: '4 flache Chips und 3 Pitches auf verschiedene Fahnen, dazu 3 Bunkerschläge, um den Sand des Platzes zu testen. Danach zur Range gehen.'
           },
           {
-            startMin: 26, endMin: 33, club: 'Driver & Holz 3 (8 Bälle)', intensity: 95, color: '#D97706',
-            title: 'Phase 4: Abschläge & Tee-1-Simulation',
-            details: '4 Bälle mit Holz 3 und 4 Bälle mit dem Driver. Spiele die letzten 3 Bälle exakt wie die Abschläge der Löcher 1, 2 und 3 inklusive Zielkorridor.'
+            id: 'wedge', startMin: 20, endMin: 27, club: 'Sand & Pitching Wedge (10 Bälle)', intensity: 60, color: '#146C38',
+            title: 'Phase 4: Wedge-Längen (20 / 40 / 60 m)',
+            details: 'Je 2 Bälle auf 20 m, 40 m und 60 m mit deinen persönlichen Uhrzeit-Längen (z. B. 8, 9, 10 Uhr), dann 4 volle Wedges. Fokus auf sauberen Bounce-Kontakt und Längensteuerung.'
           },
           {
-            startMin: 33, endMin: 39, club: 'Sand Wedge (5 Bälle)', intensity: 55, color: '#4E6354',
-            title: 'Phase 5: Kurzspiel-Touch (3 Chips + 2 Bunker)',
-            details: '3 flache Chips am Übungsgrün auf verschiedene Fahnenpositionen und 2 Bunkerschläge, um die Sandbeschaffenheit des Platzes zu testen.'
+            id: 'irons', startMin: 27, endMin: 35, club: 'Eisen 8, 6 & Hybrid (12 Bälle)', intensity: 80, color: '#0284C7',
+            title: 'Phase 5: Eisen-Progression & Flugkurven-Check',
+            details: 'Je 4 Bälle mit Eisen 8, Eisen 6 und Hybrid. Beobachte deine heutige natürliche Tendenz (leichter Draw oder Fade) und akzeptiere sie für die Runde – keine Technik-Korrekturen.'
           },
           {
-            startMin: 39, endMin: 45, club: 'Putter (10 Bälle)', intensity: 45, color: '#146C38',
-            title: 'Phase 6: Lag-Putting & 1,2-m-Uhr',
-            details: '6 lange Putts (bergauf & bergab) auf ein 1-Meter-Zonenfeld, gefolgt von 4 Putts aus 1,2 Metern rund ums Loch – mit einem gelochten Putt direkt zu Tee 1 gehen.'
+            id: 'tee', startMin: 35, endMin: 41, club: 'Holz & Driver (8 Bälle)', intensity: 85, color: '#D97706',
+            title: 'Phase 6: Abschläge & Simulation Loch 1–3',
+            details: '5 Bälle mit Holz 3 und Driver bei ca. 85 % Tempo. Spiele die letzten 3 Bälle mit genau den Schlägern, die du an Loch 1, 2 und 3 nimmst – jeweils mit voller Routine auf einen Zielkorridor.'
+          },
+          {
+            id: 'transfer', startMin: 41, endMin: 45, club: 'Putter (3 Putts)', intensity: 20, color: '#6B7280',
+            title: 'Phase 7: Übergang zu Tee 1',
+            details: 'Wasser trinken, ruhig atmen, Scorekarte und Bälle checken. Liegt ein Grün am Weg, 3 Putts aus 1 m lochen – mit einem gelochten Putt zu Tee 1 gehen.'
           }
         ]
       }
     };
+
+    const WARMUP_ROUTINE_KEYS = Object.keys(WARMUP_ROUTINES);
+    const WARMUP_PHASE_TOTAL = WARMUP_ROUTINE_KEYS.reduce((sum, k) => sum + WARMUP_ROUTINES[k].phases.length, 0);
+
+    // Phasen-Schlüssel: "<routine>-<phasen-id>" (seit v4.32.0; ältere Index-Schlüssel werden verworfen).
+    function parseWarmupPhaseKey(phaseKey) {
+      const str = String(phaseKey || '');
+      const sep = str.indexOf('-');
+      if (sep < 0) return null;
+      const routineKey = str.slice(0, sep);
+      const routine = WARMUP_ROUTINES[routineKey];
+      const phase = routine?.phases.find(p => p.id === str.slice(sep + 1));
+      return phase ? { routineKey, routine, phase } : null;
+    }
 
     /* ========================================================================
        18 TRAINING & DRILLS (RANGE + WARM-UP + WINTER INDOOR)
@@ -5861,14 +6001,14 @@
         }
       },
       {
-        day: 37, sessionNum: 13, focus: 'Generalprobe · 15-Minuten Turnier-Warm-up + Test',
+        day: 37, sessionNum: 13, focus: 'Generalprobe · 15-Minuten Warm-up + Test',
         duration: '40 Min.', videoId: 'DFgsG6MXJW0',
         levels: {
           beginner: {
             title: 'Tag 37: Deine persönliche Runden-Vorbereitung',
             goal: 'Ohne Hektik und mit klarem Plan zu Tee 1 gehen.',
             exercises: [
-              '<strong>15 Min. Komplette 15-Min-Warm-up-Routine:</strong> Mobilisation, 6 Wedges, 10 Eisen/Driver, 7 Putts.',
+              '<strong>15 Min. Komplette 15-Min-Warm-up-Routine (Warm-up-Timer):</strong> Mobilisation, 5 Wedges, 8 Eisen/Tee-1-Schläger, Wechsel zum Grün, 7 Putts.',
               '<strong>25 Min. 9-Loch-Platz- oder Range-Test:</strong> Fokus auf ruhige Routine und keine Doppelbogeys.'
             ]
           },
@@ -5876,7 +6016,7 @@
             title: 'Tag 37: DECADE Course Management Generalprobe',
             goal: 'Kluge Zielwahl und Disziplin auf allen 18 Löchern.',
             exercises: [
-              '<strong>15 Min. Pre-Round Warm-up:</strong> Exakter Turnier-Ablauf inklusive Tee-1-Simulation.',
+              '<strong>15 Min. Pre-Round Warm-up:</strong> 15-Min-Ablauf aus dem Warm-up-Timer inklusive Tee-1-Simulation mit dem Schläger, den du an Loch 1 spielst.',
               '<strong>25 Min. Grünmitte-Disziplin-Test:</strong> 18 Annäherungen auf Grünmitte-Korridore + 18 Putts.'
             ]
           },
@@ -5884,7 +6024,7 @@
             title: 'Tag 37: Scratch-Generalprobe (No-Double-Bogey)',
             goal: 'Alle 8 Scratch-Säulen unter Wettkampfbedingungen verbinden.',
             exercises: [
-              '<strong>15 Min. Pro-Warm-up:</strong> Rückwärts-Aufbau (Putts → Wedges → Eisen → Tee 1).',
+              '<strong>15 Min. Pro-Warm-up kompakt:</strong> Rückwärts-Aufbau wie im 45-Min.-Turnier-Warm-up, nur gekürzt (Putts → Chips → Wedges → Eisen → Tee-1-Simulation).',
               '<strong>25 Min. 18-Loch-Score-Simulation:</strong> Komplette Runde mit Statistik-Tracking (GIR, Putts, Penalties).'
             ]
           }
@@ -5998,7 +6138,7 @@
 
       checkedSet = new Set(cleanIdList(data.checks));
       completedDrills = new Set(cleanIdList(data.drills));
-      completedPhases = new Set(cleanIdList(data.phases));
+      completedPhases = new Set(cleanIdList(data.phases).filter(k => parseWarmupPhaseKey(k)));
       masteredScratchPillars = new Set(cleanIdList(data.scratch));
       completedChallengeDays = new Set(cleanIdList(data.challengeDays));
 
@@ -6298,8 +6438,8 @@
             id: `sync-${ref}`,
             refId: ref,
             category: 'warmup',
-            title: 'Warm-up Phase absolviert',
-            detail: phaseKey.startsWith('tournament45') ? '45-Min. Turnier-Warm-up' : '15-Min. Runden-Warm-up',
+            title: parseWarmupPhaseKey(phaseKey)?.phase.title || 'Warm-up Phase absolviert',
+            detail: parseWarmupPhaseKey(phaseKey)?.routine.activityLabel || 'Warm-up',
             minutes: 5,
             timestamp: fallbackTs
           });
@@ -7263,22 +7403,140 @@
       return `${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
     }
 
+    // Timer rechnet seit v4.32.0 mit der echten Uhrzeit (Endzeitpunkt), damit er auch bei
+    // gesperrtem Bildschirm bzw. gedrosseltem Hintergrund-Tab korrekt bleibt.
+    let warmupEndAt = 0;
+    let warmupPhaseIdx = -1;
+    let warmupWarnedIdx = -1;
+    let warmupWakeLock = null;
+    let warmupAudioCtx = null;
+    let warmupSignalOn = true;
+    try { warmupSignalOn = localStorage.getItem('gpt-warmup-signal') !== 'off'; } catch (e) { /* ohne Storage: Standard an */ }
+
+    function getActiveWarmupRoutine() {
+      return WARMUP_ROUTINES[activeWarmupKey] || WARMUP_ROUTINES.round15;
+    }
+
+    function warmupPhaseIndexAt(routine, elapsedSec) {
+      const idx = routine.phases.findIndex(p => elapsedSec >= p.startMin * 60 && elapsedSec < p.endMin * 60);
+      return idx >= 0 ? idx : routine.phases.length - 1;
+    }
+
+    function syncWarmupRemaining() {
+      if (isTimerRunning && warmupEndAt) {
+        remainingSeconds = Math.max(0, Math.ceil((warmupEndAt - Date.now()) / 1000));
+      }
+    }
+
+    function setWarmupStatus(text) {
+      const statusBadge = document.getElementById('timerStatusBadge');
+      if (statusBadge) statusBadge.textContent = text;
+    }
+
+    function updateWarmupSignalBtn() {
+      const btn = document.getElementById('warmupSignalBtn');
+      if (!btn) return;
+      btn.setAttribute('aria-pressed', warmupSignalOn ? 'true' : 'false');
+      btn.title = warmupSignalOn ? 'Ton & Vibration beim Phasenwechsel: an' : 'Ton & Vibration beim Phasenwechsel: aus';
+      const icon = btn.querySelector('.material-symbols-rounded');
+      if (icon) icon.textContent = warmupSignalOn ? 'notifications_active' : 'notifications_off';
+    }
+
+    function toggleWarmupSignal() {
+      warmupSignalOn = !warmupSignalOn;
+      try { localStorage.setItem('gpt-warmup-signal', warmupSignalOn ? 'on' : 'off'); } catch (e) { /* ignorieren */ }
+      updateWarmupSignalBtn();
+      if (warmupSignalOn) { unlockWarmupAudio(); playWarmupSignal('soon'); }
+    }
+
+    function unlockWarmupAudio() {
+      try {
+        const Ctx = window.AudioContext || window.webkitAudioContext;
+        if (!Ctx) return;
+        if (!warmupAudioCtx) warmupAudioCtx = new Ctx();
+        if (warmupAudioCtx.state === 'suspended') warmupAudioCtx.resume();
+      } catch (e) { warmupAudioCtx = null; }
+    }
+
+    // type: 'soon' (30 s vor Phasenende), 'phase' (neue Phase), 'done' (Warm-up fertig)
+    function playWarmupSignal(type) {
+      if (!warmupSignalOn) return;
+      const pattern = type === 'done' ? [300, 120, 300, 120, 500] : type === 'phase' ? [220, 100, 220] : [120];
+      try { if (navigator.vibrate) navigator.vibrate(pattern); } catch (e) { /* ignorieren */ }
+      if (!warmupAudioCtx) return;
+      try {
+        const tones = type === 'done' ? [660, 880, 1046] : type === 'phase' ? [660, 880] : [880];
+        const t0 = warmupAudioCtx.currentTime;
+        tones.forEach((freq, i) => {
+          const osc = warmupAudioCtx.createOscillator();
+          const gain = warmupAudioCtx.createGain();
+          osc.type = 'sine';
+          osc.frequency.value = freq;
+          const start = t0 + i * 0.22;
+          gain.gain.setValueAtTime(0.0001, start);
+          gain.gain.exponentialRampToValueAtTime(0.25, start + 0.02);
+          gain.gain.exponentialRampToValueAtTime(0.0001, start + 0.18);
+          osc.connect(gain).connect(warmupAudioCtx.destination);
+          osc.start(start);
+          osc.stop(start + 0.2);
+        });
+      } catch (e) { /* ignorieren */ }
+    }
+
+    async function requestWarmupWakeLock() {
+      try {
+        if (!('wakeLock' in navigator) || warmupWakeLock || document.visibilityState !== 'visible') return;
+        warmupWakeLock = await navigator.wakeLock.request('screen');
+        warmupWakeLock.addEventListener('release', () => { warmupWakeLock = null; });
+      } catch (e) { warmupWakeLock = null; }
+    }
+
+    function releaseWarmupWakeLock() {
+      try { if (warmupWakeLock) warmupWakeLock.release(); } catch (e) { /* ignorieren */ }
+      warmupWakeLock = null;
+    }
+
+    document.addEventListener('visibilitychange', () => {
+      if (document.visibilityState === 'visible' && isTimerRunning) {
+        requestWarmupWakeLock();
+        warmupTick();
+      }
+    });
+
     function selectWarmupRoutine(key) {
       pauseWarmupTimer();
-      activeWarmupKey = key;
-      const routine = WARMUP_ROUTINES[key] || WARMUP_ROUTINES.round15;
+      activeWarmupKey = WARMUP_ROUTINES[key] ? key : 'round15';
+      const routine = getActiveWarmupRoutine();
       totalSeconds = routine.totalMinutes * 60;
       remainingSeconds = totalSeconds;
-      document.getElementById('btnWarmup15')?.classList.toggle('selected', key === 'round15');
-      document.getElementById('btnWarmup45')?.classList.toggle('selected', key === 'tournament45');
+      warmupPhaseIdx = -1;
+      warmupWarnedIdx = -1;
+      document.querySelectorAll('[data-warmup-key]').forEach(btn => {
+        btn.classList.toggle('selected', btn.dataset.warmupKey === activeWarmupKey);
+      });
       document.getElementById('tee1ReadyBanner')?.classList.add('hidden');
-      const statusBadge = document.getElementById('timerStatusBadge');
-      if (statusBadge) statusBadge.textContent = 'Bereit';
+      setWarmupStatus('Bereit');
       renderWarmupView();
     }
 
+    function renderWarmupCurrentPhase(routine, idx, flash) {
+      const card = document.getElementById('warmupCurrentPhaseCard');
+      const p = routine.phases[idx];
+      if (!card || !p) return;
+      card.innerHTML = `
+        <span class="md-assist-badge font-mono" style="align-self: flex-start;">${p.startMin}–${p.endMin} Min. &bull; ${p.club}</span>
+        <div class="md-warmup-current-title">${p.title}</div>
+        <div class="md-warmup-current-details">${p.details}</div>
+      `;
+      if (flash) {
+        card.classList.remove('flash');
+        void card.offsetWidth;
+        card.classList.add('flash');
+      }
+    }
+
     function updateWarmupTimerUI() {
-      const routine = WARMUP_ROUTINES[activeWarmupKey] || WARMUP_ROUTINES.round15;
+      const routine = getActiveWarmupRoutine();
       const readout = document.getElementById('timerReadout');
       if (readout) readout.textContent = formatSecondsMMSS(remainingSeconds);
 
@@ -7289,77 +7547,158 @@
         circle.style.strokeDashoffset = String(circumference * (1 - progress));
       }
 
-      const elapsedMin = (totalSeconds - remainingSeconds) / 60;
-      const activePhase = routine.phases.find(p => elapsedMin >= p.startMin && elapsedMin < p.endMin) || routine.phases[routine.phases.length - 1];
-      const phaseEl = document.getElementById('timerActivePhaseText');
-      if (phaseEl && activePhase) {
-        phaseEl.textContent = `${activePhase.title} (${activePhase.startMin}–${activePhase.endMin} Min.)`;
+      const elapsedSec = totalSeconds - remainingSeconds;
+      const idx = warmupPhaseIndexAt(routine, elapsedSec);
+      const phaseChanged = idx !== warmupPhaseIdx;
+      if (phaseChanged) {
+        renderWarmupCurrentPhase(routine, idx, isTimerRunning && warmupPhaseIdx >= 0);
+        document.querySelectorAll('#warmupPhasesGrid .md-phase-card').forEach((el, i) => {
+          el.classList.toggle('active-phase', i === idx);
+        });
+      }
+
+      const nextEl = document.getElementById('warmupNextPhaseText');
+      if (nextEl) {
+        const next = routine.phases[idx + 1];
+        if (remainingSeconds <= 0) {
+          nextEl.textContent = '';
+          nextEl.classList.remove('soon');
+        } else if (next) {
+          const untilNext = Math.max(0, next.startMin * 60 - elapsedSec);
+          nextEl.textContent = `Als Nächstes in ${formatSecondsMMSS(untilNext)}: ${next.title}`;
+          nextEl.classList.toggle('soon', isTimerRunning && untilNext <= 30);
+        } else {
+          nextEl.textContent = `Danach: ab zu Tee 1 (noch ${formatSecondsMMSS(remainingSeconds)})`;
+          nextEl.classList.toggle('soon', isTimerRunning && remainingSeconds <= 30);
+        }
+      }
+      return { idx, phaseChanged };
+    }
+
+    function warmupTick() {
+      if (!isTimerRunning) return;
+      syncWarmupRemaining();
+      const routine = getActiveWarmupRoutine();
+      const prevIdx = warmupPhaseIdx;
+      const { idx, phaseChanged } = updateWarmupTimerUI();
+
+      if (remainingSeconds <= 0) {
+        // Alle bis zum Ende durchlaufenen Phasen abhaken
+        for (let i = Math.max(0, prevIdx); i < routine.phases.length; i++) markWarmupPhaseDone(activeWarmupKey, routine.phases[i]);
+        warmupPhaseIdx = idx;
+        pauseWarmupTimer();
+        setWarmupStatus('Fertig');
+        document.getElementById('tee1ReadyBanner')?.classList.remove('hidden');
+        playWarmupSignal('done');
+        renderWarmupView();
+        return;
+      }
+
+      if (phaseChanged) {
+        if (prevIdx >= 0 && idx > prevIdx) {
+          for (let i = prevIdx; i < idx; i++) markWarmupPhaseDone(activeWarmupKey, routine.phases[i]);
+          playWarmupSignal('phase');
+          renderWarmupPhasesGrid(routine, idx);
+        }
+        warmupPhaseIdx = idx;
+      }
+
+      const phase = routine.phases[idx];
+      const untilEnd = phase ? phase.endMin * 60 - (totalSeconds - remainingSeconds) : 0;
+      if (phase && untilEnd <= 30 && untilEnd > 0 && warmupWarnedIdx !== idx && (phase.endMin - phase.startMin) >= 2) {
+        warmupWarnedIdx = idx;
+        playWarmupSignal('soon');
       }
     }
 
     function startWarmupTimer() {
       if (isTimerRunning) return;
-      if (remainingSeconds <= 0) remainingSeconds = totalSeconds;
+      if (remainingSeconds <= 0) {
+        remainingSeconds = totalSeconds;
+        warmupPhaseIdx = -1;
+      }
+      unlockWarmupAudio();
       isTimerRunning = true;
+      warmupEndAt = Date.now() + remainingSeconds * 1000;
+      if (warmupPhaseIdx < 0) {
+        warmupPhaseIdx = warmupPhaseIndexAt(getActiveWarmupRoutine(), totalSeconds - remainingSeconds);
+      }
       document.getElementById('tee1ReadyBanner')?.classList.add('hidden');
-      const statusBadge = document.getElementById('timerStatusBadge');
-      if (statusBadge) statusBadge.textContent = 'Läuft';
-
-      timerInterval = setInterval(() => {
-        if (remainingSeconds > 0) {
-          remainingSeconds--;
-          updateWarmupTimerUI();
-        } else {
-          pauseWarmupTimer();
-          if (statusBadge) statusBadge.textContent = 'Fertig';
-          document.getElementById('tee1ReadyBanner')?.classList.remove('hidden');
-        }
-      }, 1000);
+      setWarmupStatus('Läuft');
+      requestWarmupWakeLock();
+      if (timerInterval) clearInterval(timerInterval);
+      timerInterval = setInterval(warmupTick, 250);
+      updateWarmupTimerUI();
     }
 
     function pauseWarmupTimer() {
+      syncWarmupRemaining();
       isTimerRunning = false;
+      warmupEndAt = 0;
       if (timerInterval) {
         clearInterval(timerInterval);
         timerInterval = null;
       }
-      const statusBadge = document.getElementById('timerStatusBadge');
-      if (statusBadge && remainingSeconds > 0 && remainingSeconds < totalSeconds) {
-        statusBadge.textContent = 'Pausiert';
+      releaseWarmupWakeLock();
+      if (remainingSeconds > 0 && remainingSeconds < totalSeconds) {
+        setWarmupStatus('Pausiert');
       }
+      updateWarmupTimerUI();
     }
 
     function resetWarmupTimer() {
       pauseWarmupTimer();
       remainingSeconds = totalSeconds;
+      warmupPhaseIdx = -1;
+      warmupWarnedIdx = -1;
       document.getElementById('tee1ReadyBanner')?.classList.add('hidden');
-      const statusBadge = document.getElementById('timerStatusBadge');
-      if (statusBadge) statusBadge.textContent = 'Bereit';
+      setWarmupStatus('Bereit');
       updateWarmupTimerUI();
     }
 
     function jumpToWarmupPhase(startMin) {
-      const routine = WARMUP_ROUTINES[activeWarmupKey] || WARMUP_ROUTINES.round15;
+      const routine = getActiveWarmupRoutine();
       remainingSeconds = Math.max(0, (routine.totalMinutes - startMin) * 60);
+      if (isTimerRunning) warmupEndAt = Date.now() + remainingSeconds * 1000;
+      // Sprung zählt nicht als absolvierte Phase und löst kein Signal aus
+      warmupPhaseIdx = isTimerRunning ? warmupPhaseIndexAt(routine, totalSeconds - remainingSeconds) : -1;
+      warmupWarnedIdx = -1;
+      document.getElementById('tee1ReadyBanner')?.classList.add('hidden');
+      if (!isTimerRunning) setWarmupStatus(remainingSeconds < totalSeconds ? 'Pausiert' : 'Bereit');
+      renderWarmupCurrentPhase(routine, warmupPhaseIndexAt(routine, totalSeconds - remainingSeconds), false);
       updateWarmupTimerUI();
+      renderWarmupPhasesGrid(routine, warmupPhaseIndexAt(routine, totalSeconds - remainingSeconds));
+    }
+
+    function recordWarmupPhaseEvent(phaseKey, routine, phase) {
+      recordActivityEvent(
+        `warmup-${phaseKey}`,
+        'warmup',
+        phase.title,
+        routine.activityLabel,
+        Math.max(1, phase.endMin - phase.startMin)
+      );
+    }
+
+    // Vom Timer: Phase abhaken, falls noch offen (nie wieder aufheben).
+    function markWarmupPhaseDone(routineKey, phase) {
+      if (!phase) return;
+      const phaseKey = `${routineKey}-${phase.id}`;
+      if (completedPhases.has(phaseKey)) return;
+      completedPhases.add(phaseKey);
+      recordWarmupPhaseEvent(phaseKey, WARMUP_ROUTINES[routineKey], phase);
+      savePersistedState();
     }
 
     function toggleWarmupPhaseDone(phaseKey) {
+      const parsed = parseWarmupPhaseKey(phaseKey);
+      if (!parsed) return;
       if (completedPhases.has(phaseKey)) {
         completedPhases.delete(phaseKey);
         removeActivityEvent(`warmup-${phaseKey}`);
       } else {
         completedPhases.add(phaseKey);
-        const [rKey, idxStr] = phaseKey.split('-');
-        const r = WARMUP_ROUTINES[rKey];
-        const ph = r?.phases?.[parseInt(idxStr, 10)];
-        recordActivityEvent(
-          `warmup-${phaseKey}`,
-          'warmup',
-          ph ? ph.title : 'Warm-up Phase',
-          rKey === 'tournament45' ? 'Turnier-Warm-up (45 Min.)' : 'Runden-Warm-up (15 Min.)',
-          ph ? Math.max(3, ph.endMin - ph.startMin) : 5
-        );
+        recordWarmupPhaseEvent(phaseKey, parsed.routine, parsed.phase);
       }
       savePersistedState();
       renderWarmupView();
@@ -7371,11 +7710,39 @@
       renderDrillsView();
     }
 
+    function renderWarmupPhasesGrid(routine, activeIdx) {
+      const grid = document.getElementById('warmupPhasesGrid');
+      if (!grid) return;
+      grid.innerHTML = routine.phases.map((p, idx) => {
+        const phaseKey = `${activeWarmupKey}-${p.id}`;
+        const done = completedPhases.has(phaseKey);
+        return `
+          <div class="md-phase-card ${done ? 'done-phase' : ''} ${idx === activeIdx ? 'active-phase' : ''}" role="button" tabindex="0" aria-pressed="${done}" onclick="toggleWarmupPhaseDone('${phaseKey}')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleWarmupPhaseDone('${phaseKey}');}">
+            <div style="display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; margin-bottom: 0.4rem;">
+              <span class="md-assist-badge font-mono">${p.startMin}–${p.endMin} Min. &bull; ${p.club}</span>
+              <span class="material-symbols-rounded ${done ? 'filled' : ''}" style="color: var(--md-sys-color-primary);">
+                ${done ? 'check_circle' : 'radio_button_unchecked'}
+              </span>
+            </div>
+            <h3 class="font-display" style="font-size: 0.98rem; font-weight: 700;">${p.title}</h3>
+            <p style="font-size: 0.83rem; color: var(--md-sys-color-on-surface-variant); margin-top: 0.3rem; line-height: 1.48;">${p.details}</p>
+          </div>
+        `;
+      }).join('');
+    }
+
     function renderWarmupView() {
-      const routine = WARMUP_ROUTINES[activeWarmupKey] || WARMUP_ROUTINES.round15;
+      const routine = getActiveWarmupRoutine();
       document.getElementById('warmupBallsBadge').textContent = routine.totalBallsLabel;
       document.getElementById('warmupHeading').textContent = routine.heading;
       document.getElementById('warmupMottoText').textContent = routine.mentalMotto;
+      document.querySelectorAll('[data-warmup-key]').forEach(btn => {
+        btn.classList.toggle('selected', btn.dataset.warmupKey === activeWarmupKey);
+      });
+      updateWarmupSignalBtn();
+      syncWarmupRemaining();
+      const activeIdx = warmupPhaseIndexAt(routine, totalSeconds - remainingSeconds);
+      renderWarmupCurrentPhase(routine, activeIdx, false);
       updateWarmupTimerUI();
 
       const timelineEl = document.getElementById('warmupTimelineSvg');
@@ -7386,42 +7753,27 @@
           const w = Math.max(18, ((p.endMin - p.startMin) / totalM) * 448 - 4);
           const h = Math.round((p.intensity / 100) * 95);
           const y = 128 - h;
+          const narrow = w < 44;
+          const timeLabel = narrow ? `${p.startMin}` : `${p.startMin}–${p.endMin}m`;
           return `
             <g style="cursor: pointer;" onclick="jumpToWarmupPhase(${p.startMin})">
+              <title>${p.title} (${p.startMin}–${p.endMin} Min.)</title>
               <rect x="${x}" y="${y}" width="${w}" height="${h}" rx="8" fill="${p.color}" opacity="0.88" />
-              <text x="${x + w / 2}" y="${y - 6}" text-anchor="middle" fill="var(--svg-text-main)" font-size="10" font-weight="700">${p.intensity}%</text>
-              <text x="${x + w / 2}" y="146" text-anchor="middle" fill="var(--svg-text-sub)" font-size="9.5" font-weight="600">${p.startMin}–${p.endMin}m</text>
+              <text x="${x + w / 2}" y="${y - 6}" text-anchor="middle" fill="var(--svg-text-main)" font-size="${narrow ? 8.5 : 10}" font-weight="700">${p.intensity}%</text>
+              <text x="${x + w / 2}" y="146" text-anchor="middle" fill="var(--svg-text-sub)" font-size="9.5" font-weight="600">${timeLabel}</text>
             </g>
           `;
         }).join('');
 
         timelineEl.innerHTML = `
-          <svg viewBox="0 0 480 162" role="img" aria-label="Warm-up Zeitstrahl">
+          <svg viewBox="0 0 480 162" role="img" aria-label="Warm-up Zeitstrahl: Intensität je Phase">
             <line x1="16" y1="128" x2="464" y2="128" stroke="var(--svg-line-muted)" stroke-width="1.5" />
             ${bars}
           </svg>
         `;
       }
 
-      const grid = document.getElementById('warmupPhasesGrid');
-      if (grid) {
-        grid.innerHTML = routine.phases.map((p, idx) => {
-          const phaseKey = `${activeWarmupKey}-${idx}`;
-          const done = completedPhases.has(phaseKey);
-          return `
-            <div class="md-phase-card ${done ? 'done-phase' : ''}" onclick="toggleWarmupPhaseDone('${phaseKey}')">
-              <div style="display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; margin-bottom: 0.4rem;">
-                <span class="md-assist-badge font-mono">${p.startMin}–${p.endMin} Min. &bull; ${p.club}</span>
-                <span class="material-symbols-rounded ${done ? 'filled' : ''}" style="color: var(--md-sys-color-primary);">
-                  ${done ? 'check_circle' : 'radio_button_unchecked'}
-                </span>
-              </div>
-              <h3 class="font-display" style="font-size: 0.98rem; font-weight: 700;">${p.title}</h3>
-              <p style="font-size: 0.83rem; color: var(--md-sys-color-on-surface-variant); margin-top: 0.3rem; line-height: 1.48;">${p.details}</p>
-            </div>
-          `;
-        }).join('');
-      }
+      renderWarmupPhasesGrid(routine, activeIdx);
     }
 
     /* ========================================================================
@@ -8966,7 +9318,7 @@
         `• 40-Tage Challenge: ${completedChallengeDays.size}/14 Sessions`,
         `• Trainings-Drills: ${completedDrills.size}/${TRAINING_DRILLS.length} absolviert`,
         `• Scratch (HCP 0) Säulen: ${masteredScratchPillars.size}/${SCRATCH_PILLARS.length} gemeistert`,
-        `• Warm-up Phasen: ${completedPhases.size}/10 | Range-Checkliste: ${checkedSet.size}/${CHECKLIST_ITEMS.length}`,
+        `• Warm-up Phasen: ${completedPhases.size}/${WARMUP_PHASE_TOTAL} | Range-Checkliste: ${checkedSet.size}/${CHECKLIST_ITEMS.length}`,
         `• Aktive Trainingstage: ${activeDays} (Aktuelle Serie: ${streak} Tage) · ~${estMins} Min. Trainingszeit`
       ].join('\n');
 
@@ -9521,7 +9873,7 @@
         { label: '40-Tage Golf-Challenge', done: completedChallengeDays.size, total: 14, color: '#146C38', tab: 'challenge' },
         { label: 'Trainings- & Indoor-Drills', done: completedDrills.size, total: TRAINING_DRILLS.length, color: '#0284C7', tab: 'drills' },
         { label: 'Scratch (HCP 0) Säulen', done: masteredScratchPillars.size, total: SCRATCH_PILLARS.length, color: '#D97706', tab: 'scratch' },
-        { label: 'Warm-up Routinen (Phasen)', done: completedPhases.size, total: 10, color: '#3A6470', tab: 'warmup' },
+        { label: 'Warm-up Routinen (Phasen)', done: completedPhases.size, total: WARMUP_PHASE_TOTAL, color: '#3A6470', tab: 'warmup' },
         { label: 'Driving-Range Checkliste', done: checkedSet.size, total: CHECKLIST_ITEMS.length, color: '#4E6354', tab: null }
       ];
 
