@@ -9,8 +9,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="apple-mobile-web-app-title" content="Golf Pocket Trainer" />
   <meta name="application-name" content="Golf Pocket Trainer" />
-  <meta name="description" content="Golf Pocket Trainer v4.24.0 – Material Design 3 Golf Technik-, Trainings-, Rules-, Scratch-Blueprint-, Komparator-, Warm-up-, Video-Analyse-, 40-Tage-Challenge- & Gamification-Statistik-Begleiter" />
-  <title>Golf Pocket Trainer (v4.24.0)</title>
+  <meta name="description" content="Golf Pocket Trainer v4.25.0 – Material Design 3 Golf Technik-, Trainings-, Rules-, Scratch-Blueprint-, Komparator-, Warm-up-, Video-Analyse-, 40-Tage-Challenge- & Gamification-Statistik-Begleiter" />
+  <title>Golf Pocket Trainer (v4.25.0)</title>
 
   <link rel="manifest" href="manifest.webmanifest" />
   <link rel="icon" type="image/png" sizes="48x48" href="icons/favicon-48.png" />
@@ -1859,6 +1859,33 @@
       background-color: var(--md-sys-color-surface-container-lowest);
     }
 
+    .ck-head { display: flex; align-items: center; justify-content: space-between; gap: 0.6rem; flex-wrap: wrap; }
+    .ck-q { display: flex; flex-direction: column; gap: 0.45rem; }
+    .ck-label { font-size: 0.78rem; font-weight: 700; color: var(--md-sys-color-on-surface-variant); }
+    .ck-label em { font-style: normal; font-weight: 500; }
+    .ck-chips { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .ck-actions { display: flex; justify-content: flex-end; gap: 0.5rem; flex-wrap: wrap; }
+    .ck-summary { display: flex; flex-direction: column; gap: 0.4rem; font-size: 0.85rem; padding: 0.75rem 0.9rem; border-radius: 1rem; background: var(--md-sys-color-primary-container); color: var(--md-sys-color-on-primary-container); }
+    .ck-progress { height: 0.45rem; border-radius: 1rem; background: rgba(0,0,0,0.1); overflow: hidden; }
+    .ck-progress-fill { height: 100%; background: var(--md-sys-color-primary); border-radius: 1rem; transition: width 0.3s ease; }
+    .ck-progress-label { font-size: 0.75rem; font-weight: 700; }
+    .ck-note { font-size: 0.78rem; padding: 0.55rem 0.75rem; border-radius: 0.8rem; background: var(--md-sys-color-tertiary-container, #fdf0d5); color: var(--md-sys-color-on-tertiary-container, #3a2a00); }
+    .ck-steps { display: flex; flex-direction: column; gap: 0.4rem; }
+    .ck-step { display: flex; align-items: flex-start; gap: 0.6rem; padding: 0.6rem 0.7rem; border-radius: 0.95rem; background: var(--md-sys-color-surface-container-lowest, #fff); border: 1px solid var(--md-sys-color-outline-variant); cursor: pointer; }
+    .ck-step.open { border-color: var(--md-sys-color-primary); }
+    .ck-step.done { opacity: 0.6; }
+    .ck-step.done .ck-title { text-decoration: line-through; }
+    .ck-time { flex-shrink: 0; min-width: 3.2rem; font-size: 0.72rem; font-weight: 800; color: var(--md-sys-color-primary); font-variant-numeric: tabular-nums; padding-top: 0.12rem; }
+    .ck-body { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 0.2rem; }
+    .ck-title { font-size: 0.88rem; font-weight: 700; line-height: 1.3; }
+    .ck-meta { font-size: 0.74rem; color: var(--md-sys-color-on-surface-variant); }
+    .ck-tag { display: inline-block; margin-left: 0.25rem; padding: 0 0.45rem; border-radius: 1rem; font-size: 0.66rem; font-weight: 800; background: var(--md-sys-color-secondary-container); color: var(--md-sys-color-on-secondary-container); vertical-align: 1px; }
+    .ck-detail { margin: 0.35rem 0 0.1rem 1.1rem; padding: 0; font-size: 0.8rem; line-height: 1.45; display: flex; flex-direction: column; gap: 0.25rem; }
+    .ck-info { font-size: 0.78rem; line-height: 1.4; color: var(--md-sys-color-on-surface-variant); }
+    .ck-video { align-self: flex-start; margin-top: 0.3rem; }
+    .ck-check { flex-shrink: 0; width: 2rem; height: 2rem; overflow: hidden; border: 0; background: none; padding: 0; cursor: pointer; color: var(--md-sys-color-primary); display: grid; place-items: center; }
+    .ck-check .material-symbols-rounded { font-size: 26px; }
+
     .md-checkin-mood-btn {
       padding: 0.55rem 0.85rem;
       border-radius: 0.95rem;
@@ -2184,7 +2211,7 @@
         <div class="md-brand-text-wrap">
           <div style="display: flex; align-items: center; gap: 0.4rem;">
             <h1 class="md-brand-title">Golf Pocket Trainer</h1>
-            <span class="md-version-badge font-mono">v4.24.0</span>
+            <span class="md-version-badge font-mono">v4.25.0</span>
           </div>
           <p class="md-brand-sub">Statistik &bull; Check-in &bull; Drills &bull; Rules &bull; Scratch</p>
         </div>
@@ -2262,7 +2289,7 @@
               <span class="material-symbols-rounded" style="color: var(--md-sys-color-on-surface-variant);">history</span>
               <span>Versionsverlauf</span>
             </span>
-            <span class="font-mono" style="font-size: 0.72rem; color: var(--md-sys-color-on-surface-variant);">v4.24.0</span>
+            <span class="font-mono" style="font-size: 0.72rem; color: var(--md-sys-color-on-surface-variant);">v4.25.0</span>
           </button>
         </div>
       </div>
@@ -2975,56 +3002,8 @@
         <div id="gamificationLevelSteps" class="md-level-steps-bar"></div>
       </article>
 
-      <!-- Daily 60-Second Golf Check-in & Focus Goal -->
-      <article id="dailyCheckinCard" class="md-checkin-card">
-        <div style="display: flex; align-items: center; justify-content: space-between; gap: 0.6rem; flex-wrap: wrap;">
-          <div style="display: flex; align-items: center; gap: 0.55rem;">
-            <span class="material-symbols-rounded filled" style="color: var(--md-sys-color-primary); font-size: 22px;">today</span>
-            <div>
-              <h3 class="font-display" style="font-size: 1.02rem; font-weight: 800;">Täglicher 60-Sekunden Golf-Check-in</h3>
-              <p style="font-size: 0.78rem; color: var(--md-sys-color-on-surface-variant);">Wähle dein heutiges Tagesgefühl &amp; Fokus-Ziel für +25 XP und deine Tages-Serie.</p>
-            </div>
-          </div>
-          <span id="dailyCheckinStatusBadge" class="md-assist-badge font-mono">Heute offen · +25 XP</span>
-        </div>
-
-        <div style="display: flex; flex-direction: column; gap: 0.45rem;">
-          <span style="font-size: 0.75rem; font-weight: 700; color: var(--md-sys-color-on-surface-variant);">1. Wie fühlt sich dein Schwung / Kopf heute an?</span>
-          <div id="dailyCheckinMoodRow" style="display: flex; flex-wrap: wrap; gap: 0.45rem;">
-            <button type="button" class="md-checkin-mood-btn selected" data-mood="Fokussiert & locker" onclick="selectDailyCheckinMood('Fokussiert & locker')">
-              <span>🎯 Fokussiert &amp; locker</span>
-            </button>
-            <button type="button" class="md-checkin-mood-btn" data-mood="Voller Energie" onclick="selectDailyCheckinMood('Voller Energie')">
-              <span>⚡ Voller Energie</span>
-            </button>
-            <button type="button" class="md-checkin-mood-btn" data-mood="Technik-Feinschliff" onclick="selectDailyCheckinMood('Technik-Feinschliff')">
-              <span>🔧 Technik-Feinschliff</span>
-            </button>
-            <button type="button" class="md-checkin-mood-btn" data-mood="Ruhiger Reset" onclick="selectDailyCheckinMood('Ruhiger Reset')">
-              <span>🌿 Ruhiger Reset</span>
-            </button>
-          </div>
-        </div>
-
-        <div style="display: flex; flex-direction: column; gap: 0.45rem;">
-          <span style="font-size: 0.75rem; font-weight: 700; color: var(--md-sys-color-on-surface-variant);">2. Heutiges Fokus-Ziel:</span>
-          <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
-            <div class="md-search-box" style="flex: 1; min-width: 220px;">
-              <span class="material-symbols-rounded" style="font-size: 18px; color: var(--md-sys-color-primary);">flag</span>
-              <input id="dailyCheckinFocusInput" type="text" class="md-search-input" placeholder="z. B. 10 Min. Putting-Pendel oder 3:1 Rhythmus halten..." />
-            </div>
-            <button type="button" id="btnSubmitDailyCheckin" onclick="submitDailyCheckin()" class="md-filled-btn">
-              <span class="material-symbols-rounded" style="font-size: 18px;">check_circle</span>
-              <span id="btnDailyCheckinLabel">Check-in abschließen (+25 XP)</span>
-            </button>
-          </div>
-        </div>
-
-        <div id="dailyCheckinSummaryBar" class="hidden" style="background-color: var(--md-sys-color-primary-container); color: var(--md-sys-color-on-primary-container); border-radius: 0.95rem; padding: 0.7rem 0.95rem; font-size: 0.82rem; display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; flex-wrap: wrap;">
-          <span id="dailyCheckinSummaryText">Heute eingecheckt!</span>
-          <span class="font-mono" style="font-weight: 800; font-size: 0.75rem;">+25 XP gesichert</span>
-        </div>
-      </article>
+      <!-- Täglicher Trainings-Check-in: Fokus, Ort & Dauer -> Trainingsplan -->
+      <article id="dailyCheckinCard" class="md-checkin-card"></article>
 
       <!-- KPI Overview -->
       <div class="md-kpi-grid">
@@ -3104,7 +3083,7 @@
        ======================================================================== -->
   <footer class="md-footer">
     <div class="md-container" style="display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; flex-wrap: wrap;">
-      <span><strong>Golf Pocket Trainer</strong> (<span class="font-mono">v4.24.0</span>) &bull; Dein interaktiver Trainings- &amp; Platzbegleiter</span>
+      <span><strong>Golf Pocket Trainer</strong> (<span class="font-mono">v4.25.0</span>) &bull; Dein interaktiver Trainings- &amp; Platzbegleiter</span>
       <button type="button" onclick="openChangelogModal()" class="md-text-btn" style="height: 1.85rem;">Versionsverlauf ansehen</button>
     </div>
   </footer>
@@ -3136,7 +3115,15 @@
           <div style="display: flex; align-items: flex-start; gap: 0.65rem; font-size: 0.83rem;">
             <span class="material-symbols-rounded filled" style="font-size: 20px; color: var(--md-sys-color-primary); margin-top: 1px;">sports_golf</span>
             <div>
-              <strong>Pro-Schwung in Zeitlupe (Neu!):</strong>
+              <strong>Trainings-Check-in (Neu!):</strong>
+              <div style="color: var(--md-sys-color-on-surface-variant); margin-top: 0.1rem;">Fokus, Ort und Dauer wählen – die App stellt dir dein Training für heute zusammen. Dazu 20 neue Drills.</div>
+            </div>
+          </div>
+
+          <div style="display: flex; align-items: flex-start; gap: 0.65rem; font-size: 0.83rem;">
+            <span class="material-symbols-rounded filled" style="font-size: 20px; color: var(--md-sys-color-primary); margin-top: 1px;">smart_display</span>
+            <div>
+              <strong>Pro-Schwung in Zeitlupe:</strong>
               <div style="color: var(--md-sys-color-on-surface-variant); margin-top: 0.1rem;">In der Schlagtechnik siehst du jetzt echte Tour-Pros im Zeitlupen-Video – mit ¼×-Zeitlupe, Einzelbild-Schritten und eigenen Phasen-Markern.</div>
             </div>
           </div>
@@ -3253,7 +3240,7 @@
       <div class="md-dialog-header">
         <div>
           <span class="md-assist-badge" style="background-color: var(--md-sys-color-tertiary-container); color: var(--md-sys-color-on-tertiary-container);">Release Notes &amp; Wartung</span>
-          <h2 id="changelogTitle" class="font-display" style="font-size: 1.25rem; font-weight: 800; margin-top: 0.3rem;">Versionsverlauf (v1.0.0 – v4.24.0)</h2>
+          <h2 id="changelogTitle" class="font-display" style="font-size: 1.25rem; font-weight: 800; margin-top: 0.3rem;">Versionsverlauf (v1.0.0 – v4.25.0)</h2>
         </div>
         <button type="button" onclick="closeChangelogModal()" class="md-icon-btn" aria-label="Schließen">
           <span class="material-symbols-rounded">close</span>
@@ -3268,20 +3255,32 @@
   </div>
 
   <!-- ========================================================================
-       COMPLETE SELF-CONTAINED JAVASCRIPT ENGINE (v4.24.0)
+       COMPLETE SELF-CONTAINED JAVASCRIPT ENGINE (v4.25.0)
        ======================================================================== -->
   <div id="appToast" class="md-toast" role="status" aria-live="polite"></div>
   <input type="file" id="backupFileInput" accept="application/json,.json" hidden onchange="handleBackupFile(event)" />
 
   <script>
-    const APP_VERSION = 'v4.24.0';
+    const APP_VERSION = 'v4.25.0';
 
     const CHANGELOG_ENTRIES = [
       {
-        version: 'v4.24.0',
+        version: 'v4.25.0',
         date: 'Aktuell',
-        title: 'Pro-Schwung in Zeitlupe',
+        title: 'Trainings-Check-in mit persönlichem Trainingsplan',
         latest: true,
+        notes: [
+          'Der tägliche Check-in fragt jetzt deinen Fokus (bis zu 2 Bereiche), den Trainingsort und die Trainingsdauer (15–90 Min.) ab.',
+          'Daraus wird automatisch ein Trainingsplan mit Zeitblöcken erstellt: Aufwärmen, passende Drills und ab 45 Min. ein Abschluss-Test unter Druck.',
+          'Jede Übung lässt sich aufklappen (Ablauf, Material, Ziel, Video) und abhaken. „Neu mischen“ stellt einen anderen Plan zusammen.',
+          '20 neue Drills, z. B. Uhr-System für Wedges, Up-and-Down-Challenge, Lag-Zone, Tempo-Leiter, Carry-Leiter und Random-Training.'
+        ]
+      },
+      {
+        version: 'v4.24.0',
+        date: 'Vorherige Version',
+        title: 'Pro-Schwung in Zeitlupe',
+        latest: false,
         notes: [
           'Schlagtechnik: Statt gezeichneter Figuren zeigt jetzt ein echtes Zeitlupen-Video eines Tour-Pros den Schwung – passend zum gewählten Schläger (Driver, Eisen, Wedges, Putter).',
           'Abspielen in 1×, ½× oder ¼× und Bild für Bild vor- und zurückspulen.',
@@ -3291,7 +3290,7 @@
       },
       {
         version: 'v4.23.0',
-        date: 'Vorherige Version',
+        date: 'Meilenstein 48',
         title: 'Schwung-Bildfolge nach Foto-Vorlage',
         latest: false,
         notes: [
@@ -4455,6 +4454,370 @@
         videoTitle: 'Kurzspiel & Gefühl zu Hause trainieren',
         videoChannel: 'Karl Villwock Golf',
         videoDuration: '06:05'
+      },
+      {
+        id: 'drill-driver-teeheight',
+        discipline: 'driver',
+        disciplineLabel: 'Driver',
+        title: 'Treffpunkt-Check: Mitte der Schlagfläche',
+        durationBalls: '12 Bälle · ca. 8 Min.',
+        setupMaterial: 'Driver, Tees, Fußspray oder Trockenshampoo für die Schlagfläche',
+        steps: [
+          'Sprühe die Schlagfläche dünn ein – jeder Treffer hinterlässt einen sichtbaren Abdruck.',
+          'Schlage 3 Bälle mit deiner normalen Tee-Höhe und Ballposition und prüfe nach jedem Ball den Abdruck.',
+          'Passe Tee-Höhe oder Abstand zum Ball an, bis die Abdrücke mittig bis leicht oberhalb der Mitte liegen.'
+        ],
+        successGoal: 'Mindestens 7 von 12 Treffern im mittleren Drittel der Schlagfläche.',
+        videoId: 'YcPgyMCWohU',
+        videoTitle: 'Dynamische Gewichtsverlagerung beim Drive',
+        videoChannel: 'PL Performance Golf',
+        videoDuration: '11:08'
+      },
+      {
+        id: 'drill-driver-fairway',
+        discipline: 'driver',
+        disciplineLabel: 'Driver',
+        title: 'Fairway-Korridor: 10 Drives zwischen zwei Zielen',
+        durationBalls: '10 Bälle · ca. 10 Min.',
+        setupMaterial: 'Driver, zwei Zielpunkte auf der Range (Fahnen oder Schilder)',
+        steps: [
+          'Wähle zwei Zielpunkte, die ca. 30 m auseinanderliegen – das ist dein Fairway.',
+          'Spiele jeden Drive mit kompletter Pre-Shot-Routine, als stündest du am Abschlag.',
+          'Zähle, wie viele Bälle zwischen den beiden Zielen landen.'
+        ],
+        successGoal: '6 von 10 Drives landen im Fairway-Korridor.',
+        videoId: 'YcPgyMCWohU',
+        videoTitle: 'Ausrichtung & Setup wie auf der Tour',
+        videoChannel: 'PL Performance Golf',
+        videoDuration: '11:08'
+      },
+      {
+        id: 'drill-driver-tempo',
+        discipline: 'driver',
+        disciplineLabel: 'Driver',
+        title: 'Tempo-Leiter: 70 % – 85 % – 100 %',
+        durationBalls: '12 Bälle · ca. 10 Min.',
+        setupMaterial: 'Driver, Tees',
+        steps: [
+          '4 Bälle mit 70 % Tempo – halte das Finish jeweils 3 Sekunden.',
+          '4 Bälle mit 85 % Tempo – das Finish bleibt genauso stabil.',
+          '4 Bälle mit vollem Tempo, aber nur so schnell, dass du das Finish noch halten kannst.'
+        ],
+        successGoal: 'Bei allen 12 Schlägen ein stabiles Finish für 3 Sekunden.',
+        videoId: 'YcPgyMCWohU',
+        videoTitle: 'Dynamische Gewichtsverlagerung beim Drive',
+        videoChannel: 'PL Performance Golf',
+        videoDuration: '11:08'
+      },
+      {
+        id: 'drill-iron-compression',
+        discipline: 'irons',
+        disciplineLabel: 'Eisenschläge',
+        title: '9-bis-3-Uhr-Kompressions-Drill',
+        durationBalls: '15 Bälle · ca. 10 Min.',
+        setupMaterial: 'Eisen 7 oder 8',
+        steps: [
+          'Schwinge nur halb: Rückschwung bis der linke Arm waagrecht ist (9 Uhr), Durchschwung bis der rechte Arm waagrecht ist (3 Uhr).',
+          'Achte im Treffmoment darauf, dass die Hände vor dem Ball sind und das Gewicht links ist.',
+          'Kontrolliere nach jedem Schlag, ob das Divot erst nach der Ballposition beginnt.'
+        ],
+        successGoal: '10 von 15 Divots beginnen nach dem Ball.',
+        videoId: 'iSQaUtaZ2uw',
+        videoTitle: 'Fette Schläge vermeiden & Kompression verbessern',
+        videoChannel: 'Birgit Bettergolf',
+        videoDuration: '02:03'
+      },
+      {
+        id: 'drill-iron-carryladder',
+        discipline: 'irons',
+        disciplineLabel: 'Eisenschläge',
+        title: 'Carry-Leiter mit 3 Eisen',
+        durationBalls: '15 Bälle · ca. 12 Min.',
+        setupMaterial: '3 Eisen (z. B. 9, 7 und 5), Range mit Distanzschildern',
+        steps: [
+          'Schlage je 5 Bälle mit jedem Eisen auf dasselbe Ziel.',
+          'Schätze die Carry-Distanz (Landepunkt, nicht Ausrollen) und notiere den Durchschnitt.',
+          'Vergleiche die Abstände zwischen den Schlägern – sie sollten gleichmäßig sein.'
+        ],
+        successGoal: 'Du kennst deine Carry-Distanzen und die Abstände betragen ca. 10–12 m pro Schläger.',
+        videoId: 'iSQaUtaZ2uw',
+        videoTitle: 'Low-Point beim Eisenschlag kontrollieren',
+        videoChannel: 'Birgit Bettergolf',
+        videoDuration: '02:03'
+      },
+      {
+        id: 'drill-iron-gate',
+        discipline: 'irons',
+        disciplineLabel: 'Eisenschläge',
+        title: 'Tee-Tor für die Schlagfläche',
+        durationBalls: '15 Bälle · ca. 10 Min.',
+        setupMaterial: 'Eisen 7, 2 Tees',
+        steps: [
+          'Stecke zwei Tees als Tor in den Boden – vor dem Ball, nur 2 cm breiter als dein Schlägerkopf.',
+          'Beginne mit halben Schwüngen und triff den Ball, ohne die Tees zu berühren.',
+          'Steigere auf Dreiviertel-Schwünge, sobald 5 Schläge in Folge sauber durch das Tor gehen.'
+        ],
+        successGoal: '8 von 10 Dreiviertel-Schwüngen ohne Berührung der Tees.',
+        videoId: 'iSQaUtaZ2uw',
+        videoTitle: 'Low-Point beim Eisenschlag kontrollieren',
+        videoChannel: 'Birgit Bettergolf',
+        videoDuration: '02:03'
+      },
+      {
+        id: 'drill-wedge-clock',
+        discipline: 'wedges',
+        disciplineLabel: 'Wedges',
+        places: ['range'],
+        title: 'Uhr-System: 7:30 – 9:00 – 10:30',
+        durationBalls: '18 Bälle · ca. 15 Min.',
+        setupMaterial: 'Sand Wedge oder Gap Wedge, Range mit Fahnen',
+        steps: [
+          'Schlage je 6 Bälle mit drei Rückschwunglängen: linker Arm auf 7:30, 9:00 und 10:30 Uhr.',
+          'Halte das Tempo bei allen Längen gleich – nur die Länge des Rückschwungs ändert sich.',
+          'Merke dir die Carry-Distanz jeder Länge – das sind deine festen Wedge-Distanzen.'
+        ],
+        successGoal: 'Die Bälle einer Rückschwunglänge streuen weniger als 5 m in der Länge.',
+        videoId: 'iSQaUtaZ2uw',
+        videoTitle: 'Wedge-Distanzen präzise steuern',
+        videoChannel: 'Birgit Bettergolf',
+        videoDuration: '02:03'
+      },
+      {
+        id: 'drill-chip-ladder',
+        discipline: 'wedges',
+        disciplineLabel: 'Wedges',
+        places: ['green'],
+        title: 'Chip-Leiter mit 3 Schlägern',
+        durationBalls: '15 Bälle · ca. 10 Min.',
+        setupMaterial: 'Eisen 8, Pitching Wedge, Sand Wedge, ein Handtuch als Landezone',
+        steps: [
+          'Lege das Handtuch ca. 2 m auf das Grün – das ist deine Landezone.',
+          'Chippe mit allen drei Schlägern je 5 Bälle auf dieselbe Landezone und benutze dieselbe kurze Bewegung.',
+          'Beobachte, wie weit jeder Schläger danach rollt.'
+        ],
+        successGoal: 'Du kennst das Verhältnis von Flug zu Rollen für jeden Schläger (etwa Eisen 8 1:3, PW 1:2, SW 1:1).',
+        videoId: 'sU2STUlVNpU',
+        videoTitle: 'Kurzspiel & Gefühl trainieren',
+        videoChannel: 'Karl Villwock Golf',
+        videoDuration: '06:05'
+      },
+      {
+        id: 'drill-chip-updown',
+        discipline: 'wedges',
+        disciplineLabel: 'Wedges',
+        places: ['green'],
+        title: 'Up-and-Down-Challenge (9 Lagen)',
+        durationBalls: '9 Bälle · ca. 15 Min.',
+        setupMaterial: 'Wedges, Putter, 9 Bälle',
+        steps: [
+          'Verteile 9 Bälle rund um das Übungsgrün – gute Lage, schlechte Lage, bergauf, bergab.',
+          'Spiele jeden Ball mit einem Chip oder Pitch und loche ihn danach ein, wie auf dem Platz.',
+          'Zähle, wie oft du mit maximal 2 Schlägen eingelocht hast (Up and Down).'
+        ],
+        successGoal: '4 von 9 Up and Downs (für Single-Handicapper: 6 von 9).',
+        videoId: 'sU2STUlVNpU',
+        videoTitle: 'Kurzspiel & Gefühl trainieren',
+        videoChannel: 'Karl Villwock Golf',
+        videoDuration: '06:05'
+      },
+      {
+        id: 'drill-bunker-line',
+        discipline: 'wedges',
+        disciplineLabel: 'Wedges',
+        places: ['green'],
+        title: 'Linie im Sand: Bunker-Kontakt',
+        durationBalls: '15 Bälle · ca. 10 Min.',
+        setupMaterial: 'Sand Wedge, Übungsbunker',
+        steps: [
+          'Ziehe eine Linie quer zur Ziellinie in den Sand.',
+          'Schwinge zuerst ohne Ball und triff den Sand genau ab der Linie – 5 Wiederholungen.',
+          'Lege jetzt den Ball 5 cm vor die Linie und spiele ihn mit offener Schlagfläche heraus.'
+        ],
+        successGoal: '8 von 10 Bällen landen beim ersten Versuch auf dem Grün.',
+        videoId: 'iSQaUtaZ2uw',
+        videoTitle: 'Bounce beim Pitchen richtig einsetzen',
+        videoChannel: 'Birgit Bettergolf',
+        videoDuration: '02:03'
+      },
+      {
+        id: 'drill-putt-clock',
+        discipline: 'putting',
+        disciplineLabel: 'Putten',
+        title: 'Uhr-Drill: 4 Putts rund ums Loch',
+        durationBalls: '12+ Putts · ca. 8 Min.',
+        setupMaterial: 'Putter, 4 Bälle, 4 Tees',
+        steps: [
+          'Stecke 4 Tees auf 3, 6, 9 und 12 Uhr jeweils 1 m vom Loch entfernt.',
+          'Loche reihum von jedem Tee ein. Bei einem Fehlschlag beginnst du von vorne.',
+          'Nach einer vollen Runde ohne Fehler rückst du auf 1,5 m zurück.'
+        ],
+        successGoal: '12 Putts in Folge (3 volle Runden) ohne Fehlschlag.',
+        videoId: 'hX2hdEG9i9M',
+        videoTitle: 'Startlinie & Pendel beim Putten verbessern',
+        videoChannel: 'Golfpro Sascha Elender',
+        videoDuration: '05:45'
+      },
+      {
+        id: 'drill-putt-lagzone',
+        discipline: 'putting',
+        disciplineLabel: 'Putten',
+        title: 'Lag-Zone: lange Putts in den 1-m-Kreis',
+        durationBalls: '15 Putts · ca. 12 Min.',
+        setupMaterial: 'Putter, 5 Bälle, 4 Tees',
+        steps: [
+          'Markiere mit 4 Tees einen Kreis mit 1 m Radius um das Loch.',
+          'Putte je 5 Bälle aus 10, 15 und 20 m.',
+          'Zähle jeden Ball, der im Kreis liegen bleibt – so vermeidest du Drei-Putts.'
+        ],
+        successGoal: '12 von 15 Bällen bleiben im Kreis liegen.',
+        videoId: 'sU2STUlVNpU',
+        videoTitle: 'Längenkontrolle & Tempo auf dem Grün',
+        videoChannel: 'Karl Villwock Golf',
+        videoDuration: '06:05'
+      },
+      {
+        id: 'drill-putt-pressure',
+        discipline: 'putting',
+        disciplineLabel: 'Putten',
+        title: 'Druck-Putts: 10 in Folge aus 1,2 m',
+        durationBalls: '10+ Putts · ca. 8 Min.',
+        setupMaterial: 'Putter, 1 Ball',
+        steps: [
+          'Lege den Ball 1,2 m vom Loch entfernt – eine typische „Muss-Putt“-Distanz.',
+          'Spiele jeden Putt mit kompletter Routine: Linie lesen, Probeschwung, ausrichten.',
+          'Bei einem Fehlschlag fängst du wieder bei null an.'
+        ],
+        successGoal: '10 Putts in Folge einlochen.',
+        videoId: 'hX2hdEG9i9M',
+        videoTitle: 'Startlinie & Pendel beim Putten verbessern',
+        videoChannel: 'Golfpro Sascha Elender',
+        videoDuration: '05:45'
+      },
+      {
+        id: 'drill-basics-ballpos',
+        discipline: 'basics',
+        disciplineLabel: 'Setup & Griff',
+        title: 'Ballpositions-Leiter mit Alignment-Stick',
+        durationBalls: '12 Bälle · ca. 8 Min.',
+        setupMaterial: '2 Alignment-Sticks, Wedge, Eisen 7, Driver',
+        steps: [
+          'Lege einen Stick parallel zur Ziellinie und einen zweiten quer dazu als Markierung der Ballposition.',
+          'Wedge: Ball mittig. Eisen 7: eine Ballbreite links der Mitte. Driver: Innenseite linke Ferse.',
+          'Schlage je 4 Bälle und kontrolliere die Ballposition vor jedem Schlag am Stick.'
+        ],
+        successGoal: 'Du findest die richtige Ballposition für alle drei Schläger ohne Hinsehen.',
+        videoId: 'YcPgyMCWohU',
+        videoTitle: 'Ausrichtung & Setup wie auf der Tour',
+        videoChannel: 'PL Performance Golf',
+        videoDuration: '11:08'
+      },
+      {
+        id: 'drill-basics-finish',
+        discipline: 'basics',
+        disciplineLabel: 'Setup & Griff',
+        title: 'Balance-Finish: 3 Sekunden halten',
+        durationBalls: '10 Bälle · ca. 7 Min.',
+        setupMaterial: 'Eisen 7',
+        steps: [
+          'Schwinge mit ca. 70 % Tempo und ende in einem hohen Finish.',
+          'Halte das Finish 3 Sekunden: Gewicht links, Gürtelschnalle zeigt zum Ziel, rechter Fuß auf der Spitze.',
+          'Wackelst du, zählt der Schlag nicht – das Tempo ist dann zu hoch.'
+        ],
+        successGoal: '10 von 10 Schlägen mit stabilem Finish.',
+        videoId: 'YcPgyMCWohU',
+        videoTitle: 'Dynamische Gewichtsverlagerung beim Drive',
+        videoChannel: 'PL Performance Golf',
+        videoDuration: '11:08'
+      },
+      {
+        id: 'drill-shaping-height',
+        discipline: 'shaping',
+        disciplineLabel: 'Draw & Fade',
+        title: 'Flughöhe steuern: hoch – mittel – flach',
+        durationBalls: '12 Bälle · ca. 10 Min.',
+        setupMaterial: 'Eisen 7',
+        steps: [
+          'Flach: Ball eine Ballbreite weiter rechts, Gewicht links, kurzes, tiefes Finish.',
+          'Mittel: normales Setup und normales Finish.',
+          'Hoch: Ball eine Ballbreite weiter links, hohes Finish. Spiele je 4 Bälle und wechsle die Reihenfolge.'
+        ],
+        successGoal: 'Drei klar unterscheidbare Flughöhen mit demselben Schläger.',
+        videoId: 'YcPgyMCWohU',
+        videoTitle: 'Startrichtung beim Shot-Shaping steuern',
+        videoChannel: 'PL Performance Golf',
+        videoDuration: '11:08'
+      },
+      {
+        id: 'drill-warmup-random',
+        discipline: 'warmup',
+        disciplineLabel: 'Warm-up & Platz',
+        title: 'Random-Training: jeder Ball ein anderer Schläger',
+        durationBalls: '14 Bälle · ca. 12 Min.',
+        setupMaterial: '4–5 verschiedene Schläger (Driver, Eisen, Wedge)',
+        steps: [
+          'Spiele in Gedanken ein Loch: Drive, Annäherung mit dem passenden Eisen, dann ein Wedge.',
+          'Nutze nie zweimal hintereinander denselben Schläger oder dasselbe Ziel.',
+          'Jeder Schlag bekommt die volle Pre-Shot-Routine – genau wie auf der Runde.'
+        ],
+        successGoal: '9 von 14 Schlägen landen im gewählten Zielbereich.',
+        videoId: 'YcPgyMCWohU',
+        videoTitle: 'Auf der Range wie auf dem Platz trainieren',
+        videoChannel: 'PL Performance Golf',
+        videoDuration: '11:08'
+      },
+      {
+        id: 'drill-warmup-routine',
+        discipline: 'warmup',
+        disciplineLabel: 'Warm-up & Platz',
+        title: '20-Sekunden-Pre-Shot-Routine',
+        durationBalls: '10 Bälle · ca. 8 Min.',
+        setupMaterial: 'Beliebiger Schläger, Handy mit Stoppuhr',
+        steps: [
+          'Lege deine Routine fest: hinter dem Ball das Ziel wählen, Probeschwung, ausrichten, schlagen.',
+          'Stoppe bei jedem Ball die Zeit vom Hinter-dem-Ball-Stehen bis zum Schlag.',
+          'Halte Reihenfolge und Dauer bei jedem Schlag gleich.'
+        ],
+        successGoal: '10 von 10 Routinen dauern 15–25 Sekunden.',
+        videoId: 'YcPgyMCWohU',
+        videoTitle: 'Pre-Shot-Routine & Fokus unter Druck',
+        videoChannel: 'PL Performance Golf',
+        videoDuration: '11:08'
+      },
+      {
+        id: 'drill-indoor-towelarms',
+        discipline: 'indoor',
+        disciplineLabel: 'Winter & Indoor',
+        title: 'Handtuch unter den Achseln (Arm-Körper-Verbindung)',
+        durationBalls: 'Ohne Ball · ca. 6 Min.',
+        setupMaterial: 'Handtuch, kurzes Eisen oder Wedge – vorher Platz zur Decke prüfen!',
+        steps: [
+          'Klemme ein Handtuch quer unter beide Achseln.',
+          'Mache halbe Schwünge (9 bis 3 Uhr): Das Handtuch darf nicht herunterfallen.',
+          'Drei Sätze mit je 10 Schwüngen, dazwischen kurz lockern.'
+        ],
+        successGoal: '30 Schwünge, ohne dass das Handtuch herunterfällt.',
+        videoId: '2tGI0wrxhLw',
+        videoTitle: 'Golftraining für zu Hause: Technik & Kontrolle',
+        videoChannel: 'Christopher Godson',
+        videoDuration: '03:12'
+      },
+      {
+        id: 'drill-indoor-slowmo',
+        discipline: 'indoor',
+        disciplineLabel: 'Winter & Indoor',
+        title: 'Zeitlupen-Schwung mit Pause am Top',
+        durationBalls: '15 Wiederholungen · ca. 7 Min.',
+        setupMaterial: 'Spiegel, kurzer Schläger oder ohne Schläger',
+        steps: [
+          'Schwinge in Zeitlupe – ein ganzer Schwung dauert ca. 10 Sekunden.',
+          'Halte am Top 2 Sekunden an und prüfe im Spiegel: linker Arm gestreckt, Schultern gedreht.',
+          'Schwinge langsam weiter bis ins Finish und halte es ebenfalls 2 Sekunden.'
+        ],
+        successGoal: '15 kontrollierte Wiederholungen mit sauberer Top-Position.',
+        videoId: '2tGI0wrxhLw',
+        videoTitle: 'Golftraining für zu Hause: Technik & Kontrolle',
+        videoChannel: 'Christopher Godson',
+        videoDuration: '03:12'
       }
     ];
 
@@ -6742,7 +7105,7 @@
       { key: 'shaping', label: 'Draw & Fade', badge: 'Shot-Shaping · Flugkurven', heading: 'Draw & Fade: Flugkurven-Drills' },
       { key: 'warmup', label: 'Warm-up & Platz', badge: 'Platz-Simulation · Drucktraining', heading: 'Warm-up & Platz-Simulation' },
       { key: 'indoor', label: 'Winter & Indoor', badge: 'Winter- & Wohnzimmer-Training', heading: 'Winter & Indoor: Wohnzimmer-Drills' },
-      { key: 'all', label: 'Alle Drills (18)', badge: 'Gesamtübersicht · 18 Übungen', heading: 'Alle Trainings- & Indoor-Drills' }
+      { key: 'all', label: `Alle Drills (${TRAINING_DRILLS.length})`, badge: `Gesamtübersicht · ${TRAINING_DRILLS.length} Übungen`, heading: 'Alle Trainings- & Indoor-Drills' }
     ];
 
     function setTrainingFilter(filterKey) {
@@ -8121,66 +8484,392 @@
       document.body.removeChild(ta);
     }
 
-    function selectDailyCheckinMood(moodLabel) {
-      selectedDailyMood = moodLabel;
-      document.querySelectorAll('.md-checkin-mood-btn').forEach(btn => {
-        btn.classList.toggle('selected', btn.dataset.mood === moodLabel);
-      });
+    /* ========================================================================
+       TÄGLICHER TRAININGS-CHECK-IN: FOKUS + ORT + DAUER -> TRAININGSPLAN
+       ======================================================================== */
+    const CHECKIN_FOCUS = [
+      { key: 'driver', icon: '🏌️', label: 'Driver', disciplines: ['driver'] },
+      { key: 'irons', icon: '🎯', label: 'Eisen', disciplines: ['irons'] },
+      { key: 'shortgame', icon: '⛳', label: 'Kurzspiel', disciplines: ['wedges'] },
+      { key: 'putting', icon: '🟢', label: 'Putten', disciplines: ['putting'] },
+      { key: 'basics', icon: '🧱', label: 'Setup & Griff', disciplines: ['basics'] },
+      { key: 'shaping', icon: '↪️', label: 'Draw & Fade', disciplines: ['shaping'] },
+      { key: 'course', icon: '🧠', label: 'Platz & Kopf', disciplines: ['warmup'] },
+      { key: 'mix', icon: '🔄', label: 'Allround', disciplines: ['driver', 'irons', 'wedges', 'putting'] }
+    ];
+
+    const CHECKIN_PLACES = [
+      { key: 'both', icon: '🏞️', label: 'Range & Kurzspiel', places: ['range', 'green'] },
+      { key: 'range', icon: '🏌️', label: 'Nur Range', places: ['range'] },
+      { key: 'green', icon: '🟢', label: 'Übungsgrün', places: ['green'] },
+      { key: 'home', icon: '🏠', label: 'Zuhause', places: ['home'] }
+    ];
+
+    const CHECKIN_MINUTES = [15, 30, 45, 60, 90];
+
+    /* Indoor-Drills passend zum Fokus (für "Zuhause") */
+    const INDOOR_FOCUS = {
+      'drill-indoor-ruler': ['putting', 'mix'],
+      'drill-indoor-cushion': ['shortgame', 'mix'],
+      'drill-indoor-mirror': ['basics', 'irons', 'driver', 'course'],
+      'drill-indoor-wallhip': ['driver', 'irons', 'shaping', 'basics', 'mix'],
+      'drill-indoor-towelarms': ['irons', 'driver', 'basics', 'shortgame', 'mix'],
+      'drill-indoor-slowmo': ['driver', 'irons', 'shaping', 'basics', 'course', 'mix']
+    };
+
+    /* Verwandte Bereiche, falls der Fokus allein die Zeit nicht füllt */
+    const CHECKIN_RELATED = {
+      driver: ['irons', 'basics', 'shaping'],
+      irons: ['basics', 'wedges', 'shaping'],
+      shortgame: ['putting', 'basics'],
+      putting: ['wedges'],
+      basics: ['irons', 'driver', 'warmup'],
+      shaping: ['irons', 'driver', 'basics'],
+      course: ['driver', 'irons', 'wedges', 'putting'],
+      mix: ['basics', 'shaping', 'warmup']
+    };
+
+    const checkinUi = { focus: ['mix'], place: 'both', minutes: 45, editing: false, open: -1 };
+
+    function drillMinutes(d) {
+      const m = /(\d+)\s*Min/.exec(d.durationBalls || '');
+      return m ? parseInt(m[1], 10) : 10;
     }
+
+    function drillBalls(d) {
+      const m = /(\d+)\+?\s*(Bälle|Putts|Schaumstoffbälle)/.exec(d.durationBalls || '');
+      return m ? parseInt(m[1], 10) : 0;
+    }
+
+    function drillPlaces(d) {
+      if (Array.isArray(d.places)) return d.places;
+      if (d.discipline === 'putting') return ['green'];
+      if (d.discipline === 'indoor') return ['home'];
+      if (d.discipline === 'wedges') return ['range', 'green'];
+      return ['range'];
+    }
+
+    function checkinSeedRandom(seedStr) {
+      let h = 2166136261;
+      for (let i = 0; i < seedStr.length; i++) { h ^= seedStr.charCodeAt(i); h = Math.imul(h, 16777619); }
+      return () => {
+        h += 0x6D2B79F5;
+        let t = h;
+        t = Math.imul(t ^ (t >>> 15), t | 1);
+        t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
+        return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+      };
+    }
+
+    function warmupBlockFor(place, minutes) {
+      const min = minutes <= 15 ? 3 : minutes <= 30 ? 5 : minutes <= 45 ? 7 : minutes <= 60 ? 8 : 10;
+      const steps = place === 'home'
+        ? ['Schulter- und Hüftkreise, je 10 pro Richtung.', '10 langsame Rotationen mit einem Schläger hinter den Schultern.', '10 Probeschwünge in Zeitlupe, dann 5 in normalem Tempo.']
+        : place === 'green'
+          ? ['Schulter- und Hüftkreise, je 10 pro Richtung.', 'Ein paar lange Putts zum Lesen des Grüns und für das Tempo.', '5 kurze Chips mit lockeren Handgelenken.']
+          : ['Schulter- und Hüftkreise, je 10 pro Richtung, Rotationen mit dem Schläger hinter den Schultern.', '10 halbe Schwünge mit dem Wedge, dann 5 Dreiviertel-Schwünge mit einem kurzen Eisen.', 'Erst danach die längeren Schläger.'];
+      return { type: 'warmup', min, title: 'Aufwärmen & Mobilisation', steps };
+    }
+
+    function buildTrainingPlan(focusKeys, placeKey, minutes, reshuffle) {
+      const place = CHECKIN_PLACES.find(p => p.key === placeKey) || CHECKIN_PLACES[0];
+      const rand = checkinSeedRandom(`${localDateKey()}|${focusKeys.join(',')}|${placeKey}|${minutes}|${reshuffle || 0}`);
+      const notes = [];
+      const blocks = [];
+
+      const warm = warmupBlockFor(placeKey, minutes);
+      blocks.push(warm);
+
+      const fits = d => drillPlaces(d).some(p => place.places.includes(p));
+      const score = d => rand() + (completedDrills.has(d.id) ? 0.35 : 0);
+      const byScore = list => list.map(d => ({ d, s: score(d) })).sort((a, b) => a.s - b.s).map(x => x.d);
+
+      // Pools je Fokus
+      let pools = focusKeys.map(fk => {
+        const f = CHECKIN_FOCUS.find(x => x.key === fk);
+        let list;
+        if (placeKey === 'home') {
+          list = TRAINING_DRILLS.filter(d => d.discipline === 'indoor' && (INDOOR_FOCUS[d.id] || []).includes(fk));
+        } else {
+          list = TRAINING_DRILLS.filter(d => f.disciplines.includes(d.discipline) && fits(d));
+        }
+        if (!list.length) notes.push(`Für „${f.label}“ gibt es am Ort „${place.label}“ keine passenden Übungen – ich ergänze passende Alternativen.`);
+        return byScore(list);
+      }).filter(p => p.length);
+
+      if (!pools.length) {
+        const fallback = placeKey === 'home'
+          ? TRAINING_DRILLS.filter(d => d.discipline === 'indoor')
+          : TRAINING_DRILLS.filter(d => fits(d) && d.discipline !== 'warmup' && d.discipline !== 'indoor');
+        pools = [byScore(fallback)];
+      }
+
+      // Abschluss-Drucktest (ab 45 Min.)
+      let finisher = null;
+      if (minutes >= 45 && placeKey !== 'home' && !focusKeys.includes('course')) {
+        const shortOnly = focusKeys.every(k => k === 'shortgame' || k === 'putting');
+        const candidates = (placeKey === 'green' || (shortOnly && placeKey === 'both'))
+          ? TRAINING_DRILLS.filter(d => d.id === 'drill-putt-pressure')
+          : byScore(TRAINING_DRILLS.filter(d => d.discipline === 'warmup' && drillMinutes(d) <= (minutes >= 60 ? 12 : 9)));
+        if (candidates.length) finisher = candidates[0];
+      }
+
+      let remaining = minutes - warm.min - (finisher ? drillMinutes(finisher) : 0);
+      const used = new Set(finisher ? [finisher.id] : []);
+      const main = [];
+      const take = (d, extra) => {
+        used.add(d.id);
+        main.push(Object.assign({ type: 'drill', id: d.id, min: drillMinutes(d) }, extra || {}));
+        remaining -= drillMinutes(d);
+      };
+      const nextFrom = list => list.find(d => !used.has(d.id) && drillMinutes(d) <= remaining + 2);
+
+      // 1) Fokus-Übungen im Wechsel
+      let p = 0, misses = 0;
+      while (remaining >= 5 && misses < pools.length) {
+        const d = nextFrom(pools[p % pools.length]);
+        p++;
+        if (d) { take(d); misses = 0; } else misses++;
+      }
+
+      // 2) Ergänzung aus verwandten Bereichen
+      if (remaining >= 5) {
+        const related = new Set();
+        focusKeys.forEach(fk => (CHECKIN_RELATED[fk] || []).forEach(x => related.add(x)));
+        const extra = placeKey === 'home'
+          ? byScore(TRAINING_DRILLS.filter(d => d.discipline === 'indoor'))
+          : byScore(TRAINING_DRILLS.filter(d => related.has(d.discipline) && fits(d)));
+        let d;
+        while (remaining >= 5 && (d = nextFrom(extra))) take(d, { extra: true });
+      }
+
+      // 3) Zweite Runde der Fokus-Übungen (im Wechsel)
+      const firstRound = main.filter(b => !b.extra);
+      let r = 0;
+      while (remaining >= 5 && firstRound.length && r < 12) {
+        const src = firstRound[r % firstRound.length];
+        const repMin = Math.min(remaining, src.min);
+        main.push({ type: 'drill', id: src.id, min: repMin, repeat: true });
+        remaining -= repMin;
+        r++;
+      }
+
+      blocks.push(...main);
+      if (finisher) blocks.push({ type: 'drill', id: finisher.id, min: drillMinutes(finisher), finisher: true });
+      return { blocks, notes };
+    }
+
+    function checkinFocusLabel(keys) {
+      return (keys || []).map(k => (CHECKIN_FOCUS.find(f => f.key === k) || {}).label).filter(Boolean).join(' + ');
+    }
+
+    function toggleCheckinFocus(key) {
+      let f = checkinUi.focus.slice();
+      if (key === 'mix') f = ['mix'];
+      else {
+        f = f.filter(k => k !== 'mix');
+        if (f.includes(key)) f = f.filter(k => k !== key);
+        else { f.push(key); if (f.length > 2) f.shift(); }
+        if (!f.length) f = ['mix'];
+      }
+      checkinUi.focus = f;
+      renderDailyCheckinCard();
+    }
+
+    function setCheckinPlace(key) { checkinUi.place = key; renderDailyCheckinCard(); }
+    function setCheckinMinutes(m) { checkinUi.minutes = m; renderDailyCheckinCard(); }
+    function editDailyCheckin() { checkinUi.editing = true; renderDailyCheckinCard(); }
+    function cancelEditDailyCheckin() { checkinUi.editing = false; renderDailyCheckinCard(); }
 
     function submitDailyCheckin() {
       const todayKey = localDateKey();
-      const focusInput = document.getElementById('dailyCheckinFocusInput');
-      const focusGoal = (focusInput?.value || '').trim() || 'Sauberer Rhythmus & Fokus bei jedem Schlag';
-
+      const prev = dailyCheckins[todayKey];
+      const focusLabel = checkinFocusLabel(checkinUi.focus);
+      const place = CHECKIN_PLACES.find(p => p.key === checkinUi.place) || CHECKIN_PLACES[0];
+      const sameSetup = prev && prev.minutes === checkinUi.minutes && prev.place === checkinUi.place && (prev.focusKeys || []).join() === checkinUi.focus.join();
       dailyCheckins[todayKey] = {
         date: todayKey,
-        mood: selectedDailyMood,
-        focus: focusGoal,
-        timestamp: new Date().toISOString()
+        mood: focusLabel,
+        focus: `${focusLabel} · ${checkinUi.minutes} Min. · ${place.label}`,
+        focusKeys: checkinUi.focus.slice(),
+        place: checkinUi.place,
+        minutes: checkinUi.minutes,
+        reshuffle: sameSetup ? (prev.reshuffle || 0) : 0,
+        done: sameSetup ? (prev.done || []) : [],
+        timestamp: (prev && prev.timestamp) || new Date().toISOString()
       };
-
+      checkinUi.editing = false;
+      checkinUi.open = -1;
       recordActivityEvent(
         `checkin-${todayKey}`,
         'checkin',
-        `Täglicher Check-in: ${selectedDailyMood}`,
-        `Fokus-Ziel: ${focusGoal}`,
+        `Trainings-Check-in: ${focusLabel}`,
+        `${checkinUi.minutes} Min. · ${place.label}`,
         5
       );
       savePersistedState();
       renderStatsView();
     }
 
-    function renderDailyCheckinCard() {
-      const todayKey = localDateKey();
-      const todayEntry = dailyCheckins[todayKey];
-      const card = document.getElementById('dailyCheckinCard');
-      const badge = document.getElementById('dailyCheckinStatusBadge');
-      const btnLabel = document.getElementById('btnDailyCheckinLabel');
-      const summaryBar = document.getElementById('dailyCheckinSummaryBar');
-      const summaryText = document.getElementById('dailyCheckinSummaryText');
-      const focusInput = document.getElementById('dailyCheckinFocusInput');
+    function reshuffleTodayPlan() {
+      const entry = dailyCheckins[localDateKey()];
+      if (!entry) return;
+      entry.reshuffle = (entry.reshuffle || 0) + 1;
+      entry.done = [];
+      checkinUi.open = -1;
+      savePersistedState();
+      renderDailyCheckinCard();
+    }
 
-      if (todayEntry) {
-        selectedDailyMood = todayEntry.mood || selectedDailyMood;
-        if (card) card.classList.add('checked-today');
-        if (badge) badge.textContent = 'Heute erledigt · +25 XP';
-        if (btnLabel) btnLabel.textContent = 'Heutigen Check-in aktualisieren';
-        if (focusInput && !focusInput.value) focusInput.value = todayEntry.focus || '';
-        if (summaryBar && summaryText) {
-          summaryBar.classList.remove('hidden');
-          summaryText.innerHTML = `<strong>Heute eingecheckt:</strong> ${todayEntry.mood} &bull; Ziel: „${todayEntry.focus}“`;
+    function toggleCheckinStep(i) {
+      checkinUi.open = checkinUi.open === i ? -1 : i;
+      renderDailyCheckinCard();
+    }
+
+    function toggleCheckinBlockDone(i, ev) {
+      if (ev) ev.stopPropagation();
+      const entry = dailyCheckins[localDateKey()];
+      if (!entry) return;
+      const done = new Set(entry.done || []);
+      if (done.has(i)) done.delete(i);
+      else {
+        done.add(i);
+        const plan = buildTrainingPlan(entry.focusKeys, entry.place, entry.minutes, entry.reshuffle);
+        const b = plan.blocks[i];
+        if (b && b.type === 'drill' && !completedDrills.has(b.id)) {
+          toggleDrillCompleted(b.id);
         }
-      } else {
-        if (card) card.classList.remove('checked-today');
-        if (badge) badge.textContent = 'Heute offen · +25 XP';
-        if (btnLabel) btnLabel.textContent = 'Check-in abschließen (+25 XP)';
-        if (summaryBar) summaryBar.classList.add('hidden');
+      }
+      entry.done = [...done];
+      savePersistedState();
+      renderStatsView();
+    }
+
+    function openCheckinDrillVideo(id, ev) {
+      if (ev) ev.stopPropagation();
+      const d = TRAINING_DRILLS.find(x => x.id === id);
+      if (d && d.videoId) openVideoModal(d.videoId, d.videoTitle, d.disciplineLabel, d.videoChannel);
+    }
+
+    function selectDailyCheckinMood() { /* ersetzt durch Fokus-Auswahl (v4.25.0) */ }
+
+    function renderDailyCheckinCard() {
+      const card = document.getElementById('dailyCheckinCard');
+      if (!card) return;
+      const todayKey = localDateKey();
+      const entry = dailyCheckins[todayKey];
+      const hasPlan = entry && Array.isArray(entry.focusKeys);
+
+      if (!checkinUi.editing && !hasPlan) {
+        // Vorauswahl: letzte Einstellungen übernehmen
+        const last = Object.values(dailyCheckins).filter(e => Array.isArray(e.focusKeys)).sort((a, b) => (a.date < b.date ? 1 : -1))[0];
+        if (last && !checkinUi.touched) {
+          checkinUi.place = last.place || checkinUi.place;
+          checkinUi.minutes = last.minutes || checkinUi.minutes;
+        }
+      }
+      card.classList.toggle('checked-today', !!entry);
+
+      const header = `
+        <div class="ck-head">
+          <div style="display: flex; align-items: center; gap: 0.55rem;">
+            <span class="material-symbols-rounded filled" style="color: var(--md-sys-color-primary); font-size: 22px;">today</span>
+            <div>
+              <h3 class="font-display" style="font-size: 1.02rem; font-weight: 800;">Trainings-Check-in</h3>
+              <p style="font-size: 0.78rem; color: var(--md-sys-color-on-surface-variant);">${hasPlan && !checkinUi.editing ? 'Dein Trainingsplan für heute' : 'Fokus und Zeit wählen – dein Training wird zusammengestellt'}</p>
+            </div>
+          </div>
+          <span class="md-assist-badge font-mono">${entry ? 'Heute erledigt · +25 XP' : 'Heute offen · +25 XP'}</span>
+        </div>`;
+
+      if (!hasPlan || checkinUi.editing) {
+        if (hasPlan && checkinUi.editing && !checkinUi.loadedFromEntry) {
+          checkinUi.focus = entry.focusKeys.slice();
+          checkinUi.place = entry.place;
+          checkinUi.minutes = entry.minutes;
+          checkinUi.loadedFromEntry = true;
+        }
+        const chip = (sel, onclick, html) => `<button type="button" class="md-checkin-mood-btn ${sel ? 'selected' : ''}" onclick="${onclick}">${html}</button>`;
+        card.innerHTML = header + `
+          <div class="ck-q">
+            <span class="ck-label">1. Worauf legst du heute den Fokus? <em>(bis zu 2)</em></span>
+            <div class="ck-chips">${CHECKIN_FOCUS.map(f => chip(checkinUi.focus.includes(f.key), `checkinUi.touched=true;toggleCheckinFocus('${f.key}')`, `<span>${f.icon} ${f.label}</span>`)).join('')}</div>
+          </div>
+          <div class="ck-q">
+            <span class="ck-label">2. Wo trainierst du?</span>
+            <div class="ck-chips">${CHECKIN_PLACES.map(p => chip(checkinUi.place === p.key, `checkinUi.touched=true;setCheckinPlace('${p.key}')`, `<span>${p.icon} ${p.label}</span>`)).join('')}</div>
+          </div>
+          <div class="ck-q">
+            <span class="ck-label">3. Wie lange willst du trainieren?</span>
+            <div class="ck-chips">${CHECKIN_MINUTES.map(m => chip(checkinUi.minutes === m, `checkinUi.touched=true;setCheckinMinutes(${m})`, `<span>${m} Min.</span>`)).join('')}</div>
+          </div>
+          <div class="ck-actions">
+            ${hasPlan ? '<button type="button" class="md-text-btn" onclick="checkinUi.loadedFromEntry=false;cancelEditDailyCheckin()">Abbrechen</button>' : ''}
+            <button type="button" class="md-filled-btn" onclick="checkinUi.loadedFromEntry=false;submitDailyCheckin()">
+              <span class="material-symbols-rounded" style="font-size: 18px;">auto_awesome</span>
+              <span>${hasPlan ? 'Plan neu erstellen' : 'Training zusammenstellen (+25 XP)'}</span>
+            </button>
+          </div>`;
+        return;
       }
 
-      document.querySelectorAll('.md-checkin-mood-btn').forEach(btn => {
-        btn.classList.toggle('selected', btn.dataset.mood === selectedDailyMood);
-      });
+      if (!hasPlan) return;
+      const plan = buildTrainingPlan(entry.focusKeys, entry.place, entry.minutes, entry.reshuffle);
+      const done = new Set(entry.done || []);
+      const place = CHECKIN_PLACES.find(p => p.key === entry.place) || CHECKIN_PLACES[0];
+      let t = 0;
+      let balls = 0;
+      const rows = plan.blocks.map((b, i) => {
+        const start = t;
+        t += b.min;
+        const isOpen = checkinUi.open === i;
+        const isDone = done.has(i);
+        if (b.type === 'warmup') {
+          return `
+            <div class="ck-step ${isDone ? 'done' : ''} ${isOpen ? 'open' : ''}" onclick="toggleCheckinStep(${i})">
+              <div class="ck-time">${start}–${t}′</div>
+              <div class="ck-body">
+                <div class="ck-title">${b.title}</div>
+                <div class="ck-meta">Ohne Ball · ${b.min} Min.</div>
+                ${isOpen ? `<ul class="ck-detail">${b.steps.map(s => `<li>${s}</li>`).join('')}</ul>` : ''}
+              </div>
+              <button type="button" class="ck-check" onclick="toggleCheckinBlockDone(${i}, event)" aria-label="Erledigt"><span class="material-symbols-rounded ${isDone ? 'filled' : ''}">${isDone ? 'check_circle' : 'radio_button_unchecked'}</span></button>
+            </div>`;
+        }
+        const d = TRAINING_DRILLS.find(x => x.id === b.id);
+        if (!d) return '';
+        if (!b.repeat) balls += drillBalls(d);
+        const tag = b.finisher ? '<span class="ck-tag">Abschluss-Test</span>' : b.repeat ? '<span class="ck-tag">2. Runde</span>' : b.extra ? '<span class="ck-tag">Ergänzung</span>' : '';
+        return `
+          <div class="ck-step ${isDone ? 'done' : ''} ${isOpen ? 'open' : ''}" onclick="toggleCheckinStep(${i})">
+            <div class="ck-time">${start}–${t}′</div>
+            <div class="ck-body">
+              <div class="ck-title">${d.title} ${tag}</div>
+              <div class="ck-meta">${d.disciplineLabel} · ${b.repeat ? `${b.min} Min.` : d.durationBalls}</div>
+              ${isOpen ? `
+                <ol class="ck-detail">${d.steps.map(s => `<li>${s}</li>`).join('')}</ol>
+                <div class="ck-info"><strong>Material:</strong> ${d.setupMaterial}</div>
+                <div class="ck-info"><strong>Ziel:</strong> ${d.successGoal}</div>
+                ${d.videoId ? `<button type="button" class="md-tonal-btn ck-video" onclick="openCheckinDrillVideo('${d.id}', event)"><span class="material-symbols-rounded" style="font-size: 18px;">smart_display</span><span>Video ansehen</span></button>` : ''}` : ''}
+            </div>
+            <button type="button" class="ck-check" onclick="toggleCheckinBlockDone(${i}, event)" aria-label="Erledigt"><span class="material-symbols-rounded ${isDone ? 'filled' : ''}">${isDone ? 'check_circle' : 'radio_button_unchecked'}</span></button>
+          </div>`;
+      }).join('');
+      const doneCount = plan.blocks.filter((_, i) => done.has(i)).length;
+      const pct = Math.round((doneCount / Math.max(1, plan.blocks.length)) * 100);
+
+      card.innerHTML = header + `
+        <div class="ck-summary">
+          <div><strong>${checkinFocusLabel(entry.focusKeys)}</strong> · ${t} Min. · ${place.label}${balls ? ` · ca. ${balls} Bälle` : ''}</div>
+          <div class="ck-progress"><div class="ck-progress-fill" style="width: ${pct}%;"></div></div>
+          <div class="ck-progress-label">${doneCount} von ${plan.blocks.length} Blöcken erledigt${doneCount === plan.blocks.length ? ' – starkes Training! 💪' : ''}</div>
+        </div>
+        ${plan.notes.map(n => `<div class="ck-note">${n}</div>`).join('')}
+        <div class="ck-steps">${rows}</div>
+        <div class="ck-actions">
+          <button type="button" class="md-text-btn" onclick="editDailyCheckin()"><span class="material-symbols-rounded" style="font-size: 18px;">tune</span><span>Anpassen</span></button>
+          <button type="button" class="md-tonal-btn" onclick="reshuffleTodayPlan()"><span class="material-symbols-rounded" style="font-size: 18px;">shuffle</span><span>Neu mischen</span></button>
+        </div>`;
     }
 
     function renderStatsView() {
