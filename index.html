@@ -623,7 +623,7 @@
 
     .md-nav-bar {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 0.45rem;
       background-color: var(--md-sys-color-surface-container);
       border-radius: 1.75rem;
@@ -632,13 +632,13 @@
 
     @media (min-width: 640px) {
       .md-nav-bar {
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(4, minmax(0, 1fr));
       }
     }
 
     @media (min-width: 1024px) {
       .md-nav-bar {
-        grid-template-columns: repeat(6, 1fr);
+        grid-template-columns: repeat(6, minmax(0, 1fr));
       }
     }
 
@@ -886,7 +886,7 @@
        ========================================================================== */
     .md-stage-grid {
       display: grid;
-      grid-template-columns: 1fr;
+      grid-template-columns: minmax(0, 1fr);
       gap: 1.15rem;
     }
 
@@ -1014,6 +1014,21 @@
       flex-shrink: 0;
     }
 
+    .md-kpi-card > div:not(.md-kpi-icon-circle),
+    .md-achievement-tile > div:not(.md-kpi-icon-circle) {
+      min-width: 0;
+      overflow-wrap: anywhere;
+    }
+
+    .md-achievement-tile { min-width: 0; }
+
+    @media (max-width: 400px) {
+      .md-kpi-card { flex-direction: column; align-items: flex-start; gap: 0.5rem; padding: 0.85rem 0.9rem; }
+      .md-kpi-card > div:not(.md-kpi-icon-circle) { width: 100%; hyphens: auto; }
+      .md-kpi-label { letter-spacing: 0.03em; font-size: 0.68rem; }
+      .md-kpi-value { font-size: 0.88rem; }
+    }
+
     .md-kpi-label {
       font-size: 0.71rem;
       font-weight: 700;
@@ -1031,13 +1046,13 @@
 
     .md-tips-grid {
       display: grid;
-      grid-template-columns: 1fr;
+      grid-template-columns: minmax(0, 1fr);
       gap: 1.15rem;
     }
 
     @media (min-width: 768px) {
       .md-tips-grid {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(3, minmax(0, 1fr));
       }
     }
 
@@ -1064,14 +1079,14 @@
 
     .md-mistakes-grid {
       display: grid;
-      grid-template-columns: 1fr;
+      grid-template-columns: minmax(0, 1fr);
       gap: 1rem;
       margin-top: 1rem;
     }
 
     @media (min-width: 768px) {
       .md-mistakes-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
     }
 
@@ -1101,7 +1116,7 @@
        ========================================================================== */
     .md-warmup-grid {
       display: grid;
-      grid-template-columns: 1fr;
+      grid-template-columns: minmax(0, 1fr);
       gap: 1.15rem;
     }
 
@@ -1136,14 +1151,14 @@
 
     .md-phases-grid {
       display: grid;
-      grid-template-columns: 1fr;
+      grid-template-columns: minmax(0, 1fr);
       gap: 0.9rem;
       margin-top: 1rem;
     }
 
     @media (min-width: 768px) {
       .md-phases-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
     }
 
@@ -1167,13 +1182,13 @@
 
     .md-drills-grid {
       display: grid;
-      grid-template-columns: 1fr;
+      grid-template-columns: minmax(0, 1fr);
       gap: 1.15rem;
     }
 
     @media (min-width: 960px) {
       .md-drills-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
     }
 
@@ -1249,7 +1264,7 @@
 
     .md-comp-ticks {
       display: grid;
-      grid-template-columns: repeat(5, 1fr);
+      grid-template-columns: repeat(5, minmax(0, 1fr));
       gap: 0.35rem;
       margin-top: 0.4rem;
     }
@@ -1289,7 +1304,7 @@
 
     .md-comp-telemetry-strip {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 0.65rem;
       margin-top: 0.65rem;
     }
@@ -1331,13 +1346,13 @@
 
     .md-rules-grid {
       display: grid;
-      grid-template-columns: 1fr;
+      grid-template-columns: minmax(0, 1fr);
       gap: 1.15rem;
     }
 
     @media (min-width: 960px) {
       .md-rules-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
     }
 
@@ -1395,13 +1410,13 @@
     /* Scratch Handicap Blueprint & Shared Step-by-Step Guide Styles */
     .md-scratch-grid {
       display: grid;
-      grid-template-columns: 1fr;
+      grid-template-columns: minmax(0, 1fr);
       gap: 1.15rem;
     }
 
     @media (min-width: 960px) {
       .md-scratch-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
     }
 
@@ -1434,13 +1449,13 @@
 
     .md-scratch-steps-row {
       display: grid;
-      grid-template-columns: 1fr;
+      grid-template-columns: minmax(0, 1fr);
       gap: 0.75rem;
     }
 
     @media (min-width: 768px) {
       .md-scratch-steps-row {
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(4, minmax(0, 1fr));
       }
     }
 
@@ -1510,7 +1525,7 @@
        ========================================================================== */
     .md-video-studio-grid {
       display: grid;
-      grid-template-columns: 1fr;
+      grid-template-columns: minmax(0, 1fr);
       gap: 1.15rem;
     }
 
@@ -1562,7 +1577,7 @@
 
     .md-keyframe-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 0.65rem;
     }
 
@@ -1595,19 +1610,19 @@
        ========================================================================== */
     .md-challenge-calendar {
       display: grid;
-      grid-template-columns: repeat(5, 1fr);
+      grid-template-columns: repeat(5, minmax(0, 1fr));
       gap: 0.45rem;
     }
 
     @media (min-width: 640px) {
       .md-challenge-calendar {
-        grid-template-columns: repeat(8, 1fr);
+        grid-template-columns: repeat(8, minmax(0, 1fr));
       }
     }
 
     @media (min-width: 1024px) {
       .md-challenge-calendar {
-        grid-template-columns: repeat(10, 1fr);
+        grid-template-columns: repeat(10, minmax(0, 1fr));
       }
     }
 
@@ -1670,7 +1685,7 @@
 
     .md-challenge-layout {
       display: grid;
-      grid-template-columns: 1fr;
+      grid-template-columns: minmax(0, 1fr);
       gap: 1.15rem;
     }
 
@@ -1702,7 +1717,7 @@
        ========================================================================== */
     .md-stats-grid {
       display: grid;
-      grid-template-columns: 1fr;
+      grid-template-columns: minmax(0, 1fr);
       gap: 1.15rem;
     }
 
@@ -1881,13 +1896,13 @@
 
     .md-badges-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 0.65rem;
     }
 
     @media (min-width: 768px) {
       .md-badges-grid {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(3, minmax(0, 1fr));
       }
     }
 
@@ -2868,7 +2883,7 @@
         </div>
 
         <div style="display: flex; flex-direction: column; gap: 0.35rem;">
-          <div style="display: flex; justify-content: space-between; font-size: 0.78rem; font-weight: 700;">
+          <div style="display: flex; justify-content: space-between; flex-wrap: wrap; column-gap: 0.75rem; row-gap: 0.15rem; font-size: 0.78rem; font-weight: 700;">
             <span id="gamificationNextLevelLabel">Nächstes Level: Platzreife-Anwärter</span>
             <span id="gamificationXpToNext" class="font-mono">Noch 120 XP bis Level 2</span>
           </div>
@@ -8196,11 +8211,11 @@
           const isCurrent = lvl.level === currentLvl.level;
           return `
             <div class="md-level-step-chip ${isUnlocked ? 'unlocked' : ''} ${isCurrent ? 'current' : ''}">
-              <div style="display: flex; align-items: center; justify-content: space-between; gap: 0.25rem;">
+              <div style="display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; column-gap: 0.4rem;">
                 <span class="font-mono" style="font-weight: 800; color: var(--md-sys-color-primary);">Lvl ${lvl.level}</span>
                 <span class="font-mono" style="font-size: 0.65rem; opacity: 0.8;">${lvl.minXp} XP</span>
               </div>
-              <div style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${lvl.name}</div>
+              <div style="overflow-wrap: anywhere; line-height: 1.25;">${lvl.name}</div>
             </div>
           `;
         }).join('');
