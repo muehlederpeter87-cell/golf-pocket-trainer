@@ -9,8 +9,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="apple-mobile-web-app-title" content="Golf Pocket Trainer" />
   <meta name="application-name" content="Golf Pocket Trainer" />
-  <meta name="description" content="Golf Pocket Trainer v4.26.1 – Material Design 3 Golf Technik-, Trainings-, Rules-, Scratch-Blueprint-, Komparator-, Warm-up-, Video-Analyse-, 40-Tage-Challenge- & Gamification-Statistik-Begleiter" />
-  <title>Golf Pocket Trainer (v4.26.1)</title>
+  <meta name="description" content="Golf Pocket Trainer v4.27.0 – Material Design 3 Golf Technik-, Trainings-, Rules-, Scratch-Blueprint-, Komparator-, Warm-up-, Video-Analyse-, 40-Tage-Challenge- & Gamification-Statistik-Begleiter" />
+  <title>Golf Pocket Trainer (v4.27.0)</title>
 
   <link rel="manifest" href="manifest.webmanifest" />
   <link rel="icon" type="image/png" sizes="48x48" href="icons/favicon-48.png" />
@@ -615,7 +615,7 @@
     }
 
     /* ==========================================================================
-       4. MATERIAL 3 NAVIGATION BAR / INDICATOR PILL TABS (7 MAIN AREAS)
+       4. MATERIAL 3 NAVIGATION BAR / INDICATOR PILL TABS (7 MAIN AREAS, inkl. „Heute“)
        ========================================================================== */
     .md-nav-section {
       padding-top: 0.25rem;
@@ -639,7 +639,7 @@
 
     @media (min-width: 1024px) {
       .md-nav-bar {
-        grid-template-columns: repeat(6, minmax(0, 1fr));
+        grid-template-columns: repeat(7, minmax(0, 1fr));
       }
     }
 
@@ -656,9 +656,12 @@
       transition: all 0.2s cubic-bezier(0.2, 0, 0, 1);
     }
 
-    .md-nav-destination:hover {
-      background-color: var(--md-state-hover);
-      color: var(--md-sys-color-on-surface);
+    /* Nur mit echter Maus: auf dem Handy bliebe der Hover-Zustand nach dem Tippen „hängen“ */
+    @media (hover: hover) {
+      .md-nav-destination:hover {
+        background-color: var(--md-state-hover);
+        color: var(--md-sys-color-on-surface);
+      }
     }
 
     .md-nav-destination.active {
@@ -688,8 +691,8 @@
       }
       .md-nav-section .md-container { padding: 0 0.25rem; }
       .md-nav-bar {
-        grid-template-columns: repeat(6, minmax(0, 1fr));
-        gap: 0.1rem;
+        grid-template-columns: repeat(7, minmax(0, 1fr));
+        gap: 0;
         border-radius: 0;
         padding: 0.35rem 0;
         background: transparent;
@@ -700,8 +703,9 @@
         padding: 0.3rem 0.1rem;
         min-height: 3.1rem;
         border-radius: 1rem;
-        font-size: 0.64rem;
+        font-size: 0.62rem;
         line-height: 1.1;
+        min-width: 0;
         white-space: nowrap;
       }
       .md-nav-destination .material-symbols-rounded { font-size: 22px !important; }
@@ -755,81 +759,71 @@
     }
 
     .md-mental-banner {
+      width: 100%;
       background-color: var(--md-sys-color-tertiary-container);
       color: var(--md-sys-color-on-tertiary-container);
-      border-radius: 1.15rem;
-      padding: 0.85rem 1.1rem 0.95rem;
+      border-radius: 1rem;
+      padding: 0.6rem 0.9rem;
       display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 0.85rem;
-      font-size: 0.88rem;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .md-mental-left {
-      display: flex;
-      align-items: flex-start;
-      gap: 0.7rem;
-      flex: 1;
+      align-items: center;
+      gap: 0.65rem;
+      font-size: 0.82rem;
+      text-align: left;
+      min-height: 44px;
     }
 
     .md-mental-content {
-      display: flex;
-      flex-direction: column;
-      gap: 0.2rem;
+      flex: 1;
+      min-width: 0;
       transition: opacity 0.28s cubic-bezier(0.2, 0, 0, 1);
     }
 
-    .md-mental-content.fading {
-      opacity: 0;
-    }
+    .md-mental-content.fading { opacity: 0; }
 
     .md-mental-text {
       font-style: italic;
       font-weight: 500;
-      line-height: 1.48;
-      white-space: normal;
-      overflow: visible;
+      line-height: 1.4;
     }
 
     .md-mental-author {
-      font-size: 0.76rem;
+      font-size: 0.74rem;
       font-weight: 700;
       opacity: 0.85;
+      margin-left: 0.3rem;
+      white-space: nowrap;
     }
 
-    .md-mental-actions {
+    @media (prefers-reduced-motion: reduce) { .md-mental-content { transition: none; } }
+
+    /* Aufklappbare Bereiche (Level-Übersicht, Abzeichen) */
+    .md-collapsible > summary,
+    .md-collapsible-card > summary {
+      cursor: pointer;
+      list-style: none;
       display: flex;
       align-items: center;
-      gap: 0.2rem;
-      flex-shrink: 0;
+      justify-content: space-between;
+      gap: 0.6rem;
+      min-height: 44px;
     }
-
-    .md-mental-progress-track {
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      height: 3px;
-      background-color: rgba(0, 0, 0, 0.08);
+    .md-collapsible > summary::-webkit-details-marker,
+    .md-collapsible-card > summary::-webkit-details-marker { display: none; }
+    .md-collapsible > summary {
+      font-size: 0.8rem;
+      font-weight: 700;
     }
-
-    .md-mental-progress-bar {
-      height: 100%;
-      width: 0%;
-      background-color: var(--md-sys-color-tertiary);
+    .md-collapsible > summary::after,
+    .md-collapsible-card > summary::after {
+      content: 'expand_more';
+      font-family: 'Material Symbols Rounded';
+      font-size: 22px;
+      line-height: 1;
+      transition: transform 0.2s ease;
     }
-
-    @keyframes mentalCountdown {
-      from { width: 0%; }
-      to { width: 100%; }
-    }
-
-    .md-mental-progress-bar.running {
-      animation: mentalCountdown 10s linear forwards;
-    }
+    .md-collapsible[open] > summary::after,
+    .md-collapsible-card[open] > summary::after { transform: rotate(180deg); }
+    .md-collapsible-card > summary > .md-assist-badge { margin-left: auto; }
 
     .md-chip-row {
       display: flex;
@@ -2203,6 +2197,19 @@
       z-index: 3000;
     }
     .md-toast.show { opacity: 1; transform: translate(-50%, 0); }
+
+    /* Touch-Geräte: Tippflächen mind. 44 px (min-height schlägt auch feste Inline-Höhen) */
+    @media (pointer: coarse) {
+      .md-icon-btn { min-width: 44px; min-height: 44px; }
+      .md-filter-chip,
+      .md-segmented-btn,
+      .md-text-btn,
+      .md-tonal-btn,
+      .md-outlined-btn,
+      .md-filled-btn,
+      .md-checkin-mood-btn,
+      .md-comp-tick { min-height: 44px; }
+    }
     @media (prefers-reduced-motion: reduce) { .md-toast { transition: none; } }
   </style>
 </head>
@@ -2220,7 +2227,7 @@
         <div class="md-brand-text-wrap">
           <div style="display: flex; align-items: center; gap: 0.4rem;">
             <h1 class="md-brand-title">Golf Pocket Trainer</h1>
-            <span class="md-version-badge font-mono">v4.26.1</span>
+            <span class="md-version-badge font-mono">v4.27.0</span>
           </div>
           <p class="md-brand-sub">Statistik &bull; Check-in &bull; Drills &bull; Rules &bull; Scratch</p>
         </div>
@@ -2233,13 +2240,6 @@
 
         <!-- Dropdown Menu -->
         <div id="toolsDropdown" class="md-menu hidden" role="menu">
-          <button type="button" onclick="openStatsTool()" class="md-menu-item" role="menuitem">
-            <span class="md-menu-item-left">
-              <span class="material-symbols-rounded filled" style="color: var(--md-sys-color-primary);">monitoring</span>
-              <span>Startseite: Statistik</span>
-            </span>
-            <span id="dropdownStatsBadge" class="md-menu-badge font-mono">Lvl 1 · 0 XP</span>
-          </button>
 
           <button type="button" onclick="openChallenge40Tool()" class="md-menu-item" role="menuitem">
             <span class="md-menu-item-left">
@@ -2298,7 +2298,7 @@
               <span class="material-symbols-rounded" style="color: var(--md-sys-color-on-surface-variant);">history</span>
               <span>Versionsverlauf</span>
             </span>
-            <span class="font-mono" style="font-size: 0.72rem; color: var(--md-sys-color-on-surface-variant);">v4.26.1</span>
+            <span class="font-mono" style="font-size: 0.72rem; color: var(--md-sys-color-on-surface-variant);">v4.27.0</span>
           </button>
         </div>
       </div>
@@ -2311,27 +2311,31 @@
   <nav class="md-nav-section" aria-label="Hauptnavigation">
     <div class="md-container">
       <div class="md-nav-bar" role="tablist">
-        <button type="button" class="md-nav-destination" data-tab="technique" onclick="switchMainTab('technique')">
+        <button type="button" class="md-nav-destination" data-tab="stats" role="tab" aria-selected="false" aria-controls="tabStats" onclick="switchMainTab('stats')">
+          <span class="material-symbols-rounded" style="font-size: 18px;">home</span>
+          <span>Heute</span>
+        </button>
+        <button type="button" class="md-nav-destination" data-tab="technique" role="tab" aria-selected="false" aria-controls="tabTechnique" onclick="switchMainTab('technique')">
           <span class="material-symbols-rounded" style="font-size: 18px;">sports_golf</span>
           <span class="nav-long">Schlagtechnik</span><span class="nav-short">Technik</span>
         </button>
-        <button type="button" class="md-nav-destination" data-tab="warmup" onclick="switchMainTab('warmup')">
+        <button type="button" class="md-nav-destination" data-tab="warmup" role="tab" aria-selected="false" aria-controls="tabWarmup" onclick="switchMainTab('warmup')">
           <span class="material-symbols-rounded" style="font-size: 18px;">timer</span>
           <span>Warm-up</span>
         </button>
-        <button type="button" class="md-nav-destination" data-tab="drills" onclick="switchMainTab('drills')">
+        <button type="button" class="md-nav-destination" data-tab="drills" role="tab" aria-selected="false" aria-controls="tabDrills" onclick="switchMainTab('drills')">
           <span class="material-symbols-rounded" style="font-size: 18px;">fitness_center</span>
           <span>Drills</span>
         </button>
-        <button type="button" class="md-nav-destination" data-tab="comparator" onclick="switchMainTab('comparator')">
+        <button type="button" class="md-nav-destination" data-tab="comparator" role="tab" aria-selected="false" aria-controls="tabComparator" onclick="switchMainTab('comparator')">
           <span class="material-symbols-rounded" style="font-size: 18px;">compare_arrows</span>
           <span class="nav-long">Komparator</span><span class="nav-short">Vergleich</span>
         </button>
-        <button type="button" class="md-nav-destination" data-tab="rules" onclick="switchMainTab('rules')">
+        <button type="button" class="md-nav-destination" data-tab="rules" role="tab" aria-selected="false" aria-controls="tabRules" onclick="switchMainTab('rules')">
           <span class="material-symbols-rounded" style="font-size: 18px;">gavel</span>
           <span>Rules</span>
         </button>
-        <button type="button" class="md-nav-destination" data-tab="scratch" onclick="switchMainTab('scratch')">
+        <button type="button" class="md-nav-destination" data-tab="scratch" role="tab" aria-selected="false" aria-controls="tabScratch" onclick="switchMainTab('scratch')">
           <span class="material-symbols-rounded" style="font-size: 18px;">emoji_events</span>
           <span>Scratch</span>
         </button>
@@ -2344,27 +2348,6 @@
        ======================================================================== -->
   <main class="md-container md-main">
 
-    <!-- Mental Tee-Box Banner (10s Auto-Rotation) -->
-    <section class="md-mental-banner" aria-label="Mentaler Golf-Impuls">
-      <div class="md-mental-left">
-        <span class="material-symbols-rounded filled" style="font-size: 20px; margin-top: 2px;">psychology</span>
-        <div id="mentalQuoteContent" class="md-mental-content">
-          <div id="mentalInlineText" class="md-mental-text">„Golf wird auf einem Platz gespielt, der 15 Zentimeter breit ist – dem Raum zwischen deinen Ohren.“</div>
-          <div id="mentalInlineAuthor" class="md-mental-author">— Bobby Jones</div>
-        </div>
-      </div>
-      <div class="md-mental-actions">
-        <button type="button" onclick="toggleMentalAutoPlay()" class="md-icon-btn" style="width: 2rem; height: 2rem;" aria-label="Auto-Wechsel Pausieren/Starten">
-          <span id="mentalPlayPauseIcon" class="material-symbols-rounded" style="font-size: 18px;">pause</span>
-        </button>
-        <button type="button" onclick="nextMentalQuote()" class="md-icon-btn" style="width: 2rem; height: 2rem;" aria-label="Nächstes Zitat">
-          <span class="material-symbols-rounded" style="font-size: 18px;">skip_next</span>
-        </button>
-      </div>
-      <div class="md-mental-progress-track">
-        <div id="mentalProgressBar" class="md-mental-progress-bar running"></div>
-      </div>
-    </section>
 
     <!-- ======================================================================
          TAB 1: SCHLAGTECHNIK & BIOMECHANIK
@@ -2577,7 +2560,7 @@
         </div>
 
         <!-- Step-by-Step Guide Box for Drills -->
-        <div id="drillsHowToGuideBox" class="md-scratch-guide-box">
+        <div id="drillsHowToGuideBox" class="md-scratch-guide-box hidden">
           <div style="display: flex; align-items: center; gap: 0.45rem; font-weight: 800; font-size: 0.88rem; color: var(--md-sys-color-primary);">
             <span class="material-symbols-rounded filled" style="font-size: 19px;">school</span>
             <span>Schritt-für-Schritt: So holst du das Maximum aus jedem Drill</span>
@@ -2971,7 +2954,20 @@
     <!-- ======================================================================
          TAB 9: TOOL – PERSÖNLICHE STATISTIK, GAMIFICATION & ZEITVERLAUF
          ====================================================================== -->
-    <section id="tabStats" style="display: flex; flex-direction: column; gap: 1.15rem;">
+    <section id="tabStats" role="tabpanel" aria-label="Heute" style="display: flex; flex-direction: column; gap: 1.15rem;">
+      <!-- Täglicher Trainings-Check-in: Fokus, Ort & Dauer -> Trainingsplan -->
+      <article id="dailyCheckinCard" class="md-checkin-card"></article>
+
+      <!-- Mental Tee-Box: kompakter Spruch, Tippen zeigt den nächsten -->
+      <button type="button" class="md-mental-banner" onclick="nextMentalQuote()" aria-label="Motivationsspruch – tippen für den nächsten">
+        <span class="material-symbols-rounded filled" style="font-size: 18px; flex-shrink: 0;" aria-hidden="true">psychology</span>
+        <span id="mentalQuoteContent" class="md-mental-content" aria-live="polite">
+          <span id="mentalInlineText" class="md-mental-text">„Golf wird auf einem Platz gespielt, der 15 Zentimeter breit ist – dem Raum zwischen deinen Ohren.“</span>
+          <span id="mentalInlineAuthor" class="md-mental-author">— Bobby Jones</span>
+        </span>
+        <span class="material-symbols-rounded" style="font-size: 18px; flex-shrink: 0; opacity: 0.7;" aria-hidden="true">refresh</span>
+      </button>
+
       <!-- Gamification Hero Banner -->
       <article class="md-gamification-hero">
         <div style="display: flex; align-items: center; justify-content: space-between; gap: 0.85rem; flex-wrap: wrap;">
@@ -2989,9 +2985,9 @@
             </div>
           </div>
 
-          <div style="display: flex; align-items: center; gap: 0.45rem; flex-wrap: wrap;">
+          <div id="statsReportActions" class="hidden" style="display: flex; align-items: center; gap: 0.45rem; flex-wrap: wrap;">
             <span id="statsFirstActiveBadge" class="md-assist-badge font-mono">Noch keine Aktivitäten erfasst</span>
-            <button type="button" onclick="exportStatsSummaryText()" class="md-filled-btn" style="height: 2.2rem;">
+            <button type="button" onclick="exportStatsSummaryText()" class="md-tonal-btn" style="height: 2.2rem;">
               <span class="material-symbols-rounded" style="font-size: 17px;">content_copy</span>
               <span id="btnCopyStatsLabel">Bericht kopieren</span>
             </button>
@@ -3008,11 +3004,12 @@
           </div>
         </div>
 
-        <div id="gamificationLevelSteps" class="md-level-steps-bar"></div>
+        <details class="md-collapsible">
+          <summary>Alle 6 Level ansehen</summary>
+          <div id="gamificationLevelSteps" class="md-level-steps-bar" style="margin-top: 0.6rem;"></div>
+        </details>
       </article>
 
-      <!-- Täglicher Trainings-Check-in: Fokus, Ort & Dauer -> Trainingsplan -->
-      <article id="dailyCheckinCard" class="md-checkin-card"></article>
 
       <!-- KPI Overview -->
       <div class="md-kpi-grid">
@@ -3035,16 +3032,17 @@
       </div>
 
       <!-- Unlockable Achievements -->
-      <article class="md-card-outlined md-card-pad" style="display: flex; flex-direction: column; gap: 0.8rem;">
-        <div style="display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; flex-wrap: wrap;">
-          <div>
-            <h3 class="font-display" style="font-size: 1.05rem; font-weight: 800;">Freischaltbare Golf-Abzeichen</h3>
-            <p style="font-size: 0.78rem; color: var(--md-sys-color-on-surface-variant);">Sammle XP: Scratch (+60 XP) · Challenge (+50 XP) · Drill (+30 XP) · Check-in (+25 XP) · Warm-up/Checkliste (+15 XP)</p>
-          </div>
+      <details class="md-card-outlined md-card-pad md-collapsible-card">
+        <summary>
+          <span>
+            <span class="font-display" style="display: block; font-size: 1.05rem; font-weight: 800;">Golf-Abzeichen</span>
+            <span style="display: block; font-size: 0.78rem; color: var(--md-sys-color-on-surface-variant);">Tippen zum Aufklappen</span>
+          </span>
           <span id="statsBadgesCountBadge" class="md-assist-badge font-mono">0 / 10 Abzeichen</span>
-        </div>
+        </summary>
+        <p style="font-size: 0.78rem; color: var(--md-sys-color-on-surface-variant); margin: 0.8rem 0;">Sammle XP: Scratch (+60 XP) · Challenge (+50 XP) · Drill (+30 XP) · Check-in (+25 XP) · Warm-up/Checkliste (+15 XP)</p>
         <div id="statsAchievementsGrid" class="md-badges-grid"></div>
-      </article>
+      </details>
 
       <!-- Charts & Timeline -->
       <div class="md-stats-grid">
@@ -3092,7 +3090,7 @@
        ======================================================================== -->
   <footer class="md-footer">
     <div class="md-container" style="display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; flex-wrap: wrap;">
-      <span><strong>Golf Pocket Trainer</strong> (<span class="font-mono">v4.26.1</span>) &bull; Dein interaktiver Trainings- &amp; Platzbegleiter</span>
+      <span><strong>Golf Pocket Trainer</strong> (<span class="font-mono">v4.27.0</span>) &bull; Dein interaktiver Trainings- &amp; Platzbegleiter</span>
       <button type="button" onclick="openChangelogModal()" class="md-text-btn" style="height: 1.85rem;">Versionsverlauf ansehen</button>
     </div>
   </footer>
@@ -3116,67 +3114,36 @@
       </div>
 
       <div class="md-dialog-body">
-        <p style="font-size: 0.88rem; color: var(--md-sys-color-on-surface-variant); line-height: 1.5;">
-          Weitere Tools wie Statistik, Challenge, Video-Analyse und Checkliste findest du im Menü <strong>⋮</strong> oben rechts.
-        </p>
-
         <div style="background-color: var(--md-sys-color-surface-container); border-radius: 1.1rem; padding: 0.95rem 1.05rem; display: flex; flex-direction: column; gap: 0.7rem;">
           <div style="display: flex; align-items: flex-start; gap: 0.65rem; font-size: 0.83rem;">
-            <span class="material-symbols-rounded filled" style="font-size: 20px; color: var(--md-sys-color-primary); margin-top: 1px;">sports_golf</span>
+            <span class="material-symbols-rounded filled" style="font-size: 20px; color: var(--md-sys-color-primary); margin-top: 1px;">home</span>
             <div>
-              <strong>Trainings-Check-in (Neu!):</strong>
-              <div style="color: var(--md-sys-color-on-surface-variant); margin-top: 0.1rem;">Fokus, Ort und Dauer wählen – die App stellt dir dein Training für heute zusammen. Dazu 20 neue Drills.</div>
+              <strong>Neuer Tab „Heute“:</strong>
+              <div style="color: var(--md-sys-color-on-surface-variant); margin-top: 0.1rem;">Check-in, Tagesplan und dein Level sind jetzt immer mit einem Tipp unten links erreichbar.</div>
             </div>
           </div>
-
           <div style="display: flex; align-items: flex-start; gap: 0.65rem; font-size: 0.83rem;">
-            <span class="material-symbols-rounded filled" style="font-size: 20px; color: var(--md-sys-color-primary); margin-top: 1px;">smart_display</span>
+            <span class="material-symbols-rounded filled" style="font-size: 20px; color: var(--md-sys-color-primary); margin-top: 1px;">checklist</span>
             <div>
-              <strong>Pro-Schwung in Zeitlupe:</strong>
-              <div style="color: var(--md-sys-color-on-surface-variant); margin-top: 0.1rem;">In der Schlagtechnik siehst du jetzt echte Tour-Pros im Zeitlupen-Video – mit ¼×-Zeitlupe, Einzelbild-Schritten und eigenen Phasen-Markern.</div>
+              <strong>Aufgeräumt:</strong>
+              <div style="color: var(--md-sys-color-on-surface-variant); margin-top: 0.1rem;">Der Check-in steht ganz oben, Level-Übersicht und Abzeichen lassen sich aufklappen. Der Motivationsspruch wechselt nur noch, wenn du darauf tippst.</div>
             </div>
           </div>
-
           <div style="display: flex; align-items: flex-start; gap: 0.65rem; font-size: 0.83rem;">
-            <span class="material-symbols-rounded filled" style="font-size: 20px; color: var(--md-sys-color-primary); margin-top: 1px;">dock_to_bottom</span>
+            <span class="material-symbols-rounded filled" style="font-size: 20px; color: var(--md-sys-color-primary); margin-top: 1px;">touch_app</span>
             <div>
-              <strong>Feste Navigation:</strong>
-              <div style="color: var(--md-sys-color-on-surface-variant); margin-top: 0.1rem;">Die Tab-Leiste bleibt unten am Bildschirm, und die Kopfzeile mit dem Menü bleibt oben. So wechselst du jederzeit den Bereich, auch mitten in langen Seiten.</div>
-            </div>
-          </div>
-
-          <div style="display: flex; align-items: flex-start; gap: 0.65rem; font-size: 0.83rem;">
-            <span class="material-symbols-rounded filled" style="font-size: 20px; color: var(--md-sys-color-primary); margin-top: 1px;">videocam</span>
-            <div>
-              <strong>Video-Schwunganalyse (verbessert):</strong>
-              <div style="color: var(--md-sys-color-on-surface-variant); margin-top: 0.1rem;">Hochformat-Clips füllen jetzt das Bild, und Aufnahmen lassen sich mit „Clip speichern“ sichern. Zeitlupe bis 0.1x, Wirbelsäulen- &amp; Schwunglinien.</div>
-            </div>
-          </div>
-
-          <div style="display: flex; align-items: flex-start; gap: 0.65rem; font-size: 0.83rem;">
-            <span class="material-symbols-rounded filled" style="font-size: 20px; color: var(--md-sys-color-primary); margin-top: 1px;">monitoring</span>
-            <div>
-              <strong>Statistik &amp; Gamification:</strong>
-              <div style="color: var(--md-sys-color-on-surface-variant); margin-top: 0.1rem;">Sammle XP, steige über 6 Golfer-Levels auf (vom <em>Range-Rookie</em> bis zur <em>Scratch-Legende</em>) und schalte <span id="promoBadgeCount">10</span> Abzeichen frei. Der Tages-Check-in zählt jetzt ab Mitternacht deiner Ortszeit.</div>
-            </div>
-          </div>
-
-          <div style="display: flex; align-items: flex-start; gap: 0.65rem; font-size: 0.83rem;">
-            <span class="material-symbols-rounded filled" style="font-size: 20px; color: var(--md-sys-color-primary); margin-top: 1px;">backup</span>
-            <div>
-              <strong>Sicher &amp; offline:</strong>
-              <div style="color: var(--md-sys-color-on-surface-variant); margin-top: 0.1rem;">Sichere deinen Fortschritt im Menü ⋮ unter „Daten sichern“. Die App lässt sich installieren und läuft auch ohne Netz. Vor dem Zurücksetzen von Fortschritt wirst du jetzt gefragt.</div>
+              <strong>Leichter zu treffen:</strong>
+              <div style="color: var(--md-sys-color-on-surface-variant); margin-top: 0.1rem;">Größere Tippflächen auf dem Handy – auch mit Handschuh auf der Range.</div>
             </div>
           </div>
         </div>
+        <p style="font-size: 0.8rem; color: var(--md-sys-color-on-surface-variant); line-height: 1.5;">
+          Challenge, Video-Analyse und Checkliste findest du im Menü <strong>⋮</strong> oben rechts.
+        </p>
       </div>
 
       <div class="md-dialog-actions" style="justify-content: flex-end; flex-wrap: wrap;">
         <div style="display: flex; align-items: center; gap: 0.45rem;">
-          <button type="button" onclick="startChallengeFromPromo()" class="md-tonal-btn">
-            <span class="material-symbols-rounded" style="font-size: 18px;">monitoring</span>
-            <span>Zur Statistik</span>
-          </button>
           <button type="button" onclick="closeChallengePromoModal()" class="md-filled-btn">
             <span>Los geht's</span>
           </button>
@@ -3249,7 +3216,7 @@
       <div class="md-dialog-header">
         <div>
           <span class="md-assist-badge" style="background-color: var(--md-sys-color-tertiary-container); color: var(--md-sys-color-on-tertiary-container);">Release Notes &amp; Wartung</span>
-          <h2 id="changelogTitle" class="font-display" style="font-size: 1.25rem; font-weight: 800; margin-top: 0.3rem;">Versionsverlauf (v1.0.0 – v4.26.1)</h2>
+          <h2 id="changelogTitle" class="font-display" style="font-size: 1.25rem; font-weight: 800; margin-top: 0.3rem;">Versionsverlauf (v1.0.0 – v4.27.0)</h2>
         </div>
         <button type="button" onclick="closeChangelogModal()" class="md-icon-btn" aria-label="Schließen">
           <span class="material-symbols-rounded">close</span>
@@ -3264,20 +3231,34 @@
   </div>
 
   <!-- ========================================================================
-       COMPLETE SELF-CONTAINED JAVASCRIPT ENGINE (v4.26.1)
+       COMPLETE SELF-CONTAINED JAVASCRIPT ENGINE (v4.27.0)
        ======================================================================== -->
   <div id="appToast" class="md-toast" role="status" aria-live="polite"></div>
   <input type="file" id="backupFileInput" accept="application/json,.json" hidden onchange="handleBackupFile(event)" />
 
   <script>
-    const APP_VERSION = 'v4.26.1';
+    const APP_VERSION = 'v4.27.0';
 
     const CHANGELOG_ENTRIES = [
       {
-        version: 'v4.26.1',
+        version: 'v4.27.0',
         date: 'Aktuell',
-        title: 'Golfregeln überarbeitet & neue Motivationssprüche',
+        title: 'Neuer Tab „Heute“ & aufgeräumte Bedienung',
         latest: true,
+        notes: [
+          'Neuer erster Tab „Heute“ in der Tab-Leiste: Die Startseite mit Check-in und Fortschritt ist jetzt immer mit einem Tipp erreichbar.',
+          'Auf „Heute“ steht der Trainings-Check-in ganz oben. Die Level-Karte ist kompakter, Level-Übersicht und Abzeichen lassen sich aufklappen.',
+          'Der Motivationsspruch erscheint nur noch auf „Heute“, kompakt unter dem Check-in. Er wechselt nicht mehr automatisch – ein Tipp zeigt den nächsten.',
+          '„Was ist neu?“ erscheint nur noch bei größeren Updates und nicht beim allerersten Start.',
+          'Die Drill-Anleitung ist nur beim ersten Besuch aufgeklappt.',
+          'Größere Tippflächen auf dem Handy (mind. 44 px) und eine Tab-Leiste, die Screenreader verstehen.'
+        ]
+      },
+      {
+        version: 'v4.26.1',
+        date: 'Vorherige Version',
+        title: 'Golfregeln überarbeitet & neue Motivationssprüche',
+        latest: false,
         notes: [
           'Rules: Alle 12 Regeln haben jetzt eine eigene Skizze. Die Erleichterungsbereiche sind korrekt gezeichnet – nicht näher zur Fahne, nicht in der Penalty Area, nicht auf dem Weg.',
           'Korrigiert: Ball vom Wind bewegt (auf dem Grün nach dem Zurücklegen wird zurückgelegt), Ursache nur bei mind. 95 % Sicherheit, Platzregel E-5 mit provisorischem Ball, Ball zum Identifizieren reinigen, selbststehender Putter seit 2025.',
@@ -3287,7 +3268,7 @@
       },
       {
         version: 'v4.25.0',
-        date: 'Vorherige Version',
+        date: 'Meilenstein 50',
         title: 'Trainings-Check-in mit persönlichem Trainingsplan',
         latest: false,
         notes: [
@@ -5278,7 +5259,7 @@
     let timerInterval = null;
 
     let mentalQuoteIdx = 0;
-    let isMentalAutoPlaying = true;
+    let isMentalAutoPlaying = false; // seit v4.27.0 kein automatischer Wechsel mehr
     let mentalAutoInterval = null;
 
     let checkedSet = new Set();
@@ -6392,6 +6373,7 @@
       currentMainTab = tabKey;
       document.querySelectorAll('.md-nav-destination').forEach(btn => {
         btn.classList.toggle('active', btn.dataset.tab === tabKey);
+        btn.setAttribute('aria-selected', btn.dataset.tab === tabKey ? 'true' : 'false');
       });
 
       const sections = {
@@ -6413,7 +6395,7 @@
 
       if (tabKey === 'technique') renderClubView();
       if (tabKey === 'warmup') renderWarmupView();
-      if (tabKey === 'drills') renderDrillsView();
+      if (tabKey === 'drills') { showDrillsGuideOnFirstVisit(); renderDrillsView(); }
       if (tabKey === 'comparator') setComparator(parseInt(document.getElementById('compSlider')?.value || '2', 10));
       if (tabKey === 'rules') renderRulesView();
       if (tabKey === 'scratch') renderScratchView();
@@ -6423,7 +6405,7 @@
     }
 
     /* ========================================================================
-       MENTAL TEE-BOX (10-SECOND AUTO-ROTATING QUOTES)
+       MENTAL TEE-BOX (Spruch wechselt per Tipp)
        ======================================================================== */
     function restartMentalProgressBar() {
       const bar = document.getElementById('mentalProgressBar');
@@ -7157,6 +7139,18 @@
     function setTrainingFilter(filterKey) {
       currentTrainingFilter = filterKey;
       renderDrillsView();
+    }
+
+    // Die Anleitung klappt nur beim allerersten Besuch des Drills-Tabs automatisch auf
+    function showDrillsGuideOnFirstVisit() {
+      try {
+        if (localStorage.getItem('gpg_drills_guide_seen') === '1') return;
+        localStorage.setItem('gpg_drills_guide_seen', '1');
+      } catch (e) { return; }
+      const box = document.getElementById('drillsHowToGuideBox');
+      const lbl = document.getElementById('btnDrillsGuideLabel');
+      if (box) box.classList.remove('hidden');
+      if (lbl) lbl.textContent = 'Anleitung ausblenden';
     }
 
     function toggleDrillsGuideBox() {
@@ -9148,6 +9142,8 @@
         ? `${Math.floor(estMinutes / 60)} Std. ${estMinutes % 60} Min.`
         : `${estMinutes} Min.`;
 
+      // „Bericht kopieren“ erst anbieten, wenn es etwas zu berichten gibt
+      document.getElementById('statsReportActions')?.classList.toggle('hidden', activityLog.length === 0);
       const firstBadge = document.getElementById('statsFirstActiveBadge');
       if (firstBadge) {
         if (activityLog.length > 0) {
@@ -9365,11 +9361,23 @@
       document.getElementById('changelogModal')?.classList.remove('open');
     }
 
-    // Der Dialog erscheint pro App-Version genau einmal. Wer früher „Nicht mehr anzeigen“ gewählt hat, sieht ihn nicht mehr.
+    // „v4.27.1“ -> „v4.27“: kleine Korrektur-Updates lösen den Dialog nicht aus
+    function getMinorVersion(v) {
+      return String(v || '').split('.').slice(0, 2).join('.');
+    }
+
+    // Der Dialog erscheint einmal pro größerem Update (z. B. v4.27, v4.28), nicht beim allerersten Start
+    // und nicht für kleine Korrekturen. Wer früher „Nicht mehr anzeigen“ gewählt hat, sieht ihn nicht mehr.
     function openChallengePromoModal() {
       try {
         if (localStorage.getItem('gpg_hide_whatsnew_v415') === '1') return;
-        if (localStorage.getItem('gpg_whatsnew_seen') === APP_VERSION) return;
+        const seen = localStorage.getItem('gpg_whatsnew_seen');
+        if (!seen) {
+          // Neue Nutzer brauchen keine Liste von Änderungen
+          localStorage.setItem('gpg_whatsnew_seen', APP_VERSION);
+          return;
+        }
+        if (getMinorVersion(seen) === getMinorVersion(APP_VERSION)) return;
       } catch (e) {}
       const versionLabel = document.getElementById('promoVersionLabel');
       if (versionLabel) versionLabel.textContent = APP_VERSION;
@@ -9410,8 +9418,8 @@
       updateChecklistBadges();
       updateChallengeMenuBadge();
       updateStatsMenuBadge();
+      mentalQuoteIdx = Math.floor(Math.random() * MENTAL_QUOTES.length);
       renderMentalQuote(false);
-      startMentalAutoTimer();
       renderClubView();
       setComparator(2);
       switchMainTab('stats');
