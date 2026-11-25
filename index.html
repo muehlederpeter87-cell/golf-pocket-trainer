@@ -9,8 +9,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="apple-mobile-web-app-title" content="Golf Pocket Trainer" />
   <meta name="application-name" content="Golf Pocket Trainer" />
-  <meta name="description" content="Golf Pocket Trainer v4.25.0 – Material Design 3 Golf Technik-, Trainings-, Rules-, Scratch-Blueprint-, Komparator-, Warm-up-, Video-Analyse-, 40-Tage-Challenge- & Gamification-Statistik-Begleiter" />
-  <title>Golf Pocket Trainer (v4.25.0)</title>
+  <meta name="description" content="Golf Pocket Trainer v4.26.0 – Material Design 3 Golf Technik-, Trainings-, Rules-, Scratch-Blueprint-, Komparator-, Warm-up-, Video-Analyse-, 40-Tage-Challenge- & Gamification-Statistik-Begleiter" />
+  <title>Golf Pocket Trainer (v4.26.0)</title>
 
   <link rel="manifest" href="manifest.webmanifest" />
   <link rel="icon" type="image/png" sizes="48x48" href="icons/favicon-48.png" />
@@ -2211,7 +2211,7 @@
         <div class="md-brand-text-wrap">
           <div style="display: flex; align-items: center; gap: 0.4rem;">
             <h1 class="md-brand-title">Golf Pocket Trainer</h1>
-            <span class="md-version-badge font-mono">v4.25.0</span>
+            <span class="md-version-badge font-mono">v4.26.0</span>
           </div>
           <p class="md-brand-sub">Statistik &bull; Check-in &bull; Drills &bull; Rules &bull; Scratch</p>
         </div>
@@ -2289,7 +2289,7 @@
               <span class="material-symbols-rounded" style="color: var(--md-sys-color-on-surface-variant);">history</span>
               <span>Versionsverlauf</span>
             </span>
-            <span class="font-mono" style="font-size: 0.72rem; color: var(--md-sys-color-on-surface-variant);">v4.25.0</span>
+            <span class="font-mono" style="font-size: 0.72rem; color: var(--md-sys-color-on-surface-variant);">v4.26.0</span>
           </button>
         </div>
       </div>
@@ -3083,7 +3083,7 @@
        ======================================================================== -->
   <footer class="md-footer">
     <div class="md-container" style="display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; flex-wrap: wrap;">
-      <span><strong>Golf Pocket Trainer</strong> (<span class="font-mono">v4.25.0</span>) &bull; Dein interaktiver Trainings- &amp; Platzbegleiter</span>
+      <span><strong>Golf Pocket Trainer</strong> (<span class="font-mono">v4.26.0</span>) &bull; Dein interaktiver Trainings- &amp; Platzbegleiter</span>
       <button type="button" onclick="openChangelogModal()" class="md-text-btn" style="height: 1.85rem;">Versionsverlauf ansehen</button>
     </div>
   </footer>
@@ -3240,7 +3240,7 @@
       <div class="md-dialog-header">
         <div>
           <span class="md-assist-badge" style="background-color: var(--md-sys-color-tertiary-container); color: var(--md-sys-color-on-tertiary-container);">Release Notes &amp; Wartung</span>
-          <h2 id="changelogTitle" class="font-display" style="font-size: 1.25rem; font-weight: 800; margin-top: 0.3rem;">Versionsverlauf (v1.0.0 – v4.25.0)</h2>
+          <h2 id="changelogTitle" class="font-display" style="font-size: 1.25rem; font-weight: 800; margin-top: 0.3rem;">Versionsverlauf (v1.0.0 – v4.26.0)</h2>
         </div>
         <button type="button" onclick="closeChangelogModal()" class="md-icon-btn" aria-label="Schließen">
           <span class="material-symbols-rounded">close</span>
@@ -3255,20 +3255,31 @@
   </div>
 
   <!-- ========================================================================
-       COMPLETE SELF-CONTAINED JAVASCRIPT ENGINE (v4.25.0)
+       COMPLETE SELF-CONTAINED JAVASCRIPT ENGINE (v4.26.0)
        ======================================================================== -->
   <div id="appToast" class="md-toast" role="status" aria-live="polite"></div>
   <input type="file" id="backupFileInput" accept="application/json,.json" hidden onchange="handleBackupFile(event)" />
 
   <script>
-    const APP_VERSION = 'v4.25.0';
+    const APP_VERSION = 'v4.26.0';
 
     const CHANGELOG_ENTRIES = [
       {
-        version: 'v4.25.0',
+        version: 'v4.26.0',
         date: 'Aktuell',
-        title: 'Trainings-Check-in mit persönlichem Trainingsplan',
+        title: 'Golfregeln überarbeitet & neue Motivationssprüche',
         latest: true,
+        notes: [
+          'Rules: Alle 12 Regeln haben jetzt eine eigene Skizze. Die Erleichterungsbereiche sind korrekt gezeichnet – nicht näher zur Fahne, nicht in der Penalty Area, nicht auf dem Weg.',
+          'Korrigiert: Ball vom Wind bewegt (auf dem Grün nach dem Zurücklegen wird zurückgelegt), Ursache nur bei mind. 95 % Sicherheit, Platzregel E-5 mit provisorischem Ball, Ball zum Identifizieren reinigen, selbststehender Putter seit 2025.',
+          '24 neue Motivationssprüche im Mental-Tee-Box-Bereich.'
+        ]
+      },
+      {
+        version: 'v4.25.0',
+        date: 'Vorherige Version',
+        title: 'Trainings-Check-in mit persönlichem Trainingsplan',
+        latest: false,
         notes: [
           'Der tägliche Check-in fragt jetzt deinen Fokus (bis zu 2 Bereiche), den Trainingsort und die Trainingsdauer (15–90 Min.) ab.',
           'Daraus wird automatisch ein Trainingsplan mit Zeitblöcken erstellt: Aufwärmen, passende Drills und ab 45 Min. ein Abschluss-Test unter Druck.',
@@ -3278,7 +3289,7 @@
       },
       {
         version: 'v4.24.0',
-        date: 'Vorherige Version',
+        date: 'Meilenstein 49',
         title: 'Pro-Schwung in Zeitlupe',
         latest: false,
         notes: [
@@ -3440,9 +3451,33 @@
       { text: '„Golf wird auf einem Platz gespielt, der 15 Zentimeter breit ist – dem Raum zwischen deinen Ohren.“', author: 'Bobby Jones' },
       { text: '„Der wichtigste Schlag im Golf ist immer der nächste.“', author: 'Ben Hogan' },
       { text: '„Erfolg im Golf hängt weniger von der Stärke deines Körpers ab als von der Stärke deines Geistes und Charakters.“', author: 'Arnold Palmer' },
-      { text: '„Entschlossenheit schlägt Zweifel: Ein klarer Plan mit 100 % Commitment ist besser als ein perfekter Plan mit Zögern.“', author: 'Jack Nicklaus' },
-      { text: '„Akzeptiere den guten Schlag, akzeptiere den schlechten Schlag – und geh einfach weiter zum Ball.“', author: 'Tiger Woods' },
-      { text: '„Spiele den Schlag, den du heute im Bag hast, nicht den, den du gestern auf der Range geschlagen hast.“', author: 'Harvey Penick' }
+      { text: '„Ein klarer Plan mit 100 % Überzeugung schlägt einen perfekten Plan mit Zweifeln.“', author: 'Golf-Weisheit' },
+      { text: '„Akzeptiere den guten Schlag, akzeptiere den schlechten Schlag – und geh einfach weiter zum Ball.“', author: 'Golf-Weisheit' },
+      { text: '„Spiele den Schwung, den du heute hast – nicht den, den du gestern auf der Range hattest.“', author: 'Golf-Weisheit' },
+      { text: '„Ein Fehlschlag kostet einen Schlag. Ein Ärger darüber kostet oft drei.“', author: 'Golf-Weisheit' },
+      { text: '„Ziel klein wählen, Fehler klein halten: Nimm dir einen Baumwipfel vor, nicht das ganze Fairway.“', author: 'Golf-Weisheit' },
+      { text: '„Die Fahne ist eine Einladung, keine Pflicht. Die Grünmitte ist nie ein schlechter Plan.“', author: 'Golf-Weisheit' },
+      { text: '„Übe mit Absicht: 30 Bälle mit Ziel und Routine bringen mehr als 100 Bälle ohne Plan.“', author: 'Trainer-Tipp' },
+      { text: '„Tempo vor Kraft. Ein Schwung im Gleichgewicht ist fast immer der längere.“', author: 'Trainer-Tipp' },
+      { text: '„Ausatmen, Ziel anschauen, schwingen. Mehr braucht es über dem Ball nicht.“', author: 'Trainer-Tipp' },
+      { text: '„Du musst nicht perfekt spielen, um gut zu scoren. Du musst nur deine Fehler klein halten.“', author: 'Golf-Weisheit' },
+      { text: '„Der Bogey ist nicht dein Feind – der Doppelbogey ist es.“', author: 'Golf-Weisheit' },
+      { text: '„Lies das Grün mit den Füßen, entscheide mit dem Kopf, putte mit Vertrauen.“', author: 'Trainer-Tipp' },
+      { text: '„Jeder Putt ist gerade – nur der Startpunkt ist nicht immer das Loch.“', author: 'Golf-Weisheit' },
+      { text: '„Kurzes Spiel ist Gefühl, und Gefühl entsteht nur durch Wiederholung.“', author: 'Trainer-Tipp' },
+      { text: '„Wer aus dem Rough auf Sicherheit spielt, spart mehr Schläge als jeder Heldenschlag gewinnt.“', author: 'Golf-Weisheit' },
+      { text: '„Bleib im Moment: Das vorige Loch ist vorbei, das nächste hat noch nicht begonnen.“', author: 'Golf-Weisheit' },
+      { text: '„Routine ist dein Anker, wenn der Puls steigt. Gleicher Ablauf, gleiche Zeit, jeder Schlag.“', author: 'Trainer-Tipp' },
+      { text: '„Ein guter Tag auf dem Platz beginnt mit einem ehrlichen Warm-up, nicht mit dem Driver.“', author: 'Trainer-Tipp' },
+      { text: '„Fortschritt im Golf ist leise: ein Putt weniger hier, ein Fairway mehr dort.“', author: 'Golf-Weisheit' },
+      { text: '„Spiele gegen den Platz, nicht gegen deine Flightpartner.“', author: 'Golf-Weisheit' },
+      { text: '„Ein schlechter Schlag sagt nichts über den nächsten. Du entscheidest neu.“', author: 'Golf-Weisheit' },
+      { text: '„Finish halten! Wer im Gleichgewicht endet, hat meist auch gut getroffen.“', author: 'Trainer-Tipp' },
+      { text: '„Lieber ein Schläger mehr und locker schwingen, als ein Schläger zu wenig und pressen.“', author: 'Trainer-Tipp' },
+      { text: '„Vertraue dem Schwung, den du trainiert hast. Auf dem Platz wird gespielt, nicht repariert.“', author: 'Golf-Weisheit' },
+      { text: '„Lächle nach einem schlechten Schlag – dein Körper entspannt sich, dein nächster Schwung dankt es dir.“', author: 'Golf-Weisheit' },
+      { text: '„Konstanz schlägt Glanzlicht: Zehn ordentliche Schläge sind mehr wert als ein spektakulärer.“', author: 'Golf-Weisheit' },
+      { text: '„Heute ein bisschen besser als gestern – das ist der ganze Trainingsplan.“', author: 'Trainer-Tipp' }
     ];
 
     /* ========================================================================
@@ -4887,7 +4922,8 @@
           'Hast du den Verdacht, dein Ball könnte im Aus (weiße Pfähle/Linien) oder außerhalb einer Penalty Area verloren sein, spiele sofort einen provisorischen Ball – und sage das Wort „provisorisch“ deutlich an.',
           'Wird der ursprüngliche Ball innerhalb von 3 Minuten im Spiel gefunden, musst du ihn weiterspielen und den provisorischen Ball aufnehmen.',
           'Ist der Ball im Aus oder nach 3 Minuten unauffindbar, wird der provisorische Ball mit 1 Strafschlag zum Ball im Spiel (oder du gehst zurück zum letzten Schlagpunkt).',
-          'Hinweis Platzregel E-5: Viele europäische Clubs erlauben bei Aus/verlorenem Ball alternativ einen Drop am Fairway-Rand auf Höhe des Ballverlusts mit 2 Strafschlägen (gilt nicht in Turnieren ohne diese Platzregel).'
+          'Platzregel E-5 (nur wenn der Club sie in Kraft gesetzt hat): Statt zurückzugehen darfst du mit 2 Strafschlägen droppen – irgendwo zwischen der Linie Fahne–Ball-Bezugspunkt (wo der Ball ins Aus ging bzw. vermutlich liegt) und der Linie Fahne–nächster Fairway-Punkt, plus 2 Schlägerlängen ins Fairway, nicht näher zur Fahne.',
+          'Wichtig zu E-5: Hast du einen provisorischen Ball gespielt, gilt E-5 nicht für den Originalball – nur wenn auch der provisorische Ball verloren oder im Aus ist, darfst du E-5 für ihn anwenden.'
         ],
         proTip: 'Im Zweifel immer einen provisorischen Ball schlagen – das spart den Rückweg zum Abschlag und hält das Spieltempo hoch.'
       },
@@ -4952,7 +4988,7 @@
         steps: [
           'Bestimme den „nächstgelegenen Punkt der vollständigen Erleichterung“, an dem weder Ball, Stand noch Schwungbahn durch den Weg/die Pfütze behindert sind (nicht näher zum Loch).',
           'Droppe den Ball aus Kniehöhe innerhalb von 1 Schlägerlänge ab diesem Bezugspunkt.',
-          'Eingebetteter Ball (Regel 16.3): Steckt dein Ball im eigenen Einschlagloch im Gelände (Fairway oder Rough, nicht im Bunker), darfst du ihn straflos aufnehmen, reinigen und innerhalb von 1 Schlägerlänge droppen.'
+          'Eingebetteter Ball (Regel 16.3): Steckt dein Ball im eigenen Einschlagloch im Gelände (Fairway oder Rough, nicht im Bunker), darfst du ihn straflos aufnehmen, reinigen und innerhalb von 1 Schlägerlänge ab der Stelle direkt hinter dem Ball droppen (nicht näher zur Fahne).'
         ],
         proTip: 'Du musst vollständige Erleichterung nehmen – ein halbherziger Drop, bei dem du noch mit einem Fuß auf dem Cartweg stehst, ist nicht erlaubt.'
       },
@@ -5000,7 +5036,7 @@
         steps: [
           'Flaggenstock (Regel 13.2a): Du darfst putten, während der Flaggenstock im Loch steckt – trifft dein Ball den Stock, ist das straflos.',
           'Ausbessern (Regel 13.1c): Pitchmarken, alte Lochpfropfen, Schuhabdrücke und Tierspuren auf deiner Puttlinie dürfen straflos mit der Pitchgabel oder dem Putter ausgebessert werden.',
-          'Hinweis 2023–2027 (Regel 10.2b): Selbststehende Putter (Stand-Up-Putter) dürfen NICHT mehr zum Ausrichten hinter dem Ball abgestellt werden.'
+          'Seit 1. Januar 2025 (Regel 10.2b): Selbststehende Putter dürfen NICHT hinter oder neben dem Ball abgestellt werden, um beim Zielen oder beim Einnehmen des Stands zu helfen.'
         ],
         proTip: 'Markiere deinen Ball auf dem Grün immer mit einem Ballmarker, bevor du ihn zum Reinigen aufhebst – sonst droht 1 Strafschlag.'
       },
@@ -5016,9 +5052,9 @@
         steps: [
           'Bei der Ballsuche (Regel 7.4): Trittst du im hohen Rough versehentlich auf deinen Ball oder stößt ihn an, legst du ihn straflos an die geschätzte ursprüngliche Stelle zurück.',
           'Im Gelände nach dem Ansprechen (Regel 9.4): Stößt du deinen Ball beim Ansprechen im Fairway/Rough versehentlich an, kostet das 1 Strafschlag und der Ball muss zurückgelegt werden.',
-          'Durch Wind oder Schwerkraft (Regel 9.3): Bewegt der Wind deinen Ball (auch auf dem Grün nach dem Markieren/Zurücklegen), wird er von der NEUEN Stelle weitergespielt.'
+          'Durch Wind oder Schwerkraft (Regel 9.3): Bewegt der Wind deinen Ball, spielst du ihn von der NEUEN Stelle. Ausnahme Grün (Regel 13.1d(2)): Hattest du den Ball dort schon markiert, aufgehoben und zurückgelegt, legst du ihn straflos an die ursprüngliche Stelle zurück.'
         ],
-        proTip: 'Wenn du dir nicht sicher bist, ob du oder der Wind den Ball bewegt hat, gilt die „51-%-Wahrscheinlichkeit“.'
+        proTip: 'Du giltst nur als Verursacher, wenn das bekannt oder so gut wie sicher ist (mind. 95 %). Bist du dir nicht sicher, gilt der Wind bzw. die Natur als Ursache – dann straflos.'
       },
       {
         id: 'rule-wrong-ball',
@@ -5031,7 +5067,7 @@
         summary: 'Prüfe vor jedem Schlag im Rough deine Ballmarkierung – ein Schlag mit einem fremden Ball kostet 2 Strafschläge.',
         steps: [
           'Falscher Ball (Regel 6.3c): Im Zählspiel kostet ein Schlag mit einem falschen Ball 2 Strafschläge (im Lochspiel Lochverlust). Die Schläge mit dem falschen Ball zählen nicht – du musst deinen eigenen Ball weiterspielen.',
-          'Ball zur Identifizierung aufheben (Regel 7.3): Du darfst deinen Ball im Rough jederzeit straflos markieren, aufheben (ohne zu reinigen!) und wieder zurücklegen.',
+          'Ball zur Identifizierung aufheben (Regel 7.3): Du darfst deinen Ball überall straflos markieren, aufheben und zurücklegen – reinigen aber nur so weit, wie es zum Erkennen nötig ist.',
           'Versehentliche Ablenkung (Regel 11.1): Trifft dein geschlagener Ball versehentlich dich selbst, deinen Bag/Trolley oder den Mitspieler, ist das straflos und der Ball wird gespielt, wie er liegt.'
         ],
         proTip: 'Zeichne immer zwei persönliche Punkte neben die Ballnummer und sage deinem Flight vor Tee 1 Marke & Nummer an.'
@@ -7349,88 +7385,244 @@
       renderRulesView();
     }
 
+    /* ========================================================================
+       REGEL-SKIZZEN (Draufsicht, Fahne links, gespielt wird von rechts)
+       Erleichterungsbereiche geometrisch korrekt: nicht näher zur Fahne
+       (Maske mit Kreis um das Loch), nicht in der Penalty Area / auf dem Weg.
+       ======================================================================== */
     function getRuleSketchSVG(ruleId) {
-      const sketches = {
-        'rule-search': `
-          <svg viewBox="0 0 420 118" role="img" aria-label="Skizze Aus und Platzregel E-5">
-            <rect x="8" y="8" width="90" height="102" rx="8" fill="var(--svg-error-container, #FFDAD6)" opacity="0.65" />
-            <text x="53" y="26" text-anchor="middle" fill="var(--svg-text-main)" font-size="9.5" font-weight="800">AUS (OB)</text>
-            <line x1="98" y1="10" x2="98" y2="108" stroke="#FFFFFF" stroke-width="3" stroke-dasharray="6 4" />
-            <circle cx="98" cy="24" r="4.5" fill="#FFFFFF" stroke="#181D18" stroke-width="1.5" />
-            <circle cx="98" cy="59" r="4.5" fill="#FFFFFF" stroke="#181D18" stroke-width="1.5" />
-            <circle cx="98" cy="94" r="4.5" fill="#FFFFFF" stroke="#181D18" stroke-width="1.5" />
-            <circle cx="52" cy="62" r="5.5" fill="#FFFFFF" stroke="#BA1A1A" stroke-width="2" />
-            <text x="52" y="79" text-anchor="middle" fill="#BA1A1A" font-size="8.5" font-weight="700">Ball im Aus</text>
-
-            <rect x="210" y="12" width="198" height="94" rx="10" fill="var(--svg-turf-fill)" />
-            <text x="309" y="28" text-anchor="middle" fill="var(--svg-turf-stroke)" font-size="9.5" font-weight="800">FAIRWAY (Platzregel E-5: +2 Strafschläge)</text>
-            <line x1="52" y1="62" x2="232" y2="62" stroke="var(--svg-line-muted)" stroke-width="1.5" stroke-dasharray="4 3" />
-            <rect x="218" y="42" width="44" height="40" rx="8" fill="none" stroke="var(--svg-turf-stroke)" stroke-width="1.8" stroke-dasharray="3 3" />
-            <circle cx="240" cy="62" r="5.5" fill="#FFFFFF" stroke="#146C38" stroke-width="2" />
-            <text x="328" y="60" text-anchor="middle" fill="var(--svg-text-main)" font-size="9" font-weight="700">Drop im 2-SL-Bereich</text>
-            <text x="328" y="74" text-anchor="middle" fill="var(--svg-text-sub)" font-size="8.5">oder provisorischer Ball (+1)</text>
-          </svg>`,
-        'rule-penalty-yellow': `
-          <svg viewBox="0 0 420 118" role="img" aria-label="Skizze Gelbe Penalty Area">
-            <rect x="115" y="14" width="120" height="90" rx="14" fill="#FEF08A" stroke="#CA8A04" stroke-width="2" />
-            <text x="175" y="34" text-anchor="middle" fill="#854D0E" font-size="9.5" font-weight="800">GELBE PENALTY AREA</text>
-            <circle cx="52" cy="59" r="9" fill="var(--svg-turf-fill)" stroke="var(--svg-turf-stroke)" stroke-width="2" />
-            <text x="52" y="44" text-anchor="middle" fill="var(--svg-text-main)" font-size="9" font-weight="800">FAHNE</text>
-            <line x1="52" y1="59" x2="395" y2="59" stroke="#CA8A04" stroke-width="2" stroke-dasharray="5 4" />
-            <circle cx="235" cy="59" r="5.5" fill="#CA8A04" />
-            <text x="235" y="47" text-anchor="middle" fill="#854D0E" font-size="8.5" font-weight="800">Kreuzungspunkt X</text>
-            <text x="325" y="51" text-anchor="middle" fill="var(--svg-text-main)" font-size="9" font-weight="700">Option 2: Linie zurück</text>
-            <text x="325" y="74" text-anchor="middle" fill="#BA1A1A" font-size="8.5" font-weight="700">KEINE 2 SL seitlich!</text>
-          </svg>`,
-        'rule-penalty-red': `
-          <svg viewBox="0 0 420 118" role="img" aria-label="Skizze Rote Penalty Area">
-            <rect x="120" y="12" width="125" height="94" rx="14" fill="#FECACA" stroke="#DC2626" stroke-width="2" />
-            <text x="182" y="30" text-anchor="middle" fill="#991B1B" font-size="9.5" font-weight="800">ROTE PENALTY AREA</text>
-            <circle cx="46" cy="54" r="8" fill="var(--svg-turf-fill)" stroke="var(--svg-turf-stroke)" stroke-width="2" />
-            <text x="46" y="40" text-anchor="middle" fill="var(--svg-text-main)" font-size="9" font-weight="800">FAHNE</text>
-            <line x1="46" y1="54" x2="396" y2="54" stroke="#DC2626" stroke-width="1.8" stroke-dasharray="5 4" />
-            <circle cx="245" cy="54" r="5.5" fill="#DC2626" />
-            <text x="260" y="44" fill="#991B1B" font-size="8.5" font-weight="800">Punkt X</text>
-            <path d="M 245 54 A 36 36 0 0 1 245 96" fill="none" stroke="#146C38" stroke-width="2.2" />
-            <text x="330" y="86" text-anchor="middle" fill="#146C38" font-size="9" font-weight="800">+ Option 3: 2 SL seitlich</text>
-            <text x="330" y="99" text-anchor="middle" fill="var(--svg-text-sub)" font-size="8.2">(nicht näher zum Loch)</text>
-          </svg>`,
-        'rule-unplayable': `
-          <svg viewBox="0 0 420 112" role="img" aria-label="Skizze Unspielbarer Ball">
-            <circle cx="48" cy="56" r="8" fill="var(--svg-turf-fill)" stroke="var(--svg-turf-stroke)" stroke-width="2" />
-            <text x="48" y="41" text-anchor="middle" fill="var(--svg-text-main)" font-size="9" font-weight="800">FAHNE</text>
-            <line x1="48" y1="56" x2="395" y2="56" stroke="var(--svg-overlay-spine)" stroke-width="1.8" stroke-dasharray="5 4" />
-            <circle cx="215" cy="56" r="6.5" fill="#FFFFFF" stroke="#181D18" stroke-width="2" />
-            <text x="215" y="42" text-anchor="middle" fill="var(--svg-text-main)" font-size="9" font-weight="800">Unspielbar</text>
-            <circle cx="215" cy="56" r="38" fill="none" stroke="#146C38" stroke-width="1.8" stroke-dasharray="4 3" />
-            <text x="328" y="48" text-anchor="middle" fill="var(--svg-overlay-spine)" font-size="8.8" font-weight="700">Opt. 2: Linie zurück (+1)</text>
-            <text x="328" y="74" text-anchor="middle" fill="#146C38" font-size="8.8" font-weight="700">Opt. 3: 2 SL seitlich (+1)</text>
-          </svg>`,
-        'rule-free-relief': `
-          <svg viewBox="0 0 420 112" role="img" aria-label="Skizze Straflose Erleichterung">
-            <rect x="135" y="10" width="68" height="92" rx="6" fill="#CBD5E1" />
-            <text x="169" y="26" text-anchor="middle" fill="#334155" font-size="9" font-weight="800">CARTWEG</text>
-            <circle cx="169" cy="58" r="5.5" fill="#FFFFFF" stroke="#BA1A1A" stroke-width="2" />
-            <text x="169" y="75" text-anchor="middle" fill="#BA1A1A" font-size="8.2" font-weight="700">Ball auf Weg</text>
-            <circle cx="222" cy="58" r="5" fill="#146C38" />
-            <path d="M 222 32 A 26 26 0 0 1 222 84" fill="none" stroke="#146C38" stroke-width="2" />
-            <text x="322" y="50" text-anchor="middle" fill="#146C38" font-size="9" font-weight="800">Nächstgelegener Punkt</text>
-            <text x="322" y="64" text-anchor="middle" fill="var(--svg-text-sub)" font-size="8.5">+ 1 Schlägerlänge (straflos)</text>
-          </svg>`,
-        'rule-bunker': `
-          <svg viewBox="0 0 420 106" role="img" aria-label="Skizze Bunker-Check">
-            <rect x="14" y="12" width="186" height="82" rx="12" fill="var(--svg-turf-fill)" />
-            <text x="107" y="34" text-anchor="middle" fill="#146C38" font-size="9.5" font-weight="800">ERLAUBT (Straflos)</text>
-            <text x="107" y="54" text-anchor="middle" fill="var(--svg-text-main)" font-size="8.8">Blätter, Zweige &amp; Steine</text>
-            <text x="107" y="69" text-anchor="middle" fill="var(--svg-text-main)" font-size="8.8">entfernen · Auf Schläger stützen</text>
-
-            <rect x="216" y="12" width="190" height="82" rx="12" fill="#FEE2E2" />
-            <text x="311" y="34" text-anchor="middle" fill="#991B1B" font-size="9.5" font-weight="800">VERBOTEN (+2 Strafschläge)</text>
-            <text x="311" y="54" text-anchor="middle" fill="#7F1D1D" font-size="8.8">Sand beim Probeschwung oder</text>
-            <text x="311" y="69" text-anchor="middle" fill="#7F1D1D" font-size="8.8">im Rückschwung berühren</text>
-          </svg>`
+      const W = 360, H = 190;
+      const green = 'var(--svg-turf-stroke)';
+      const reliefFill = 'rgba(46, 160, 90, 0.28)';
+      const red = '#C62828', yellowFill = '#FDE68A', yellowLine = '#CA8A04';
+      const T = (x, y, txt, o = {}) => `<text x="${x}" y="${y}" text-anchor="${o.a || 'middle'}" fill="${o.c || 'var(--svg-text-main)'}" font-size="${o.s || 10.5}" font-weight="${o.w || 700}">${txt}</text>`;
+      const flag = (x, y) => `<ellipse cx="${x}" cy="${y}" rx="5" ry="3" fill="#1f2937"/><line x1="${x}" y1="${y}" x2="${x}" y2="${y - 30}" stroke="#374151" stroke-width="1.6"/><path d="M${x} ${y - 30} l14 4.5 l-14 4.5 Z" fill="${red}"/>${T(x, y + 15, 'Fahne', { s: 9.5, c: 'var(--svg-text-sub)' })}`;
+      const ball = (x, y, c = '#181D18') => `<circle cx="${x}" cy="${y}" r="4.6" fill="#fff" stroke="${c}" stroke-width="1.6"/>`;
+      const dist = (a, b) => Math.hypot(a[0] - b[0], a[1] - b[1]);
+      const along = (a, b, len) => { const d = dist(a, b) || 1; return [a[0] + (b[0] - a[0]) / d * len, a[1] + (b[1] - a[1]) / d * len]; };
+      const f = v => v.toFixed(1);
+      const legend = rows => rows.map((r, i) => `<circle cx="14" cy="${H - 34 + i * 15}" r="4" fill="${r[0]}"/>${T(24, H - 30 + i * 15, r[1], { a: 'start', s: 9.8, w: 600 })}`).join('');
+      // Bereich um einen Punkt, der nicht näher zur Fahne liegt und optional Flächen ausspart
+      const reliefCircle = (id, c, r, hole, cutouts = '') => `
+        <mask id="${id}"><rect x="0" y="0" width="${W}" height="${H}" fill="#fff"/><circle cx="${hole[0]}" cy="${hole[1]}" r="${f(dist(hole, c))}" fill="#000"/>${cutouts}</mask>
+        <circle cx="${f(c[0])}" cy="${f(c[1])}" r="${r}" fill="${reliefFill}" stroke="${green}" stroke-width="1.4" stroke-dasharray="4 3" mask="url(#${id})"/>`;
+      // Schnittpunkt Flugbahn -> Ellipse (Ball von außen nach innen)
+      const ellipseHit = (from, to, cx, cy, rx, ry) => {
+        let lo = 0, hi = 1;
+        const inside = t => { const x = from[0] + (to[0] - from[0]) * t, y = from[1] + (to[1] - from[1]) * t; return ((x - cx) / rx) ** 2 + ((y - cy) / ry) ** 2 <= 1; };
+        for (let i = 0; i < 30; i++) { const m = (lo + hi) / 2; if (inside(m)) hi = m; else lo = m; }
+        return [from[0] + (to[0] - from[0]) * hi, from[1] + (to[1] - from[1]) * hi];
       };
-      return sketches[ruleId] || '';
+      const wrap = (label, body) => `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${label}">${body}</svg>`;
+      const grass = `<rect x="0" y="0" width="${W}" height="${H - 44}" rx="10" fill="var(--svg-turf-fill)"/>`;
+
+      const penaltyArea = isRed => {
+        const hole = [30, 92], last = [338, 34], water = [168, 96];
+        const cx = 168, cy = 90, rx = 52, ry = 36;
+        const X = ellipseHit(last, water, cx, cy, rx, ry);
+        const far = along(hole, X, 330);
+        const D = along(hole, X, dist(hole, X) + 62);
+        const col = isRed ? red : yellowLine;
+        let body = grass + `
+          <ellipse cx="${cx}" cy="${cy}" rx="${rx}" ry="${ry}" fill="${isRed ? '#FECACA' : yellowFill}" stroke="${col}" stroke-width="2.4" stroke-dasharray="7 4"/>
+          ${T(cx, cy - 12, isRed ? 'Rote Penalty Area' : 'Gelbe Penalty Area', { c: isRed ? '#991B1B' : '#854D0E', s: 10 })}
+          ${flag(hole[0], hole[1])}
+          <line x1="${hole[0]}" y1="${hole[1]}" x2="${f(far[0])}" y2="${f(far[1])}" stroke="${green}" stroke-width="1.4" stroke-dasharray="5 4"/>
+          <path d="M${last[0]} ${last[1]} Q ${(last[0] + water[0]) / 2 + 20} ${Math.min(last[1], water[1]) - 22} ${water[0]} ${water[1]}" fill="none" stroke="#6b7280" stroke-width="1.3" stroke-dasharray="2 3"/>
+          ${ball(water[0], water[1], '#6b7280')}
+          ${ball(last[0], last[1])}${T(last[0] - 4, last[1] - 10, 'letzter Schlag', { s: 9.5, a: 'end' })}
+          <circle cx="${f(X[0])}" cy="${f(X[1])}" r="4" fill="${col}"/>${T(X[0] + 4, X[1] - 9, 'X', { a: 'start', c: col, s: 11, w: 800 })}
+          <circle cx="${f(D[0])}" cy="${f(D[1])}" r="11" fill="${reliefFill}" stroke="${green}" stroke-width="1.4" stroke-dasharray="4 3"/>
+          ${T(D[0] + 6, D[1] - 16, '② auf der Linie', { s: 9.5, c: green })}`;
+        if (isRed) {
+          body += reliefCircle(`m-red-lat`, X, 24, hole, `<ellipse cx="${cx}" cy="${cy}" rx="${rx}" ry="${ry}" fill="#000"/>`);
+          body += T(X[0] + 8, X[1] + 40, '③ 2 SL seitlich', { a: 'start', s: 9.5, c: green });
+        } else {
+          body += T(cx, cy + ry + 14, 'keine seitliche Erleichterung', { s: 9.5, c: '#854D0E' });
+        }
+        body += legend([
+          ['#6b7280', '① Zurück zum letzten Schlag · ② beliebig weit zurück auf Linie Fahne–X'],
+          [green, isRed ? '③ Nur bei Rot: 2 SL ab X, nicht näher zur Fahne · je +1 Strafschlag' : 'Jeweils 1 Strafschlag · X = wo der Ball die Grenze zuletzt kreuzte']
+        ]);
+        return wrap(isRed ? 'Skizze rote Penalty Area' : 'Skizze gelbe Penalty Area', body);
+      };
+
+      const sketches = {
+        'rule-search': () => {
+          const hole = [30, 118], tee = [336, 118];
+          const A = [182, 30];
+          const rA = dist(hole, A);
+          const fairY = 92;
+          const B = [hole[0] + Math.sqrt(rA * rA - (hole[1] - fairY) ** 2), fairY];
+          const dB = [(B[0] - hole[0]) / rA, (B[1] - hole[1]) / rA];
+          const nB = [-dB[1], dB[0]];
+          const B2 = [B[0] + nB[0] * 22, B[1] + nB[1] * 22];
+          const dA = [(A[0] - hole[0]) / rA, (A[1] - hole[1]) / rA];
+          const Af = [A[0] + dA[0] * 160, A[1] + dA[1] * 160];
+          const Bf = [B2[0] + dB[0] * 160, B2[1] + dB[1] * 160];
+          return wrap('Skizze Aus, verlorener Ball und Platzregel E-5', `
+            <rect x="0" y="0" width="${W}" height="30" fill="#FFDAD6" opacity="0.8"/>${T(14, 20, 'AUS', { a: 'start', c: '#991B1B', w: 800 })}
+            <rect x="0" y="30" width="${W}" height="${H - 74}" fill="var(--svg-turf-fill)"/>
+            <rect x="8" y="${fairY}" width="${W - 16}" height="52" rx="22" fill="rgba(46,160,90,0.18)"/>${T(W - 18, fairY + 46, 'Fairway', { a: 'end', s: 9.5, c: 'var(--svg-text-sub)' })}
+            <line x1="0" y1="30" x2="${W}" y2="30" stroke="#fff" stroke-width="3"/>
+            ${[20, 80, 140, 200, 260, 320].map(x => `<circle cx="${x}" cy="30" r="3.6" fill="#fff" stroke="#181D18" stroke-width="1.2"/>`).join('')}
+            <mask id="m-e5"><rect x="0" y="30" width="${W}" height="${H - 74}" fill="#fff"/><circle cx="${hole[0]}" cy="${hole[1]}" r="${f(rA)}" fill="#000"/></mask>
+            <path d="M${f(A[0])} ${f(A[1])} L${f(Af[0])} ${f(Af[1])} L${f(Bf[0])} ${f(Bf[1])} L${f(B2[0])} ${f(B2[1])} Z" fill="rgba(2,132,199,0.22)" stroke="#0284c7" stroke-width="1.3" stroke-dasharray="4 3" mask="url(#m-e5)"/>
+            <line x1="${hole[0]}" y1="${hole[1]}" x2="${f(A[0])}" y2="${f(A[1])}" stroke="#0284c7" stroke-width="1" stroke-dasharray="3 3"/>
+            <line x1="${hole[0]}" y1="${hole[1]}" x2="${f(B[0])}" y2="${f(B[1])}" stroke="#0284c7" stroke-width="1" stroke-dasharray="3 3"/>
+            ${flag(hole[0], hole[1])}
+            <path d="M${tee[0]} ${tee[1]} Q 260 30 ${A[0]} ${A[1]} L ${A[0] - 12} 14" fill="none" stroke="#6b7280" stroke-width="1.3" stroke-dasharray="2 3"/>
+            ${ball(A[0] - 12, 14, '#991B1B')}
+            ${ball(tee[0], tee[1])}${T(tee[0] - 9, tee[1] + 4, 'letzter Schlag', { s: 9.5, a: 'end' })}
+            <circle cx="${f(A[0])}" cy="${f(A[1])}" r="3.5" fill="#0284c7"/>${T(A[0] - 6, A[1] + 14, 'A', { c: '#0284c7', w: 800 })}
+            <circle cx="${f(B[0])}" cy="${f(B[1])}" r="3.5" fill="#0284c7"/>${T(B[0] - 8, B[1] - 6, 'B', { c: '#0284c7', w: 800 })}
+            ${T(250, 76, 'E-5-Bereich', { s: 9.5, c: '#0369a1' })}
+            ${legend([
+              ['#6b7280', 'Regel 18.2: +1, neu vom letzten Schlagpunkt (provisorisch)'],
+              ['#0284c7', 'Platzregel E-5: +2, zwischen Linien Fahne–A und Fahne–B']
+            ])}`);
+        },
+        'rule-penalty-yellow': () => penaltyArea(false),
+        'rule-penalty-red': () => penaltyArea(true),
+        'rule-unplayable': () => {
+          const hole = [30, 96], P = [214, 82], last = [336, 128];
+          const far = along(hole, P, 330), D = along(hole, P, dist(hole, P) + 78);
+          return wrap('Skizze unspielbarer Ball', grass + `
+            ${flag(hole[0], hole[1])}
+            <line x1="${hole[0]}" y1="${hole[1]}" x2="${f(far[0])}" y2="${f(far[1])}" stroke="${green}" stroke-width="1.4" stroke-dasharray="5 4"/>
+            ${reliefCircle('m-unpl', P, 30, hole)}
+            <circle cx="${P[0] - 6}" cy="${P[1] - 8}" r="15" fill="#2f5e3a"/><circle cx="${P[0] + 9}" cy="${P[1] - 4}" r="13" fill="#3b7148"/><circle cx="${P[0] + 1}" cy="${P[1] - 18}" r="12" fill="#24502f"/>
+            ${ball(P[0], P[1] + 6)}
+            <circle cx="${f(D[0])}" cy="${f(D[1])}" r="11" fill="${reliefFill}" stroke="${green}" stroke-width="1.4" stroke-dasharray="4 3"/>
+            ${T(D[0] + 4, D[1] - 16, '② Linie zurück', { s: 9.5, c: green })}
+            ${T(P[0] + 2, P[1] + 46, '③ 2 SL, nicht näher', { s: 9.5, c: green })}
+            <path d="M${last[0]} ${last[1]} Q 290 140 ${P[0]} ${P[1] + 6}" fill="none" stroke="#6b7280" stroke-width="1.3" stroke-dasharray="2 3"/>
+            ${ball(last[0], last[1])}${T(last[0] - 2, last[1] - 10, '① letzter Schlag', { s: 9.5, a: 'end' })}
+            ${legend([
+              ['#6b7280', '① Zurück zum letzten Schlag · ② Linie Fahne–Ball (1 SL)'],
+              [green, '③ 2 SL ab Ball, nicht näher zur Fahne · je 1 Strafschlag']
+            ])}`);
+        },
+        'rule-free-relief': () => {
+          const hole = [30, 92], B = [205, 92], N = [240, 92];
+          return wrap('Skizze straflose Erleichterung vom Cartweg', grass + `
+            <rect x="188" y="0" width="34" height="${H - 44}" fill="#cbd5e1"/>${T(205, 16, 'Weg', { s: 9.5, c: '#475569' })}
+            ${flag(hole[0], hole[1])}
+            ${reliefCircle('m-free', N, 13, hole, `<rect x="188" y="0" width="34" height="${H}" fill="#000"/>`)}
+            ${ball(B[0], B[1], '#991B1B')}${T(B[0], B[1] + 18, 'Ball', { s: 9.5, c: '#991B1B' })}
+            <circle cx="${N[0]}" cy="${N[1]}" r="3.4" fill="${green}"/>
+            <line x1="${N[0] + 5}" y1="${N[1] - 5}" x2="${N[0] + 30}" y2="${N[1] - 32}" stroke="${green}" stroke-width="1"/>
+            ${T(W - 8, N[1] - 50, 'Nächstgelegener Punkt', { a: 'end', s: 9.5, c: green })}
+            ${T(W - 8, N[1] - 38, 'vollst. Erleichterung', { a: 'end', s: 9.5, c: green })}
+            <rect x="${N[0] + 2}" y="${N[1] + 16}" width="7" height="13" rx="3" fill="#475569"/><rect x="${N[0] + 22}" y="${N[1] + 16}" width="7" height="13" rx="3" fill="#475569"/>
+            ${T(W - 8, N[1] + 27, 'Stand frei', { a: 'end', s: 9.5, c: 'var(--svg-text-sub)' })}
+            ${legend([
+              [green, 'Straflos: Drop innerhalb 1 SL ab diesem Punkt, nicht näher zur Fahne'],
+              ['#475569', 'Ball, Stand und Schwung dürfen danach nicht mehr behindert sein']
+            ])}`);
+        },
+        'rule-loose-impediments': () => wrap('Skizze lose Naturstoffe und bewegliche Hemmnisse', `
+          <rect x="4" y="4" width="172" height="${H - 8}" rx="12" fill="var(--svg-turf-fill)"/>
+          <rect x="184" y="4" width="172" height="${H - 8}" rx="12" fill="var(--svg-turf-fill)"/>
+          ${T(90, 24, 'Lose Naturstoffe', { w: 800 })}${T(270, 24, 'Bewegliche Hemmnisse', { w: 800 })}
+          <path d="M40 66 q14 -26 34 -8 q-14 22 -34 8 Z" fill="#65a30d"/><line x1="40" y1="66" x2="70" y2="58" stroke="#3f6212" stroke-width="1.2"/>
+          <ellipse cx="102" cy="60" rx="14" ry="9" fill="#9ca3af" stroke="#6b7280"/>
+          <line x1="122" y1="70" x2="152" y2="48" stroke="#78350f" stroke-width="3" stroke-linecap="round"/><line x1="138" y1="58" x2="146" y2="66" stroke="#78350f" stroke-width="2"/>
+          ${T(90, 92, 'Blätter · Steine · Zweige', { s: 9.5, c: 'var(--svg-text-sub)', w: 600 })}
+          <line x1="206" y1="74" x2="246" y2="44" stroke="#6b7280" stroke-width="3" stroke-linecap="round"/><line x1="200" y1="66" x2="214" y2="82" stroke="#374151" stroke-width="4" stroke-linecap="round"/>
+          <rect x="262" y="44" width="14" height="30" rx="4" fill="#93c5fd" stroke="#2563eb"/><rect x="266" y="38" width="6" height="7" fill="#2563eb"/>
+          <rect x="300" y="38" width="6" height="38" fill="${red}"/><rect x="316" y="38" width="6" height="38" fill="${yellowLine}"/>
+          ${T(270, 92, 'Rechen · Flasche · Pfähle', { s: 9.5, c: 'var(--svg-text-sub)', w: 600 })}
+          ${T(90, 116, '✓ überall entfernen', { c: green })}${T(270, 116, '✓ überall entfernen', { c: green })}
+          ${T(90, 136, 'Ball bewegt sich?', { s: 9.8, w: 600 })}${T(270, 136, 'Ball bewegt sich?', { s: 9.8, w: 600 })}
+          ${T(90, 152, '+1 und zurücklegen', { c: red })}${T(270, 152, 'straflos zurücklegen', { c: green })}
+          ${T(90, 168, '(auf dem Grün straflos)', { s: 9.5, c: 'var(--svg-text-sub)', w: 600 })}`),
+        'rule-bunker': () => wrap('Skizze Bunker-Regeln', `
+          <path d="M0 70 Q 40 64 70 92 L 290 92 Q 320 64 360 70 L 360 ${H - 50} L 0 ${H - 50} Z" fill="var(--svg-turf-fill)"/>
+          <path d="M70 92 Q 180 104 290 92 L 290 ${H - 50} L 70 ${H - 50} Z" fill="#f3e2b3"/>
+          <path d="M70 92 Q 180 104 290 92" fill="none" stroke="#c9a24a" stroke-width="1.6"/>
+          ${ball(176, 93)}
+          <line x1="236" y1="20" x2="186" y2="82" stroke="#6b7280" stroke-width="2.6" stroke-linecap="round"/>
+          <path d="M186 82 l-14 4 l2 5 l14 -4 Z" fill="#374151"/>
+          <line x1="168" y1="96" x2="168" y2="84" stroke="${green}" stroke-width="1" stroke-dasharray="2 2"/>
+          ${T(250, 42, '✓ Schläger schwebt', { a: 'start', c: green })}${T(250, 55, 'über dem Sand', { a: 'start', c: green, s: 9.8, w: 600 })}
+          <text x="140" y="116" font-size="15" font-weight="800" fill="${red}">✕</text><text x="200" y="116" font-size="15" font-weight="800" fill="${red}">✕</text>
+          ${T(178, 132, 'kein Sandkontakt vor/hinter dem Ball', { c: red, s: 9.8 })}
+          ${legend([
+            [green, 'Erlaubt: lose Blätter & Steine entfernen, auf den Schläger stützen'],
+            [red, 'Verboten (+2): Sand beim Ansprechen, Probe- oder Rückschwung berühren']
+          ])}`),
+        'rule-green': () => wrap('Skizze Regeln auf dem Grün', `
+          <ellipse cx="180" cy="74" rx="168" ry="66" fill="rgba(46,160,90,0.22)" stroke="${green}" stroke-width="1.4"/>
+          <ellipse cx="262" cy="72" rx="5" ry="3" fill="#1f2937"/><line x1="262" y1="72" x2="262" y2="22" stroke="#374151" stroke-width="1.8"/><path d="M262 22 l16 5 l-16 5 Z" fill="${red}"/>
+          ${T(262, 92, 'Fahne darf', { s: 9.5, c: green })}${T(262, 104, 'stecken bleiben ✓', { s: 9.5, c: green })}
+          ${ball(120, 80)}<circle cx="111" cy="80" r="3.6" fill="#f59e0b" stroke="#92400e"/>
+          <line x1="120" y1="80" x2="255" y2="73" stroke="var(--svg-text-sub)" stroke-width="1" stroke-dasharray="3 3"/>
+          ${T(100, 104, 'Marker hinter den Ball,', { s: 9.5 })}${T(100, 116, 'dann aufheben ✓', { s: 9.5, c: green })}
+          <path d="M184 62 a6 4 0 1 0 12 0" fill="none" stroke="#6b5b3a" stroke-width="2"/><line x1="200" y1="46" x2="192" y2="58" stroke="#374151" stroke-width="2"/>
+          ${T(190, 40, 'Pitchmarke ausbessern ✓', { s: 9.5, c: green })}
+          <rect x="36" y="30" width="4" height="34" fill="#4b5563"/><rect x="28" y="62" width="20" height="6" rx="2" fill="#4b5563"/>
+          <text x="25" y="56" font-size="22" font-weight="800" fill="${red}">✕</text>
+          ${T(38, 84, 'Putter als', { s: 9, c: red })}${T(38, 95, 'Zielhilfe', { s: 9, c: red })}
+          ${legend([
+            [green, 'Straflos: mit Fahne putten, Pitchmarken & Spikespuren ausbessern'],
+            [red, 'Nicht erlaubt: Ball ohne Markieren aufheben (+1), Putter als Zielhilfe']
+          ])}`),
+        'rule-accidental-move': () => {
+          const col = (x, title1, title2, icon, res1, res2, c) => `
+            <rect x="${x}" y="4" width="114" height="${H - 8}" rx="12" fill="var(--svg-turf-fill)"/>
+            ${T(x + 57, 24, title1, { w: 800, s: 10 })}${T(x + 57, 37, title2, { w: 600, s: 9.5, c: 'var(--svg-text-sub)' })}
+            ${icon}
+            ${T(x + 57, 132, res1, { c, s: 10.5 })}${T(x + 57, 147, res2, { c, s: 9.5, w: 600 })}`;
+          return wrap('Skizze Ball bewegt', `
+            ${col(4, 'Bei der Suche', 'Regel 7.4', `<path d="M40 92 q6 -26 22 -26 q12 0 14 16 q2 12 -10 18 l-20 4 Z" fill="#475569"/>${ball(84, 96)}`, 'straflos', 'zurücklegen', green)}
+            ${col(123, 'Selbst bewegt', 'z. B. Probeschwung', `<line x1="200" y1="52" x2="178" y2="92" stroke="#6b7280" stroke-width="2.6"/><path d="M178 92 l-12 3 l2 5 l12 -3 Z" fill="#374151"/>${ball(160, 100)}<path d="M150 108 q-8 -2 -14 4" fill="none" stroke="${red}" stroke-width="1.6"/>`, '+1 Strafschlag', 'zurücklegen', red)}
+            ${col(242, 'Wind / Hang', 'Regel 9.3', `<path d="M262 64 q16 -8 30 0 q14 8 30 0 M262 76 q16 -8 30 0 q14 8 30 0" fill="none" stroke="#60a5fa" stroke-width="2"/>${ball(300, 100)}<path d="M290 100 h-14" stroke="#6b7280" stroke-width="1.4" stroke-dasharray="2 2"/>`, 'spielen, wie er liegt', 'Grün, schon zurückgelegt:', 'var(--svg-text-main)')}
+            ${T(299, 162, 'zurücklegen', { c: green, s: 9.5 })}`);
+        },
+        'rule-wrong-ball': () => wrap('Skizze falscher Ball', grass + `
+          ${[...Array(18)].map((_, i) => `<path d="M${14 + i * 19} ${112} q3 -10 6 0 q3 -8 6 0" fill="none" stroke="#3b7148" stroke-width="1.4"/>`).join('')}
+          <circle cx="110" cy="80" r="22" fill="#fff" stroke="#181D18" stroke-width="1.6"/>${T(110, 84, '3', { s: 13, w: 800 })}<circle cx="102" cy="92" r="2.2" fill="${red}"/><circle cx="118" cy="92" r="2.2" fill="${red}"/>
+          ${T(110, 132, 'dein Ball ✓', { c: green })}
+          <circle cx="244" cy="80" r="22" fill="#fff" stroke="#181D18" stroke-width="1.6"/>${T(244, 84, '3', { s: 13, w: 800 })}
+          ${T(244, 132, 'gleiche Nummer, fremd ✕', { c: red })}
+          <circle cx="168" cy="52" r="14" fill="none" stroke="#374151" stroke-width="2.4"/><line x1="178" y1="62" x2="190" y2="74" stroke="#374151" stroke-width="3.4" stroke-linecap="round"/>
+          ${legend([
+            [red, 'Falscher Ball gespielt: +2 – Fehler korrigieren und eigenen Ball spielen'],
+            [green, 'Prüfen: Lage markieren, aufheben, nur so weit nötig reinigen']
+          ])}`),
+        'rule-ready-golf': () => wrap('Skizze Spieltempo', `
+          <rect x="4" y="4" width="112" height="${H - 8}" rx="12" fill="var(--svg-turf-fill)"/>
+          <rect x="124" y="4" width="112" height="${H - 8}" rx="12" fill="var(--svg-turf-fill)"/>
+          <rect x="244" y="4" width="112" height="${H - 8}" rx="12" fill="var(--svg-turf-fill)"/>
+          <circle cx="60" cy="74" r="30" fill="#fff" stroke="#374151" stroke-width="2.4"/><rect x="55" y="38" width="10" height="7" fill="#374151"/>
+          <path d="M60 74 L60 50 A24 24 0 0 1 82 66 Z" fill="rgba(46,160,90,0.45)"/>
+          ${T(60, 80, '40 s', { w: 800, s: 12 })}
+          ${T(60, 126, 'pro Schlag', { s: 10 })}${T(60, 140, 'empfohlen', { s: 9.5, c: 'var(--svg-text-sub)', w: 600 })}
+          <rect x="164" y="48" width="32" height="56" rx="8" fill="#1E563A"/>${[0, 1, 2, 3].map(i => `<line x1="${170 + i * 7}" y1="48" x2="${168 + i * 8}" y2="28" stroke="#6b7280" stroke-width="2"/>`).join('')}
+          ${T(180, 126, 'max. 14 Schläger', { s: 10 })}${T(180, 140, 'sonst +2 pro Loch', { s: 9.5, c: red, w: 600 })}${T(180, 153, '(max. 4 je Runde)', { s: 9, c: 'var(--svg-text-sub)', w: 600 })}
+          ${[0, 1, 2].map(i => `<circle cx="${272 + i * 28}" cy="${62}" r="9" fill="${i === 1 ? green : '#9ca3af'}"/><rect x="${265 + i * 28}" y="72" width="14" height="24" rx="6" fill="${i === 1 ? green : '#9ca3af'}"/>`).join('')}
+          ${T(300, 126, 'Wer bereit ist,', { s: 10 })}${T(300, 140, 'spielt zuerst', { s: 10, c: green })}${T(300, 153, '(Zählspiel)', { s: 9, c: 'var(--svg-text-sub)', w: 600 })}`),
+        'rule-handicap-whs': () => {
+          const vals = [18.2, 14.1, 20.5, 12.8, 16.9, 13.4, 22.0, 15.2, 11.9, 17.8, 19.4, 13.0, 15.9, 21.3, 12.4, 16.1, 14.6, 18.9, 13.8, 20.1];
+          const best = vals.map((v, i) => [v, i]).sort((a, b) => a[0] - b[0]).slice(0, 8).map(x => x[1]);
+          const avg = best.reduce((s, i) => s + vals[i], 0) / 8;
+          const bars = vals.map((v, i) => {
+            const h = v * 4.2;
+            return `<rect x="${14 + i * 16.5}" y="${108 - h}" width="11" height="${h}" rx="2" fill="${best.includes(i) ? green : '#cbd5e1'}"/>`;
+          }).join('');
+          return wrap('Skizze World Handicap System', `
+            ${T(14, 16, 'Letzte 20 Runden (Score-Differentials)', { a: 'start', s: 10, w: 800 })}
+            ${bars}
+            <line x1="10" y1="108" x2="${W - 10}" y2="108" stroke="var(--svg-line-muted)"/>
+            ${T(14, 124, `Grün = die besten 8 → Ø ${avg.toFixed(1).replace('.', ',')} = Handicap-Index`, { a: 'start', s: 9.8, c: green })}
+            <rect x="10" y="134" width="${W - 20}" height="48" rx="10" fill="var(--svg-turf-fill)"/>
+            ${T(W / 2, 152, 'Netto-Doppelbogey (max. Score je Loch):', { s: 10, w: 800 })}
+            ${T(W / 2, 170, 'Par + 2 + deine Vorgabeschläge an diesem Loch', { s: 10, c: 'var(--svg-text-sub)' })}`);
+        }
+      };
+      const s = sketches[ruleId];
+      return s ? s() : '';
     }
 
     function renderRulesView() {
