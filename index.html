@@ -9,8 +9,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="apple-mobile-web-app-title" content="Golf Pocket Trainer" />
   <meta name="application-name" content="Golf Pocket Trainer" />
-  <meta name="description" content="Golf Pocket Trainer v4.28.0 – Material Design 3 Golf Technik-, Trainings-, Rules-, Scratch-Blueprint-, Komparator-, Warm-up-, Video-Analyse-, 40-Tage-Challenge- & Gamification-Statistik-Begleiter" />
-  <title>Golf Pocket Trainer (v4.28.0)</title>
+  <meta name="description" content="Golf Pocket Trainer v4.29.0 – Material Design 3 Golf Technik-, Trainings-, Rules-, Scratch-Blueprint-, Komparator-, Warm-up-, Video-Analyse-, 40-Tage-Challenge- & Gamification-Statistik-Begleiter" />
+  <title>Golf Pocket Trainer (v4.29.0)</title>
 
   <link rel="manifest" href="manifest.webmanifest" />
   <link rel="icon" type="image/png" sizes="48x48" href="icons/favicon-48.png" />
@@ -566,6 +566,9 @@
       display: flex;
       flex-direction: column;
       z-index: 50;
+      max-height: calc(100vh - 5.5rem);
+      max-height: calc(100dvh - 5.5rem);
+      overflow-y: auto;
       animation: mdMenuEnter 0.18s cubic-bezier(0.2, 0, 0, 1);
     }
 
@@ -608,6 +611,15 @@
       color: var(--md-sys-color-on-primary-container);
     }
 
+    .md-menu-heading {
+      padding: 0.45rem 1rem 0.15rem;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--md-sys-color-on-surface-variant);
+    }
+
     .md-menu-divider {
       height: 1px;
       background-color: var(--md-sys-color-outline-variant);
@@ -615,7 +627,7 @@
     }
 
     /* ==========================================================================
-       4. MATERIAL 3 NAVIGATION BAR / INDICATOR PILL TABS (5 BEREICHE: Heute, Training, Technik, Regeln, Fortschritt)
+       4. MATERIAL 3 NAVIGATION BAR / INDICATOR PILL TABS (4 BEREICHE: Heute, Training, Technik, Regeln – Seltenes im Menü ⋮)
        ========================================================================== */
     .md-nav-section {
       padding-top: 0.25rem;
@@ -633,13 +645,13 @@
 
     @media (min-width: 640px) {
       .md-nav-bar {
-        grid-template-columns: repeat(5, minmax(0, 1fr));
+        grid-template-columns: repeat(4, minmax(0, 1fr));
       }
     }
 
     @media (min-width: 1024px) {
       .md-nav-bar {
-        grid-template-columns: repeat(5, minmax(0, 1fr));
+        grid-template-columns: repeat(4, minmax(0, 1fr));
       }
     }
 
@@ -691,7 +703,7 @@
       }
       .md-nav-section .md-container { padding: 0 0.25rem; }
       .md-nav-bar {
-        grid-template-columns: repeat(5, minmax(0, 1fr));
+        grid-template-columns: repeat(4, minmax(0, 1fr));
         gap: 0.15rem;
         border-radius: 0;
         padding: 0.35rem 0;
@@ -824,6 +836,37 @@
       font-weight: 700;
     }
     .md-subnav-btn:focus-visible { outline: 2px solid var(--md-sys-color-primary); outline-offset: 2px; }
+
+    /* Seiten aus dem Menü: Zurück-Leiste statt Unter-Navigation */
+    .md-subnav.md-subnav-back {
+      background: transparent;
+      padding: 0;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+    }
+    .md-subnav-backbtn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      min-height: 44px;
+      padding: 0 0.9rem 0 0.6rem;
+      border-radius: 999px;
+      font-size: 0.84rem;
+      font-weight: 700;
+      color: var(--md-sys-color-primary);
+      background-color: var(--md-sys-color-surface-container);
+      white-space: nowrap;
+    }
+    .md-subnav-backbtn .material-symbols-rounded { font-size: 20px; }
+    .md-subnav-backbtn:focus-visible { outline: 2px solid var(--md-sys-color-primary); outline-offset: 2px; }
+    .md-subnav-title {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--md-sys-color-on-surface-variant);
+      text-align: right;
+      min-width: 0;
+    }
 
     /* Schnellzugriffe auf „Heute“ */
     .md-today-list {
@@ -1397,7 +1440,7 @@
 
     .md-comp-ticks {
       display: grid;
-      grid-template-columns: repeat(5, minmax(0, 1fr));
+      grid-template-columns: repeat(4, minmax(0, 1fr));
       gap: 0.35rem;
       margin-top: 0.4rem;
     }
@@ -1753,7 +1796,7 @@
        ========================================================================== */
     .md-challenge-calendar {
       display: grid;
-      grid-template-columns: repeat(5, minmax(0, 1fr));
+      grid-template-columns: repeat(4, minmax(0, 1fr));
       gap: 0.45rem;
     }
 
@@ -2292,7 +2335,7 @@
         <div class="md-brand-text-wrap">
           <div style="display: flex; align-items: center; gap: 0.4rem;">
             <h1 class="md-brand-title">Golf Pocket Trainer</h1>
-            <span class="md-version-badge font-mono">v4.28.0</span>
+            <span class="md-version-badge font-mono">v4.29.0</span>
           </div>
           <p class="md-brand-sub">Dein Trainings- &amp; Platzbegleiter</p>
         </div>
@@ -2305,7 +2348,24 @@
 
         <!-- Dropdown Menu -->
         <div id="toolsDropdown" class="md-menu hidden" role="menu">
+          <div class="md-menu-heading" role="presentation">Mein Fortschritt</div>
+          <button type="button" onclick="openMenuPage('progress')" class="md-menu-item" role="menuitem">
+            <span class="md-menu-item-left">
+              <span class="material-symbols-rounded" style="color: var(--md-sys-color-primary);">military_tech</span>
+              <span>Level &amp; Abzeichen</span>
+            </span>
+            <span id="dropdownStatsBadge" class="md-menu-badge font-mono">Lvl 1 · 0 XP</span>
+          </button>
+          <button type="button" onclick="openMenuPage('scratch')" class="md-menu-item" role="menuitem">
+            <span class="md-menu-item-left">
+              <span class="material-symbols-rounded" style="color: var(--md-sys-color-primary);">emoji_events</span>
+              <span>Scratch-Plan (HCP 0)</span>
+            </span>
+            <span id="dropdownScratchBadge" class="md-menu-badge font-mono">0/8</span>
+          </button>
 
+          <div class="md-menu-divider"></div>
+          <div class="md-menu-heading" role="presentation">Werkzeuge</div>
           <button type="button" onclick="openChecklistDrawer()" class="md-menu-item" role="menuitem">
             <span class="md-menu-item-left">
               <span class="material-symbols-rounded" style="color: var(--md-sys-color-secondary);">fact_check</span>
@@ -2313,7 +2373,16 @@
             </span>
             <span id="dropdownCheckBadge" class="md-menu-badge font-mono">0/10</span>
           </button>
+          <button type="button" onclick="openMenuPage('comparator')" class="md-menu-item" role="menuitem">
+            <span class="md-menu-item-left">
+              <span class="material-symbols-rounded" style="color: var(--md-sys-color-secondary);">compare_arrows</span>
+              <span>Schläger-Vergleich</span>
+            </span>
+            <span class="md-menu-badge">Ballflug</span>
+          </button>
 
+          <div class="md-menu-divider"></div>
+          <div class="md-menu-heading" role="presentation">Einstellungen</div>
           <button type="button" onclick="toggleTheme()" class="md-menu-item" role="menuitem">
             <span class="md-menu-item-left">
               <span id="themeSymbolIcon" class="material-symbols-rounded" style="color: var(--md-sys-color-on-surface-variant);">dark_mode</span>
@@ -2321,8 +2390,6 @@
             </span>
             <span id="themeStateBadge" class="md-menu-badge">Hell</span>
           </button>
-
-          <div class="md-menu-divider"></div>
 
           <button type="button" onclick="exportBackup()" class="md-menu-item" role="menuitem">
             <span class="md-menu-item-left">
@@ -2345,7 +2412,7 @@
               <span class="material-symbols-rounded" style="color: var(--md-sys-color-on-surface-variant);">history</span>
               <span>Versionsverlauf</span>
             </span>
-            <span class="font-mono" style="font-size: 0.72rem; color: var(--md-sys-color-on-surface-variant);">v4.28.0</span>
+            <span class="font-mono" style="font-size: 0.72rem; color: var(--md-sys-color-on-surface-variant);">v4.29.0</span>
           </button>
         </div>
       </div>
@@ -2373,10 +2440,6 @@
         <button type="button" class="md-nav-destination" data-group="rules" role="tab" aria-selected="false" onclick="openNavGroup('rules')">
           <span class="material-symbols-rounded" style="font-size: 18px;">gavel</span>
           <span>Regeln</span>
-        </button>
-        <button type="button" class="md-nav-destination" data-group="progress" role="tab" aria-selected="false" onclick="openNavGroup('progress')">
-          <span class="material-symbols-rounded" style="font-size: 18px;">monitoring</span>
-          <span>Fortschritt</span>
         </button>
       </div>
     </div>
@@ -3166,7 +3229,7 @@
        ======================================================================== -->
   <footer class="md-footer">
     <div class="md-container" style="display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; flex-wrap: wrap;">
-      <span><strong>Golf Pocket Trainer</strong> (<span class="font-mono">v4.28.0</span>) &bull; Dein interaktiver Trainings- &amp; Platzbegleiter</span>
+      <span><strong>Golf Pocket Trainer</strong> (<span class="font-mono">v4.29.0</span>) &bull; Dein interaktiver Trainings- &amp; Platzbegleiter</span>
       <button type="button" onclick="openChangelogModal()" class="md-text-btn" style="height: 1.85rem;">Versionsverlauf ansehen</button>
     </div>
   </footer>
@@ -3194,22 +3257,22 @@
           <div style="display: flex; align-items: flex-start; gap: 0.65rem; font-size: 0.83rem;">
             <span class="material-symbols-rounded filled" style="font-size: 20px; color: var(--md-sys-color-primary); margin-top: 1px;">dock_to_bottom</span>
             <div>
-              <strong>5 Bereiche statt 7 Tabs:</strong>
-              <div style="color: var(--md-sys-color-on-surface-variant); margin-top: 0.1rem;">Heute, Training, Technik, Regeln und Fortschritt. Oben im Bereich wechselst du zwischen den Teilen, z. B. Drills, Warm-up, Challenge und Scratch.</div>
+              <strong>4 Bereiche in der Tab-Leiste:</strong>
+              <div style="color: var(--md-sys-color-on-surface-variant); margin-top: 0.1rem;">Heute, Training, Technik und Regeln – alles, was du beim Üben und auf dem Platz brauchst.</div>
             </div>
           </div>
           <div style="display: flex; align-items: flex-start; gap: 0.65rem; font-size: 0.83rem;">
-            <span class="material-symbols-rounded filled" style="font-size: 20px; color: var(--md-sys-color-primary); margin-top: 1px;">calendar_month</span>
+            <span class="material-symbols-rounded filled" style="font-size: 20px; color: var(--md-sys-color-primary); margin-top: 1px;">more_vert</span>
             <div>
-              <strong>Nichts mehr versteckt:</strong>
-              <div style="color: var(--md-sys-color-on-surface-variant); margin-top: 0.1rem;">Challenge und Video-Analyse findest du jetzt direkt unter Training und Technik statt im Menü.</div>
+              <strong>Geordnetes Menü ⋮:</strong>
+              <div style="color: var(--md-sys-color-on-surface-variant); margin-top: 0.1rem;">Level &amp; Abzeichen, Scratch-Plan, Schläger-Vergleich und Range-Checkliste findest du jetzt oben rechts im Menü.</div>
             </div>
           </div>
           <div style="display: flex; align-items: flex-start; gap: 0.65rem; font-size: 0.83rem;">
-            <span class="material-symbols-rounded filled" style="font-size: 20px; color: var(--md-sys-color-primary); margin-top: 1px;">home</span>
+            <span class="material-symbols-rounded filled" style="font-size: 20px; color: var(--md-sys-color-primary); margin-top: 1px;">arrow_back</span>
             <div>
-              <strong>Heute auf einen Blick:</strong>
-              <div style="color: var(--md-sys-color-on-surface-variant); margin-top: 0.1rem;">Check-in, nächste Challenge-Einheit, Warm-up und dein Level.</div>
+              <strong>Schnell zurück:</strong>
+              <div style="color: var(--md-sys-color-on-surface-variant); margin-top: 0.1rem;">Seiten aus dem Menü haben oben einen Zurück-Knopf zu deinem letzten Bereich.</div>
             </div>
           </div>
         </div>
@@ -3289,7 +3352,7 @@
       <div class="md-dialog-header">
         <div>
           <span class="md-assist-badge" style="background-color: var(--md-sys-color-tertiary-container); color: var(--md-sys-color-on-tertiary-container);">Release Notes &amp; Wartung</span>
-          <h2 id="changelogTitle" class="font-display" style="font-size: 1.25rem; font-weight: 800; margin-top: 0.3rem;">Versionsverlauf (v1.0.0 – v4.28.0)</h2>
+          <h2 id="changelogTitle" class="font-display" style="font-size: 1.25rem; font-weight: 800; margin-top: 0.3rem;">Versionsverlauf (v1.0.0 – v4.29.0)</h2>
         </div>
         <button type="button" onclick="closeChangelogModal()" class="md-icon-btn" aria-label="Schließen">
           <span class="material-symbols-rounded">close</span>
@@ -3304,20 +3367,33 @@
   </div>
 
   <!-- ========================================================================
-       COMPLETE SELF-CONTAINED JAVASCRIPT ENGINE (v4.28.0)
+       COMPLETE SELF-CONTAINED JAVASCRIPT ENGINE (v4.29.0)
        ======================================================================== -->
   <div id="appToast" class="md-toast" role="status" aria-live="polite"></div>
   <input type="file" id="backupFileInput" accept="application/json,.json" hidden onchange="handleBackupFile(event)" />
 
   <script>
-    const APP_VERSION = 'v4.28.0';
+    const APP_VERSION = 'v4.29.0';
 
     const CHANGELOG_ENTRIES = [
       {
-        version: 'v4.28.0',
+        version: 'v4.29.0',
         date: 'Aktuell',
-        title: 'Neue Navigation mit 5 Bereichen',
+        title: 'Schlankere Tab-Leiste & geordnetes Menü',
         latest: true,
+        notes: [
+          'Die Tab-Leiste hat nur noch 4 Bereiche für das tägliche Training: Heute, Training, Technik und Regeln.',
+          'Training zeigt Drills, Warm-up und Challenge. Technik zeigt Schlagtechnik und Video.',
+          'Fortschritt (Level & Abzeichen), Scratch-Plan und Schläger-Vergleich findest du jetzt im Menü ⋮. Das Menü ist in „Mein Fortschritt“, „Werkzeuge“ und „Einstellungen“ gegliedert.',
+          'Seiten aus dem Menü haben oben einen Zurück-Knopf zum zuletzt offenen Bereich.',
+          'Die Level-Kachel auf „Heute“ führt weiterhin direkt zu deinem Fortschritt.'
+        ]
+      },
+      {
+        version: 'v4.28.0',
+        date: 'Vorherige Version',
+        title: 'Neue Navigation mit 5 Bereichen',
+        latest: false,
         notes: [
           'Die Tab-Leiste hat jetzt 5 Bereiche: Heute, Training, Technik, Regeln und Fortschritt.',
           'Training bündelt Drills, Warm-up, 40-Tage-Challenge und Scratch. Technik bündelt Schlagtechnik, Schläger-Vergleich und Video-Analyse. Oben im Bereich wechselst du zwischen den Teilen.',
@@ -3329,7 +3405,7 @@
       },
       {
         version: 'v4.27.0',
-        date: 'Vorherige Version',
+        date: 'Meilenstein 52',
         title: 'Neuer Tab „Heute“ & aufgeräumte Bedienung',
         latest: false,
         notes: [
@@ -5346,7 +5422,7 @@
     let timerInterval = null;
 
     let mentalQuoteIdx = 0;
-    let isMentalAutoPlaying = false; // seit v4.28.0 kein automatischer Wechsel mehr
+    let isMentalAutoPlaying = false; // seit v4.29.0 kein automatischer Wechsel mehr
     let mentalAutoInterval = null;
 
     let checkedSet = new Set();
@@ -6420,6 +6496,7 @@
       if (!menu) return;
       const isHidden = menu.classList.toggle('hidden');
       if (btn) btn.setAttribute('aria-expanded', String(!isHidden));
+      if (!isHidden) updateMenuBadges();
     }
 
     function closeToolsDropdown() {
@@ -6455,11 +6532,18 @@
     // Bereiche der Tab-Leiste und ihre Teile (Unter-Navigation)
     const NAV_GROUPS = {
       today: [['stats', 'Heute']],
-      training: [['drills', 'Drills'], ['warmup', 'Warm-up'], ['challenge', 'Challenge'], ['scratch', 'Scratch']],
-      technique: [['technique', 'Schlagtechnik'], ['comparator', 'Vergleich'], ['video', 'Video']],
-      rules: [['rules', 'Regeln']],
-      progress: [['progress', 'Fortschritt']]
+      training: [['drills', 'Drills'], ['warmup', 'Warm-up'], ['challenge', 'Challenge']],
+      technique: [['technique', 'Schlagtechnik'], ['video', 'Video']],
+      rules: [['rules', 'Regeln']]
     };
+    // Seiten, die nur über das Menü ⋮ erreichbar sind (mit Zurück-Knopf)
+    const MENU_PAGES = {
+      progress: 'Level & Abzeichen',
+      scratch: 'Scratch-Plan (HCP 0)',
+      comparator: 'Schläger-Vergleich'
+    };
+    // Letzter Bereich aus der Tab-Leiste, zu dem „Zurück“ führt
+    let lastNavSection = 'stats';
     const SECTION_GROUP = {};
     Object.entries(NAV_GROUPS).forEach(([g, items]) => items.forEach(([key]) => { SECTION_GROUP[key] = g; }));
     // Merkt sich pro Bereich den zuletzt offenen Teil
@@ -6476,6 +6560,22 @@
       if (!el) return;
       const group = SECTION_GROUP[tabKey];
       const items = NAV_GROUPS[group] || [];
+      if (!group && MENU_PAGES[tabKey]) {
+        const backGroup = SECTION_GROUP[lastNavSection];
+        const backLabel = (NAV_GROUPS[backGroup] || []).find(([k]) => k === lastNavSection)?.[1] || 'Heute';
+        el.classList.remove('hidden');
+        el.classList.add('md-subnav-back');
+        el.removeAttribute('role');
+        el.innerHTML = `
+        <button type="button" class="md-subnav-backbtn" onclick="switchMainTab('${lastNavSection}')">
+          <span class="material-symbols-rounded" aria-hidden="true">arrow_back</span>
+          <span>Zurück zu ${backLabel}</span>
+        </button>
+        <span class="md-subnav-title">${MENU_PAGES[tabKey]}</span>`;
+        return;
+      }
+      el.classList.remove('md-subnav-back');
+      el.setAttribute('role', 'tablist');
       if (items.length < 2) { el.classList.add('hidden'); el.innerHTML = ''; return; }
       el.classList.remove('hidden');
       el.innerHTML = items.map(([key, label]) => `
@@ -6505,6 +6605,17 @@
         : `${currentLvl.name} · höchstes Level erreicht`;
     }
 
+    function openMenuPage(tabKey) {
+      closeToolsDropdown();
+      switchMainTab(tabKey);
+    }
+
+    function updateMenuBadges() {
+      updateStatsMenuBadge();
+      const sc = document.getElementById('dropdownScratchBadge');
+      if (sc) sc.textContent = `${masteredScratchPillars.size}/${SCRATCH_PILLARS.length}`;
+    }
+
     function openTodayChallenge() {
       switchMainTab('challenge');
       jumpToNextChallengeSession();
@@ -6518,7 +6629,7 @@
       const tabChanged = currentMainTab !== tabKey;
       currentMainTab = tabKey;
       const group = SECTION_GROUP[tabKey];
-      if (group) lastSectionInGroup[group] = tabKey;
+      if (group) { lastSectionInGroup[group] = tabKey; lastNavSection = tabKey; }
       document.querySelectorAll('.md-nav-destination').forEach(btn => {
         btn.classList.toggle('active', btn.dataset.group === group);
         btn.setAttribute('aria-selected', btn.dataset.group === group ? 'true' : 'false');
