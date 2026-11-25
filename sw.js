@@ -6,7 +6,7 @@
      "stale-while-revalidate" in einem Laufzeit-Cache. Nach dem ersten Online-Besuch sind sie offline da.
    - Alles andere (z. B. YouTube-Player) wird nicht angefasst.
    Bei jedem Release VERSION erhöhen, damit der Shell-Cache erneuert wird. */
-const VERSION = 'v4.23.0';
+const VERSION = 'v4.24.0';
 const SHELL_CACHE = `gpg-shell-${VERSION}`;
 const RUNTIME_CACHE = 'gpg-runtime-v1';
 const RUNTIME_MAX_ENTRIES = 80;

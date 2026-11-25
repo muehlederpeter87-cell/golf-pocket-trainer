@@ -9,8 +9,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="apple-mobile-web-app-title" content="Golf Pocket Trainer" />
   <meta name="application-name" content="Golf Pocket Trainer" />
-  <meta name="description" content="Golf Pocket Trainer v4.23.0 – Material Design 3 Golf Technik-, Trainings-, Rules-, Scratch-Blueprint-, Komparator-, Warm-up-, Video-Analyse-, 40-Tage-Challenge- & Gamification-Statistik-Begleiter" />
-  <title>Golf Pocket Trainer (v4.23.0)</title>
+  <meta name="description" content="Golf Pocket Trainer v4.24.0 – Material Design 3 Golf Technik-, Trainings-, Rules-, Scratch-Blueprint-, Komparator-, Warm-up-, Video-Analyse-, 40-Tage-Challenge- & Gamification-Statistik-Begleiter" />
+  <title>Golf Pocket Trainer (v4.24.0)</title>
 
   <link rel="manifest" href="manifest.webmanifest" />
   <link rel="icon" type="image/png" sizes="48x48" href="icons/favicon-48.png" />
@@ -982,25 +982,33 @@
       box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
     }
 
-    .ss-root { width: 100%; display: flex; flex-direction: column; gap: 0.7rem; }
-    .ss-caption { display: flex; justify-content: space-between; align-items: center; gap: 0.5rem; font-size: 0.78rem; font-weight: 700; color: var(--md-sys-color-on-surface-variant); }
-    .ss-target { white-space: nowrap; color: var(--md-sys-color-primary); }
-    .ss-grid { display: grid; gap: 0.4rem; }
-    .ss-tile { position: relative; display: flex; flex-direction: column; align-items: stretch; padding: 0.2rem 0.15rem 0.35rem; border-radius: 0.85rem; border: 1.5px solid var(--md-sys-color-outline-variant); background: var(--md-sys-color-surface-container-lowest, #fff); cursor: pointer; transition: border-color 0.15s ease, box-shadow 0.15s ease; font: inherit; color: inherit; min-width: 0; }
-    .md-svg-editorial .ss-tile svg { width: 100%; height: auto; min-height: 0; aspect-ratio: 250 / 304; display: block; }
-    .ss-tile.selected { border-color: var(--md-sys-color-primary); box-shadow: 0 0 0 2px var(--md-sys-color-primary) inset; }
-    .ss-tile-num { position: absolute; top: 0.3rem; left: 0.35rem; width: 1.2rem; height: 1.2rem; border-radius: 50%; display: grid; place-items: center; font-size: 0.68rem; font-weight: 800; background: var(--md-sys-color-primary); color: var(--md-sys-color-on-primary); }
-    .ss-tile-label { font-size: 0.64rem; font-weight: 700; text-align: center; line-height: 1.15; color: var(--md-sys-color-on-surface-variant); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-    .ss-detail { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: 0.8rem; align-items: center; padding: 0.6rem; border-radius: 1rem; background: var(--md-sys-color-surface-container-lowest, #fff); border: 1px solid var(--md-sys-color-outline-variant); }
-    .ss-detail-img { width: 100%; max-width: 230px; justify-self: center; }
-    .md-svg-editorial .ss-detail-img svg { width: 100%; height: auto; min-height: 0; display: block; }
-    .ss-detail-text { display: flex; flex-direction: column; gap: 0.45rem; font-size: 0.86rem; line-height: 1.45; }
-    .ss-detail-head { display: flex; align-items: center; gap: 0.45rem; font-size: 1rem; }
-    .ss-num { width: 1.6rem; height: 1.6rem; border-radius: 50%; display: grid; place-items: center; font-size: 0.82rem; font-weight: 800; background: var(--md-sys-color-primary); color: var(--md-sys-color-on-primary); flex-shrink: 0; }
-    .ss-count { margin-left: auto; font-size: 0.75rem; color: var(--md-sys-color-on-surface-variant); font-variant-numeric: tabular-nums; }
-    .ss-detail-text p { margin: 0; color: var(--md-sys-color-on-surface-variant); }
-    .ss-nav { display: flex; gap: 0.4rem; }
-    @media (max-width: 520px) { .ss-detail { grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: 0.5rem; } .ss-detail-text { font-size: 0.8rem; } }
+    .pv-root { width: 100%; display: flex; flex-direction: column; gap: 0.65rem; }
+    .pv-frame { position: relative; width: 100%; aspect-ratio: 16 / 9; border-radius: 1rem; overflow: hidden; background: #0d0f12; }
+    .pv-frame iframe, .pv-frame #pvPlayer { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+    .pv-poster { position: absolute; inset: 0; width: 100%; height: 100%; padding: 0; border: 0; background: #0d0f12; cursor: pointer; }
+    .pv-poster img { width: 100%; height: 100%; object-fit: cover; display: block; opacity: 0.92; }
+    .pv-poster-play { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 4rem; height: 4rem; border-radius: 50%; display: grid; place-items: center; background: var(--md-sys-color-primary); color: var(--md-sys-color-on-primary); box-shadow: 0 4px 16px rgba(0,0,0,0.35); }
+    .pv-poster-play .material-symbols-rounded { font-size: 36px; }
+    .pv-loading, .pv-offline { position: absolute; inset: 0; display: flex; flex-direction: column; gap: 0.6rem; align-items: center; justify-content: center; text-align: center; color: #e5e7eb; font-size: 0.85rem; padding: 1rem; pointer-events: none; }
+    .pv-offline { pointer-events: auto; }
+    .pv-meta { display: flex; flex-direction: column; gap: 0.1rem; font-size: 0.8rem; color: var(--md-sys-color-on-surface-variant); }
+    .pv-meta strong { font-size: 0.95rem; color: var(--md-sys-color-on-surface); }
+    .pv-controls { display: flex; align-items: center; gap: 0.4rem; flex-wrap: wrap; }
+    .pv-play { width: 3rem; height: 3rem; padding: 0; border-radius: 50%; justify-content: center; }
+    .pv-speeds { margin-left: auto; }
+    .pv-speeds .md-segmented-btn { height: 2.2rem; padding: 0 0.8rem; font-size: 0.8rem; }
+    .pv-phase-head { display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; font-size: 0.85rem; font-weight: 800; }
+    .pv-phases { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0.35rem; }
+    .pv-phase { display: flex; flex-direction: column; align-items: center; gap: 0.1rem; padding: 0.4rem 0.2rem; border-radius: 0.8rem; border: 1.5px solid var(--md-sys-color-outline-variant); background: var(--md-sys-color-surface-container-lowest, #fff); color: inherit; font: inherit; cursor: pointer; min-width: 0; }
+    .pv-phase-num { width: 1.35rem; height: 1.35rem; border-radius: 50%; display: grid; place-items: center; font-size: 0.7rem; font-weight: 800; background: var(--md-sys-color-surface-container-high, #e7e9e3); color: var(--md-sys-color-on-surface-variant); }
+    .pv-phase.has-marker .pv-phase-num { background: var(--md-sys-color-primary); color: var(--md-sys-color-on-primary); }
+    .pv-phase.selected { border-color: var(--md-sys-color-primary); box-shadow: 0 0 0 1.5px var(--md-sys-color-primary) inset; }
+    .pv-phase-name { font-size: 0.68rem; font-weight: 700; max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .pv-phase-time { font-size: 0.62rem; color: var(--md-sys-color-primary); font-variant-numeric: tabular-nums; min-height: 0.8rem; }
+    .pv-hint { font-size: 0.76rem; color: var(--md-sys-color-on-surface-variant); }
+    .pv-tip { display: flex; gap: 0.6rem; align-items: flex-start; padding: 0.7rem 0.8rem; border-radius: 1rem; background: var(--md-sys-color-surface-container-lowest, #fff); border: 1px solid var(--md-sys-color-outline-variant); font-size: 0.85rem; line-height: 1.45; }
+    .pv-tip strong { display: block; font-size: 0.92rem; }
+    .pv-tip-num { width: 1.6rem; height: 1.6rem; border-radius: 50%; display: grid; place-items: center; flex-shrink: 0; font-size: 0.8rem; font-weight: 800; background: var(--md-sys-color-primary); color: var(--md-sys-color-on-primary); }
 
     .md-svg-grid {
       padding: 1rem;
@@ -2176,7 +2184,7 @@
         <div class="md-brand-text-wrap">
           <div style="display: flex; align-items: center; gap: 0.4rem;">
             <h1 class="md-brand-title">Golf Pocket Trainer</h1>
-            <span class="md-version-badge font-mono">v4.23.0</span>
+            <span class="md-version-badge font-mono">v4.24.0</span>
           </div>
           <p class="md-brand-sub">Statistik &bull; Check-in &bull; Drills &bull; Rules &bull; Scratch</p>
         </div>
@@ -2254,7 +2262,7 @@
               <span class="material-symbols-rounded" style="color: var(--md-sys-color-on-surface-variant);">history</span>
               <span>Versionsverlauf</span>
             </span>
-            <span class="font-mono" style="font-size: 0.72rem; color: var(--md-sys-color-on-surface-variant);">v4.23.0</span>
+            <span class="font-mono" style="font-size: 0.72rem; color: var(--md-sys-color-on-surface-variant);">v4.24.0</span>
           </button>
         </div>
       </div>
@@ -2350,10 +2358,10 @@
         <article class="md-card-outlined" style="display: flex; flex-direction: column;">
           <div class="md-card-header">
             <div>
-              <h3 class="md-card-title">Der Schwung in Bildern</h3>
-              <p class="md-card-subtitle">Phase antippen für Details &amp; Technik-Tipp</p>
+              <h3 class="md-card-title">Pro-Schwung in Zeitlupe</h3>
+              <p class="md-card-subtitle">Video je Schläger mit Einzelbild &amp; Phasen-Markern</p>
             </div>
-            <span class="md-assist-badge">Bildfolge</span>
+            <span class="md-assist-badge">Video</span>
           </div>
           <div id="svgGolferContainer" class="md-svg-editorial"></div>
           <div class="md-card-supporting">
@@ -3096,7 +3104,7 @@
        ======================================================================== -->
   <footer class="md-footer">
     <div class="md-container" style="display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; flex-wrap: wrap;">
-      <span><strong>Golf Pocket Trainer</strong> (<span class="font-mono">v4.23.0</span>) &bull; Dein interaktiver Trainings- &amp; Platzbegleiter</span>
+      <span><strong>Golf Pocket Trainer</strong> (<span class="font-mono">v4.24.0</span>) &bull; Dein interaktiver Trainings- &amp; Platzbegleiter</span>
       <button type="button" onclick="openChangelogModal()" class="md-text-btn" style="height: 1.85rem;">Versionsverlauf ansehen</button>
     </div>
   </footer>
@@ -3128,8 +3136,8 @@
           <div style="display: flex; align-items: flex-start; gap: 0.65rem; font-size: 0.83rem;">
             <span class="material-symbols-rounded filled" style="font-size: 20px; color: var(--md-sys-color-primary); margin-top: 1px;">sports_golf</span>
             <div>
-              <strong>Der Schwung in Bildern (Neu!):</strong>
-              <div style="color: var(--md-sys-color-on-surface-variant); margin-top: 0.1rem;">In der Schlagtechnik zeigt eine Bildfolge die 8 Schwungphasen. Tippe eine Phase an für das große Bild und den passenden Technik-Tipp.</div>
+              <strong>Pro-Schwung in Zeitlupe (Neu!):</strong>
+              <div style="color: var(--md-sys-color-on-surface-variant); margin-top: 0.1rem;">In der Schlagtechnik siehst du jetzt echte Tour-Pros im Zeitlupen-Video – mit ¼×-Zeitlupe, Einzelbild-Schritten und eigenen Phasen-Markern.</div>
             </div>
           </div>
 
@@ -3245,7 +3253,7 @@
       <div class="md-dialog-header">
         <div>
           <span class="md-assist-badge" style="background-color: var(--md-sys-color-tertiary-container); color: var(--md-sys-color-on-tertiary-container);">Release Notes &amp; Wartung</span>
-          <h2 id="changelogTitle" class="font-display" style="font-size: 1.25rem; font-weight: 800; margin-top: 0.3rem;">Versionsverlauf (v1.0.0 – v4.23.0)</h2>
+          <h2 id="changelogTitle" class="font-display" style="font-size: 1.25rem; font-weight: 800; margin-top: 0.3rem;">Versionsverlauf (v1.0.0 – v4.24.0)</h2>
         </div>
         <button type="button" onclick="closeChangelogModal()" class="md-icon-btn" aria-label="Schließen">
           <span class="material-symbols-rounded">close</span>
@@ -3260,20 +3268,32 @@
   </div>
 
   <!-- ========================================================================
-       COMPLETE SELF-CONTAINED JAVASCRIPT ENGINE (v4.23.0)
+       COMPLETE SELF-CONTAINED JAVASCRIPT ENGINE (v4.24.0)
        ======================================================================== -->
   <div id="appToast" class="md-toast" role="status" aria-live="polite"></div>
   <input type="file" id="backupFileInput" accept="application/json,.json" hidden onchange="handleBackupFile(event)" />
 
   <script>
-    const APP_VERSION = 'v4.23.0';
+    const APP_VERSION = 'v4.24.0';
 
     const CHANGELOG_ENTRIES = [
       {
-        version: 'v4.23.0',
+        version: 'v4.24.0',
         date: 'Aktuell',
-        title: 'Schwung-Bildfolge nach Foto-Vorlage',
+        title: 'Pro-Schwung in Zeitlupe',
         latest: true,
+        notes: [
+          'Schlagtechnik: Statt gezeichneter Figuren zeigt jetzt ein echtes Zeitlupen-Video eines Tour-Pros den Schwung – passend zum gewählten Schläger (Driver, Eisen, Wedges, Putter).',
+          'Abspielen in 1×, ½× oder ¼× und Bild für Bild vor- und zurückspulen.',
+          'Phasen-Marker: Pausiere an einer Schlüsselposition und markiere sie (z. B. Top oder Treffmoment). Danach springst du per Tipp direkt hin – mit passendem Technik-Tipp.',
+          'Die Videos werden von YouTube eingebettet und brauchen eine Internetverbindung.'
+        ]
+      },
+      {
+        version: 'v4.23.0',
+        date: 'Vorherige Version',
+        title: 'Schwung-Bildfolge nach Foto-Vorlage',
+        latest: false,
         notes: [
           'Die 8 Schwungbilder sind neu gezeichnet: Posen nach einer echten Foto-Schwungsequenz – mit Hüftneigung, gebeugten Knien und natürlicher Körperdrehung.',
           'Stil wie ein Foto-Lehrbuch: Graustufen, dunkles Polo, helle Hose, Sattelschuhe und weiche Schatten.',
@@ -3282,7 +3302,7 @@
       },
       {
         version: 'v4.22.0',
-        date: 'Vorherige Version',
+        date: 'Meilenstein 47',
         title: 'Der Schwung in Bildern',
         latest: false,
         notes: [
@@ -5959,6 +5979,7 @@
       if (currentMainTab === 'video' && tabKey !== 'video') {
         stopSwingCamera(false);
       }
+      if (tabKey !== 'technique' && typeof proVideoPause === 'function') proVideoPause();
       currentMainTab = tabKey;
       document.querySelectorAll('.md-nav-destination').forEach(btn => {
         btn.classList.toggle('active', btn.dataset.tab === tabKey);
@@ -6186,415 +6207,269 @@
     }
 
     /* ========================================================================
-       SCHWUNG IN BILDERN – ILLUSTRIERTE PHASENFOLGE
-       Posen nach einer Foto-Schwungsequenz abgemessen (Ziel rechts im Bild),
-       gezeichnet als Graustufen-Illustration. Kachel 260 × 300, Boden y ≈ 282.
+       PRO-SCHWUNG IM VIDEO (YouTube-Zeitlupe je Schläger)
+       Eingebettet über die YouTube-IFrame-API: Zeitlupe, Einzelbild-Schritte
+       und eigene Phasen-Marker (lokal gespeichert).
        ======================================================================== */
-    const SwingSeq = { key: '', idx: 0, frames: [], type: 'full', cfg: null };
+    const PRO_SWING_VIDEOS = {
+      driver:  { id: 'foVZXKXmxsc', player: 'Rory McIlroy', club: 'Driver', view: 'Frontal', channel: "Mike's 3D Life" },
+      irons:   { id: 'ro7RZErg7ng', player: 'Rory McIlroy', club: 'Eisen', view: 'Frontal', channel: "Mike's 3D Life" },
+      wedges:  { id: 'hKZJYpkG-eg', player: 'Jordan Spieth', club: 'Chip & Pitch', view: 'Frontal & Seitlich, 240 fps', channel: "Mike's 3D Life" },
+      putting: { id: 'a762Plp6VeU', player: 'Rory McIlroy', club: 'Putter', view: '300 fps', channel: 'QuinticConsultancy' },
+      basics:  { id: 'ro7RZErg7ng', player: 'Rory McIlroy', club: 'Eisen – Setup & Ablauf', view: 'Frontal', channel: "Mike's 3D Life" },
+      shaping: { id: 'ys-b7J224AI', player: 'Tour-Schwung', club: 'Wedge bis Driver', view: 'Frontal, 240 fps', channel: 'Russell Heritage' }
+    };
 
-    /* Rohdaten in Messkoordinaten (Figurhöhe ≈ 650). Punkte: [x, y].
-       legs: [hinteres Bein, vorderes Bein] je { hip, knee, ankle }
-       arms: [hinterer Arm, vorderer Arm] je { s, e, h }
-       head: { c, face: 'down' | 'right' }, shoes: { at, dir: 'front' | 'right', toe?, lift? } */
-    const SWING_SEQ_RAW = [
-      {
-        name: 'Ansprechen',
-        torso: [[110, 112], [170, 112], [215, 140], [235, 190], [225, 250], [185, 310], [120, 330], [30, 310], [15, 280], [60, 180]],
-        pelvis: [[15, 290], [150, 318], [152, 368], [28, 372]],
-        legs: [{ hip: [55, 335], knee: [88, 492], ankle: [100, 680] }, { hip: [128, 342], knee: [152, 492], ankle: [142, 655] }],
-        arms: [{ s: [200, 168], e: [206, 248], h: [190, 345] }, { s: [165, 150], e: [180, 252], h: [186, 352] }],
-        neck: [[222, 168], [244, 136]], head: { c: [255, 118], face: 'right' },
-        G: [186, 358], C: [300, 698], ball: [318, 700],
-        shoes: [{ at: [100, 690], dir: 'right', toe: [168, 702] }, { at: [146, 662], dir: 'right', toe: [184, 664] }]
-      },
-      {
-        name: 'Rückschwung',
-        torso: [[490, 140], [530, 124], [570, 148], [605, 155], [617, 200], [612, 330], [505, 332], [498, 250], [470, 190]],
-        pelvis: [[495, 318], [628, 318], [634, 380], [500, 390]],
-        legs: [{ hip: [526, 345], knee: [508, 502], ankle: [480, 672] }, { hip: [602, 345], knee: [630, 506], ankle: [695, 676] }],
-        arms: [{ s: [497, 165], e: [428, 203], h: [342, 172] }, { s: [588, 182], e: [452, 207], h: [336, 182] }],
-        neck: [[551, 170], [553, 140]], head: { c: [555, 116], face: 'down' },
-        G: [332, 178], C: [348, -95], ball: [372, 692],
-        shoes: [{ at: [480, 686], dir: 'front' }, { at: [700, 690], dir: 'front' }]
-      },
-      {
-        name: 'Top',
-        torso: [[848, 150], [890, 142], [940, 164], [957, 200], [956, 322], [870, 326], [846, 262], [838, 190]],
-        pelvis: [[858, 308], [962, 308], [968, 372], [860, 378]],
-        legs: [{ hip: [876, 350], knee: [844, 512], ankle: [822, 676] }, { hip: [945, 350], knee: [978, 512], ankle: [1030, 680] }],
-        arms: [{ s: [858, 172], e: [818, 176], h: [786, 62] }, { s: [928, 186], e: [858, 122], h: [796, 58] }],
-        neck: [[894, 166], [896, 140]], head: { c: [897, 108], face: 'down' },
-        G: [790, 50], C: [1102, 18], ball: [975, 736],
-        shoes: [{ at: [825, 690], dir: 'front' }, { at: [1032, 692], dir: 'front', lift: 0.15 }]
-      },
-      {
-        name: 'Übergang', clubFirst: true,
-        torso: [[1180, 140], [1260, 120], [1310, 140], [1336, 200], [1312, 270], [1242, 322], [1160, 322], [1140, 290], [1150, 200]],
-        pelvis: [[1130, 292], [1242, 312], [1246, 372], [1135, 368]],
-        legs: [{ hip: [1160, 342], knee: [1192, 502], ankle: [1210, 680] }, { hip: [1226, 348], knee: [1256, 496], ankle: [1246, 655] }],
-        arms: [{ s: [1250, 170], e: [1216, 242], h: [1284, 214] }, { s: [1302, 182], e: [1322, 242], h: [1292, 212] }],
-        neck: [[1318, 166], [1340, 140]], head: { c: [1362, 115], face: 'right' },
-        G: [1282, 205], C: [1152, -70], ball: [1402, 738],
-        shoes: [{ at: [1210, 692], dir: 'right', toe: [1274, 704] }, { at: [1248, 662], dir: 'right', toe: [1284, 664] }]
-      },
-      {
-        name: 'Abschwung',
-        torso: [[140, 130], [190, 110], [255, 115], [300, 140], [306, 190], [296, 292], [185, 300], [150, 250], [130, 180]],
-        pelvis: [[170, 282], [302, 282], [308, 342], [175, 348]],
-        legs: [{ hip: [200, 322], knee: [165, 482], ankle: [110, 652] }, { hip: [280, 322], knee: [300, 482], ankle: [340, 660] }],
-        arms: [{ s: [155, 165], e: [150, 290], h: [134, 372] }, { s: [275, 160], e: [216, 282], h: [142, 368] }],
-        neck: [[214, 150], [212, 125]], head: { c: [210, 100], face: 'down' },
-        G: [128, 378], C: [-125, 382], ball: [240, 735],
-        shoes: [{ at: [106, 672], dir: 'front' }, { at: [340, 672], dir: 'front' }]
-      },
-      {
-        name: 'Treffmoment',
-        torso: [[555, 120], [600, 110], [660, 115], [705, 135], [711, 210], [690, 302], [580, 302], [560, 230], [545, 170]],
-        pelvis: [[570, 286], [702, 286], [707, 346], [575, 352]],
-        legs: [{ hip: [596, 330], knee: [560, 492], ankle: [502, 655] }, { hip: [685, 330], knee: [700, 496], ankle: [720, 665] }],
-        arms: [{ s: [570, 170], e: [600, 300], h: [655, 418] }, { s: [690, 170], e: [686, 300], h: [668, 424] }],
-        neck: [[617, 166], [617, 140]], head: { c: [617, 115], face: 'down' },
-        G: [662, 430], C: [640, 738], ball: [628, 738],
-        shoes: [{ at: [492, 674], dir: 'front', lift: 0.3 }, { at: [722, 678], dir: 'front' }]
-      },
-      {
-        name: 'Durchschwung',
-        torso: [[900, 92], [960, 62], [1030, 80], [1070, 140], [1070, 200], [1050, 282], [940, 292], [920, 230], [905, 160]],
-        pelvis: [[925, 280], [1052, 280], [1056, 342], [930, 346]],
-        legs: [{ hip: [950, 322], knee: [892, 482], ankle: [846, 650] }, { hip: [1030, 322], knee: [1040, 482], ankle: [1080, 665] }],
-        arms: [{ s: [962, 190], e: [1082, 226], h: [1214, 272] }, { s: [1050, 150], e: [1130, 210], h: [1224, 266] }],
-        neck: [[980, 160], [970, 130]], head: { c: [960, 104], face: 'down' },
-        G: [1226, 280], C: [1480, 276], ball: null,
-        shoes: [{ at: [842, 668], dir: 'front', lift: 0.7 }, { at: [1080, 678], dir: 'front' }]
-      },
-      {
-        name: 'Finish', clubFirst: true,
-        torso: [[1355, 95], [1420, 80], [1470, 95], [1492, 150], [1490, 302], [1410, 306], [1395, 230], [1360, 150]],
-        pelvis: [[1395, 290], [1488, 290], [1492, 352], [1400, 356]],
-        legs: [{ hip: [1416, 332], knee: [1330, 500], ankle: [1242, 625] }, { hip: [1460, 332], knee: [1455, 500], ankle: [1450, 680] }],
-        arms: [{ s: [1440, 112], e: [1400, 70], h: [1372, 22] }, { s: [1400, 116], e: [1356, 128], h: [1366, 28] }],
-        neck: [[1420, 96], [1416, 70]], head: { c: [1416, 44], face: 'right' },
-        G: [1368, 18], C: [1262, -95], ball: null,
-        shoes: [{ at: [1236, 640], dir: 'toe' }, { at: [1452, 690], dir: 'right', toe: [1500, 694] }]
-      }
-    ];
+    const PRO_SWING_PHASES = {
+      full: ['Ansprechen', 'Rückschwung', 'Top', 'Übergang', 'Abschwung', 'Treffmoment', 'Durchschwung', 'Finish'],
+      chip: ['Ansprechen', 'Rückschwung', 'Treffmoment', 'Finish'],
+      putt: ['Ansprechen', 'Rückschwung', 'Treffmoment', 'Durchschwung']
+    };
 
-    /* Chip & Putt: frontal, im gleichen Koordinatensystem (Mitte x = 300) */
-    function swingSeqFrontPose(name, o) {
-      const hipY = 335, kneeY = 495, ankY = 672;
-      return {
-        name,
-        torso: [[o.tsx - 18, 132], [o.tsx + 20, 118], [300, 125], [o.lsx - 20, 118], [o.lsx + 18, 132 + (o.tilt || 0)], [o.lsx + 8, 210], [350, 302], [250, 302], [o.tsx - 8, 210]],
-        pelvis: [[244, 288], [356, 288], [360, 352], [240, 352]],
-        legs: [{ hip: [262, hipY], knee: [o.tk ?? 252, kneeY], ankle: [o.ta ?? 248, ankY] }, { hip: [338, hipY], knee: [o.lk ?? 348, kneeY], ankle: [o.la ?? 352, ankY] }],
-        arms: [{ s: [o.tsx, 150 - (o.tilt || 0) / 2], e: o.te, h: [o.G[0] + 4, o.G[1] + 14] }, { s: [o.lsx, 150 + (o.tilt || 0) / 2], e: o.le, h: [o.G[0], o.G[1]] }],
-        neck: [[300, 150], [300, 122]], head: { c: [300, 96], face: 'down' },
-        G: o.G, C: o.C, ball: o.ball === undefined ? [300, 690] : o.ball,
-        shoes: [{ at: [o.ta ?? 248, 684], dir: 'front' }, { at: [o.la ?? 352, 686], dir: 'front', lift: o.lift || 0 }]
-      };
-    }
-
-    const SWING_SEQ_CHIP = [
-      swingSeqFrontPose('Ansprechen', { tsx: 248, lsx: 352, te: [262, 260], le: [334, 258], G: [314, 396], C: [296, 688], ta: 262, la: 340, tk: 264, lk: 340 }),
-      swingSeqFrontPose('Rückschwung', { tsx: 250, lsx: 350, tilt: 10, te: [250, 262], le: [318, 268], G: [262, 392], C: [128, 660], ta: 262, la: 340, tk: 266, lk: 336 }),
-      swingSeqFrontPose('Treffmoment', { tsx: 248, lsx: 352, tilt: -6, te: [268, 262], le: [340, 258], G: [322, 398], C: [298, 688], ta: 262, la: 340, tk: 270, lk: 342 }),
-      swingSeqFrontPose('Finish', { tsx: 252, lsx: 350, tilt: -12, te: [300, 262], le: [366, 250], G: [372, 384], C: [500, 640], ta: 262, la: 340, tk: 280, lk: 342, lift: 0, ball: [560, 600] })
-    ];
-
-    const SWING_SEQ_PUTT = [
-      swingSeqFrontPose('Ansprechen', { tsx: 246, lsx: 354, te: [258, 262], le: [342, 262], G: [302, 404], C: [298, 690] }),
-      swingSeqFrontPose('Rückschwung', { tsx: 246, lsx: 354, tilt: 12, te: [246, 258], le: [324, 268], G: [272, 404], C: [228, 690] }),
-      swingSeqFrontPose('Treffmoment', { tsx: 246, lsx: 354, te: [260, 262], le: [344, 262], G: [304, 404], C: [300, 690] }),
-      swingSeqFrontPose('Durchschwung', { tsx: 246, lsx: 354, tilt: -12, te: [276, 268], le: [356, 258], G: [334, 404], C: [384, 690], ball: [520, 690] })
-    ];
-
-    const SWING_SEQ_TIPS = {
+    const PRO_SWING_TIPS = {
       full: [
-        'Aus der Hüfte nach vorne geneigt, Knie leicht gebeugt, Arme hängen locker unter den Schultern. Gewicht mittig auf den Fußballen.',
-        'Linker Arm parallel zum Boden, Handgelenke abgewinkelt – der Schaft zeigt nach oben. Die Schultern drehen, die Hüfte folgt.',
-        'Schultern ca. 90° gedreht, Hüfte ca. 45°. Linker Arm gestreckt, rechter Ellbogen zeigt zum Boden, Gewicht auf der Innenseite des rechten Fußes.',
-        'Der Abschwung beginnt unten: Das Gewicht verlagert sich nach links, während Arme und Schläger noch oben sind.',
-        'Schaft parallel zum Boden, der Winkel in den Handgelenken (Lag) bleibt erhalten, die Hüfte öffnet sich zum Ziel.',
-        'Hände vor dem Ball, Hüfte geöffnet, Kopf hinter dem Ball. Etwa 80 % des Gewichts auf dem linken Fuß.',
-        'Beide Arme strecken sich zum Ziel, der Körper dreht weiter. Die rechte Ferse löst sich vom Boden.',
-        'Körper zeigt vollständig zum Ziel, Gewicht komplett links, rechter Fuß auf der Spitze. Finish in Balance halten.'
+        'Aus der Hüfte nach vorne geneigt, Knie leicht gebeugt, Arme hängen locker unter den Schultern.',
+        'Schultern, Arme und Schläger starten gemeinsam. Bei 9 Uhr ist der linke Arm waagrecht und der Schaft zeigt nach oben.',
+        'Schultern ca. 90° gedreht, Hüfte ca. 45°. Linker Arm gestreckt, rechter Ellbogen zeigt zum Boden.',
+        'Der Abschwung startet unten: Gewicht nach links, während Arme und Schläger noch oben sind.',
+        'Schaft parallel zum Boden, Winkel in den Handgelenken (Lag) halten, Hüfte öffnet sich.',
+        'Hände vor dem Ball, Hüfte geöffnet, Kopf hinter dem Ball, ca. 80 % Gewicht links.',
+        'Beide Arme strecken sich zum Ziel, der Körper dreht weiter, die rechte Ferse löst sich.',
+        'Körper zeigt zum Ziel, Gewicht komplett links, rechter Fuß auf der Spitze – Balance halten.'
       ],
       chip: [
-        'Schmaler Stand, Gewicht ca. 60–70 % links, Hände vor dem Ball. Ball mittig bis leicht rechts.',
-        'Kurzer Rückschwung aus den Schultern, die Handgelenke bleiben nahezu ruhig.',
-        'Hände führen vor dem Schlägerkopf, abwärts treffen – erst Ball, dann Boden.',
-        'Kurzes, tiefes Finish: Schlägerkopf bleibt unter Hüfthöhe, linkes Handgelenk flach.'
+        'Schmaler Stand, Gewicht ca. 60–70 % links, Hände vor dem Ball.',
+        'Kurzer Rückschwung aus den Schultern, Handgelenke bleiben ruhig.',
+        'Hände führen vor dem Schlägerkopf – erst Ball, dann Boden.',
+        'Kurzes, tiefes Finish mit flachem linken Handgelenk.'
       ],
       putt: [
-        'Augen über dem Ball, Arme hängen locker. Schultern, Arme und Putter bilden ein Fünfeck.',
-        'Die Schultern schaukeln wie ein Pendel – Hände und Handgelenke bleiben passiv.',
-        'Der Putter trifft den Ball leicht in der Aufwärtsbewegung, der Kopf bleibt ruhig.',
-        'Durchschwung etwa gleich lang wie der Rückschwung. Erst nach dem Treffen aufschauen.'
+        'Augen über dem Ball, Arme hängen locker, Schultern und Arme bilden ein Fünfeck.',
+        'Die Schultern schaukeln wie ein Pendel – Hände bleiben passiv.',
+        'Der Putter trifft den Ball leicht aufwärts, der Kopf bleibt ruhig.',
+        'Durchschwung etwa so lang wie der Rückschwung, erst danach aufschauen.'
       ]
     };
 
-    function swingSeqType(cfg, label) {
-      const l = (label || '').toLowerCase();
-      if (cfg.clubType === 'putter') return 'putt';
-      if (l.includes('chip')) return 'chip';
-      return 'full';
-    }
+    const ProVideo = { key: '', player: null, ready: false, speed: 1, editMarkers: false, apiPromise: null, video: null, type: 'full' };
 
-    /* Messkoordinaten -> Kachel: Figur zentrieren und skalieren */
-    function swingSeqToTile(raw, clubScale) {
-      const S = 0.41;
-      const body = [...raw.torso, ...raw.pelvis, raw.head.c, ...raw.legs.flatMap(l => [l.hip, l.knee, l.ankle])];
-      const xs = body.map(p => p[0]);
-      const cx = (Math.min(...xs) + Math.max(...xs)) / 2;
-      const T = p => (p ? [+(130 + (p[0] - cx) * S).toFixed(1), +(p[1] * S - 4).toFixed(1)] : null);
-      const f = {
-        name: raw.name, clubFirst: !!raw.clubFirst,
-        torso: raw.torso.map(T), pelvis: raw.pelvis.map(T),
-        legs: raw.legs.map(l => ({ hip: T(l.hip), knee: T(l.knee), ankle: T(l.ankle) })),
-        arms: raw.arms.map(a => ({ s: T(a.s), e: T(a.e), h: T(a.h) })),
-        neck: raw.neck.map(T), head: { c: T(raw.head.c), face: raw.head.face },
-        G: T(raw.G), C: T(raw.C), ball: T(raw.ball),
-        shoes: raw.shoes.map(s => ({ at: T(s.at), dir: s.dir, toe: T(s.toe), lift: s.lift || 0 }))
-      };
-      if (clubScale && clubScale !== 1) {
-        f.C = [f.G[0] + (f.C[0] - f.G[0]) * clubScale, f.G[1] + (f.C[1] - f.G[1]) * clubScale];
-      }
-      return f;
-    }
-
-    function swingSeqFrames(cfg, type) {
-      if (type === 'chip') return SWING_SEQ_CHIP.map(r => swingSeqToTile(r));
-      if (type === 'putt') return SWING_SEQ_PUTT.map(r => Object.assign(swingSeqToTile(r), { putter: true }));
-      const driver = cfg.clubType === 'driver';
-      const scale = driver ? 1.12 : cfg.clubType === 'wedge' ? 0.95 : 1;
-      return SWING_SEQ_RAW.map((r, i) => {
-        const f = swingSeqToTile(r, i === 0 || i === 5 ? 1 : scale);
-        f.driver = driver;
-        if (driver && f.ball && (i === 0 || i === 5)) { f.tee = 7; }
-        return f;
+    function proVideoLoadApi() {
+      if (window.YT && window.YT.Player) return Promise.resolve();
+      if (ProVideo.apiPromise) return ProVideo.apiPromise;
+      ProVideo.apiPromise = new Promise((resolve, reject) => {
+        const prev = window.onYouTubeIframeAPIReady;
+        window.onYouTubeIframeAPIReady = () => { if (typeof prev === 'function') prev(); resolve(); };
+        const s = document.createElement('script');
+        s.src = 'https://www.youtube.com/iframe_api';
+        s.async = true;
+        s.onerror = () => { ProVideo.apiPromise = null; reject(new Error('api')); };
+        document.head.appendChild(s);
+        setTimeout(() => reject(new Error('timeout')), 12000);
       });
+      return ProVideo.apiPromise;
     }
 
-    function swingSeqPalette() {
-      const dark = document.documentElement.getAttribute('data-theme') === 'dark';
-      return dark ? {
-        line: 'rgba(0,0,0,0.75)', shadow: 'rgba(0,0,0,0.55)',
-        skin1: '#d8c3b3', skin2: '#9c8170', shirt1: '#5a5d63', shirt2: '#26282c', pants1: '#d7d7d5', pants2: '#8e8f8c', crease: 'rgba(0,0,0,0.18)',
-        hair: '#1f1d1c', shoe: '#f2f2f0', saddle: '#2e2f33', glove: '#ffffff', shaft: '#c9ccd1', grip: '#111', head: '#8d9399', ball: '#ffffff', tee: '#d9a35b'
-      } : {
-        line: 'rgba(30,30,30,0.55)', shadow: 'rgba(0,0,0,0.22)',
-        skin1: '#e9d3c3', skin2: '#b39583', shirt1: '#55585e', shirt2: '#232528', pants1: '#ececea', pants2: '#a3a4a1', crease: 'rgba(0,0,0,0.14)',
-        hair: '#232120', shoe: '#ffffff', saddle: '#2b2c30', glove: '#ffffff', shaft: '#8f949b', grip: '#151515', head: '#62686f', ball: '#ffffff', tee: '#d9a35b'
-      };
+    function proVideoMarkers() {
+      try { return JSON.parse(localStorage.getItem('gpg_video_markers') || '{}'); } catch (e) { return {}; }
     }
 
-    const ssF = v => (+v).toFixed(1);
-
-    function swingSeqLimb(a, b, w1, w2) {
-      const dx = b[0] - a[0], dy = b[1] - a[1];
-      const L = Math.hypot(dx, dy) || 0.001;
-      const nx = -dy / L, ny = dx / L;
-      return `M${ssF(a[0] + nx * w1)} ${ssF(a[1] + ny * w1)} L${ssF(b[0] + nx * w2)} ${ssF(b[1] + ny * w2)} A${w2} ${w2} 0 0 0 ${ssF(b[0] - nx * w2)} ${ssF(b[1] - ny * w2)} L${ssF(a[0] - nx * w1)} ${ssF(a[1] - ny * w1)} A${w1} ${w1} 0 0 0 ${ssF(a[0] + nx * w1)} ${ssF(a[1] + ny * w1)} Z`;
+    function proVideoSaveMarkers(all) {
+      try { localStorage.setItem('gpg_video_markers', JSON.stringify(all)); } catch (e) {}
     }
 
-    /* Geschlossene, weich gerundete Kontur durch Punkte (Catmull-Rom -> Bézier) */
-    function swingSeqSmooth(pts, k = 0.18) {
-      const n = pts.length;
-      let d = `M${ssF(pts[0][0])} ${ssF(pts[0][1])}`;
-      for (let i = 0; i < n; i++) {
-        const p0 = pts[(i - 1 + n) % n], p1 = pts[i], p2 = pts[(i + 1) % n], p3 = pts[(i + 2) % n];
-        const c1 = [p1[0] + (p2[0] - p0[0]) * k, p1[1] + (p2[1] - p0[1]) * k];
-        const c2 = [p2[0] - (p3[0] - p1[0]) * k, p2[1] - (p3[1] - p1[1]) * k];
-        d += ` C${ssF(c1[0])} ${ssF(c1[1])} ${ssF(c2[0])} ${ssF(c2[1])} ${ssF(p2[0])} ${ssF(p2[1])}`;
-      }
-      return d + ' Z';
+    function proVideoFmt(t) {
+      const m = Math.floor(t / 60), s = t - m * 60;
+      return `${m}:${s.toFixed(1).padStart(4, '0')}`;
     }
 
-    const ssMix = (a, b, t) => [a[0] + (b[0] - a[0]) * t, a[1] + (b[1] - a[1]) * t];
-
-    function swingSeqSVG(f, pal, uid, opts = {}) {
-      const L = pal.line;
-      const P = (d, fill, sw = 1.3) => `<path d="${d}" fill="${fill}" stroke="${L}" stroke-width="${sw}" stroke-linejoin="round"/>`;
-      const out = [];
-
-      // Schatten & Ball
-      const ankles = f.legs.map(l => l.ankle[0]);
-      const sx = (Math.min(...ankles) + Math.max(...ankles)) / 2;
-      out.push(`<ellipse cx="${ssF(sx)}" cy="283" rx="${ssF(Math.abs(ankles[1] - ankles[0]) / 2 + 34)}" ry="5" fill="url(#${uid}sh)"/>`);
-      if (f.ball) {
-        if (f.tee) out.push(`<rect x="${ssF(f.ball[0] - 1.3)}" y="${ssF(f.ball[1] - f.tee + 2)}" width="2.6" height="${f.tee + 1}" fill="${pal.tee}"/>`);
-        out.push(`<circle cx="${ssF(f.ball[0])}" cy="${ssF(f.ball[1] - 3 - (f.tee || 0))}" r="3.4" fill="${pal.ball}" stroke="${L}" stroke-width="1"/>`);
-      }
-
-      // Schläger
-      const club = () => {
-        const dx = f.C[0] - f.G[0], dy = f.C[1] - f.G[1];
-        const len = Math.hypot(dx, dy) || 1, ux = dx / len, uy = dy / len;
-        const g0 = [f.G[0] - ux * 5, f.G[1] - uy * 5], g1 = [f.G[0] + ux * 20, f.G[1] + uy * 20];
-        let head;
-        if (f.putter) {
-          head = `<rect x="${ssF(f.C[0] - 9)}" y="${ssF(f.C[1] - 4)}" width="18" height="5.5" rx="1.5" fill="${pal.head}" stroke="${L}" stroke-width="1"/>`;
-        } else if (f.driver) {
-          head = `<ellipse cx="${ssF(f.C[0] + uy * 4)}" cy="${ssF(f.C[1] - ux * 4)}" rx="9" ry="6" transform="rotate(${ssF(Math.atan2(uy, ux) * 180 / Math.PI + 90)} ${ssF(f.C[0])} ${ssF(f.C[1])})" fill="${pal.head}" stroke="${L}" stroke-width="1"/>`;
-        } else {
-          const px = -uy, py = ux;
-          const s = f.C[1] > 250 ? 1 : (px > 0 ? 1 : -1);
-          head = `<path d="M${ssF(f.C[0] - ux * 2)} ${ssF(f.C[1] - uy * 2)} l${ssF(px * 10 * s)} ${ssF(py * 10 * s)} l${ssF(ux * 4)} ${ssF(uy * 4)} l${ssF(-px * 11 * s)} ${ssF(-py * 11 * s)} Z" fill="${pal.head}" stroke="${L}" stroke-width="1" stroke-linejoin="round"/>`;
-        }
-        return `<line x1="${ssF(g1[0])}" y1="${ssF(g1[1])}" x2="${ssF(f.C[0])}" y2="${ssF(f.C[1])}" stroke="${pal.shaft}" stroke-width="1.6" stroke-linecap="round"/>
-          <line x1="${ssF(g0[0])}" y1="${ssF(g0[1])}" x2="${ssF(g1[0])}" y2="${ssF(g1[1])}" stroke="${pal.grip}" stroke-width="3.6" stroke-linecap="round"/>${head}`;
-      };
-      if (f.clubFirst) out.push(club());
-
-      // Hüfte, dann Beine (hinteres zuerst), Hose mit Bügelfalte
-      out.push(P(swingSeqSmooth(f.pelvis, 0.2), `url(#${uid}pa)`));
-      f.legs.forEach(l => {
-        out.push(P(swingSeqLimb(l.hip, l.knee, 14.5, 11.5), `url(#${uid}pa)`));
-        out.push(P(swingSeqLimb(l.knee, l.ankle, 11.5, 10), `url(#${uid}pa)`));
-        const k = ssMix(l.hip, l.knee, 0.15), a = ssMix(l.knee, l.ankle, 0.9);
-        out.push(`<path d="M${ssF(k[0])} ${ssF(k[1])} L${ssF(l.knee[0])} ${ssF(l.knee[1])} L${ssF(a[0])} ${ssF(a[1])}" fill="none" stroke="${pal.crease}" stroke-width="1.2"/>`);
-      });
-
-      // Schuhe (Sattelschuhe wie im Foto)
-      f.shoes.forEach(s => {
-        const [x, y] = s.at;
-        if (s.dir === 'right') {
-          const t = s.toe || [x + 26, y + 2];
-          const ang = Math.atan2(t[1] - y, t[0] - x) * 180 / Math.PI;
-          const len = Math.max(30, Math.hypot(t[0] - x, t[1] - y) + 8);
-          out.push(`<g transform="translate(${ssF(x - 4)} ${ssF(y + 1)}) rotate(${ssF(ang)})">
-            <path d="M-9 -9 L${ssF(len * 0.45)} -9 Q${ssF(len - 2)} -7 ${ssF(len + 2)} 1 Q${ssF(len + 2)} 6 ${ssF(len - 2)} 6 L-9 6 Q-12 -1 -9 -9 Z" fill="${pal.shoe}" stroke="${L}" stroke-width="1.1"/>
-            <path d="M${ssF(len * 0.12)} -9 L${ssF(len * 0.45)} -9 Q${ssF(len * 0.55)} -2 ${ssF(len * 0.5)} 5 L${ssF(len * 0.1)} 5 Z" fill="${pal.saddle}"/>
-            <line x1="-9" y1="6" x2="${ssF(len - 2)}" y2="6" stroke="${pal.saddle}" stroke-width="1.8"/></g>`);
-        } else if (s.dir === 'toe') {
-          out.push(`<g transform="translate(${ssF(x)} ${ssF(y)}) rotate(62)">
-            <path d="M-6 -7 L22 -6 Q28 -2 24 5 L-4 6 Q-9 0 -6 -7 Z" fill="${pal.shoe}" stroke="${L}" stroke-width="1.1"/>
-            <path d="M-6 -7 L4 -7 L4 6 L-4 6 Q-9 0 -6 -7 Z" fill="${pal.saddle}"/></g>`);
-        } else {
-          const lift = s.lift || 0;
-          out.push(`<g transform="translate(${ssF(x)} ${ssF(y - lift * 4)}) rotate(${ssF(lift * 14)})">
-            <path d="M-10 4 Q-11 -5 -5 -8 L5 -8 Q11 -5 10 4 Q9 7 0 7 Q-9 7 -10 4 Z" fill="${pal.shoe}" stroke="${L}" stroke-width="1.1"/>
-            <path d="M-6 -7 L6 -7 L5 -1 L-5 -1 Z" fill="${pal.saddle}"/>
-            <path d="M-9 5 Q0 8 9 5" fill="none" stroke="${pal.saddle}" stroke-width="1.6"/></g>`);
-        }
-      });
-
-      // Gürtel
-      out.push(`<line x1="${ssF(f.pelvis[0][0] + 2)}" y1="${ssF(f.pelvis[0][1] + 2)}" x2="${ssF(f.pelvis[1][0] - 2)}" y2="${ssF(f.pelvis[1][1] + 2)}" stroke="${pal.saddle}" stroke-width="2.6" stroke-linecap="round"/>`);
-
-      // Oberkörper (Polo)
-      out.push(P(swingSeqSmooth(f.torso), `url(#${uid}sh1)`, 1.4));
-
-      // Arme: Haut + kurzer Ärmel
-      const arm = a => {
-        const sl = ssMix(a.s, a.e, 0.5);
-        return P(swingSeqLimb(a.s, a.e, 7.4, 6.2), `url(#${uid}sk)`, 1.1) +
-          P(swingSeqLimb(a.e, a.h, 6.2, 5), `url(#${uid}sk)`, 1.1) +
-          P(swingSeqLimb(a.s, sl, 9.6, 8.8), `url(#${uid}sh1)`, 1.1);
-      };
-      out.push(arm(f.arms[0]));
-
-      // Hals & Kopf
-      out.push(P(swingSeqLimb(f.neck[0], f.neck[1], 7, 7), `url(#${uid}sk)`, 1.1));
-      const [hx, hy] = f.head.c;
-      if (f.head.face === 'right') {
-        out.push(`<g transform="translate(${ssF(hx)} ${ssF(hy)}) scale(1.18)">
-          <path d="M-14 -4 Q-15 -19 0 -20 Q15 -20 16 -6 Q17 -1 19 3 Q17 5 16 6 Q15 13 9 16 Q2 18 -5 15 Q-13 11 -14 -4 Z" fill="url(#${uid}sk)" stroke="${L}" stroke-width="1.1"/>
-          <path d="M-14 -3 Q-16 -20 0 -21 Q16 -21 15 -9 Q8 -12 2 -10 Q-2 -2 -6 4 Q-10 8 -14 -3 Z" fill="${pal.hair}"/>
-          <ellipse cx="-3" cy="1" rx="2.8" ry="4" fill="${pal.skin2}"/></g>`);
-      } else {
-        out.push(`<g transform="translate(${ssF(hx)} ${ssF(hy)}) scale(1.18)">
-          <ellipse cx="0" cy="1" rx="15" ry="18" fill="url(#${uid}sk)" stroke="${L}" stroke-width="1.1"/>
-          <path d="M-15 0 Q-17 -19 0 -19 Q17 -19 15 0 Q12 -6 6 -7 Q0 -4 -6 -7 Q-12 -6 -15 0 Z" fill="${pal.hair}"/>
-          <path d="M-6 7 Q0 9 6 7" fill="none" stroke="${pal.skin2}" stroke-width="1.2"/>
-          <ellipse cx="-15" cy="3" rx="2.2" ry="3.6" fill="${pal.skin2}"/><ellipse cx="15" cy="3" rx="2.2" ry="3.6" fill="${pal.skin2}"/></g>`);
-      }
-
-      out.push(arm(f.arms[1]));
-      if (!f.clubFirst) out.push(club());
-
-      // Hände
-      const h0 = f.arms[0].h, h1 = f.arms[1].h;
-      out.push(`<circle cx="${ssF(h0[0])}" cy="${ssF(h0[1])}" r="6" fill="url(#${uid}sk)" stroke="${L}" stroke-width="1"/>`);
-      out.push(`<circle cx="${ssF(h1[0])}" cy="${ssF(h1[1])}" r="6.2" fill="${pal.glove}" stroke="${L}" stroke-width="1"/>`);
-
-      const vb = opts.viewBox || '5 -14 250 304';
-      return `<svg viewBox="${vb}" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="${opts.label || f.name}" preserveAspectRatio="xMidYMid meet">
-        <defs>
-          <linearGradient id="${uid}sk" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${pal.skin1}"/><stop offset="1" stop-color="${pal.skin2}"/></linearGradient>
-          <linearGradient id="${uid}sh1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${pal.shirt1}"/><stop offset="1" stop-color="${pal.shirt2}"/></linearGradient>
-          <linearGradient id="${uid}pa" x1="0" y1="0" x2="1" y2="0.3"><stop offset="0" stop-color="${pal.pants1}"/><stop offset="1" stop-color="${pal.pants2}"/></linearGradient>
-          <radialGradient id="${uid}sh"><stop offset="0" stop-color="${pal.shadow}"/><stop offset="1" stop-color="rgba(0,0,0,0)"/></radialGradient>
-        </defs>
-        ${out.join('')}
-      </svg>`;
+    function proVideoStart() {
+      const v = ProVideo.video;
+      const frame = document.getElementById('pvFrame');
+      if (!v || !frame) return;
+      frame.innerHTML = '<div id="pvPlayer"></div><div class="pv-loading">Video wird geladen …</div>';
+      proVideoLoadApi().then(() => {
+        if (!document.getElementById('pvPlayer')) return;
+        ProVideo.player = new YT.Player('pvPlayer', {
+          videoId: v.id,
+          host: 'https://www.youtube-nocookie.com',
+          playerVars: { rel: 0, playsinline: 1, modestbranding: 1, autoplay: 1, controls: 1 },
+          events: {
+            onReady: e => {
+              ProVideo.ready = true;
+              frame.querySelector('.pv-loading')?.remove();
+              try { e.target.setPlaybackRate(ProVideo.speed); e.target.playVideo(); } catch (err) {}
+              proVideoSyncControls();
+            },
+            onStateChange: () => proVideoSyncControls(),
+            onError: () => proVideoFallback()
+          }
+        });
+      }).catch(() => proVideoFallback());
     }
 
-    function selectSwingSeqFrame(i) {
-      const n = SwingSeq.frames.length;
-      if (!n) return;
-      SwingSeq.idx = ((i % n) + n) % n;
-      renderSwingSeqDetail();
-      document.querySelectorAll('#swingSeqRoot .ss-tile').forEach((el, k) => {
-        el.classList.toggle('selected', k === SwingSeq.idx);
-        el.setAttribute('aria-pressed', k === SwingSeq.idx ? 'true' : 'false');
-      });
-    }
-
-    function renderSwingSeqDetail() {
-      const box = document.getElementById('swingSeqDetail');
-      if (!box) return;
-      const f = SwingSeq.frames[SwingSeq.idx];
-      const pal = swingSeqPalette();
-      const tips = SWING_SEQ_TIPS[SwingSeq.type];
-      box.innerHTML = `
-        <div class="ss-detail-img">${swingSeqSVG(f, pal, 'ssd', { viewBox: '-10 -20 280 306' })}</div>
-        <div class="ss-detail-text">
-          <div class="ss-detail-head">
-            <span class="ss-num">${SwingSeq.idx + 1}</span>
-            <strong>${f.name}</strong>
-            <span class="ss-count">${SwingSeq.idx + 1} / ${SwingSeq.frames.length}</span>
-          </div>
-          <p>${tips[SwingSeq.idx] || ''}</p>
-          <div class="ss-nav">
-            <button type="button" class="md-icon-btn" onclick="selectSwingSeqFrame(SwingSeq.idx - 1)" aria-label="Vorheriges Bild"><span class="material-symbols-rounded">chevron_left</span></button>
-            <button type="button" class="md-icon-btn" onclick="selectSwingSeqFrame(SwingSeq.idx + 1)" aria-label="Nächstes Bild"><span class="material-symbols-rounded">chevron_right</span></button>
-          </div>
+    function proVideoFallback() {
+      const v = ProVideo.video;
+      const frame = document.getElementById('pvFrame');
+      if (!frame || !v) return;
+      ProVideo.player = null;
+      ProVideo.ready = false;
+      frame.innerHTML = `<div class="pv-offline">
+          <span class="material-symbols-rounded" style="font-size: 32px;">wifi_off</span>
+          <div>Das Video braucht eine Internetverbindung.</div>
+          <a class="md-tonal-btn" href="https://www.youtube.com/watch?v=${v.id}" target="_blank" rel="noopener noreferrer" style="text-decoration: none;">Auf YouTube öffnen</a>
         </div>`;
+      proVideoSyncControls();
+    }
+
+    function proVideoToggle() {
+      const p = ProVideo.player;
+      if (!p || !ProVideo.ready) { proVideoStart(); return; }
+      const st = p.getPlayerState();
+      if (st === 1 || st === 3) p.pauseVideo(); else p.playVideo();
+    }
+
+    function proVideoStep(dir) {
+      const p = ProVideo.player;
+      if (!p || !ProVideo.ready) return;
+      p.pauseVideo();
+      const t = Math.max(0, (p.getCurrentTime() || 0) + dir / 30);
+      p.seekTo(t, true);
+      setTimeout(proVideoSyncControls, 120);
+    }
+
+    function proVideoSpeed(s) {
+      ProVideo.speed = s;
+      if (ProVideo.player && ProVideo.ready) { try { ProVideo.player.setPlaybackRate(s); } catch (e) {} }
+      proVideoSyncControls();
+    }
+
+    function proVideoToggleEdit() {
+      ProVideo.editMarkers = !ProVideo.editMarkers;
+      proVideoSyncControls();
+    }
+
+    function proVideoPhase(i) {
+      const v = ProVideo.video;
+      if (!v) return;
+      const all = proVideoMarkers();
+      const mine = all[v.id] || {};
+      const p = ProVideo.player;
+      if (ProVideo.editMarkers) {
+        if (!p || !ProVideo.ready) { proVideoToast('Starte zuerst das Video und pausiere an der passenden Stelle.'); return; }
+        p.pauseVideo();
+        mine[i] = Math.round((p.getCurrentTime() || 0) * 100) / 100;
+        all[v.id] = mine;
+        proVideoSaveMarkers(all);
+        proVideoToast(`Marker „${PRO_SWING_PHASES[ProVideo.type][i]}“ bei ${proVideoFmt(mine[i])} gesetzt.`);
+      } else if (mine[i] != null) {
+        if (!p || !ProVideo.ready) { proVideoStart(); setTimeout(() => proVideoPhase(i), 1800); return; }
+        p.pauseVideo();
+        p.seekTo(mine[i], true);
+      }
+      proVideoShowTip(i);
+      proVideoSyncControls();
+    }
+
+    function proVideoShowTip(i) {
+      const box = document.getElementById('pvTip');
+      if (!box) return;
+      const name = PRO_SWING_PHASES[ProVideo.type][i];
+      box.innerHTML = `<span class="pv-tip-num">${i + 1}</span><div><strong>${name}</strong><div>${PRO_SWING_TIPS[ProVideo.type][i]}</div></div>`;
+      box.dataset.idx = String(i);
+    }
+
+    function proVideoToast(msg) {
+      if (typeof showToast === 'function') { showToast(msg); return; }
+      const box = document.getElementById('pvHint');
+      if (box) box.textContent = msg;
+    }
+
+    function proVideoSyncControls() {
+      const root = document.getElementById('proVideoRoot');
+      if (!root || !ProVideo.video) return;
+      const p = ProVideo.player;
+      let playing = false;
+      try { playing = !!(p && ProVideo.ready && [1, 3].includes(p.getPlayerState())); } catch (e) {}
+      const icon = root.querySelector('.pv-play-icon');
+      if (icon) icon.textContent = playing ? 'pause' : 'play_arrow';
+      root.querySelectorAll('.pv-speed').forEach(b => b.classList.toggle('selected', +b.dataset.speed === ProVideo.speed));
+      const mine = proVideoMarkers()[ProVideo.video.id] || {};
+      const tipIdx = +(document.getElementById('pvTip')?.dataset.idx ?? -1);
+      root.querySelectorAll('.pv-phase').forEach((b, i) => {
+        const has = mine[i] != null;
+        b.classList.toggle('has-marker', has);
+        b.classList.toggle('selected', i === tipIdx);
+        const t = b.querySelector('.pv-phase-time');
+        if (t) t.textContent = has ? proVideoFmt(mine[i]) : '';
+      });
+      const edit = root.querySelector('.pv-edit');
+      if (edit) {
+        edit.classList.toggle('selected', ProVideo.editMarkers);
+        edit.querySelector('.pv-edit-label').textContent = ProVideo.editMarkers ? 'Fertig' : 'Marker setzen';
+      }
+      const hint = document.getElementById('pvHint');
+      if (hint) {
+        const count = Object.keys(mine).length;
+        hint.textContent = ProVideo.editMarkers
+          ? 'Video an der Stelle pausieren (Einzelbild-Tasten helfen) und dann die Phase antippen.'
+          : count ? 'Phase antippen: springt zu deinem Marker und zeigt den Tipp.' : 'Tipp: Mit „Marker setzen“ legst du einmalig fest, wo jede Phase im Video ist.';
+      }
+    }
+
+    function proVideoPause() {
+      try { if (ProVideo.player && ProVideo.ready) ProVideo.player.pauseVideo(); } catch (e) {}
     }
 
     function renderGolferPostureCanvas(cfg, subLabel) {
       const container = document.getElementById('svgGolferContainer');
       if (!container) return;
-      const type = swingSeqType(cfg, subLabel);
-      const theme = document.documentElement.getAttribute('data-theme') || 'light';
-      const key = JSON.stringify(cfg) + '|' + subLabel + '|' + theme;
-      if (key === SwingSeq.key && document.getElementById('swingSeqRoot')) return;
-      const sameSet = SwingSeq.key.split('|').slice(0, 2).join('|') === key.split('|').slice(0, 2).join('|');
-      SwingSeq.key = key;
-      SwingSeq.type = type;
-      SwingSeq.cfg = cfg;
-      SwingSeq.frames = swingSeqFrames(cfg, type);
-      if (!sameSet) SwingSeq.idx = 0;
-      const pal = swingSeqPalette();
-      const cols = SwingSeq.frames.length > 4 ? 4 : SwingSeq.frames.length;
+      const clubId = typeof currentClubId !== 'undefined' ? currentClubId : 'driver';
+      const v = PRO_SWING_VIDEOS[clubId] || PRO_SWING_VIDEOS.irons;
+      const l = (subLabel || '').toLowerCase();
+      const type = cfg.clubType === 'putter' ? 'putt' : l.includes('chip') ? 'chip' : 'full';
+      const key = v.id + '|' + type;
+      if (key === ProVideo.key && document.getElementById('proVideoRoot')) return;
+      if (ProVideo.player) { try { ProVideo.player.destroy(); } catch (e) {} }
+      ProVideo.player = null;
+      ProVideo.ready = false;
+      ProVideo.editMarkers = false;
+      ProVideo.key = key;
+      ProVideo.video = v;
+      ProVideo.type = type;
+      const phases = PRO_SWING_PHASES[type];
       container.innerHTML = `
-        <div id="swingSeqRoot" class="ss-root">
-          <div class="ss-caption">
-            <span>${subLabel || ''}</span>
-            <span class="ss-target">Ziel <span class="material-symbols-rounded" style="font-size: 15px; vertical-align: -3px;">arrow_forward</span></span>
+        <div id="proVideoRoot" class="pv-root">
+          <div id="pvFrame" class="pv-frame">
+            <button type="button" class="pv-poster" onclick="proVideoStart()" aria-label="Video abspielen">
+              <img src="https://i.ytimg.com/vi/${v.id}/hqdefault.jpg" alt="${v.player} – ${v.club}" loading="lazy" onerror="this.style.display='none'">
+              <span class="pv-poster-play"><span class="material-symbols-rounded filled">play_arrow</span></span>
+            </button>
           </div>
-          <div class="ss-grid" style="grid-template-columns: repeat(${cols}, minmax(0, 1fr));">
-            ${SwingSeq.frames.map((f, i) => `
-              <button type="button" class="ss-tile ${i === SwingSeq.idx ? 'selected' : ''}" aria-pressed="${i === SwingSeq.idx}" onclick="selectSwingSeqFrame(${i})">
-                <span class="ss-tile-num">${i + 1}</span>
-                ${swingSeqSVG(f, pal, 'ss' + i)}
-                <span class="ss-tile-label">${f.name}</span>
-              </button>`).join('')}
+          <div class="pv-meta">
+            <strong>${v.player} · ${v.club}</strong>
+            <span>${v.view} · Video: ${v.channel} (YouTube)</span>
           </div>
-          <div id="swingSeqDetail" class="ss-detail"></div>
+          <div class="pv-controls">
+            <button type="button" class="md-icon-btn" onclick="proVideoStep(-1)" aria-label="Ein Bild zurück" title="Ein Bild zurück"><span class="material-symbols-rounded">skip_previous</span></button>
+            <button type="button" class="md-filled-btn pv-play" onclick="proVideoToggle()" aria-label="Abspielen / Pause"><span class="material-symbols-rounded pv-play-icon">play_arrow</span></button>
+            <button type="button" class="md-icon-btn" onclick="proVideoStep(1)" aria-label="Ein Bild vor" title="Ein Bild vor"><span class="material-symbols-rounded">skip_next</span></button>
+            <div class="md-segmented-group pv-speeds" role="group" aria-label="Geschwindigkeit">
+              ${[1, 0.5, 0.25].map(s => `<button type="button" class="md-segmented-btn pv-speed" data-speed="${s}" onclick="proVideoSpeed(${s})">${s === 1 ? '1×' : s === 0.5 ? '½×' : '¼×'}</button>`).join('')}
+            </div>
+          </div>
+          <div class="pv-phase-head">
+            <span>Schwungphasen</span>
+            <button type="button" class="md-filter-chip pv-edit" onclick="proVideoToggleEdit()"><span class="material-symbols-rounded" style="font-size: 16px;">bookmark_add</span><span class="pv-edit-label">Marker setzen</span></button>
+          </div>
+          <div class="pv-phases">
+            ${phases.map((n, i) => `<button type="button" class="pv-phase" onclick="proVideoPhase(${i})"><span class="pv-phase-num">${i + 1}</span><span class="pv-phase-name">${n}</span><span class="pv-phase-time"></span></button>`).join('')}
+          </div>
+          <div id="pvHint" class="pv-hint"></div>
+          <div id="pvTip" class="pv-tip" data-idx="-1"></div>
         </div>`;
-      renderSwingSeqDetail();
+      proVideoShowTip(0);
+      document.getElementById('pvTip').dataset.idx = '-1';
+      proVideoSyncControls();
     }
 
     /* ========================================================================
