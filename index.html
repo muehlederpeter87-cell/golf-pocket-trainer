@@ -9,8 +9,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="apple-mobile-web-app-title" content="Golf Pocket Trainer" />
   <meta name="application-name" content="Golf Pocket Trainer" />
-  <meta name="description" content="Golf Pocket Trainer v4.30.0 – Material Design 3 Golf Technik-, Trainings-, Rules-, Scratch-Blueprint-, Komparator-, Warm-up-, Video-Analyse-, 40-Tage-Challenge- & Gamification-Statistik-Begleiter" />
-  <title>Golf Pocket Trainer (v4.30.0)</title>
+  <meta name="description" content="Golf Pocket Trainer v4.31.0 – Material Design 3 Golf Technik-, Trainings-, Rules-, Scratch-Blueprint-, Komparator-, Warm-up-, Video-Analyse-, 40-Tage-Challenge- & Gamification-Statistik-Begleiter" />
+  <title>Golf Pocket Trainer (v4.31.0)</title>
 
   <link rel="manifest" href="manifest.webmanifest" />
   <link rel="icon" type="image/png" sizes="48x48" href="icons/favicon-48.png" />
@@ -2335,7 +2335,7 @@
         <div class="md-brand-text-wrap">
           <div style="display: flex; align-items: center; gap: 0.4rem;">
             <h1 class="md-brand-title">Golf Pocket Trainer</h1>
-            <span class="md-version-badge font-mono">v4.30.0</span>
+            <span class="md-version-badge font-mono">v4.31.0</span>
           </div>
           <p class="md-brand-sub">Dein Trainings- &amp; Platzbegleiter</p>
         </div>
@@ -2412,7 +2412,7 @@
               <span class="material-symbols-rounded" style="color: var(--md-sys-color-on-surface-variant);">history</span>
               <span>Versionsverlauf</span>
             </span>
-            <span class="font-mono" style="font-size: 0.72rem; color: var(--md-sys-color-on-surface-variant);">v4.30.0</span>
+            <span class="font-mono" style="font-size: 0.72rem; color: var(--md-sys-color-on-surface-variant);">v4.31.0</span>
           </button>
         </div>
       </div>
@@ -3229,7 +3229,7 @@
        ======================================================================== -->
   <footer class="md-footer">
     <div class="md-container" style="display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; flex-wrap: wrap;">
-      <span><strong>Golf Pocket Trainer</strong> (<span class="font-mono">v4.30.0</span>) &bull; Dein interaktiver Trainings- &amp; Platzbegleiter</span>
+      <span><strong>Golf Pocket Trainer</strong> (<span class="font-mono">v4.31.0</span>) &bull; Dein interaktiver Trainings- &amp; Platzbegleiter</span>
       <button type="button" onclick="openChangelogModal()" class="md-text-btn" style="height: 1.85rem;">Versionsverlauf ansehen</button>
     </div>
   </footer>
@@ -3352,7 +3352,7 @@
       <div class="md-dialog-header">
         <div>
           <span class="md-assist-badge" style="background-color: var(--md-sys-color-tertiary-container); color: var(--md-sys-color-on-tertiary-container);">Release Notes &amp; Wartung</span>
-          <h2 id="changelogTitle" class="font-display" style="font-size: 1.25rem; font-weight: 800; margin-top: 0.3rem;">Versionsverlauf (v1.0.0 – v4.30.0)</h2>
+          <h2 id="changelogTitle" class="font-display" style="font-size: 1.25rem; font-weight: 800; margin-top: 0.3rem;">Versionsverlauf (v1.0.0 – v4.31.0)</h2>
         </div>
         <button type="button" onclick="closeChangelogModal()" class="md-icon-btn" aria-label="Schließen">
           <span class="material-symbols-rounded">close</span>
@@ -3367,20 +3367,32 @@
   </div>
 
   <!-- ========================================================================
-       COMPLETE SELF-CONTAINED JAVASCRIPT ENGINE (v4.30.0)
+       COMPLETE SELF-CONTAINED JAVASCRIPT ENGINE (v4.31.0)
        ======================================================================== -->
   <div id="appToast" class="md-toast" role="status" aria-live="polite"></div>
   <input type="file" id="backupFileInput" accept="application/json,.json" hidden onchange="handleBackupFile(event)" />
 
   <script>
-    const APP_VERSION = 'v4.30.0';
+    const APP_VERSION = 'v4.31.0';
 
     const CHANGELOG_ENTRIES = [
       {
-        version: 'v4.30.0',
+        version: 'v4.31.0',
         date: 'Aktuell',
-        title: 'Passende Trainings-Videos für alle Drills',
+        title: 'Schlagtechnik-Videos passend zu jeder Variante',
         latest: true,
+        notes: [
+          'Grünbunker zeigt jetzt Rory McIlroy im Bunker in Super-Zeitlupe (vorher: Chip-Video), mit eigenen Phasen und Tipps.',
+          'Draw & Fade zeigt einen Zeitlupen-Vergleich von Draw- und Fade-Schwung (vorher: allgemeines Schwung-Video).',
+          'Setup & Griff: Lehrvideos zum neutralen Griff und zur Ausrichtung statt eines kompletten Eisenschwungs.',
+          'Korrigierte Video-Angaben bei den Wedges.'
+        ]
+      },
+      {
+        version: 'v4.30.0',
+        date: 'Vorherige Version',
+        title: 'Passende Trainings-Videos für alle Drills',
+        latest: false,
         notes: [
           'Jeder der 38 Drills hat jetzt ein eigenes, passendes YouTube-Video (vorher teilten sich alle Drills 5 Videos zum Training zu Hause).',
           'Fast alle Videos sind auf Deutsch, u. a. von GOLFSTUN.DE, Golf.de, Golfen mit Freude, Vaughan spielt den Platz und Einstellig Golf. Das Uhr-System für Wedges ist auf Englisch.',
@@ -3390,7 +3402,7 @@
       },
       {
         version: 'v4.29.0',
-        date: 'Vorherige Version',
+        date: 'Meilenstein 54',
         title: 'Schlankere Tab-Leiste & geordnetes Menü',
         latest: false,
         notes: [
@@ -6880,16 +6892,20 @@
     const PRO_SWING_VIDEOS = {
       driver:  { id: 'foVZXKXmxsc', player: 'Rory McIlroy', club: 'Driver', view: 'Frontal', channel: "Mike's 3D Life" },
       irons:   { id: 'ro7RZErg7ng', player: 'Rory McIlroy', club: 'Eisen', view: 'Frontal', channel: "Mike's 3D Life" },
-      wedges:  { id: 'hKZJYpkG-eg', player: 'Jordan Spieth', club: 'Chip & Pitch', view: 'Frontal & Seitlich, 240 fps', channel: "Mike's 3D Life" },
+      wedges:  { id: 'hKZJYpkG-eg', player: 'Jordan Spieth', club: 'Chip & Pitch', view: 'Zeitlupe, 240 fps', channel: "Mike's 3D Life" },
+      bunker:  { id: 'xgc_DtbczoQ', player: 'Rory McIlroy', club: 'Bunkerschlag', view: 'Von hinten & frontal, Super-Zeitlupe', channel: 'Fore Right' },
       putting: { id: 'a762Plp6VeU', player: 'Rory McIlroy', club: 'Putter', view: '300 fps', channel: 'QuinticConsultancy' },
-      basics:  { id: 'ro7RZErg7ng', player: 'Rory McIlroy', club: 'Eisen – Setup & Ablauf', view: 'Frontal', channel: "Mike's 3D Life" },
-      shaping: { id: 'ys-b7J224AI', player: 'Tour-Schwung', club: 'Wedge bis Driver', view: 'Frontal, 240 fps', channel: 'Russell Heritage' }
+      basics:  { id: '8eXEvgmWB5M', player: 'Lehrvideo', club: 'Neutraler Golfgriff', view: 'Schritt für Schritt erklärt', channel: 'Golfreich', lesson: true },
+      align:   { id: 'uHvsrpJpmVU', player: 'Lehrvideo', club: 'Richtig ausrichten', view: 'In vier Schritten erklärt', channel: 'GOLFSTUN.DE', lesson: true },
+      shaping: { id: 'JDRiYDebEtw', player: 'Draw vs. Fade', club: 'Schwungvergleich', view: 'Zeitlupe (Englisch)', channel: 'WorldClassGolf – Craig Hanson & Dr. Rob Neal' }
     };
 
     const PRO_SWING_PHASES = {
       full: ['Ansprechen', 'Rückschwung', 'Top', 'Übergang', 'Abschwung', 'Treffmoment', 'Durchschwung', 'Finish'],
       chip: ['Ansprechen', 'Rückschwung', 'Treffmoment', 'Finish'],
-      putt: ['Ansprechen', 'Rückschwung', 'Treffmoment', 'Durchschwung']
+      putt: ['Ansprechen', 'Rückschwung', 'Treffmoment', 'Durchschwung'],
+      bunker: ['Ansprechen', 'Rückschwung', 'Sandkontakt', 'Finish'],
+      lesson: []
     };
 
     const PRO_SWING_TIPS = {
@@ -6908,6 +6924,12 @@
         'Kurzer Rückschwung aus den Schultern, Handgelenke bleiben ruhig.',
         'Hände führen vor dem Schlägerkopf – erst Ball, dann Boden.',
         'Kurzes, tiefes Finish mit flachem linken Handgelenk.'
+      ],
+      bunker: [
+        'Offener Stand und offene Schlagfläche, Ball etwas links der Mitte, Füße leicht in den Sand eingraben.',
+        'Voller, lockerer Rückschwung – die Handgelenke winkeln früh ab.',
+        'Der Schläger trifft den Sand ca. 3–5 cm vor dem Ball – der Ball fliegt auf einem Sandkissen heraus.',
+        'Volles Finish durchschwingen, nicht im Sand abbremsen.'
       ],
       putt: [
         'Augen über dem Ball, Arme hängen locker, Schultern und Arme bilden ein Fünfeck.',
@@ -7090,9 +7112,12 @@
       const container = document.getElementById('svgGolferContainer');
       if (!container) return;
       const clubId = typeof currentClubId !== 'undefined' ? currentClubId : 'driver';
-      const v = PRO_SWING_VIDEOS[clubId] || PRO_SWING_VIDEOS.irons;
       const l = (subLabel || '').toLowerCase();
-      const type = cfg.clubType === 'putter' ? 'putt' : l.includes('chip') ? 'chip' : 'full';
+      const vKey = clubId === 'wedges' && l.includes('bunker') ? 'bunker'
+        : clubId === 'basics' && l.includes('ausrichtung') ? 'align'
+        : clubId;
+      const v = PRO_SWING_VIDEOS[vKey] || PRO_SWING_VIDEOS.irons;
+      const type = v.lesson ? 'lesson' : vKey === 'bunker' ? 'bunker' : cfg.clubType === 'putter' ? 'putt' : l.includes('chip') ? 'chip' : 'full';
       const key = v.id + '|' + type;
       if (key === ProVideo.key && document.getElementById('proVideoRoot')) return;
       if (ProVideo.player) { try { ProVideo.player.destroy(); } catch (e) {} }
@@ -7123,6 +7148,7 @@
               ${[1, 0.5, 0.25].map(s => `<button type="button" class="md-segmented-btn pv-speed" data-speed="${s}" onclick="proVideoSpeed(${s})">${s === 1 ? '1×' : s === 0.5 ? '½×' : '¼×'}</button>`).join('')}
             </div>
           </div>
+          ${type === 'lesson' ? `<div class="pv-hint">Lehrvideo: Nutze Zeitlupe und Einzelbild, um die Hand- bzw. Fußposition genau anzuschauen. Die Checkpunkte findest du unten auf der Seite.</div>` : `
           <div class="pv-phase-head">
             <span>Schwungphasen</span>
             <button type="button" class="md-filter-chip pv-edit" onclick="proVideoToggleEdit()"><span class="material-symbols-rounded" style="font-size: 16px;">bookmark_add</span><span class="pv-edit-label">Marker setzen</span></button>
@@ -7131,10 +7157,12 @@
             ${phases.map((n, i) => `<button type="button" class="pv-phase" onclick="proVideoPhase(${i})"><span class="pv-phase-num">${i + 1}</span><span class="pv-phase-name">${n}</span><span class="pv-phase-time"></span></button>`).join('')}
           </div>
           <div id="pvHint" class="pv-hint"></div>
-          <div id="pvTip" class="pv-tip" data-idx="-1"></div>
+          <div id="pvTip" class="pv-tip" data-idx="-1"></div>`}
         </div>`;
-      proVideoShowTip(0);
-      document.getElementById('pvTip').dataset.idx = '-1';
+      if (type !== 'lesson') {
+        proVideoShowTip(0);
+        document.getElementById('pvTip').dataset.idx = '-1';
+      }
       proVideoSyncControls();
     }
 
