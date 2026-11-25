@@ -9,8 +9,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="apple-mobile-web-app-title" content="Golf Pocket Trainer" />
   <meta name="application-name" content="Golf Pocket Trainer" />
-  <meta name="description" content="Golf Pocket Trainer v4.21.0 – Material Design 3 Golf Technik-, Trainings-, Rules-, Scratch-Blueprint-, Komparator-, Warm-up-, Video-Analyse-, 40-Tage-Challenge- & Gamification-Statistik-Begleiter" />
-  <title>Golf Pocket Trainer (v4.21.0)</title>
+  <meta name="description" content="Golf Pocket Trainer v4.22.0 – Material Design 3 Golf Technik-, Trainings-, Rules-, Scratch-Blueprint-, Komparator-, Warm-up-, Video-Analyse-, 40-Tage-Challenge- & Gamification-Statistik-Begleiter" />
+  <title>Golf Pocket Trainer (v4.22.0)</title>
 
   <link rel="manifest" href="manifest.webmanifest" />
   <link rel="icon" type="image/png" sizes="48x48" href="icons/favicon-48.png" />
@@ -982,16 +982,25 @@
       box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
     }
 
-    .sf-root { width: 100%; display: flex; flex-direction: column; gap: 0.6rem; }
-    .sf-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; flex-wrap: wrap; }
-    .sf-toolbar .md-segmented-btn { height: 2rem; padding: 0 0.85rem; font-size: 0.78rem; }
-    .sf-canvas { width: 100%; display: block; border-radius: 1rem; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06); cursor: pointer; touch-action: manipulation; }
-    .sf-phases { display: flex; gap: 0.35rem; overflow-x: auto; scrollbar-width: none; padding-bottom: 2px; }
-    .sf-phases::-webkit-scrollbar { display: none; }
-    .sf-phases .md-filter-chip { flex-shrink: 0; height: 1.9rem; font-size: 0.76rem; }
-    .sf-controls { display: flex; align-items: center; gap: 0.6rem; }
-    .sf-scrub { flex: 1; accent-color: var(--md-sys-color-primary); min-width: 0; }
-    .sf-speed { min-width: 3.2rem; justify-content: center; font-variant-numeric: tabular-nums; }
+    .ss-root { width: 100%; display: flex; flex-direction: column; gap: 0.7rem; }
+    .ss-caption { display: flex; justify-content: space-between; align-items: center; gap: 0.5rem; font-size: 0.78rem; font-weight: 700; color: var(--md-sys-color-on-surface-variant); }
+    .ss-target { white-space: nowrap; color: var(--md-sys-color-primary); }
+    .ss-grid { display: grid; gap: 0.4rem; }
+    .ss-tile { position: relative; display: flex; flex-direction: column; align-items: stretch; padding: 0.2rem 0.15rem 0.35rem; border-radius: 0.85rem; border: 1.5px solid var(--md-sys-color-outline-variant); background: var(--md-sys-color-surface-container-lowest, #fff); cursor: pointer; transition: border-color 0.15s ease, box-shadow 0.15s ease; font: inherit; color: inherit; min-width: 0; }
+    .md-svg-editorial .ss-tile svg { width: 100%; height: auto; min-height: 0; aspect-ratio: 250 / 300; display: block; }
+    .ss-tile.selected { border-color: var(--md-sys-color-primary); box-shadow: 0 0 0 2px var(--md-sys-color-primary) inset; }
+    .ss-tile-num { position: absolute; top: 0.3rem; left: 0.35rem; width: 1.2rem; height: 1.2rem; border-radius: 50%; display: grid; place-items: center; font-size: 0.68rem; font-weight: 800; background: var(--md-sys-color-primary); color: var(--md-sys-color-on-primary); }
+    .ss-tile-label { font-size: 0.64rem; font-weight: 700; text-align: center; line-height: 1.15; color: var(--md-sys-color-on-surface-variant); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .ss-detail { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: 0.8rem; align-items: center; padding: 0.6rem; border-radius: 1rem; background: var(--md-sys-color-surface-container-lowest, #fff); border: 1px solid var(--md-sys-color-outline-variant); }
+    .ss-detail-img { width: 100%; max-width: 230px; justify-self: center; }
+    .md-svg-editorial .ss-detail-img svg { width: 100%; height: auto; min-height: 0; display: block; }
+    .ss-detail-text { display: flex; flex-direction: column; gap: 0.45rem; font-size: 0.86rem; line-height: 1.45; }
+    .ss-detail-head { display: flex; align-items: center; gap: 0.45rem; font-size: 1rem; }
+    .ss-num { width: 1.6rem; height: 1.6rem; border-radius: 50%; display: grid; place-items: center; font-size: 0.82rem; font-weight: 800; background: var(--md-sys-color-primary); color: var(--md-sys-color-on-primary); flex-shrink: 0; }
+    .ss-count { margin-left: auto; font-size: 0.75rem; color: var(--md-sys-color-on-surface-variant); font-variant-numeric: tabular-nums; }
+    .ss-detail-text p { margin: 0; color: var(--md-sys-color-on-surface-variant); }
+    .ss-nav { display: flex; gap: 0.4rem; }
+    @media (max-width: 520px) { .ss-detail { grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: 0.5rem; } .ss-detail-text { font-size: 0.8rem; } }
 
     .md-svg-grid {
       padding: 1rem;
@@ -2167,7 +2176,7 @@
         <div class="md-brand-text-wrap">
           <div style="display: flex; align-items: center; gap: 0.4rem;">
             <h1 class="md-brand-title">Golf Pocket Trainer</h1>
-            <span class="md-version-badge font-mono">v4.21.0</span>
+            <span class="md-version-badge font-mono">v4.22.0</span>
           </div>
           <p class="md-brand-sub">Statistik &bull; Check-in &bull; Drills &bull; Rules &bull; Scratch</p>
         </div>
@@ -2245,7 +2254,7 @@
               <span class="material-symbols-rounded" style="color: var(--md-sys-color-on-surface-variant);">history</span>
               <span>Versionsverlauf</span>
             </span>
-            <span class="font-mono" style="font-size: 0.72rem; color: var(--md-sys-color-on-surface-variant);">v4.21.0</span>
+            <span class="font-mono" style="font-size: 0.72rem; color: var(--md-sys-color-on-surface-variant);">v4.22.0</span>
           </button>
         </div>
       </div>
@@ -2341,10 +2350,10 @@
         <article class="md-card-outlined" style="display: flex; flex-direction: column;">
           <div class="md-card-header">
             <div>
-              <h3 class="md-card-title">Körperhaltung &amp; Arm-Dreieck</h3>
-              <p class="md-card-subtitle">Frontal (Face-On) &amp; Seitenansicht (Down-the-Line)</p>
+              <h3 class="md-card-title">Der Schwung in Bildern</h3>
+              <p class="md-card-subtitle">Phase antippen für Details &amp; Technik-Tipp</p>
             </div>
-            <span class="md-assist-badge">Animiert</span>
+            <span class="md-assist-badge">Bildfolge</span>
           </div>
           <div id="svgGolferContainer" class="md-svg-editorial"></div>
           <div class="md-card-supporting">
@@ -3087,7 +3096,7 @@
        ======================================================================== -->
   <footer class="md-footer">
     <div class="md-container" style="display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; flex-wrap: wrap;">
-      <span><strong>Golf Pocket Trainer</strong> (<span class="font-mono">v4.21.0</span>) &bull; Dein interaktiver Trainings- &amp; Platzbegleiter</span>
+      <span><strong>Golf Pocket Trainer</strong> (<span class="font-mono">v4.22.0</span>) &bull; Dein interaktiver Trainings- &amp; Platzbegleiter</span>
       <button type="button" onclick="openChangelogModal()" class="md-text-btn" style="height: 1.85rem;">Versionsverlauf ansehen</button>
     </div>
   </footer>
@@ -3119,8 +3128,8 @@
           <div style="display: flex; align-items: flex-start; gap: 0.65rem; font-size: 0.83rem;">
             <span class="material-symbols-rounded filled" style="font-size: 20px; color: var(--md-sys-color-primary); margin-top: 1px;">sports_golf</span>
             <div>
-              <strong>Animierte Schwung-Figur (Neu!):</strong>
-              <div style="color: var(--md-sys-color-on-surface-variant); margin-top: 0.1rem;">In der Schlagtechnik zeigt eine animierte Figur den ganzen Schwung – frontal oder seitlich, mit Zeitlupe und Sprung zu jeder Phase.</div>
+              <strong>Der Schwung in Bildern (Neu!):</strong>
+              <div style="color: var(--md-sys-color-on-surface-variant); margin-top: 0.1rem;">In der Schlagtechnik zeigt eine Bildfolge die 8 Schwungphasen. Tippe eine Phase an für das große Bild und den passenden Technik-Tipp.</div>
             </div>
           </div>
 
@@ -3236,7 +3245,7 @@
       <div class="md-dialog-header">
         <div>
           <span class="md-assist-badge" style="background-color: var(--md-sys-color-tertiary-container); color: var(--md-sys-color-on-tertiary-container);">Release Notes &amp; Wartung</span>
-          <h2 id="changelogTitle" class="font-display" style="font-size: 1.25rem; font-weight: 800; margin-top: 0.3rem;">Versionsverlauf (v1.0.0 – v4.21.0)</h2>
+          <h2 id="changelogTitle" class="font-display" style="font-size: 1.25rem; font-weight: 800; margin-top: 0.3rem;">Versionsverlauf (v1.0.0 – v4.22.0)</h2>
         </div>
         <button type="button" onclick="closeChangelogModal()" class="md-icon-btn" aria-label="Schließen">
           <span class="material-symbols-rounded">close</span>
@@ -3251,25 +3260,24 @@
   </div>
 
   <!-- ========================================================================
-       COMPLETE SELF-CONTAINED JAVASCRIPT ENGINE (v4.21.0)
+       COMPLETE SELF-CONTAINED JAVASCRIPT ENGINE (v4.22.0)
        ======================================================================== -->
   <div id="appToast" class="md-toast" role="status" aria-live="polite"></div>
   <input type="file" id="backupFileInput" accept="application/json,.json" hidden onchange="handleBackupFile(event)" />
 
   <script>
-    const APP_VERSION = 'v4.21.0';
+    const APP_VERSION = 'v4.22.0';
 
     const CHANGELOG_ENTRIES = [
       {
-        version: 'v4.21.0',
+        version: 'v4.22.0',
         date: 'Aktuell',
-        title: 'Animierte Schwung-Figur in der Schlagtechnik',
+        title: 'Der Schwung in Bildern',
         latest: true,
         notes: [
-          'Schlagtechnik: Die starren Figuren sind durch eine animierte Golfer-Figur ersetzt, die den kompletten Schwung zeigt – vom Ansprechen über Top und Treffmoment bis ins Finish.',
-          'Umschaltbar zwischen Frontal (Face-On) und Seitlich (Down-the-Line), mit Zeitlupe (½× / ¼×), Schieberegler und Sprung zu jeder Schwungphase.',
-          'Je Schläger passend: voller Schwung für Driver und Eisen, kurze Bewegung für Chip, halber Schwung für Pitch und Pendel beim Putten.',
-          'Hilfslinien für Wirbelsäulenwinkel und Schaftebene, Spur des Schlägerkopfs und Ballflug nach dem Treffmoment.',
+          'Schlagtechnik: Statt der animierten Figur zeigt eine illustrierte Bildfolge die 8 Phasen des Schwungs – von Ansprechen über Top und Treffmoment bis zum Finish.',
+          'Jede Phase antippen: großes Bild mit Technik-Tipp, mit Pfeilen blätterst du durch den Schwung.',
+          'Eigene Bildfolgen für Chip und Putt (je 4 Phasen); Driver mit Tee, Ballposition und Standbreite passend zum Schläger.',
           'Schwungbahn-Grafik: Beschriftungen überlappen nicht mehr, Tippfehler korrigiert, Schlägerkopf läuft animiert über den Bogen.'
         ]
       },
@@ -6167,652 +6175,303 @@
     }
 
     /* ========================================================================
-       ANIMIERTE SCHWUNG-FIGUR (3D-SKELETT → FRONTAL & DOWN-THE-LINE)
-       Ein Skelett-Modell in Metern (x = Richtung Ziel, y = oben, z = Richtung Ball),
-       Keyframes je Schwungart, Hermite-Interpolation, Arm-/Bein-IK, Canvas-Rendering.
+       SCHWUNG IN BILDERN – ILLUSTRIERTE PHASENFOLGE (FRONTAL, ZIEL RECHTS)
+       Handgesetzte 2D-Posen je Phase, als Illustration mit Kontur gezeichnet.
+       Koordinaten: Kachel 260 × 300, Boden y = 282, Körpermitte x = 130.
        ======================================================================== */
-    const SwingFig = {
-      cfg: null, label: '', view: 'face', t: 0, playing: true, speed: 1,
-      overlays: true, raf: 0, last: 0, keys: null, type: 'full', model: null,
-      canvas: null, ctx: null, W: 0, H: 0, dpr: 1, visible: true, key: ''
+    const SwingSeq = { key: '', idx: 0, frames: [], type: 'full', cfg: null };
+
+    /* Posen: TS/LS = rechte/linke Schulter (Ziel = rechts im Bild = linke Körperseite),
+       G = Griff (linke Hand), C = Schlägerkopf, look = Blickrichtung (0 frontal, 1 zum Ziel) */
+    const SWING_SEQ_POSES = {
+      full: [
+        { name: 'Ansprechen', H: [126, 71], N: [127, 91], TS: [102, 102], LS: [154, 98], TE: [112, 139], LE: [146, 138], G: [134, 172], C: [127, 276], TH: [114, 160], LH: [146, 158], TK: [107, 215], LK: [151, 214], TA: [103, 268], LA: [157, 268], look: 0 },
+        { name: 'Rückschwung', H: [124, 71], N: [123, 91], TS: [104, 96], LS: [142, 105], TE: [98, 130], LE: [114, 134], G: [86, 164], C: [-40, 150], TH: [114, 160], LH: [144, 160], TK: [106, 214], LK: [147, 215], TA: [103, 268], LA: [157, 268], look: 0 },
+        { name: '9 Uhr', H: [122, 71], N: [121, 91], TS: [111, 93], LS: [134, 107], TE: [92, 126], LE: [94, 113], G: [56, 117], C: [44, -12], TH: [115, 160], LH: [143, 161], TK: [106, 214], LK: [142, 216], TA: [103, 268], LA: [157, 268], look: 0, lHeel: 0.1 },
+        { name: 'Top', H: [121, 69], N: [120, 89], TS: [110, 91], LS: [132, 103], TE: [84, 96], LE: [101, 72], G: [72, 42], C: [202, 30], TH: [117, 159], LH: [141, 161], TK: [107, 213], LK: [138, 216], TA: [103, 268], LA: [157, 267], look: 0, lHeel: 0.25, headFront: true, clubBehind: true },
+        { name: 'Abschwung', H: [122, 72], N: [122, 92], TS: [105, 98], LS: [140, 103], TE: [104, 140], LE: [110, 112], G: [80, 121], C: [70, -6], TH: [122, 160], LH: [151, 158], TK: [116, 215], LK: [153, 213], TA: [103, 268], LA: [157, 268], look: 0, tHeel: 0.1 },
+        { name: 'Treffmoment', H: [121, 73], N: [122, 93], TS: [100, 105], LS: [151, 96], TE: [118, 141], LE: [148, 135], G: [141, 172], C: [128, 276], TH: [124, 160], LH: [153, 157], TK: [121, 216], LK: [157, 213], TA: [106, 265], LA: [157, 268], look: 0.1, tHeel: 0.35 },
+        { name: 'Durchschwung', H: [129, 73], N: [129, 93], TS: [116, 101], LS: [150, 93], TE: [150, 134], LE: [170, 126], G: [186, 160], C: [312, 140], TH: [134, 160], LH: [158, 157], TK: [134, 216], LK: [159, 213], TA: [117, 258], LA: [157, 268], look: 0.45, tHeel: 0.75 },
+        { name: 'Finish', H: [152, 66], N: [148, 88], TS: [156, 97], LS: [138, 93], TE: [176, 80], LE: [138, 66], G: [158, 48], C: [44, 104], TH: [141, 158], LH: [160, 159], TK: [149, 213], LK: [161, 213], TA: [126, 257], LA: [158, 268], look: 1, tHeel: 1, clubBehind: true }
+      ],
+      chip: [
+        { name: 'Ansprechen', H: [131, 73], N: [131, 93], TS: [106, 103], LS: [156, 101], TE: [116, 140], LE: [148, 139], G: [139, 173], C: [128, 276], TH: [118, 160], LH: [146, 159], TK: [114, 215], LK: [146, 214], TA: [114, 268], LA: [148, 268], look: 0 },
+        { name: 'Rückschwung', H: [130, 73], N: [130, 93], TS: [106, 100], LS: [152, 105], TE: [108, 142], LE: [133, 140], G: [113, 172], C: [56, 264], TH: [118, 160], LH: [146, 160], TK: [114, 215], LK: [145, 215], TA: [114, 268], LA: [148, 268], look: 0 },
+        { name: 'Treffmoment', H: [131, 73], N: [131, 93], TS: [105, 104], LS: [156, 100], TE: [118, 141], LE: [150, 138], G: [143, 173], C: [129, 276], TH: [120, 160], LH: [148, 158], TK: [117, 215], LK: [147, 214], TA: [114, 268], LA: [148, 268], look: 0 },
+        { name: 'Finish', H: [133, 73], N: [133, 93], TS: [112, 104], LS: [156, 97], TE: [142, 140], LE: [163, 133], G: [170, 167], C: [222, 254], TH: [124, 160], LH: [150, 158], TK: [122, 215], LK: [148, 214], TA: [114, 266], LA: [148, 268], look: 0.3, tHeel: 0.2, ballX: 238, ballY: 238 }
+      ],
+      putt: [
+        { name: 'Ansprechen', H: [130, 76], N: [130, 96], TS: [104, 106], LS: [156, 106], TE: [112, 144], LE: [148, 144], G: [131, 175], C: [129, 277], TH: [116, 161], LH: [144, 161], TK: [112, 216], LK: [148, 216], TA: [110, 268], LA: [150, 268], look: 0, club: 'putter' },
+        { name: 'Rückschwung', H: [130, 76], N: [130, 96], TS: [104, 102], LS: [156, 110], TE: [107, 143], LE: [139, 146], G: [118, 175], C: [100, 276], TH: [116, 161], LH: [144, 161], TK: [112, 216], LK: [148, 216], TA: [110, 268], LA: [150, 268], look: 0, club: 'putter' },
+        { name: 'Treffmoment', H: [130, 76], N: [130, 96], TS: [104, 106], LS: [156, 106], TE: [113, 144], LE: [149, 144], G: [133, 175], C: [130, 277], TH: [116, 161], LH: [144, 161], TK: [112, 216], LK: [148, 216], TA: [110, 268], LA: [150, 268], look: 0, club: 'putter' },
+        { name: 'Durchschwung', H: [130, 76], N: [130, 96], TS: [104, 110], LS: [156, 102], TE: [121, 146], LE: [156, 141], G: [145, 175], C: [166, 276], TH: [116, 161], LH: [144, 161], TK: [112, 216], LK: [148, 216], TA: [110, 268], LA: [150, 268], look: 0, club: 'putter', ballX: 226 }
+      ]
     };
 
-    const SF_SPEEDS = [1, 0.5, 0.25];
+    const SWING_SEQ_TIPS = {
+      full: [
+        'Aus der Hüfte nach vorne geneigt, Knie leicht gebeugt, Arme hängen locker. Gewicht mittig auf den Fußballen.',
+        'Schultern, Arme und Schläger starten gemeinsam. Der Schaft ist parallel zum Boden und zur Ziellinie, die Schlägerspitze zeigt nach oben.',
+        'Linker Arm parallel zum Boden, Handgelenke etwa 90° abgewinkelt – der Schaft zeigt nach oben.',
+        'Schultern ca. 90° gedreht, Hüfte ca. 45°. Linker Arm gestreckt, rechter Ellbogen zeigt zum Boden, Gewicht auf der Innenseite des rechten Fußes.',
+        'Der Abschwung startet unten: Die Hüfte schiebt und dreht zum Ziel, die Arme fallen. Den Winkel in den Handgelenken halten (Lag).',
+        'Hände vor dem Ball, Hüfte geöffnet, Kopf hinter dem Ball. Etwa 80 % des Gewichts auf dem linken Fuß.',
+        'Beide Arme strecken sich Richtung Ziel, der Körper dreht weiter. Die rechte Ferse löst sich vom Boden.',
+        'Körper zeigt vollständig zum Ziel, Gewicht komplett links, rechter Fuß auf der Spitze. Finish in Balance halten.'
+      ],
+      chip: [
+        'Schmaler Stand, Gewicht ca. 60–70 % links, Hände vor dem Ball. Ball mittig bis leicht rechts.',
+        'Kurzer Rückschwung aus den Schultern, Handgelenke bleiben nahezu ruhig.',
+        'Hände führen vor dem Schlägerkopf, abwärts treffen – Ball zuerst, dann Boden.',
+        'Kurzes, tiefes Finish: Schlägerkopf bleibt unter Hüfthöhe, linkes Handgelenk flach.'
+      ],
+      putt: [
+        'Augen über dem Ball, Arme hängen locker. Schultern, Arme und Putter bilden ein Fünfeck.',
+        'Die Schultern schaukeln wie ein Pendel – Hände und Handgelenke bleiben passiv.',
+        'Der Putter trifft den Ball leicht in der Aufwärtsbewegung, der Kopf bleibt ruhig.',
+        'Durchschwung etwa gleich lang wie der Rückschwung. Erst nach dem Treffen aufschauen.'
+      ]
+    };
 
-    const sfV = (x, y, z) => ({ x, y, z });
-    const sfAdd = (a, b) => sfV(a.x + b.x, a.y + b.y, a.z + b.z);
-    const sfSub = (a, b) => sfV(a.x - b.x, a.y - b.y, a.z - b.z);
-    const sfMul = (a, k) => sfV(a.x * k, a.y * k, a.z * k);
-    const sfDot = (a, b) => a.x * b.x + a.y * b.y + a.z * b.z;
-    const sfLen = a => Math.hypot(a.x, a.y, a.z);
-    const sfNorm = a => { const l = sfLen(a) || 1; return sfMul(a, 1 / l); };
-    const sfRad = d => (d * Math.PI) / 180;
-
-    /* Rotationen: Gieren um y (positiv = Rückschwung, Brust dreht vom Ziel weg),
-       Vorbeugen um x (positiv = Richtung Ball), Seitneigung um z (positiv = vom Ziel weg). */
-    function sfYaw(v, deg) { const a = sfRad(deg), c = Math.cos(a), s = Math.sin(a); return sfV(v.x * c - v.z * s, v.y, v.x * s + v.z * c); }
-    function sfBend(v, deg) { const a = sfRad(deg), c = Math.cos(a), s = Math.sin(a); return sfV(v.x, v.y * c - v.z * s, v.y * s + v.z * c); }
-    function sfSide(v, deg) { const a = sfRad(deg), c = Math.cos(a), s = Math.sin(a); return sfV(v.x * c - v.y * s, v.x * s + v.y * c, v.z); }
-    const sfTorso = (v, yaw, bend, side) => sfSide(sfBend(sfYaw(v, yaw), bend), side);
-
-    function sfIK(root, target, l1, l2, pole) {
-      const d = sfSub(target, root);
-      const dist = sfLen(d) || 1e-6;
-      const dir = sfMul(d, 1 / dist);
-      if (dist >= l1 + l2 - 1e-4) return sfAdd(root, sfMul(dir, l1 * dist / (l1 + l2)));
-      const a = (l1 * l1 - l2 * l2 + dist * dist) / (2 * dist);
-      const h = Math.sqrt(Math.max(0, l1 * l1 - a * a));
-      let p = sfSub(pole, sfMul(dir, sfDot(pole, dir)));
-      if (sfLen(p) < 1e-5) p = sfV(0, -1, 0);
-      return sfAdd(sfAdd(root, sfMul(dir, a)), sfMul(sfNorm(p), h));
-    }
-
-    function sfSwingType(cfg, label) {
+    function swingSeqType(cfg, label) {
       const l = (label || '').toLowerCase();
       if (cfg.clubType === 'putter') return 'putt';
       if (l.includes('chip')) return 'chip';
-      if (l.includes('pitch')) return 'pitch';
       return 'full';
     }
 
-    /* Schlägerdaten: Länge (m), Lie-Winkel (°), Vorbeuge der Wirbelsäule (°) */
-    const SF_CLUBS = {
-      driver: { L: 1.12, lie: 47, bend: 35, handsZ: 0.30, head: 'driver' },
-      iron:   { L: 0.94, lie: 61, bend: 39, handsZ: 0.29, head: 'iron' },
-      wedge:  { L: 0.89, lie: 63, bend: 41, handsZ: 0.27, head: 'iron' },
-      putter: { L: 0.86, lie: 71, bend: 46, handsZ: 0.24, head: 'putter' }
-    };
-
-    function sfBuildModel(cfg, label) {
-      const club = SF_CLUBS[cfg.clubType] || SF_CLUBS.iron;
-      const type = sfSwingType(cfg, label);
-      const lean = cfg.shaftLeanDeg || 0;
-      const tee = Math.max(0, (cfg.teeHeight || 0) * 0.0017);
-      const half = Math.max(0.12, (cfg.stanceWidth || 132) * 0.0021);
-      const ballX = -(cfg.ballOffset || 0) * 0.0024;
-      const tilt = cfg.spineTiltDeg || 0;
-      const a0 = club.bend;
-
-      const d0 = sfNorm(sfV(-Math.sin(sfRad(lean)), -Math.sin(sfRad(club.lie)), Math.cos(sfRad(club.lie))));
-      const headZ = club.handsZ + club.L * d0.z;
-      const headAddr = sfV(ballX - 0.01, 0.03, headZ);
-      const H0 = sfSub(headAddr, sfMul(d0, club.L));
-      const ball = sfV(ballX, 0.021 + tee + (tee > 0 ? 0.012 : 0), headZ + 0.005);
-      const dImp = sfNorm(sfAdd(d0, sfV(type === 'putt' ? -0.02 : -0.12, 0, 0)));
-      const hImp = sfAdd(H0, sfV(type === 'putt' ? 0.01 : 0.05, type === 'putt' ? 0 : 0.01, 0));
-
-      const k = (t, o) => Object.assign({ t, hold: false, hip: 0, sh: 0, a: a0, b: tilt, px: 0, ph: 0.92, heel: 0, gaze: 0 }, o);
-      const hv = (x, y, z) => sfV(x, y, z);
-      let keys;
-      let impactT;
-      let launch = Math.max(2, -(cfg.ballTrajectoryAngle || -16));
-
-      if (type === 'putt') {
-        impactT = 0.56;
-        keys = [
-          k(0, { hold: true, hands: H0, club: d0 }),
-          k(0.14, { hold: true, hands: H0, club: d0 }),
-          k(0.38, { hold: true, sh: 10, hands: sfAdd(H0, hv(-0.13, 0.025, -0.01)), club: sfNorm(sfAdd(d0, hv(-0.13, 0, 0))) }),
-          k(impactT, { hands: hImp, club: dImp }),
-          k(0.76, { hold: true, sh: -12, hands: sfAdd(H0, hv(0.16, 0.03, -0.01)), club: sfNorm(sfAdd(d0, hv(0.17, 0.02, 0))) }),
-          k(1, { hold: true, sh: -12, hands: sfAdd(H0, hv(0.16, 0.03, -0.01)), club: sfNorm(sfAdd(d0, hv(0.17, 0.02, 0))) })
-        ];
-        launch = 0;
-      } else if (type === 'chip') {
-        impactT = 0.58;
-        keys = [
-          k(0, { hold: true, hands: H0, club: d0, px: 0.03 }),
-          k(0.12, { hold: true, hands: H0, club: d0, px: 0.03 }),
-          k(0.38, { hold: true, hip: 4, sh: 24, px: 0.03, hands: sfAdd(H0, hv(-0.22, 0.06, -0.01)), club: sfNorm(sfAdd(d0, hv(-0.55, 0.28, 0))) }),
-          k(impactT, { hip: -10, sh: -6, px: 0.04, hands: hImp, club: dImp }),
-          k(0.76, { hold: true, hip: -25, sh: -32, px: 0.05, b: tilt + 2, hands: sfAdd(H0, hv(0.25, 0.07, -0.03)), club: sfNorm(sfAdd(d0, hv(0.55, 0.25, 0))), gaze: 0.5 }),
-          k(1, { hold: true, hip: -25, sh: -32, px: 0.05, b: tilt + 2, hands: sfAdd(H0, hv(0.25, 0.07, -0.03)), club: sfNorm(sfAdd(d0, hv(0.55, 0.25, 0))), gaze: 0.5 })
-        ];
-      } else if (type === 'pitch') {
-        impactT = 0.6;
-        keys = [
-          k(0, { hold: true, hands: H0, club: d0 }),
-          k(0.1, { hold: true, hands: H0, club: d0 }),
-          k(0.26, { hip: 8, sh: 30, hands: hv(-0.3, 0.9, 0.28), club: sfNorm(hv(-1, 0.12, 0.08)) }),
-          k(0.44, { hold: true, hip: 20, sh: 62, b: tilt + 3, hands: hv(-0.44, 1.12, 0.18), club: sfNorm(hv(-0.2, 1, -0.05)) }),
-          k(0.54, { hip: 0, sh: 32, b: tilt + 6, px: 0.04, hands: hv(-0.25, 0.94, 0.28), club: sfNorm(hv(-1, 0.25, 0.12)) }),
-          k(impactT, { hip: -30, sh: -12, b: tilt + 8, px: 0.06, hands: hImp, club: dImp, heel: 0.15 }),
-          k(0.68, { hip: -50, sh: -50, b: tilt + 8, px: 0.08, hands: hv(0.33, 0.95, 0.25), club: sfNorm(hv(1, 0.15, 0.15)), heel: 0.35, gaze: 0.4 }),
-          k(0.8, { hold: true, hip: -62, sh: -78, a: a0 - 12, b: tilt + 2, px: 0.1, ph: 0.94, hands: hv(0.36, 1.2, 0.1), club: sfNorm(hv(0.25, 1, -0.2)), heel: 0.6, gaze: 1 }),
-          k(1, { hold: true, hip: -62, sh: -78, a: a0 - 12, b: tilt + 2, px: 0.1, ph: 0.94, hands: hv(0.36, 1.2, 0.1), club: sfNorm(hv(0.25, 1, -0.2)), heel: 0.6, gaze: 1 })
-        ];
-      } else {
-        impactT = 0.61;
-        keys = [
-          k(0, { hold: true, hands: H0, club: d0 }),
-          k(0.08, { hold: true, hands: H0, club: d0 }),
-          k(0.22, { hip: 8, sh: 30, b: tilt + 1, px: -0.01, hands: hv(-0.33, 0.92, 0.3), club: sfNorm(hv(-1, 0.06, 0.06)) }),
-          k(0.33, { hip: 25, sh: 60, b: tilt + 3, px: -0.02, ph: 0.93, hands: hv(-0.47, 1.18, 0.18), club: sfNorm(hv(-0.15, 1, -0.08)) }),
-          k(0.46, { hold: true, hip: 45, sh: 90, a: a0 - 2, b: tilt + 4, px: -0.02, ph: 0.93, hands: hv(-0.3, 1.55, 0.0), club: sfNorm(hv(1, -0.08, 0.12)) }),
-          k(0.53, { hip: 22, sh: 72, b: tilt + 8, px: 0.03, ph: 0.9, hands: hv(-0.45, 1.16, 0.2), club: sfNorm(hv(-0.25, 1, 0.05)) }),
-          k(0.57, { hip: 2, sh: 40, b: tilt + 12, px: 0.06, ph: 0.89, hands: hv(-0.28, 0.95, 0.3), club: sfNorm(hv(-1, 0.12, 0.15)), heel: 0.05 }),
-          k(impactT, { hip: -38, sh: -15, a: a0 - 3, b: tilt + 15, px: 0.08, ph: 0.9, hands: hImp, club: dImp, heel: 0.25 }),
-          k(0.655, { hip: -60, sh: -55, a: a0 - 9, b: tilt + 14, px: 0.1, ph: 0.92, hands: hv(0.35, 0.95, 0.25), club: sfNorm(hv(1, 0.06, 0.15)), heel: 0.5, gaze: 0.4 }),
-          k(0.71, { hip: -80, sh: -90, a: a0 - 20, b: tilt + 5, px: 0.13, ph: 0.95, hands: hv(0.42, 1.25, 0.1), club: sfNorm(hv(0.2, 1, -0.15)), heel: 0.8, gaze: 0.85 }),
-          k(0.8, { hold: true, hip: -95, sh: -115, a: 14, b: -4, px: 0.16, ph: 0.98, hands: hv(0.12, 1.5, -0.28), club: sfNorm(hv(-0.75, -0.35, -0.55)), heel: 1, gaze: 1 }),
-          k(1, { hold: true, hip: -95, sh: -115, a: 14, b: -4, px: 0.16, ph: 0.98, hands: hv(0.12, 1.5, -0.28), club: sfNorm(hv(-0.75, -0.35, -0.55)), heel: 1, gaze: 1 })
-        ];
-      }
-
-      const phases = type === 'putt'
-        ? [['Ansprechen', 0], ['Rückschwung', 0.3], ['Treffmoment', impactT], ['Durchschwung', 0.72]]
-        : type === 'chip'
-          ? [['Ansprechen', 0], ['Rückschwung', 0.3], ['Treffmoment', impactT], ['Finish', 0.74]]
-          : type === 'pitch'
-            ? [['Ansprechen', 0], ['Rückschwung', 0.26], ['9 Uhr', 0.44], ['Treffmoment', impactT], ['Finish', 0.8]]
-            : [['Ansprechen', 0], ['Rückschwung', 0.22], ['Top', 0.46], ['Abschwung', 0.56], ['Treffmoment', impactT], ['Finish', 0.8]];
-
-      return {
-        type, club, keys, phases, impactT, launch, ball, half, H0, d0, tee,
-        leadFoot: -(cfg.leftFootAngle ?? -15), trailFoot: -(cfg.rightFootAngle ?? 0)
-      };
-    }
-
-    /* Hermite-Interpolation mit zeitskalierten Tangenten; Halte-Keys haben Tangente 0 */
-    function sfSample(model, t) {
-      const K = model.keys;
-      let i = 0;
-      while (i < K.length - 2 && t >= K[i + 1].t) i++;
-      const k0 = K[i], k1 = K[i + 1];
-      const span = Math.max(1e-6, k1.t - k0.t);
-      const s = Math.min(1, Math.max(0, (t - k0.t) / span));
-      const tan = (j, get) => {
-        const kj = K[j];
-        if (kj.hold || j === 0 || j === K.length - 1) return 0;
-        return (get(K[j + 1]) - get(K[j - 1])) / (K[j + 1].t - K[j - 1].t);
-      };
-      const s2 = s * s, s3 = s2 * s;
-      const h00 = 2 * s3 - 3 * s2 + 1, h10 = s3 - 2 * s2 + s, h01 = -2 * s3 + 3 * s2, h11 = s3 - s2;
-      const lerp = get => h00 * get(k0) + h10 * span * tan(i, get) + h01 * get(k1) + h11 * span * tan(i + 1, get);
-      const out = {};
-      ['hip', 'sh', 'a', 'b', 'px', 'ph', 'heel', 'gaze'].forEach(p => { out[p] = lerp(kk => kk[p]); });
-      out.hands = sfV(lerp(kk => kk.hands.x), lerp(kk => kk.hands.y), lerp(kk => kk.hands.z));
-      out.club = sfNorm(sfV(lerp(kk => kk.club.x), lerp(kk => kk.club.y), lerp(kk => kk.club.z)));
-      return out;
-    }
-
-    function sfPose(model, t) {
-      const p = sfSample(model, t);
-      const pelvis = sfV(p.px, p.ph, -0.1);
-      const up = sfTorso(sfV(0, 1, 0), 0, p.a, p.b);
-      const lat = sfTorso(sfV(1, 0, 0), p.sh, p.a, p.b);
-      const neck = sfAdd(pelvis, sfMul(up, 0.52));
-      const head = sfAdd(neck, sfTorso(sfV(0, 0.15, 0.045), 0, p.a, p.b));
-      const lSh = sfAdd(sfAdd(neck, sfMul(lat, 0.19)), sfMul(up, -0.035));
-      const tSh = sfAdd(sfAdd(neck, sfMul(lat, -0.19)), sfMul(up, -0.035));
-      const hipLat = sfYaw(sfV(1, 0, 0), p.hip * 0.95);
-      const lHip = sfAdd(pelvis, sfAdd(sfMul(hipLat, 0.11), sfV(0, -0.02, 0)));
-      const tHip = sfAdd(pelvis, sfAdd(sfMul(hipLat, -0.11), sfV(0, -0.02, 0)));
-
-      const grip = p.hands;
-      const tHand = sfAdd(grip, sfMul(p.club, 0.085));
-      const poleL = sfAdd(sfMul(up, -1), sfMul(lat, 0.35));
-      const poleT = sfAdd(sfAdd(sfMul(up, -0.7), sfV(0, -0.5, 0)), sfMul(lat, -0.25));
-      const lElb = sfIK(lSh, grip, 0.29, 0.31, poleL);
-      const tElb = sfIK(tSh, tHand, 0.29, 0.31, poleT);
-
-      const fDir = deg => sfV(Math.sin(sfRad(deg)), 0, Math.cos(sfRad(deg)));
-      const lFootDir = fDir(model.leadFoot);
-      const lAnk = sfV(model.half, 0.075, -0.02);
-      const lToe = sfAdd(sfV(lAnk.x, 0.03, lAnk.z), sfMul(lFootDir, 0.17));
-      const lHeel = sfAdd(sfV(lAnk.x, 0.03, lAnk.z), sfMul(lFootDir, -0.06));
-
-      const heel = Math.max(0, Math.min(1, p.heel));
-      const tToe = sfAdd(sfV(-model.half, 0.03, -0.02), sfMul(fDir(model.trailFoot), 0.17));
-      const tDir = sfNorm(sfAdd(fDir(model.trailFoot + heel * 55), sfV(0, -heel * 1.4, 0)));
-      const tAnk = sfAdd(tToe, sfAdd(sfMul(tDir, -0.17), sfV(0, 0.045, 0)));
-      const tHeel = sfAdd(tToe, sfMul(tDir, -0.23));
-
-      const lKnee = sfIK(lHip, lAnk, 0.47, 0.47, sfV(-0.15, 0, 1));
-      const tKnee = sfIK(tHip, tAnk, 0.47, 0.47, sfV(0.3, 0, 1));
-
-      const clubHead = sfAdd(grip, sfMul(p.club, model.club.L));
-      return { p, pelvis, up, lat, neck, head, lSh, tSh, lHip, tHip, grip, tHand, lElb, tElb, lAnk, lToe, lHeel, tAnk, tToe, tHeel, lKnee, tKnee, clubHead };
-    }
-
-    function sfPalette() {
-      const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-      return isDark ? {
-        bgTop: '#162033', bgBot: '#111827', ground: '#1d3a2a', groundLine: '#3f7d58', shadow: 'rgba(0,0,0,0.35)',
-        text: '#F1F5F9', sub: '#94A3B8', skin: '#e2ad86', skinShade: '#b87d56', polo: '#2f7d55', poloShade: '#1d5a3b',
-        pants: '#8f9aab', pantsShade: '#5b6577', cap: '#e5e7eb', capBrim: '#94a3b8', shoe: '#f8fafc', sole: '#334155',
-        shaft: '#cbd5e1', grip: '#0f172a', clubHead: '#e2e8f0', trail: '#86D89D', trailFaint: 'rgba(134,216,157,0.18)',
-        spine: '#38bdf8', plane: '#facc15', tri: '#86D89D', badgeBg: 'rgba(15,23,42,0.92)', badgeText: '#F8FAFC', hair: '#3b2f2a'
-      } : {
-        bgTop: '#F7F5EE', bgBot: '#EEF2E8', ground: '#cfe3cf', groundLine: '#5f9b72', shadow: 'rgba(20,40,25,0.16)',
-        text: '#181D18', sub: '#414942', skin: '#eab48c', skinShade: '#c6865c', polo: '#1E563A', poloShade: '#143d29',
-        pants: '#7d8794', pantsShade: '#5A6370', cap: '#ffffff', capBrim: '#2b3440', shoe: '#ffffff', sole: '#374151',
-        shaft: '#6b7280', grip: '#111827', clubHead: '#374151', trail: '#146C38', trailFaint: 'rgba(20,108,56,0.14)',
-        spine: '#0284C7', plane: '#B45309', tri: '#146C38', badgeBg: 'rgba(255,255,255,0.95)', badgeText: '#181D18', hair: '#4a3426'
-      };
-    }
-
-    function sfProject(view, pt, S, ox, oy) {
-      const sx = view === 'face' ? pt.x : pt.z;
-      return { x: ox + sx * S, y: oy - pt.y * S, d: view === 'face' ? pt.z : -pt.x };
-    }
-
-    function sfDraw() {
-      const F = SwingFig;
-      if (!F.ctx || !F.model || !F.W) return;
-      const ctx = F.ctx, W = F.W, H = F.H, m = F.model, view = F.view;
-      const pal = sfPalette();
-      ctx.setTransform(F.dpr, 0, 0, F.dpr, 0, 0);
-
-      const bg = ctx.createLinearGradient(0, 0, 0, H);
-      bg.addColorStop(0, pal.bgTop);
-      bg.addColorStop(1, pal.bgBot);
-      ctx.fillStyle = bg;
-      ctx.fillRect(0, 0, W, H);
-
-      const worldW = view === 'face' ? 2.9 : 2.4;
-      const S = Math.min(W / worldW, (H - 30) / 2.3);
-      const centerWorld = view === 'face' ? 0.02 : (m.ball.z * 0.5 - 0.05);
-      const ox = W / 2 - centerWorld * S;
-      const oy = H - 26;
-      const P = pt => sfProject(view, pt, S, ox, oy);
-
-      ctx.fillStyle = pal.ground;
-      ctx.fillRect(0, oy, W, H - oy);
-      ctx.strokeStyle = pal.groundLine;
-      ctx.lineWidth = 2;
-      ctx.beginPath(); ctx.moveTo(0, oy); ctx.lineTo(W, oy); ctx.stroke();
-
-      const fade = F.t > 0.965 ? Math.max(0, 1 - (F.t - 0.965) / 0.035) : 1;
-      const pose = sfPose(m, F.t);
-
-      // Bodenschatten
-      ctx.fillStyle = pal.shadow;
-      ctx.beginPath();
-      const sc = P(sfV(pose.pelvis.x, 0, pose.pelvis.z + 0.05));
-      ctx.ellipse(sc.x, oy + 2, (view === 'face' ? m.half + 0.3 : 0.45) * S, 0.05 * S, 0, 0, Math.PI * 2);
-      ctx.fill();
-
-      // Schlägerkopf-Spur: die letzten Momente der Bewegung als ausblendender Schweif
-      ctx.lineCap = 'round';
-      ctx.lineJoin = 'round';
-      const tail = m.type === 'putt' || m.type === 'chip' ? 0.3 : 0.2;
-      const t0 = Math.max(0, F.t - tail);
-      if (F.t - t0 > 0.004) {
-        const n = 28;
-        let prev = P(sfPose(m, t0).clubHead);
-        for (let i = 1; i <= n; i++) {
-          const tt = t0 + ((F.t - t0) * i) / n;
-          const cur = P(sfPose(m, tt).clubHead);
-          ctx.globalAlpha = fade * (i / n) * 0.8;
-          ctx.strokeStyle = pal.trail;
-          ctx.lineWidth = Math.max(1.5, 0.022 * S * (0.3 + 0.7 * i / n));
-          ctx.beginPath(); ctx.moveTo(prev.x, prev.y); ctx.lineTo(cur.x, cur.y); ctx.stroke();
-          prev = cur;
+    /* Posen an Schläger, Ballposition und Standbreite anpassen */
+    function swingSeqFrames(cfg, type) {
+      const base = SWING_SEQ_POSES[type];
+      const clubScale = cfg.clubType === 'driver' ? 1.16 : cfg.clubType === 'wedge' ? 0.95 : 1;
+      const stanceK = type === 'full' ? Math.min(1.25, Math.max(0.8, (cfg.stanceWidth || 132) / 132)) : 1;
+      const ballX = type === 'full' ? 130 - (cfg.ballOffset || 0) * 0.32 : 130;
+      const tee = cfg.clubType === 'driver' ? Math.min(12, (cfg.teeHeight || 20) * 0.35) : 0;
+      return base.map((p, i) => {
+        const f = JSON.parse(JSON.stringify(p));
+        ['LA', 'TA'].forEach(k => { f[k][0] = 130 + (f[k][0] - 130) * stanceK; });
+        ['LK', 'TK'].forEach(k => { f[k][0] = 130 + (f[k][0] - 130) * (1 + (stanceK - 1) * 0.7); });
+        f.ball = [p.ballX ?? ballX, p.ballY ?? (278 - tee)];
+        f.tee = tee;
+        f.clubType = p.club || cfg.clubType;
+        const atBall = type === 'full' && (i === 0 || i === 5);
+        if (atBall) {
+          f.C = cfg.clubType === 'driver' ? [ballX - 9, 276] : [ballX - 2, 276 - tee];
+          if (cfg.clubType === 'driver') f.G = [f.G[0] - 4, f.G[1] - 2];
+        } else if (clubScale !== 1) {
+          const dx = f.C[0] - f.G[0], dy = f.C[1] - f.G[1];
+          f.C = [f.G[0] + dx * clubScale, f.G[1] + dy * clubScale];
         }
-        ctx.globalAlpha = 1;
-      }
-
-      // Hilfslinien hinter der Figur
-      const addr = sfPose(m, 0);
-      if (F.overlays) {
-        ctx.save();
-        ctx.setLineDash([6, 5]);
-        ctx.lineWidth = 1.8;
-        if (view === 'dtl' && m.type !== 'putt') {
-          // Schaftebene (Shaft Plane) vom Ball durch die Hände verlängert
-          const b = P(m.ball), h = P(addr.grip);
-          const dx = h.x - b.x, dy = h.y - b.y;
-          ctx.strokeStyle = pal.plane;
-          ctx.globalAlpha = 0.85;
-          ctx.beginPath(); ctx.moveTo(b.x - dx * 0.15, b.y - dy * 0.15); ctx.lineTo(b.x + dx * 2.6, b.y + dy * 2.6); ctx.stroke();
-        }
-        // Referenz der Wirbelsäule beim Ansprechen
-        const r0 = P(addr.pelvis), r1 = P(sfAdd(addr.pelvis, sfMul(addr.up, 0.85)));
-        ctx.strokeStyle = pal.spine;
-        ctx.globalAlpha = 0.55;
-        ctx.beginPath(); ctx.moveTo(r0.x, r0.y); ctx.lineTo(r1.x, r1.y); ctx.stroke();
-        if (view === 'face') {
-          const bx = P(m.ball);
-          ctx.strokeStyle = pal.sub;
-          ctx.globalAlpha = 0.35;
-          ctx.beginPath(); ctx.moveTo(bx.x, oy); ctx.lineTo(bx.x, oy - 1.5 * S); ctx.stroke();
-        }
-        ctx.restore();
-      }
-
-      // Figur als tiefensortierte Primitive
-      const prims = [];
-      const seg = (a, b, r1, r2, col, col2, bias = 0) => prims.push({ k: 'seg', a, b, r1, r2, col, col2, d: (P(a).d + P(b).d) / 2 + bias });
-      seg(pose.lHip, pose.lKnee, 0.085, 0.065, pal.pants, pal.pantsShade);
-      seg(pose.lKnee, pose.lAnk, 0.062, 0.05, pal.pantsShade, pal.pantsShade);
-      seg(pose.tHip, pose.tKnee, 0.085, 0.065, pal.pants, pal.pantsShade);
-      seg(pose.tKnee, pose.tAnk, 0.062, 0.05, pal.pantsShade, pal.pantsShade);
-      // Frontal zeigen die Schuhspitzen zur Kamera: als breite Front-Silhouette zeichnen
-      const shoeFace = (heelP, toeP) => {
-        const mid = sfMul(sfAdd(heelP, toeP), 0.5);
-        const lift = Math.max(heelP.y, toeP.y) - 0.03;
-        return [sfV(mid.x - 0.045, 0.035 + lift * 0.6, toeP.z), sfV(mid.x + 0.045, 0.035 + lift * 0.6, toeP.z)];
-      };
-      const lS = view === 'face' ? shoeFace(pose.lHeel, pose.lToe) : [pose.lHeel, pose.lToe];
-      const tS = view === 'face' ? shoeFace(pose.tHeel, pose.tToe) : [pose.tHeel, pose.tToe];
-      seg(lS[0], lS[1], 0.04, 0.04, pal.shoe, pal.shoe, 0.02);
-      seg(tS[0], tS[1], 0.04, 0.04, pal.shoe, pal.shoe, 0.02);
-      prims.push({ k: 'torso', d: (P(pose.lSh).d + P(pose.tSh).d + P(pose.lHip).d + P(pose.tHip).d) / 4 });
-      seg(pose.neck, sfAdd(pose.neck, sfMul(sfSub(pose.head, pose.neck), 0.6)), 0.05, 0.05, pal.skinShade, pal.skin, -0.01);
-      prims.push({ k: 'head', d: P(pose.head).d });
-      seg(pose.lSh, pose.lElb, 0.055, 0.045, pal.polo, pal.polo);
-      seg(pose.lElb, pose.grip, 0.044, 0.036, pal.skin, pal.skinShade);
-      seg(pose.tSh, pose.tElb, 0.055, 0.045, pal.polo, pal.polo);
-      seg(pose.tElb, pose.tHand, 0.044, 0.036, pal.skin, pal.skinShade);
-      prims.push({ k: 'club', d: P(sfAdd(pose.grip, sfMul(pose.p.club, 0.4))).d });
-      prims.sort((a, b) => a.d - b.d);
-
-      ctx.save();
-      ctx.globalAlpha = fade;
-      const capsule = (a, b, r1, r2, c1, c2) => {
-        const A = P(a), B = P(b);
-        const R1 = r1 * S, R2 = r2 * S;
-        const dx = B.x - A.x, dy = B.y - A.y, L = Math.hypot(dx, dy) || 1e-3;
-        const nx = -dy / L, ny = dx / L;
-        const g = ctx.createLinearGradient(A.x, A.y, B.x, B.y);
-        g.addColorStop(0, c1); g.addColorStop(1, c2);
-        ctx.fillStyle = g;
-        ctx.beginPath();
-        ctx.moveTo(A.x + nx * R1, A.y + ny * R1);
-        ctx.lineTo(B.x + nx * R2, B.y + ny * R2);
-        ctx.arc(B.x, B.y, R2, Math.atan2(ny, nx), Math.atan2(ny, nx) + Math.PI, true);
-        ctx.lineTo(A.x - nx * R1, A.y - ny * R1);
-        ctx.arc(A.x, A.y, R1, Math.atan2(-ny, -nx), Math.atan2(-ny, -nx) + Math.PI, true);
-        ctx.closePath();
-        ctx.fill();
-      };
-
-      prims.forEach(pr => {
-        if (pr.k === 'seg') {
-          capsule(pr.a, pr.b, pr.r1, pr.r2, pr.col, pr.col2);
-          if (pr.col === pal.shoe) {
-            const A = P(pr.a), B = P(pr.b);
-            ctx.strokeStyle = pal.sole; ctx.lineWidth = Math.max(1.5, 0.012 * S);
-            ctx.beginPath(); ctx.moveTo(A.x, A.y + pr.r1 * S * 0.8); ctx.lineTo(B.x, B.y + pr.r2 * S * 0.8); ctx.stroke();
-          }
-        } else if (pr.k === 'torso') {
-          const pts = [pose.lSh, pose.tSh, pose.tHip, pose.lHip].map(P);
-          const g = ctx.createLinearGradient(0, pts[0].y, 0, pts[2].y);
-          g.addColorStop(0, pal.polo); g.addColorStop(1, pal.poloShade);
-          capsule(sfAdd(pose.pelvis, sfMul(pose.up, 0.02)), sfAdd(pose.neck, sfMul(pose.up, -0.06)), 0.13, 0.14, pal.poloShade, pal.polo);
-          ctx.fillStyle = g;
-          ctx.beginPath();
-          pts.forEach((q, i) => (i ? ctx.lineTo(q.x, q.y) : ctx.moveTo(q.x, q.y)));
-          ctx.closePath(); ctx.fill();
-          ctx.lineWidth = 0.1 * S; ctx.strokeStyle = g; ctx.lineJoin = 'round'; ctx.stroke();
-          // Gürtel
-          const a = P(pose.lHip), b = P(pose.tHip);
-          ctx.strokeStyle = pal.grip; ctx.lineWidth = Math.max(2, 0.03 * S);
-          ctx.beginPath(); ctx.moveTo(a.x, a.y - 0.02 * S); ctx.lineTo(b.x, b.y - 0.02 * S); ctx.stroke();
-        } else if (pr.k === 'head') {
-          const hc = P(pose.head);
-          const r = 0.105 * S;
-          const tgt = sfNorm(sfSub(sfAdd(m.ball, sfV(1.5 * pose.p.gaze, 0.35 * pose.p.gaze, -0.3 * pose.p.gaze)), pose.head));
-          const gz = P(sfAdd(pose.head, sfMul(tgt, 0.12)));
-          const gx = (gz.x - hc.x) / S / 0.12, gy = (gz.y - hc.y) / S / 0.12;
-          ctx.fillStyle = pal.skin;
-          ctx.beginPath(); ctx.arc(hc.x, hc.y, r, 0, Math.PI * 2); ctx.fill();
-          // Kappe: Kuppel entgegen der Blickrichtung, Schirm in Blickrichtung
-          const upP = P(sfAdd(pose.head, sfMul(pose.up, 0.1)));
-          const ang = Math.atan2(upP.y - hc.y, upP.x - hc.x);
-          ctx.fillStyle = pal.cap;
-          ctx.beginPath(); ctx.arc(hc.x, hc.y, r * 1.04, ang - Math.PI / 2 - 0.15, ang + Math.PI / 2 + 0.15); ctx.closePath(); ctx.fill();
-          ctx.strokeStyle = pal.capBrim; ctx.lineWidth = 1; ctx.stroke();
-          const px = Math.cos(ang + Math.PI / 2), py = Math.sin(ang + Math.PI / 2);
-          const bl = Math.abs(gx * px + gy * py);
-          ctx.fillStyle = pal.capBrim;
-          ctx.save();
-          ctx.translate(hc.x + Math.cos(ang) * r * 0.25, hc.y + Math.sin(ang) * r * 0.25);
-          ctx.rotate(ang + Math.PI / 2);
-          ctx.beginPath();
-          const side = Math.sign(gx * px + gy * py) || 1;
-          if (bl > 0.45) {
-            ctx.ellipse(side * r * 0.9, r * 0.05, r * 0.7 * Math.min(1, bl + 0.2), r * 0.2, 0, 0, Math.PI * 2);
-          } else {
-            ctx.ellipse(0, r * 0.12, r * 1.05, r * 0.24, 0, 0, Math.PI * 2);
-          }
-          ctx.fill();
-          ctx.restore();
-        } else if (pr.k === 'club') {
-          const g = P(sfSub(pose.grip, sfMul(pose.p.club, 0.06)));
-          const ge = P(sfAdd(pose.grip, sfMul(pose.p.club, 0.24)));
-          const hd = P(pose.clubHead);
-          ctx.strokeStyle = pal.shaft; ctx.lineWidth = Math.max(2, 0.013 * S);
-          ctx.beginPath(); ctx.moveTo(ge.x, ge.y); ctx.lineTo(hd.x, hd.y); ctx.stroke();
-          ctx.strokeStyle = pal.grip; ctx.lineWidth = Math.max(3, 0.03 * S);
-          ctx.beginPath(); ctx.moveTo(g.x, g.y); ctx.lineTo(ge.x, ge.y); ctx.stroke();
-          const hz = sfV(pose.p.club.x, 0, pose.p.club.z);
-          const toe = sfLen(hz) > 0.15 ? sfNorm(hz) : sfV(0, 0, 1);
-          const kind = m.club.head;
-          const len = kind === 'driver' ? 0.11 : kind === 'putter' ? 0.1 : 0.075;
-          const rad = kind === 'driver' ? 0.045 : kind === 'putter' ? 0.022 : 0.026;
-          capsule(sfSub(pose.clubHead, sfMul(toe, 0.012)), sfAdd(pose.clubHead, sfMul(toe, len)), rad * 0.8, rad, pal.clubHead, pal.clubHead);
-          // Hände (Handschuh)
-          const gp = P(pose.grip), tp = P(pose.tHand);
-          ctx.fillStyle = pal.cap; ctx.strokeStyle = pal.capBrim; ctx.lineWidth = 1;
-          ctx.beginPath(); ctx.arc(gp.x, gp.y, 0.036 * S, 0, Math.PI * 2); ctx.fill(); ctx.stroke();
-          ctx.fillStyle = pal.skin;
-          ctx.beginPath(); ctx.arc(tp.x, tp.y, 0.034 * S, 0, Math.PI * 2); ctx.fill();
-        }
+        if (type === 'full' && i >= 6) f.ball = null;
+        return f;
       });
-      ctx.restore();
+    }
 
-      // Ball (+ Tee) und Ballflug nach dem Treffmoment
-      const bP = P(sfV(m.ball.x, 0, m.ball.z));
-      if (m.tee > 0) {
-        ctx.strokeStyle = '#D97706'; ctx.lineWidth = Math.max(2, 0.012 * S);
-        ctx.beginPath(); ctx.moveTo(bP.x, oy + 2); ctx.lineTo(bP.x, P(m.ball).y + 0.015 * S); ctx.stroke();
-      }
-      let ball = m.ball, br = 0.0214;
-      if (F.t > m.impactT) {
-        const k = Math.min(1, (F.t - m.impactT) / (0.95 - m.impactT));
-        const L = Math.tan(sfRad(m.launch));
-        if (view === 'face') {
-          const dist = m.type === 'putt' ? k * 1.6 : k * 3.2;
-          ball = sfV(m.ball.x + dist, m.ball.y + dist * L - (m.type === 'putt' ? 0 : dist * dist * L * 0.18), m.ball.z);
-        } else {
-          const dist = m.type === 'putt' ? k * 1.2 : k * 4;
-          ball = sfV(m.ball.x + dist, m.ball.y + dist * L * 0.55 - (m.type === 'putt' ? 0 : dist * dist * L * 0.05), m.ball.z);
-          br = 0.0214 / (1 + dist * 0.9);
-        }
-        if (ball.y < 0.021) ball = sfV(ball.x, 0.021, ball.z);
-      }
-      const bb = P(ball);
-      if (bb.x < W + 20) {
-        ctx.save();
-        ctx.globalAlpha = fade;
-        ctx.fillStyle = '#ffffff'; ctx.strokeStyle = '#181D18'; ctx.lineWidth = 1.3;
-        ctx.beginPath(); ctx.arc(bb.x, bb.y, Math.max(2.5, br * S * 1.25), 0, Math.PI * 2); ctx.fill(); ctx.stroke();
-        ctx.restore();
-      }
+    function swingSeqPalette() {
+      const dark = document.documentElement.getAttribute('data-theme') === 'dark';
+      return dark ? {
+        bg1: '#1b2433', bg2: '#141b27', ink: '#05080d', ground: 'rgba(0,0,0,0.45)',
+        skin1: '#e6b48f', skin2: '#b98058', shirt1: '#3d4a5c', shirt2: '#232c39', pants1: '#c9ced6', pants2: '#8d96a3',
+        hair: '#2a211c', shoe: '#f4f4f2', shoeDark: '#2b2f36', glove: '#ffffff', shaft: '#cfd5dd', grip: '#0b0d10', head: '#9aa3ae',
+        ball: '#ffffff', num: '#86D89D', label: '#e5e7eb'
+      } : {
+        bg1: '#fbfaf7', bg2: '#f1efe9', ink: '#2b2b2b', ground: 'rgba(0,0,0,0.18)',
+        skin1: '#efc6a6', skin2: '#c99372', shirt1: '#4a4f57', shirt2: '#24272c', pants1: '#e4e4e1', pants2: '#a9aaa6',
+        hair: '#2c2420', shoe: '#ffffff', shoeDark: '#2f3237', glove: '#ffffff', shaft: '#8c929a', grip: '#16181b', head: '#5c636b',
+        ball: '#ffffff', num: '#146C38', label: '#181D18'
+      };
+    }
 
-      // Kopfzeile: Ansicht + Phase
-      const phase = [...m.phases].reverse().find(ph => F.t >= ph[1] - 0.005) || m.phases[0];
-      ctx.textAlign = 'left'; ctx.textBaseline = 'alphabetic';
-      ctx.fillStyle = pal.text;
-      ctx.font = '800 13px "Plus Jakarta Sans", Roboto, sans-serif';
-      ctx.fillText(view === 'face' ? 'FRONTAL (Face-On)' : 'SEITLICH (Down-the-Line)', 14, 22);
-      ctx.fillStyle = pal.sub;
-      ctx.font = '500 11.5px Roboto, sans-serif';
-      ctx.fillText(F.label || '', 14, 38);
-      ctx.textAlign = 'right';
-      ctx.fillStyle = pal.text;
-      ctx.font = '700 12px Roboto, sans-serif';
-      ctx.fillText(view === 'face' ? 'Ziel →' : 'Ziel: in Blickrichtung', W - 14, 22);
+    function swingSeqLimb(a, b, w1, w2) {
+      const dx = b[0] - a[0], dy = b[1] - a[1];
+      const L = Math.hypot(dx, dy) || 0.001;
+      const nx = -dy / L, ny = dx / L;
+      const f = v => v.toFixed(1);
+      return `M${f(a[0] + nx * w1)} ${f(a[1] + ny * w1)} L${f(b[0] + nx * w2)} ${f(b[1] + ny * w2)} A${w2} ${w2} 0 0 0 ${f(b[0] - nx * w2)} ${f(b[1] - ny * w2)} L${f(a[0] - nx * w1)} ${f(a[1] - ny * w1)} A${w1} ${w1} 0 0 0 ${f(a[0] + nx * w1)} ${f(a[1] + ny * w1)} Z`;
+    }
 
-      const pillTxt = phase[0];
-      ctx.font = '800 12px "Plus Jakarta Sans", Roboto, sans-serif';
-      const pw = ctx.measureText(pillTxt).width + 22;
-      ctx.fillStyle = pal.trail;
-      ctx.beginPath(); ctx.roundRect(W - 14 - pw, 32, pw, 22, 11); ctx.fill();
-      ctx.fillStyle = document.documentElement.getAttribute('data-theme') === 'dark' ? '#0b1a10' : '#ffffff';
-      ctx.textAlign = 'center';
-      ctx.fillText(pillTxt, W - 14 - pw / 2, 47);
+    const ssLerp = (a, b, t) => [a[0] + (b[0] - a[0]) * t, a[1] + (b[1] - a[1]) * t];
 
-      // Messwerte nur im Setup (Ansprechen)
-      if (F.overlays && F.t < (m.keys[1].t + 0.005)) {
-        const cfg = F.cfg || {};
-        const sgn = v => (v > 0 ? '+' : '') + v;
-        const badge = (txt, wx, col) => {
-          ctx.font = '700 11px "Plus Jakarta Sans", Roboto, sans-serif';
-          const w = ctx.measureText(txt).width + 18;
-          const x = Math.max(8, Math.min(W - w - 8, wx.x - w / 2));
-          const y = Math.max(60, Math.min(oy - 28, wx.y - 11));
-          ctx.fillStyle = pal.badgeBg; ctx.strokeStyle = col; ctx.lineWidth = 1.5;
-          ctx.beginPath(); ctx.roundRect(x, y, w, 22, 11); ctx.fill(); ctx.stroke();
-          ctx.fillStyle = pal.badgeText; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
-          ctx.fillText(txt, x + w / 2, y + 11.5);
-          ctx.textBaseline = 'alphabetic';
+    function swingSeqSVG(f, pal, uid, opts = {}) {
+      const ink = pal.ink;
+      const shapes = (list, fill) => list.map(d => `<path d="${d}" fill="${fill}"/>`).join('');
+      const group = (parts, fill) => `<g stroke="${ink}" stroke-width="2.6" stroke-linejoin="round">${shapes(parts, fill)}</g><g>${shapes(parts, fill)}</g>`;
+
+      // Beine & Hüfte
+      const pL = f.TH[0] <= f.LH[0] ? f.TH : f.LH, pR = f.TH[0] <= f.LH[0] ? f.LH : f.TH;
+      const pelvis = `M${pL[0] - 6} ${pL[1] - 6} L${pR[0] + 6} ${pR[1] - 6} L${pR[0] + 4} ${pR[1] + 12} L${pL[0] - 4} ${pL[1] + 12} Z`;
+      const legs = [
+        swingSeqLimb(f.TH, f.TK, 13.5, 10.5), swingSeqLimb(f.TK, f.TA, 10.5, 8.5),
+        swingSeqLimb(f.LH, f.LK, 13.5, 10.5), swingSeqLimb(f.LK, f.LA, 10.5, 8.5), pelvis
+      ];
+
+      // Schuhe (Frontansicht; Ferse hebt sich -> Schuh kippt auf die Spitze)
+      const shoe = (A, heel, side) => {
+        const h = heel || 0;
+        const cx = A[0] + side * 2 + h * 4 * side, cy = 276 - h * 6;
+        const rot = -side * h * 18;
+        return `<g transform="translate(${cx.toFixed(1)} ${cy.toFixed(1)}) rotate(${rot.toFixed(1)})">
+          <path d="M-13 3 Q-14 -6 -6 -8 L6 -8 Q14 -6 13 3 Q13 7 0 7 Q-13 7 -13 3 Z" fill="${pal.shoe}" stroke="${ink}" stroke-width="1.6"/>
+          <path d="M-12 4 Q0 8 12 4" fill="none" stroke="${pal.shoeDark}" stroke-width="2.4" stroke-linecap="round"/>
+          <path d="M-5 -6 L5 -6" stroke="${pal.shoeDark}" stroke-width="1.2" opacity="0.6"/>
+        </g>`;
+      };
+
+      // Oberkörper (Polo)
+      // Linke/rechte Kante im Bild bestimmen, damit sich die Form bei starker Drehung nicht verdreht
+      const SL = f.TS[0] <= f.LS[0] ? f.TS : f.LS, SR = f.TS[0] <= f.LS[0] ? f.LS : f.TS;
+      const HL = f.TH[0] <= f.LH[0] ? f.TH : f.LH, HR = f.TH[0] <= f.LH[0] ? f.LH : f.TH;
+      const sw = Math.max(0, 22 - Math.abs(SR[0] - SL[0])) / 2;
+      const sL = [SL[0] - sw, SL[1]], sR = [SR[0] + sw, SR[1]];
+      const sMid = ssLerp(sL, sR, 0.5);
+      const torso = `M${sL[0]} ${sL[1] - 4} Q${sMid[0]} ${Math.min(sL[1], sR[1]) - 8} ${sR[0]} ${sR[1] - 4}
+        Q${sR[0] + 7} ${sR[1] + 16} ${(sR[0] + HR[0]) / 2 + 3} ${(sR[1] + HR[1]) / 2}
+        L${HR[0] + 3} ${HR[1] - 2} L${HL[0] - 3} ${HL[1] - 2}
+        L${(sL[0] + HL[0]) / 2 - 3} ${(sL[1] + HL[1]) / 2} Q${sL[0] - 7} ${sL[1] + 16} ${sL[0]} ${sL[1] - 4} Z`;
+      const shoulders = [swingSeqLimb(f.TS, f.TS, 9, 9), swingSeqLimb(f.LS, f.LS, 9, 9)];
+
+      // Kopf & Hals
+      const look = f.look || 0;
+      const ang = Math.atan2(f.H[1] - f.N[1], f.H[0] - f.N[0]) * 180 / Math.PI + 90;
+      const neck = swingSeqLimb(f.N, ssLerp(f.N, f.H, 0.55), 6.5, 6.5);
+      const head = `<g transform="translate(${f.H[0]} ${f.H[1]}) rotate(${ang.toFixed(1)})">
+          <ellipse cx="0" cy="0" rx="15.5" ry="18.5" fill="${pal.hair}" stroke="${ink}" stroke-width="2.4"/>
+          <ellipse cx="${(look * 4).toFixed(1)}" cy="4" rx="${(14 - look * 1.5).toFixed(1)}" ry="15" fill="url(#${uid}skin)"/>
+          ${look > 0.4 ? `<ellipse cx="${(-4 - look * 3).toFixed(1)}" cy="3" rx="3" ry="4.5" fill="${pal.skin2}"/>` : `<ellipse cx="-13.5" cy="3" rx="2.4" ry="4" fill="${pal.skin2}"/><ellipse cx="13.5" cy="3" rx="2.4" ry="4" fill="${pal.skin2}"/>`}
+          <path d="M${(-11 + look * 6).toFixed(1)} -6 Q${(look * 6).toFixed(1)} -14 ${(11 + look * 4).toFixed(1)} -6" fill="none" stroke="${pal.hair}" stroke-width="5" stroke-linecap="round"/>
+        </g>`;
+
+      // Arme: Ärmel (Polo) + Unterarm (Haut)
+      const arm = (S, E, Hn) => {
+        const sleeveEnd = ssLerp(S, E, 0.6);
+        return {
+          skin: [swingSeqLimb(S, E, 7, 6), swingSeqLimb(E, Hn, 6, 4.8)],
+          sleeve: [swingSeqLimb(S, sleeveEnd, 8.2, 7.4)]
         };
-        if (view === 'face') {
-          const hd = P(addr.head);
-          badge(`Spine Tilt ${sgn(cfg.spineTiltDeg || 0)}°`, { x: hd.x + 0.42 * S, y: hd.y - 0.02 * S }, pal.spine);
-          const gp = P(addr.grip);
-          badge(`Shaft Lean ${sgn(cfg.shaftLeanDeg || 0)}°`, { x: gp.x - 0.5 * S, y: gp.y - 0.05 * S }, pal.plane);
-          badge(`Attack ${sgn(cfg.attackAngle || 0)}°`, { x: bP.x + 0.5 * S, y: oy - 0.2 * S }, pal.tri);
-        } else {
-          const hd = P(addr.head);
-          badge(`Vorbeuge ~${Math.round(m.club.bend)}°`, { x: hd.x - 0.55 * S, y: hd.y - 0.1 * S }, pal.spine);
-          if (m.type !== 'putt') {
-            const gp = P(addr.grip);
-            badge('Schaftebene', { x: gp.x + 0.5 * S, y: gp.y - 0.35 * S }, pal.plane);
-          }
-        }
-      }
+      };
+      const cdx = f.C[0] - f.G[0], cdy = f.C[1] - f.G[1];
+      const cl = Math.hypot(cdx, cdy) || 1;
+      const ux = cdx / cl, uy = cdy / cl;
+      const TG = [f.G[0] + ux * 9, f.G[1] + uy * 9];
+      const tArm = arm(f.TS, f.TE, TG);
+      const lArm = arm(f.LS, f.LE, f.G);
+      const armSVG = a => group(a.skin, `url(#${uid}skin)`) + group(a.sleeve, `url(#${uid}shirt)`);
+
+      // Schläger
+      const gripEnd = [f.G[0] - ux * 7, f.G[1] - uy * 7];
+      const gripTo = [f.G[0] + ux * 26, f.G[1] + uy * 26];
+      const ct = f.clubType;
+      const hx = -uy, hy = ux;
+      const sideSign = (f.C[1] > 230) ? (hx < 0 ? 1 : -1) : 1;
+      const headShape = ct === 'driver'
+        ? `<ellipse cx="${f.C[0]}" cy="${f.C[1] - 2}" rx="12" ry="8" fill="${pal.head}" stroke="${ink}" stroke-width="1.6"/>`
+        : ct === 'putter'
+          ? `<rect x="${f.C[0] - 11}" y="${f.C[1] - 4}" width="22" height="7" rx="2" fill="${pal.head}" stroke="${ink}" stroke-width="1.6"/>`
+          : `<path d="M${f.C[0]} ${f.C[1]} l${(hx * 13 * sideSign).toFixed(1)} ${(hy * 13 * sideSign).toFixed(1)} l${(ux * 5).toFixed(1)} ${(uy * 5).toFixed(1)} l${(-hx * 15 * sideSign).toFixed(1)} ${(-hy * 15 * sideSign).toFixed(1)} Z" fill="${pal.head}" stroke="${ink}" stroke-width="1.6" stroke-linejoin="round"/>`;
+      const club = `<g>
+          <line x1="${gripTo[0]}" y1="${gripTo[1]}" x2="${f.C[0]}" y2="${f.C[1]}" stroke="${ink}" stroke-width="3.4" stroke-linecap="round"/>
+          <line x1="${gripTo[0]}" y1="${gripTo[1]}" x2="${f.C[0]}" y2="${f.C[1]}" stroke="${pal.shaft}" stroke-width="1.8" stroke-linecap="round"/>
+          <line x1="${gripEnd[0]}" y1="${gripEnd[1]}" x2="${gripTo[0]}" y2="${gripTo[1]}" stroke="${pal.grip}" stroke-width="5" stroke-linecap="round"/>
+          ${headShape}
+        </g>`;
+      const hands = `<circle cx="${TG[0].toFixed(1)}" cy="${TG[1].toFixed(1)}" r="6" fill="url(#${uid}skin)" stroke="${ink}" stroke-width="1.6"/>
+        <circle cx="${f.G[0]}" cy="${f.G[1]}" r="6.4" fill="${pal.glove}" stroke="${ink}" stroke-width="1.6"/>`;
+
+      // Ball & Tee
+      const ball = f.ball ? `${f.tee > 0 ? `<rect x="${f.ball[0] - 1.5}" y="${f.ball[1] + 3}" width="3" height="${f.tee + 2}" fill="#d9a35b"/>` : ''}
+        <circle cx="${f.ball[0]}" cy="${f.ball[1]}" r="4.6" fill="${pal.ball}" stroke="${ink}" stroke-width="1.4"/>` : '';
+
+      const belt = `<line x1="${f.TH[0] - 2}" y1="${f.TH[1] - 4}" x2="${f.LH[0] + 2}" y2="${f.LH[1] - 4}" stroke="${pal.shoeDark}" stroke-width="3.5" stroke-linecap="round"/>`;
+      const collar = `<path d="M${f.N[0] - 7} ${f.N[1] + 2} L${f.N[0]} ${f.N[1] + 9} L${f.N[0] + 7} ${f.N[1] + 2}" fill="none" stroke="${ink}" stroke-width="1.4" opacity="0.7"/>`;
+
+      const layers = [];
+      layers.push(`<ellipse cx="${(f.TA[0] + f.LA[0]) / 2}" cy="280" rx="${Math.abs(f.LA[0] - f.TA[0]) / 2 + 30}" ry="5" fill="${pal.ground}"/>`);
+      if (f.clubBehind) layers.push(club);
+      layers.push(group(legs, `url(#${uid}pants)`));
+      layers.push(shoe(f.TA, f.tHeel, -1), shoe(f.LA, f.lHeel, 1));
+      layers.push(group([torso, ...shoulders], `url(#${uid}shirt)`), belt);
+      if (!f.headFront) layers.push(group([neck], `url(#${uid}skin)`), head, collar);
+      layers.push(armSVG(tArm), armSVG(lArm));
+      if (f.headFront) layers.push(group([neck], `url(#${uid}skin)`), head, collar);
+      if (!f.clubBehind) layers.push(club);
+      layers.push(hands, ball);
+
+      const vb = opts.viewBox || '5 -14 250 300';
+      return `<svg viewBox="${vb}" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="${opts.label || f.name}" preserveAspectRatio="xMidYMid meet">
+        <defs>
+          <linearGradient id="${uid}skin" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${pal.skin1}"/><stop offset="1" stop-color="${pal.skin2}"/></linearGradient>
+          <linearGradient id="${uid}shirt" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${pal.shirt1}"/><stop offset="1" stop-color="${pal.shirt2}"/></linearGradient>
+          <linearGradient id="${uid}pants" x1="0" y1="0" x2="1" y2="0.4"><stop offset="0" stop-color="${pal.pants1}"/><stop offset="1" stop-color="${pal.pants2}"/></linearGradient>
+        </defs>
+        ${layers.join('')}
+      </svg>`;
     }
 
-    function sfLoop(ts) {
-      const F = SwingFig;
-      F.raf = 0;
-      if (!F.canvas || !F.canvas.isConnected || F.canvas.offsetParent === null || document.hidden || !F.visible) return;
-      const dt = F.last ? Math.min(0.05, (ts - F.last) / 1000) : 0;
-      F.last = ts;
-      if (F.playing) {
-        const dur = F.model && F.model.type === 'putt' ? 2.6 : F.model && F.model.type === 'chip' ? 2.6 : 3.2;
-        F.t += (dt * F.speed) / dur;
-        if (F.t >= 1) F.t -= 1;
-        sfSyncControls();
-      }
-      sfDraw();
-      if (F.playing) F.raf = requestAnimationFrame(sfLoop);
+    function selectSwingSeqFrame(i) {
+      const n = SwingSeq.frames.length;
+      if (!n) return;
+      SwingSeq.idx = ((i % n) + n) % n;
+      renderSwingSeqDetail();
+      document.querySelectorAll('#swingSeqRoot .ss-tile').forEach((el, k) => {
+        el.classList.toggle('selected', k === SwingSeq.idx);
+        el.setAttribute('aria-pressed', k === SwingSeq.idx ? 'true' : 'false');
+      });
     }
 
-    function sfKick() {
-      const F = SwingFig;
-      if (F.raf) return;
-      F.last = 0;
-      F.raf = requestAnimationFrame(sfLoop);
-    }
-
-    function sfResize() {
-      const F = SwingFig;
-      if (!F.canvas) return;
-      const w = F.canvas.clientWidth;
-      if (!w) return;
-      const h = Math.round(Math.min(w * 0.86, 430));
-      F.dpr = Math.min(window.devicePixelRatio || 1, 2);
-      F.W = w; F.H = h;
-      F.canvas.style.height = h + 'px';
-      F.canvas.width = Math.round(w * F.dpr);
-      F.canvas.height = Math.round(h * F.dpr);
-      sfDraw();
-    }
-
-    function sfSyncControls() {
-      const F = SwingFig;
-      const root = document.getElementById('swingFigRoot');
-      if (!root || !F.model) return;
-      const slider = root.querySelector('.sf-scrub');
-      if (slider && document.activeElement !== slider) slider.value = String(Math.round(F.t * 1000));
-      const playIcon = root.querySelector('.sf-play-icon');
-      if (playIcon) playIcon.textContent = F.playing ? 'pause' : 'play_arrow';
-      const playBtn = root.querySelector('.sf-play');
-      if (playBtn) playBtn.setAttribute('aria-label', F.playing ? 'Pause' : 'Abspielen');
-      const spd = root.querySelector('.sf-speed');
-      if (spd) spd.textContent = F.speed === 1 ? '1×' : F.speed === 0.5 ? '½×' : '¼×';
-      const cur = [...F.model.phases].reverse().find(ph => F.t >= ph[1] - 0.005) || F.model.phases[0];
-      root.querySelectorAll('.sf-phase').forEach(b => b.classList.toggle('selected', b.dataset.name === cur[0]));
-      root.querySelectorAll('.sf-view').forEach(b => b.classList.toggle('selected', b.dataset.view === F.view));
-      const ov = root.querySelector('.sf-overlay');
-      if (ov) ov.classList.toggle('selected', F.overlays);
-    }
-
-    function swingFigToggle() { SwingFig.playing = !SwingFig.playing; sfSyncControls(); if (SwingFig.playing) sfKick(); else sfDraw(); }
-    function swingFigSpeed() { const i = SF_SPEEDS.indexOf(SwingFig.speed); SwingFig.speed = SF_SPEEDS[(i + 1) % SF_SPEEDS.length]; sfSyncControls(); }
-    function swingFigView(v) { SwingFig.view = v; sfSyncControls(); sfResize(); }
-    function swingFigOverlays() { SwingFig.overlays = !SwingFig.overlays; sfSyncControls(); sfDraw(); }
-    function swingFigScrub(val) { SwingFig.t = Math.min(0.999, Math.max(0, val / 1000)); SwingFig.playing = false; sfSyncControls(); sfDraw(); }
-    function swingFigPhase(i) {
-      const ph = SwingFig.model && SwingFig.model.phases[i];
-      if (!ph) return;
-      SwingFig.t = ph[1] + (i === 0 ? 0 : 0.001);
-      SwingFig.playing = false;
-      sfSyncControls();
-      sfDraw();
+    function renderSwingSeqDetail() {
+      const box = document.getElementById('swingSeqDetail');
+      if (!box) return;
+      const f = SwingSeq.frames[SwingSeq.idx];
+      const pal = swingSeqPalette();
+      const tips = SWING_SEQ_TIPS[SwingSeq.type];
+      box.innerHTML = `
+        <div class="ss-detail-img">${swingSeqSVG(f, pal, 'ssd', { viewBox: '-15 -22 290 310' })}</div>
+        <div class="ss-detail-text">
+          <div class="ss-detail-head">
+            <span class="ss-num">${SwingSeq.idx + 1}</span>
+            <strong>${f.name}</strong>
+            <span class="ss-count">${SwingSeq.idx + 1} / ${SwingSeq.frames.length}</span>
+          </div>
+          <p>${tips[SwingSeq.idx] || ''}</p>
+          <div class="ss-nav">
+            <button type="button" class="md-icon-btn" onclick="selectSwingSeqFrame(SwingSeq.idx - 1)" aria-label="Vorheriges Bild"><span class="material-symbols-rounded">chevron_left</span></button>
+            <button type="button" class="md-icon-btn" onclick="selectSwingSeqFrame(SwingSeq.idx + 1)" aria-label="Nächstes Bild"><span class="material-symbols-rounded">chevron_right</span></button>
+          </div>
+        </div>`;
     }
 
     function renderGolferPostureCanvas(cfg, subLabel) {
       const container = document.getElementById('svgGolferContainer');
       if (!container) return;
-      const F = SwingFig;
-      const newKey = JSON.stringify(cfg) + '|' + subLabel;
-
-      if (!document.getElementById('swingFigRoot')) {
-        container.innerHTML = `
-          <div id="swingFigRoot" class="sf-root">
-            <div class="sf-toolbar">
-              <div class="md-segmented-group" role="group" aria-label="Ansicht wählen">
-                <button type="button" class="md-segmented-btn sf-view" data-view="face" onclick="swingFigView('face')">Frontal</button>
-                <button type="button" class="md-segmented-btn sf-view" data-view="dtl" onclick="swingFigView('dtl')">Seitlich</button>
-              </div>
-              <button type="button" class="md-filter-chip sf-overlay" onclick="swingFigOverlays()" aria-label="Hilfslinien ein/aus">
-                <span class="material-symbols-rounded" style="font-size: 16px;">straighten</span><span>Hilfslinien</span>
-              </button>
-            </div>
-            <canvas class="sf-canvas" role="img" aria-label="Animierter Golfschwung"></canvas>
-            <div class="sf-phases"></div>
-            <div class="sf-controls">
-              <button type="button" class="md-icon-btn sf-play" onclick="swingFigToggle()" aria-label="Pause"><span class="material-symbols-rounded sf-play-icon">pause</span></button>
-              <input type="range" class="sf-scrub" min="0" max="999" value="0" aria-label="Schwungposition" oninput="swingFigScrub(this.value)">
-              <button type="button" class="md-tonal-btn sf-speed" onclick="swingFigSpeed()" title="Geschwindigkeit / Zeitlupe">1×</button>
-            </div>
-          </div>`;
-        F.canvas = container.querySelector('.sf-canvas');
-        F.ctx = F.canvas.getContext('2d');
-        F.canvas.addEventListener('click', swingFigToggle);
-        if (window.ResizeObserver) new ResizeObserver(() => sfResize()).observe(F.canvas);
-        if (window.IntersectionObserver) {
-          new IntersectionObserver(entries => {
-            F.visible = entries.some(e => e.isIntersecting);
-            if (F.visible && F.playing) sfKick();
-          }).observe(F.canvas);
-        }
-        if (!F.listenersBound) {
-          F.listenersBound = true;
-          document.addEventListener('visibilitychange', () => { if (!document.hidden && F.playing) sfKick(); });
-          if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) F.playing = false;
-        }
-      }
-
-      F.cfg = cfg;
-      F.label = subLabel || '';
-      if (newKey !== F.key) {
-        F.key = newKey;
-        F.model = sfBuildModel(cfg, subLabel);
-        F.t = 0;
-        const phaseBox = document.querySelector('#swingFigRoot .sf-phases');
-        if (phaseBox) {
-          phaseBox.innerHTML = F.model.phases.map((ph, i) => `<button type="button" class="md-filter-chip sf-phase" data-name="${ph[0]}" onclick="swingFigPhase(${i})">${ph[0]}</button>`).join('');
-        }
-      }
-      sfSyncControls();
-      requestAnimationFrame(() => { sfResize(); if (F.playing) sfKick(); });
+      const type = swingSeqType(cfg, subLabel);
+      const theme = document.documentElement.getAttribute('data-theme') || 'light';
+      const key = JSON.stringify(cfg) + '|' + subLabel + '|' + theme;
+      if (key === SwingSeq.key && document.getElementById('swingSeqRoot')) return;
+      const sameSet = SwingSeq.key.split('|').slice(0, 2).join('|') === key.split('|').slice(0, 2).join('|');
+      SwingSeq.key = key;
+      SwingSeq.type = type;
+      SwingSeq.cfg = cfg;
+      SwingSeq.frames = swingSeqFrames(cfg, type);
+      if (!sameSet) SwingSeq.idx = 0;
+      const pal = swingSeqPalette();
+      const cols = SwingSeq.frames.length > 4 ? 4 : SwingSeq.frames.length;
+      container.innerHTML = `
+        <div id="swingSeqRoot" class="ss-root">
+          <div class="ss-caption">
+            <span>${subLabel || ''}</span>
+            <span class="ss-target">Frontal · Ziel <span class="material-symbols-rounded" style="font-size: 15px; vertical-align: -3px;">arrow_forward</span></span>
+          </div>
+          <div class="ss-grid" style="grid-template-columns: repeat(${cols}, minmax(0, 1fr));">
+            ${SwingSeq.frames.map((f, i) => `
+              <button type="button" class="ss-tile ${i === SwingSeq.idx ? 'selected' : ''}" aria-pressed="${i === SwingSeq.idx}" onclick="selectSwingSeqFrame(${i})">
+                <span class="ss-tile-num">${i + 1}</span>
+                ${swingSeqSVG(f, pal, 'ss' + i)}
+                <span class="ss-tile-label">${f.name}</span>
+              </button>`).join('')}
+          </div>
+          <div id="swingSeqDetail" class="ss-detail"></div>
+        </div>`;
+      renderSwingSeqDetail();
     }
 
     /* ========================================================================
