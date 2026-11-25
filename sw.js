@@ -1,4 +1,4 @@
-/* Golf Pocket Guide – Service Worker
+/* Golf Pocket Trainer – Service Worker
    Strategie:
    - App-Shell (index.html, Manifest, Icons): beim Installieren zwischengespeichert.
      Seitenaufrufe sind "network-first" (Updates kommen sofort an), offline greift der Cache.
@@ -67,7 +67,7 @@ async function handleNavigation(request) {
   } catch (e) {
     const cached = (await cache.match('./index.html')) || (await cache.match('./'));
     if (cached) return cached;
-    return new Response('Offline – Golf Pocket Guide wurde noch nicht vollständig geladen.', {
+    return new Response('Offline – Golf Pocket Trainer wurde noch nicht vollständig geladen.', {
       status: 503,
       headers: { 'Content-Type': 'text/plain; charset=utf-8' }
     });

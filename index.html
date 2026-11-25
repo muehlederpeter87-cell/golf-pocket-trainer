@@ -7,10 +7,10 @@
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-  <meta name="apple-mobile-web-app-title" content="Golf Pocket Guide" />
-  <meta name="application-name" content="Golf Pocket Guide" />
-  <meta name="description" content="Golf Pocket Guide v4.19.0 – Material Design 3 Golf Technik-, Trainings-, Rules-, Scratch-Blueprint-, Komparator-, Warm-up-, Video-Analyse-, 40-Tage-Challenge- & Gamification-Statistik-Begleiter" />
-  <title>Golf Pocket Guide (v4.19.0)</title>
+  <meta name="apple-mobile-web-app-title" content="Golf Pocket Trainer" />
+  <meta name="application-name" content="Golf Pocket Trainer" />
+  <meta name="description" content="Golf Pocket Trainer v4.19.0 – Material Design 3 Golf Technik-, Trainings-, Rules-, Scratch-Blueprint-, Komparator-, Warm-up-, Video-Analyse-, 40-Tage-Challenge- & Gamification-Statistik-Begleiter" />
+  <title>Golf Pocket Trainer (v4.19.0)</title>
 
   <link rel="manifest" href="manifest.webmanifest" />
   <link rel="icon" type="image/png" sizes="48x48" href="icons/favicon-48.png" />
@@ -982,17 +982,18 @@
        ========================================================================== */
     .md-kpi-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 0.85rem;
     }
 
     @media (min-width: 768px) {
       .md-kpi-grid {
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(4, minmax(0, 1fr));
       }
     }
 
     .md-kpi-card {
+      min-width: 0;
       background-color: var(--md-sys-color-surface-container);
       border-radius: 1.25rem;
       padding: 1rem 1.1rem;
@@ -1838,17 +1839,18 @@
 
     .md-level-steps-bar {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 0.45rem;
     }
 
     @media (min-width: 768px) {
       .md-level-steps-bar {
-        grid-template-columns: repeat(6, 1fr);
+        grid-template-columns: repeat(6, minmax(0, 1fr));
       }
     }
 
     .md-level-step-chip {
+      min-width: 0;
       border-radius: 0.85rem;
       padding: 0.45rem 0.55rem;
       background-color: rgba(255, 255, 255, 0.48);
@@ -2091,7 +2093,7 @@
         </div>
         <div class="md-brand-text-wrap">
           <div style="display: flex; align-items: center; gap: 0.4rem;">
-            <h1 class="md-brand-title">Golf Pocket Guide</h1>
+            <h1 class="md-brand-title">Golf Pocket Trainer</h1>
             <span class="md-version-badge font-mono">v4.19.0</span>
           </div>
           <p class="md-brand-sub">Statistik &bull; Check-in &bull; Drills &bull; Rules &bull; Scratch</p>
@@ -3007,7 +3009,7 @@
        ======================================================================== -->
   <footer class="md-footer">
     <div class="md-container" style="display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; flex-wrap: wrap;">
-      <span><strong>Golf Pocket Guide</strong> (<span class="font-mono">v4.19.0</span>) &bull; Dein interaktiver Trainings- &amp; Platzbegleiter</span>
+      <span><strong>Golf Pocket Trainer</strong> (<span class="font-mono">v4.19.0</span>) &bull; Dein interaktiver Trainings- &amp; Platzbegleiter</span>
       <button type="button" onclick="openChangelogModal()" class="md-text-btn" style="height: 1.85rem;">Versionsverlauf ansehen</button>
     </div>
   </footer>
@@ -3021,7 +3023,7 @@
         <div>
           <span class="md-assist-badge">
             <span class="material-symbols-rounded filled" style="font-size: 16px;">auto_awesome</span>
-            <span>Neu im Golf Pocket Guide · v4.17.0</span>
+            <span>Neu im Golf Pocket Trainer · v4.17.0</span>
           </span>
           <h2 id="challengePromoTitle" class="font-display" style="font-size: 1.3rem; font-weight: 800; margin-top: 0.4rem;">Was ist neu in der App?</h2>
         </div>
@@ -3032,7 +3034,7 @@
 
       <div class="md-dialog-body">
         <p style="font-size: 0.88rem; color: var(--md-sys-color-on-surface-variant); line-height: 1.5;">
-          Wir haben den <strong>Golf Pocket Guide</strong> um neue Trainings-Werkzeuge, persönliche Auswertungen und Gamification erweitert – alles direkt erreichbar über das Menü <strong>„F“</strong> oben rechts:
+          Wir haben den <strong>Golf Pocket Trainer</strong> um neue Trainings-Werkzeuge, persönliche Auswertungen und Gamification erweitert – alles direkt erreichbar über das Menü <strong>„F“</strong> oben rechts:
         </p>
 
         <div style="background-color: var(--md-sys-color-surface-container); border-radius: 1.1rem; padding: 0.95rem 1.05rem; display: flex; flex-direction: column; gap: 0.7rem;">
@@ -3159,7 +3161,7 @@
       </div>
       <div id="changelogBody" class="md-dialog-body"></div>
       <div class="md-dialog-actions" style="justify-content: space-between;">
-        <span style="font-size: 0.75rem; color: var(--md-sys-color-on-surface-variant);">Golf Pocket Guide &bull; made by PKTG</span>
+        <span style="font-size: 0.75rem; color: var(--md-sys-color-on-surface-variant);">Golf Pocket Trainer &bull; made by PKTG</span>
         <button type="button" onclick="closeChangelogModal()" class="md-filled-btn">Schließen</button>
       </div>
     </div>
@@ -3181,7 +3183,7 @@
         title: 'Installierbare App & Offline-Modus (PWA)',
         latest: true,
         notes: [
-          'Der Golf Pocket Guide lässt sich jetzt auf dem Startbildschirm installieren und funktioniert danach auch ohne Netz, etwa auf dem Platz.',
+          'Der Golf Pocket Trainer lässt sich jetzt auf dem Startbildschirm installieren und funktioniert danach auch ohne Netz, etwa auf dem Platz.',
           'Schriften, Icons und Vorschaubilder werden beim ersten Online-Besuch zwischengespeichert. YouTube-Videos benötigen weiterhin Internet.',
           'Neue App-Icons sowie Hinweise bei Offline-/Online-Wechsel und geladenen Updates.'
         ]
@@ -5201,6 +5203,8 @@
        ======================================================================== */
     /* --- Speicher-Schema & robuste Helfer (v4.18.0) --- */
     const STORAGE_SCHEMA_VERSION = 1;
+    // Alte Backups (vor der Umbenennung) tragen die ID 'golf-pocket-guide' und bleiben importierbar.
+    const BACKUP_APP_IDS = ['golf-pocket-trainer', 'golf-pocket-guide'];
     const CHALLENGE_LEVELS = ['beginner', 'intermediate', 'advanced'];
     const ISO_DATE_RE = /^\d{4}-\d{2}-\d{2}$/;
     let storageWarningShown = false;
@@ -5392,7 +5396,7 @@
       closeToolsDropdown();
       try {
         const payload = {
-          app: 'golf-pocket-guide',
+          app: 'golf-pocket-trainer',
           schema: STORAGE_SCHEMA_VERSION,
           appVersion: APP_VERSION,
           exportedAt: new Date().toISOString(),
@@ -5403,7 +5407,7 @@
         const url = URL.createObjectURL(blob);
         const a = document.createElement('a');
         a.href = url;
-        a.download = `golf-pocket-guide-backup-${payload.exportedAt.slice(0, 10)}.json`;
+        a.download = `golf-pocket-trainer-backup-${payload.exportedAt.slice(0, 10)}.json`;
         document.body.appendChild(a);
         a.click();
         a.remove();
@@ -5423,8 +5427,8 @@
     }
 
     function validateBackupPayload(payload) {
-      if (!isPlainObject(payload) || payload.app !== 'golf-pocket-guide') {
-        return 'Das ist keine Golf-Pocket-Guide-Backup-Datei.';
+      if (!isPlainObject(payload) || !BACKUP_APP_IDS.includes(payload.app)) {
+        return 'Das ist keine Golf-Pocket-Trainer-Backup-Datei.';
       }
       if (typeof payload.schema !== 'number' || payload.schema < 1) {
         return 'Backup-Datei beschädigt (Schema fehlt).';
@@ -7922,7 +7926,7 @@
           </div>
 
           <div style="display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; flex-wrap: wrap; padding-top: 0.35rem; border-top: 1px solid var(--md-sys-color-outline-variant);">
-            <button type="button" onclick="openVideoModal('${activeSession.videoId}', '${plan.title.replace(/'/g, "\\'")}', '40-Tage Challenge · Tag ${activeSession.day}', 'Golf Pocket Guide')" class="md-text-btn">
+            <button type="button" onclick="openVideoModal('${activeSession.videoId}', '${plan.title.replace(/'/g, "\\'")}', '40-Tage Challenge · Tag ${activeSession.day}', 'Golf Pocket Trainer')" class="md-text-btn">
               <span class="material-symbols-rounded" style="font-size: 18px;">smart_display</span>
               <span>Übungs-Video</span>
             </button>
@@ -8063,7 +8067,7 @@
       const { totalXp, currentLvl } = computeGamificationState();
 
       const summary = [
-        `Golf Pocket Guide (${APP_VERSION}) – Persönliche Statistik`,
+        `Golf Pocket Trainer (${APP_VERSION}) – Persönliche Statistik`,
         `• Aktuelles Level: Level ${currentLvl.level} – ${currentLvl.name} (${totalXp} XP)`,
         `• Gesamt-Fortschritt: ${pct}% (${doneModules}/${totalModules} Meilensteine)`,
         `• Tägliche Check-ins: ${Object.keys(dailyCheckins).length} Tage eingecheckt`,
