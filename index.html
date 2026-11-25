@@ -9,8 +9,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="apple-mobile-web-app-title" content="Golf Pocket Trainer" />
   <meta name="application-name" content="Golf Pocket Trainer" />
-  <meta name="description" content="Golf Pocket Trainer v4.27.0 – Material Design 3 Golf Technik-, Trainings-, Rules-, Scratch-Blueprint-, Komparator-, Warm-up-, Video-Analyse-, 40-Tage-Challenge- & Gamification-Statistik-Begleiter" />
-  <title>Golf Pocket Trainer (v4.27.0)</title>
+  <meta name="description" content="Golf Pocket Trainer v4.28.0 – Material Design 3 Golf Technik-, Trainings-, Rules-, Scratch-Blueprint-, Komparator-, Warm-up-, Video-Analyse-, 40-Tage-Challenge- & Gamification-Statistik-Begleiter" />
+  <title>Golf Pocket Trainer (v4.28.0)</title>
 
   <link rel="manifest" href="manifest.webmanifest" />
   <link rel="icon" type="image/png" sizes="48x48" href="icons/favicon-48.png" />
@@ -615,7 +615,7 @@
     }
 
     /* ==========================================================================
-       4. MATERIAL 3 NAVIGATION BAR / INDICATOR PILL TABS (7 MAIN AREAS, inkl. „Heute“)
+       4. MATERIAL 3 NAVIGATION BAR / INDICATOR PILL TABS (5 BEREICHE: Heute, Training, Technik, Regeln, Fortschritt)
        ========================================================================== */
     .md-nav-section {
       padding-top: 0.25rem;
@@ -633,13 +633,13 @@
 
     @media (min-width: 640px) {
       .md-nav-bar {
-        grid-template-columns: repeat(4, minmax(0, 1fr));
+        grid-template-columns: repeat(5, minmax(0, 1fr));
       }
     }
 
     @media (min-width: 1024px) {
       .md-nav-bar {
-        grid-template-columns: repeat(7, minmax(0, 1fr));
+        grid-template-columns: repeat(5, minmax(0, 1fr));
       }
     }
 
@@ -691,8 +691,8 @@
       }
       .md-nav-section .md-container { padding: 0 0.25rem; }
       .md-nav-bar {
-        grid-template-columns: repeat(7, minmax(0, 1fr));
-        gap: 0;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 0.15rem;
         border-radius: 0;
         padding: 0.35rem 0;
         background: transparent;
@@ -703,7 +703,7 @@
         padding: 0.3rem 0.1rem;
         min-height: 3.1rem;
         border-radius: 1rem;
-        font-size: 0.62rem;
+        font-size: 0.68rem;
         line-height: 1.1;
         min-width: 0;
         white-space: nowrap;
@@ -795,6 +795,71 @@
     }
 
     @media (prefers-reduced-motion: reduce) { .md-mental-content { transition: none; } }
+
+    /* Unter-Navigation (Training: Drills/Warm-up/Challenge/Scratch, Technik: Schlagtechnik/Vergleich/Video) */
+    .md-subnav {
+      display: flex;
+      gap: 0.25rem;
+      padding: 0.25rem;
+      border-radius: 999px;
+      background-color: var(--md-sys-color-surface-container);
+      overflow-x: auto;
+      scrollbar-width: none;
+      margin-bottom: 1rem;
+    }
+    .md-subnav::-webkit-scrollbar { display: none; }
+    .md-subnav-btn {
+      flex: 1 0 auto;
+      min-height: 44px;
+      padding: 0 0.85rem;
+      border-radius: 999px;
+      font-size: 0.84rem;
+      font-weight: 600;
+      color: var(--md-sys-color-on-surface-variant);
+      white-space: nowrap;
+    }
+    .md-subnav-btn.selected {
+      background-color: var(--md-sys-color-secondary-container);
+      color: var(--md-sys-color-on-secondary-container);
+      font-weight: 700;
+    }
+    .md-subnav-btn:focus-visible { outline: 2px solid var(--md-sys-color-primary); outline-offset: 2px; }
+
+    /* Schnellzugriffe auf „Heute“ */
+    .md-today-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .md-today-tile {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      width: 100%;
+      padding: 0.75rem 0.9rem;
+      border-radius: 1.15rem;
+      background-color: var(--md-sys-color-surface-container);
+      color: var(--md-sys-color-on-surface);
+      text-align: left;
+      min-height: 56px;
+    }
+    .md-today-tile:focus-visible { outline: 2px solid var(--md-sys-color-primary); outline-offset: 2px; }
+    @media (hover: hover) { .md-today-tile:hover { background-color: var(--md-sys-color-surface-container-high, var(--md-sys-color-surface-container)); } }
+    .md-today-icon {
+      flex-shrink: 0;
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background-color: var(--md-sys-color-primary-container);
+      color: var(--md-sys-color-on-primary-container);
+    }
+    .md-today-text { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 0.1rem; }
+    .md-today-label { font-size: 0.74rem; font-weight: 700; color: var(--md-sys-color-on-surface-variant); }
+    .md-today-title { font-size: 0.9rem; font-weight: 700; line-height: 1.3; }
+    .md-today-chevron { flex-shrink: 0; color: var(--md-sys-color-on-surface-variant); }
 
     /* Aufklappbare Bereiche (Level-Übersicht, Abzeichen) */
     .md-collapsible > summary,
@@ -2227,9 +2292,9 @@
         <div class="md-brand-text-wrap">
           <div style="display: flex; align-items: center; gap: 0.4rem;">
             <h1 class="md-brand-title">Golf Pocket Trainer</h1>
-            <span class="md-version-badge font-mono">v4.27.0</span>
+            <span class="md-version-badge font-mono">v4.28.0</span>
           </div>
-          <p class="md-brand-sub">Statistik &bull; Check-in &bull; Drills &bull; Rules &bull; Scratch</p>
+          <p class="md-brand-sub">Dein Trainings- &amp; Platzbegleiter</p>
         </div>
       </div>
 
@@ -2240,24 +2305,6 @@
 
         <!-- Dropdown Menu -->
         <div id="toolsDropdown" class="md-menu hidden" role="menu">
-
-          <button type="button" onclick="openChallenge40Tool()" class="md-menu-item" role="menuitem">
-            <span class="md-menu-item-left">
-              <span class="material-symbols-rounded filled" style="color: var(--md-sys-color-primary);">calendar_month</span>
-              <span>40-Tage Golf-Challenge</span>
-            </span>
-            <span id="dropdownChallengeBadge" class="md-menu-badge font-mono">0/14</span>
-          </button>
-
-          <button type="button" onclick="openVideoSwingTool()" class="md-menu-item" role="menuitem">
-            <span class="md-menu-item-left">
-              <span class="material-symbols-rounded filled" style="color: var(--md-sys-color-tertiary);">videocam</span>
-              <span>Video-Schwunganalyse</span>
-            </span>
-            <span class="md-menu-badge">Tool</span>
-          </button>
-
-          <div class="md-menu-divider"></div>
 
           <button type="button" onclick="openChecklistDrawer()" class="md-menu-item" role="menuitem">
             <span class="md-menu-item-left">
@@ -2298,7 +2345,7 @@
               <span class="material-symbols-rounded" style="color: var(--md-sys-color-on-surface-variant);">history</span>
               <span>Versionsverlauf</span>
             </span>
-            <span class="font-mono" style="font-size: 0.72rem; color: var(--md-sys-color-on-surface-variant);">v4.27.0</span>
+            <span class="font-mono" style="font-size: 0.72rem; color: var(--md-sys-color-on-surface-variant);">v4.28.0</span>
           </button>
         </div>
       </div>
@@ -2310,34 +2357,26 @@
        ======================================================================== -->
   <nav class="md-nav-section" aria-label="Hauptnavigation">
     <div class="md-container">
-      <div class="md-nav-bar" role="tablist">
-        <button type="button" class="md-nav-destination" data-tab="stats" role="tab" aria-selected="false" aria-controls="tabStats" onclick="switchMainTab('stats')">
+      <div class="md-nav-bar" role="tablist" aria-label="Bereiche">
+        <button type="button" class="md-nav-destination" data-group="today" role="tab" aria-selected="false" onclick="openNavGroup('today')">
           <span class="material-symbols-rounded" style="font-size: 18px;">home</span>
           <span>Heute</span>
         </button>
-        <button type="button" class="md-nav-destination" data-tab="technique" role="tab" aria-selected="false" aria-controls="tabTechnique" onclick="switchMainTab('technique')">
-          <span class="material-symbols-rounded" style="font-size: 18px;">sports_golf</span>
-          <span class="nav-long">Schlagtechnik</span><span class="nav-short">Technik</span>
-        </button>
-        <button type="button" class="md-nav-destination" data-tab="warmup" role="tab" aria-selected="false" aria-controls="tabWarmup" onclick="switchMainTab('warmup')">
-          <span class="material-symbols-rounded" style="font-size: 18px;">timer</span>
-          <span>Warm-up</span>
-        </button>
-        <button type="button" class="md-nav-destination" data-tab="drills" role="tab" aria-selected="false" aria-controls="tabDrills" onclick="switchMainTab('drills')">
+        <button type="button" class="md-nav-destination" data-group="training" role="tab" aria-selected="false" onclick="openNavGroup('training')">
           <span class="material-symbols-rounded" style="font-size: 18px;">fitness_center</span>
-          <span>Drills</span>
+          <span>Training</span>
         </button>
-        <button type="button" class="md-nav-destination" data-tab="comparator" role="tab" aria-selected="false" aria-controls="tabComparator" onclick="switchMainTab('comparator')">
-          <span class="material-symbols-rounded" style="font-size: 18px;">compare_arrows</span>
-          <span class="nav-long">Komparator</span><span class="nav-short">Vergleich</span>
+        <button type="button" class="md-nav-destination" data-group="technique" role="tab" aria-selected="false" onclick="openNavGroup('technique')">
+          <span class="material-symbols-rounded" style="font-size: 18px;">sports_golf</span>
+          <span>Technik</span>
         </button>
-        <button type="button" class="md-nav-destination" data-tab="rules" role="tab" aria-selected="false" aria-controls="tabRules" onclick="switchMainTab('rules')">
+        <button type="button" class="md-nav-destination" data-group="rules" role="tab" aria-selected="false" onclick="openNavGroup('rules')">
           <span class="material-symbols-rounded" style="font-size: 18px;">gavel</span>
-          <span>Rules</span>
+          <span>Regeln</span>
         </button>
-        <button type="button" class="md-nav-destination" data-tab="scratch" role="tab" aria-selected="false" aria-controls="tabScratch" onclick="switchMainTab('scratch')">
-          <span class="material-symbols-rounded" style="font-size: 18px;">emoji_events</span>
-          <span>Scratch</span>
+        <button type="button" class="md-nav-destination" data-group="progress" role="tab" aria-selected="false" onclick="openNavGroup('progress')">
+          <span class="material-symbols-rounded" style="font-size: 18px;">monitoring</span>
+          <span>Fortschritt</span>
         </button>
       </div>
     </div>
@@ -2347,6 +2386,9 @@
        MAIN CONTENT CONTAINER (MENTAL BANNER + 9 TAB VIEWS)
        ======================================================================== -->
   <main class="md-container md-main">
+
+    <!-- Unter-Navigation für Bereiche mit mehreren Teilen (Training, Technik) -->
+    <div id="subNav" class="md-subnav hidden" role="tablist"></div>
 
 
     <!-- ======================================================================
@@ -2958,6 +3000,35 @@
       <!-- Täglicher Trainings-Check-in: Fokus, Ort & Dauer -> Trainingsplan -->
       <article id="dailyCheckinCard" class="md-checkin-card"></article>
 
+
+      <!-- Schnellzugriffe für heute -->
+      <div class="md-today-list">
+        <button type="button" class="md-today-tile" onclick="openTodayChallenge()">
+          <span class="md-today-icon"><span class="material-symbols-rounded filled">calendar_month</span></span>
+          <span class="md-today-text">
+            <span class="md-today-label" id="todayChallengeLabel">40-Tage-Challenge · Einheit 1 von 14</span>
+            <span class="md-today-title" id="todayChallengeTitle">Tag 1: Neutraler Griff &amp; Eisenbahnschienen-Setup</span>
+          </span>
+          <span class="material-symbols-rounded md-today-chevron" aria-hidden="true">chevron_right</span>
+        </button>
+        <button type="button" class="md-today-tile" onclick="switchMainTab('warmup')">
+          <span class="md-today-icon"><span class="material-symbols-rounded filled">timer</span></span>
+          <span class="md-today-text">
+            <span class="md-today-label">Vor der Runde</span>
+            <span class="md-today-title">Warm-up mit Timer (15 oder 45 Min.)</span>
+          </span>
+          <span class="material-symbols-rounded md-today-chevron" aria-hidden="true">chevron_right</span>
+        </button>
+        <button type="button" class="md-today-tile" onclick="switchMainTab('progress')">
+          <span class="md-today-icon"><span class="material-symbols-rounded filled">military_tech</span></span>
+          <span class="md-today-text">
+            <span class="md-today-label" id="todayLevelLabel">Level 1 · 0 XP</span>
+            <span class="md-today-title" id="todayLevelTitle">Range-Rookie · noch 120 XP bis Level 2</span>
+          </span>
+          <span class="material-symbols-rounded md-today-chevron" aria-hidden="true">chevron_right</span>
+        </button>
+      </div>
+
       <!-- Mental Tee-Box: kompakter Spruch, Tippen zeigt den nächsten -->
       <button type="button" class="md-mental-banner" onclick="nextMentalQuote()" aria-label="Motivationsspruch – tippen für den nächsten">
         <span class="material-symbols-rounded filled" style="font-size: 18px; flex-shrink: 0;" aria-hidden="true">psychology</span>
@@ -2967,7 +3038,12 @@
         </span>
         <span class="material-symbols-rounded" style="font-size: 18px; flex-shrink: 0; opacity: 0.7;" aria-hidden="true">refresh</span>
       </button>
+    </section>
 
+    <!-- ======================================================================
+         FORTSCHRITT: LEVEL, ABZEICHEN & VERLAUF
+         ====================================================================== -->
+    <section id="tabProgress" class="hidden" role="tabpanel" aria-label="Fortschritt" style="display: flex; flex-direction: column; gap: 1.15rem;">
       <!-- Gamification Hero Banner -->
       <article class="md-gamification-hero">
         <div style="display: flex; align-items: center; justify-content: space-between; gap: 0.85rem; flex-wrap: wrap;">
@@ -3004,8 +3080,8 @@
           </div>
         </div>
 
-        <details class="md-collapsible">
-          <summary>Alle 6 Level ansehen</summary>
+        <details class="md-collapsible" open>
+          <summary>Alle 6 Level</summary>
           <div id="gamificationLevelSteps" class="md-level-steps-bar" style="margin-top: 0.6rem;"></div>
         </details>
       </article>
@@ -3032,7 +3108,7 @@
       </div>
 
       <!-- Unlockable Achievements -->
-      <details class="md-card-outlined md-card-pad md-collapsible-card">
+      <details class="md-card-outlined md-card-pad md-collapsible-card" open>
         <summary>
           <span>
             <span class="font-display" style="display: block; font-size: 1.05rem; font-weight: 800;">Golf-Abzeichen</span>
@@ -3090,7 +3166,7 @@
        ======================================================================== -->
   <footer class="md-footer">
     <div class="md-container" style="display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; flex-wrap: wrap;">
-      <span><strong>Golf Pocket Trainer</strong> (<span class="font-mono">v4.27.0</span>) &bull; Dein interaktiver Trainings- &amp; Platzbegleiter</span>
+      <span><strong>Golf Pocket Trainer</strong> (<span class="font-mono">v4.28.0</span>) &bull; Dein interaktiver Trainings- &amp; Platzbegleiter</span>
       <button type="button" onclick="openChangelogModal()" class="md-text-btn" style="height: 1.85rem;">Versionsverlauf ansehen</button>
     </div>
   </footer>
@@ -3116,30 +3192,27 @@
       <div class="md-dialog-body">
         <div style="background-color: var(--md-sys-color-surface-container); border-radius: 1.1rem; padding: 0.95rem 1.05rem; display: flex; flex-direction: column; gap: 0.7rem;">
           <div style="display: flex; align-items: flex-start; gap: 0.65rem; font-size: 0.83rem;">
+            <span class="material-symbols-rounded filled" style="font-size: 20px; color: var(--md-sys-color-primary); margin-top: 1px;">dock_to_bottom</span>
+            <div>
+              <strong>5 Bereiche statt 7 Tabs:</strong>
+              <div style="color: var(--md-sys-color-on-surface-variant); margin-top: 0.1rem;">Heute, Training, Technik, Regeln und Fortschritt. Oben im Bereich wechselst du zwischen den Teilen, z. B. Drills, Warm-up, Challenge und Scratch.</div>
+            </div>
+          </div>
+          <div style="display: flex; align-items: flex-start; gap: 0.65rem; font-size: 0.83rem;">
+            <span class="material-symbols-rounded filled" style="font-size: 20px; color: var(--md-sys-color-primary); margin-top: 1px;">calendar_month</span>
+            <div>
+              <strong>Nichts mehr versteckt:</strong>
+              <div style="color: var(--md-sys-color-on-surface-variant); margin-top: 0.1rem;">Challenge und Video-Analyse findest du jetzt direkt unter Training und Technik statt im Menü.</div>
+            </div>
+          </div>
+          <div style="display: flex; align-items: flex-start; gap: 0.65rem; font-size: 0.83rem;">
             <span class="material-symbols-rounded filled" style="font-size: 20px; color: var(--md-sys-color-primary); margin-top: 1px;">home</span>
             <div>
-              <strong>Neuer Tab „Heute“:</strong>
-              <div style="color: var(--md-sys-color-on-surface-variant); margin-top: 0.1rem;">Check-in, Tagesplan und dein Level sind jetzt immer mit einem Tipp unten links erreichbar.</div>
-            </div>
-          </div>
-          <div style="display: flex; align-items: flex-start; gap: 0.65rem; font-size: 0.83rem;">
-            <span class="material-symbols-rounded filled" style="font-size: 20px; color: var(--md-sys-color-primary); margin-top: 1px;">checklist</span>
-            <div>
-              <strong>Aufgeräumt:</strong>
-              <div style="color: var(--md-sys-color-on-surface-variant); margin-top: 0.1rem;">Der Check-in steht ganz oben, Level-Übersicht und Abzeichen lassen sich aufklappen. Der Motivationsspruch wechselt nur noch, wenn du darauf tippst.</div>
-            </div>
-          </div>
-          <div style="display: flex; align-items: flex-start; gap: 0.65rem; font-size: 0.83rem;">
-            <span class="material-symbols-rounded filled" style="font-size: 20px; color: var(--md-sys-color-primary); margin-top: 1px;">touch_app</span>
-            <div>
-              <strong>Leichter zu treffen:</strong>
-              <div style="color: var(--md-sys-color-on-surface-variant); margin-top: 0.1rem;">Größere Tippflächen auf dem Handy – auch mit Handschuh auf der Range.</div>
+              <strong>Heute auf einen Blick:</strong>
+              <div style="color: var(--md-sys-color-on-surface-variant); margin-top: 0.1rem;">Check-in, nächste Challenge-Einheit, Warm-up und dein Level.</div>
             </div>
           </div>
         </div>
-        <p style="font-size: 0.8rem; color: var(--md-sys-color-on-surface-variant); line-height: 1.5;">
-          Challenge, Video-Analyse und Checkliste findest du im Menü <strong>⋮</strong> oben rechts.
-        </p>
       </div>
 
       <div class="md-dialog-actions" style="justify-content: flex-end; flex-wrap: wrap;">
@@ -3216,7 +3289,7 @@
       <div class="md-dialog-header">
         <div>
           <span class="md-assist-badge" style="background-color: var(--md-sys-color-tertiary-container); color: var(--md-sys-color-on-tertiary-container);">Release Notes &amp; Wartung</span>
-          <h2 id="changelogTitle" class="font-display" style="font-size: 1.25rem; font-weight: 800; margin-top: 0.3rem;">Versionsverlauf (v1.0.0 – v4.27.0)</h2>
+          <h2 id="changelogTitle" class="font-display" style="font-size: 1.25rem; font-weight: 800; margin-top: 0.3rem;">Versionsverlauf (v1.0.0 – v4.28.0)</h2>
         </div>
         <button type="button" onclick="closeChangelogModal()" class="md-icon-btn" aria-label="Schließen">
           <span class="material-symbols-rounded">close</span>
@@ -3231,20 +3304,34 @@
   </div>
 
   <!-- ========================================================================
-       COMPLETE SELF-CONTAINED JAVASCRIPT ENGINE (v4.27.0)
+       COMPLETE SELF-CONTAINED JAVASCRIPT ENGINE (v4.28.0)
        ======================================================================== -->
   <div id="appToast" class="md-toast" role="status" aria-live="polite"></div>
   <input type="file" id="backupFileInput" accept="application/json,.json" hidden onchange="handleBackupFile(event)" />
 
   <script>
-    const APP_VERSION = 'v4.27.0';
+    const APP_VERSION = 'v4.28.0';
 
     const CHANGELOG_ENTRIES = [
       {
-        version: 'v4.27.0',
+        version: 'v4.28.0',
         date: 'Aktuell',
-        title: 'Neuer Tab „Heute“ & aufgeräumte Bedienung',
+        title: 'Neue Navigation mit 5 Bereichen',
         latest: true,
+        notes: [
+          'Die Tab-Leiste hat jetzt 5 Bereiche: Heute, Training, Technik, Regeln und Fortschritt.',
+          'Training bündelt Drills, Warm-up, 40-Tage-Challenge und Scratch. Technik bündelt Schlagtechnik, Schläger-Vergleich und Video-Analyse. Oben im Bereich wechselst du zwischen den Teilen.',
+          'Challenge und Video-Analyse sind nicht mehr im Menü versteckt. Das Menü ⋮ enthält nur noch Checkliste, Dark Mode, Datensicherung und Versionsverlauf.',
+          '„Heute“ zeigt den Check-in, die nächste Challenge-Einheit, den Weg zum Warm-up und dein Level auf einen Blick.',
+          'Neuer Bereich „Fortschritt“ mit Level, Abzeichen und Verlauf.',
+          'Beim Wechsel des Bereichs startet die Seite oben.'
+        ]
+      },
+      {
+        version: 'v4.27.0',
+        date: 'Vorherige Version',
+        title: 'Neuer Tab „Heute“ & aufgeräumte Bedienung',
+        latest: false,
         notes: [
           'Neuer erster Tab „Heute“ in der Tab-Leiste: Die Startseite mit Check-in und Fortschritt ist jetzt immer mit einem Tipp erreichbar.',
           'Auf „Heute“ steht der Trainings-Check-in ganz oben. Die Level-Karte ist kompakter, Level-Übersicht und Abzeichen lassen sich aufklappen.',
@@ -3256,7 +3343,7 @@
       },
       {
         version: 'v4.26.1',
-        date: 'Vorherige Version',
+        date: 'Meilenstein 51',
         title: 'Golfregeln überarbeitet & neue Motivationssprüche',
         latest: false,
         notes: [
@@ -5259,7 +5346,7 @@
     let timerInterval = null;
 
     let mentalQuoteIdx = 0;
-    let isMentalAutoPlaying = false; // seit v4.27.0 kein automatischer Wechsel mehr
+    let isMentalAutoPlaying = false; // seit v4.28.0 kein automatischer Wechsel mehr
     let mentalAutoInterval = null;
 
     let checkedSet = new Set();
@@ -6365,16 +6452,79 @@
       switchMainTab('stats');
     }
 
+    // Bereiche der Tab-Leiste und ihre Teile (Unter-Navigation)
+    const NAV_GROUPS = {
+      today: [['stats', 'Heute']],
+      training: [['drills', 'Drills'], ['warmup', 'Warm-up'], ['challenge', 'Challenge'], ['scratch', 'Scratch']],
+      technique: [['technique', 'Schlagtechnik'], ['comparator', 'Vergleich'], ['video', 'Video']],
+      rules: [['rules', 'Regeln']],
+      progress: [['progress', 'Fortschritt']]
+    };
+    const SECTION_GROUP = {};
+    Object.entries(NAV_GROUPS).forEach(([g, items]) => items.forEach(([key]) => { SECTION_GROUP[key] = g; }));
+    // Merkt sich pro Bereich den zuletzt offenen Teil
+    const lastSectionInGroup = {};
+
+    function openNavGroup(group) {
+      const items = NAV_GROUPS[group];
+      if (!items) return;
+      switchMainTab(lastSectionInGroup[group] || items[0][0]);
+    }
+
+    function renderSubNav(tabKey) {
+      const el = document.getElementById('subNav');
+      if (!el) return;
+      const group = SECTION_GROUP[tabKey];
+      const items = NAV_GROUPS[group] || [];
+      if (items.length < 2) { el.classList.add('hidden'); el.innerHTML = ''; return; }
+      el.classList.remove('hidden');
+      el.innerHTML = items.map(([key, label]) => `
+        <button type="button" role="tab" class="md-subnav-btn ${key === tabKey ? 'selected' : ''}" aria-selected="${key === tabKey}" onclick="switchMainTab('${key}')">${label}</button>`).join('');
+    }
+
+    function renderTodayShortcuts() {
+      const next = CHALLENGE_40_SESSIONS.find(s => !completedChallengeDays.has(s.day));
+      const lbl = document.getElementById('todayChallengeLabel');
+      const ttl = document.getElementById('todayChallengeTitle');
+      if (lbl && ttl) {
+        if (next) {
+          const plan = next.levels[challengeLevel] || next.levels.beginner;
+          lbl.textContent = `40-Tage-Challenge · Einheit ${next.sessionNum} von 14`;
+          ttl.textContent = plan.title;
+        } else {
+          lbl.textContent = '40-Tage-Challenge';
+          ttl.textContent = 'Alle 14 Einheiten geschafft';
+        }
+      }
+      const { totalXp, currentLvl, nextLvl, xpRemaining } = computeGamificationState();
+      const lvLbl = document.getElementById('todayLevelLabel');
+      const lvTtl = document.getElementById('todayLevelTitle');
+      if (lvLbl) lvLbl.textContent = `Level ${currentLvl.level} · ${totalXp} XP`;
+      if (lvTtl) lvTtl.textContent = nextLvl
+        ? `${currentLvl.name} · noch ${xpRemaining} XP bis Level ${nextLvl.level}`
+        : `${currentLvl.name} · höchstes Level erreicht`;
+    }
+
+    function openTodayChallenge() {
+      switchMainTab('challenge');
+      jumpToNextChallengeSession();
+    }
+
     function switchMainTab(tabKey) {
       if (currentMainTab === 'video' && tabKey !== 'video') {
         stopSwingCamera(false);
       }
       if (tabKey !== 'technique' && typeof proVideoPause === 'function') proVideoPause();
+      const tabChanged = currentMainTab !== tabKey;
       currentMainTab = tabKey;
+      const group = SECTION_GROUP[tabKey];
+      if (group) lastSectionInGroup[group] = tabKey;
       document.querySelectorAll('.md-nav-destination').forEach(btn => {
-        btn.classList.toggle('active', btn.dataset.tab === tabKey);
-        btn.setAttribute('aria-selected', btn.dataset.tab === tabKey ? 'true' : 'false');
+        btn.classList.toggle('active', btn.dataset.group === group);
+        btn.setAttribute('aria-selected', btn.dataset.group === group ? 'true' : 'false');
       });
+      renderSubNav(tabKey);
+      if (tabChanged) window.scrollTo(0, 0);
 
       const sections = {
         technique: 'tabTechnique',
@@ -6385,7 +6535,8 @@
         scratch: 'tabScratch',
         video: 'tabVideo',
         challenge: 'tabChallenge',
-        stats: 'tabStats'
+        stats: 'tabStats',
+        progress: 'tabProgress'
       };
 
       Object.entries(sections).forEach(([key, elId]) => {
@@ -6401,7 +6552,8 @@
       if (tabKey === 'scratch') renderScratchView();
       if (tabKey === 'video') renderVideoSwingTool();
       if (tabKey === 'challenge') renderChallenge40View();
-      if (tabKey === 'stats') renderStatsView();
+      if (tabKey === 'stats' || tabKey === 'progress') renderStatsView();
+      if (tabKey === 'stats') renderTodayShortcuts();
     }
 
     /* ========================================================================
