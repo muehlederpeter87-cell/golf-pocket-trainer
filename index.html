@@ -9,8 +9,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="apple-mobile-web-app-title" content="Golf Pocket Trainer" />
   <meta name="application-name" content="Golf Pocket Trainer" />
-  <meta name="description" content="Golf Pocket Trainer v4.26.0 – Material Design 3 Golf Technik-, Trainings-, Rules-, Scratch-Blueprint-, Komparator-, Warm-up-, Video-Analyse-, 40-Tage-Challenge- & Gamification-Statistik-Begleiter" />
-  <title>Golf Pocket Trainer (v4.26.0)</title>
+  <meta name="description" content="Golf Pocket Trainer v4.26.1 – Material Design 3 Golf Technik-, Trainings-, Rules-, Scratch-Blueprint-, Komparator-, Warm-up-, Video-Analyse-, 40-Tage-Challenge- & Gamification-Statistik-Begleiter" />
+  <title>Golf Pocket Trainer (v4.26.1)</title>
 
   <link rel="manifest" href="manifest.webmanifest" />
   <link rel="icon" type="image/png" sizes="48x48" href="icons/favicon-48.png" />
@@ -1442,6 +1442,15 @@
       gap: 0.85rem;
     }
 
+    .rd-box { display: flex; flex-direction: column; gap: 0.55rem; padding: 0.75rem 0.85rem; border-radius: 1rem; background: var(--md-sys-color-surface-container); border: 1px solid var(--md-sys-color-outline-variant); }
+    .rd-head { display: flex; align-items: center; gap: 0.45rem; font-size: 0.84rem; }
+    .rd-steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.5rem; }
+    .rd-step { display: flex; gap: 0.5rem; align-items: flex-start; font-size: 0.78rem; line-height: 1.35; }
+    .rd-step div { display: flex; flex-direction: column; gap: 0.1rem; }
+    .rd-step span:not(.rd-num) { color: var(--md-sys-color-on-surface-variant); }
+    .rd-num { flex-shrink: 0; width: 1.45rem; height: 1.45rem; border-radius: 50%; display: grid; place-items: center; font-size: 0.75rem; font-weight: 800; background: var(--md-sys-color-primary); color: var(--md-sys-color-on-primary); }
+    @media (max-width: 640px) { .rd-steps { grid-template-columns: 1fr; } }
+
     .md-rule-sketch-box {
       background-color: var(--svg-bg);
       border: 1px solid var(--md-sys-color-outline-variant);
@@ -2211,7 +2220,7 @@
         <div class="md-brand-text-wrap">
           <div style="display: flex; align-items: center; gap: 0.4rem;">
             <h1 class="md-brand-title">Golf Pocket Trainer</h1>
-            <span class="md-version-badge font-mono">v4.26.0</span>
+            <span class="md-version-badge font-mono">v4.26.1</span>
           </div>
           <p class="md-brand-sub">Statistik &bull; Check-in &bull; Drills &bull; Rules &bull; Scratch</p>
         </div>
@@ -2289,7 +2298,7 @@
               <span class="material-symbols-rounded" style="color: var(--md-sys-color-on-surface-variant);">history</span>
               <span>Versionsverlauf</span>
             </span>
-            <span class="font-mono" style="font-size: 0.72rem; color: var(--md-sys-color-on-surface-variant);">v4.26.0</span>
+            <span class="font-mono" style="font-size: 0.72rem; color: var(--md-sys-color-on-surface-variant);">v4.26.1</span>
           </button>
         </div>
       </div>
@@ -2705,7 +2714,7 @@
         </div>
 
         <div id="rulesFilterPills" class="md-chip-row"></div>
-        <div id="rulesDropDiagram" class="md-svg-grid" style="border-radius: 1rem;"></div>
+        <div id="rulesDropDiagram" class="rd-box"></div>
       </article>
 
       <div id="rulesGrid" class="md-rules-grid"></div>
@@ -3083,7 +3092,7 @@
        ======================================================================== -->
   <footer class="md-footer">
     <div class="md-container" style="display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; flex-wrap: wrap;">
-      <span><strong>Golf Pocket Trainer</strong> (<span class="font-mono">v4.26.0</span>) &bull; Dein interaktiver Trainings- &amp; Platzbegleiter</span>
+      <span><strong>Golf Pocket Trainer</strong> (<span class="font-mono">v4.26.1</span>) &bull; Dein interaktiver Trainings- &amp; Platzbegleiter</span>
       <button type="button" onclick="openChangelogModal()" class="md-text-btn" style="height: 1.85rem;">Versionsverlauf ansehen</button>
     </div>
   </footer>
@@ -3240,7 +3249,7 @@
       <div class="md-dialog-header">
         <div>
           <span class="md-assist-badge" style="background-color: var(--md-sys-color-tertiary-container); color: var(--md-sys-color-on-tertiary-container);">Release Notes &amp; Wartung</span>
-          <h2 id="changelogTitle" class="font-display" style="font-size: 1.25rem; font-weight: 800; margin-top: 0.3rem;">Versionsverlauf (v1.0.0 – v4.26.0)</h2>
+          <h2 id="changelogTitle" class="font-display" style="font-size: 1.25rem; font-weight: 800; margin-top: 0.3rem;">Versionsverlauf (v1.0.0 – v4.26.1)</h2>
         </div>
         <button type="button" onclick="closeChangelogModal()" class="md-icon-btn" aria-label="Schließen">
           <span class="material-symbols-rounded">close</span>
@@ -3255,24 +3264,25 @@
   </div>
 
   <!-- ========================================================================
-       COMPLETE SELF-CONTAINED JAVASCRIPT ENGINE (v4.26.0)
+       COMPLETE SELF-CONTAINED JAVASCRIPT ENGINE (v4.26.1)
        ======================================================================== -->
   <div id="appToast" class="md-toast" role="status" aria-live="polite"></div>
   <input type="file" id="backupFileInput" accept="application/json,.json" hidden onchange="handleBackupFile(event)" />
 
   <script>
-    const APP_VERSION = 'v4.26.0';
+    const APP_VERSION = 'v4.26.1';
 
     const CHANGELOG_ENTRIES = [
       {
-        version: 'v4.26.0',
+        version: 'v4.26.1',
         date: 'Aktuell',
         title: 'Golfregeln überarbeitet & neue Motivationssprüche',
         latest: true,
         notes: [
           'Rules: Alle 12 Regeln haben jetzt eine eigene Skizze. Die Erleichterungsbereiche sind korrekt gezeichnet – nicht näher zur Fahne, nicht in der Penalty Area, nicht auf dem Weg.',
           'Korrigiert: Ball vom Wind bewegt (auf dem Grün nach dem Zurücklegen wird zurückgelegt), Ursache nur bei mind. 95 % Sicherheit, Platzregel E-5 mit provisorischem Ball, Ball zum Identifizieren reinigen, selbststehender Putter seit 2025.',
-          '24 neue Motivationssprüche im Mental-Tee-Box-Bereich.'
+          '24 neue Motivationssprüche im Mental-Tee-Box-Bereich.',
+          'Die Drop-Grafik oben in den Rules ist jetzt eine kompakte Anleitung „So droppst du richtig“ statt eines leeren Rasters.'
         ]
       },
       {
@@ -7647,23 +7657,15 @@
       const dropEl = document.getElementById('rulesDropDiagram');
       if (dropEl) {
         dropEl.innerHTML = `
-          <svg viewBox="0 0 640 124" role="img" aria-label="Drop Verfahren Regel 14.3">
-            <rect x="12" y="14" width="188" height="96" rx="14" fill="var(--md-sys-color-surface-container-lowest, #FFFFFF)" stroke="var(--svg-turf-stroke)" stroke-width="1.6" />
-            <text x="106" y="38" text-anchor="middle" fill="var(--svg-turf-stroke)" font-size="11" font-weight="800">1. BEZUGSPUNKT</text>
-            <text x="106" y="58" text-anchor="middle" fill="var(--svg-text-main)" font-size="10">Nächstgelegener Punkt</text>
-            <text x="106" y="74" text-anchor="middle" fill="var(--svg-text-sub)" font-size="9.5">nicht näher zum Loch</text>
-
-            <rect x="226" y="14" width="188" height="96" rx="14" fill="var(--md-sys-color-surface-container-lowest, #FFFFFF)" stroke="var(--svg-overlay-spine)" stroke-width="1.6" />
-            <text x="320" y="38" text-anchor="middle" fill="var(--svg-overlay-spine)" font-size="11" font-weight="800">2. ERLEICHTERUNGSBEREICH</text>
-            <text x="320" y="58" text-anchor="middle" fill="var(--svg-text-main)" font-size="10">1 oder 2 Schlägerlängen</text>
-            <text x="320" y="74" text-anchor="middle" fill="var(--svg-text-sub)" font-size="9.5">längster Schläger (ohne Putter)</text>
-
-            <rect x="440" y="14" width="188" height="96" rx="14" fill="var(--md-sys-color-surface-container-lowest, #FFFFFF)" stroke="var(--svg-overlay-shaft)" stroke-width="1.6" />
-            <text x="534" y="38" text-anchor="middle" fill="var(--svg-overlay-shaft)" font-size="11" font-weight="800">3. DROP AUS KNIEHÖHE</text>
-            <text x="534" y="58" text-anchor="middle" fill="var(--svg-text-main)" font-size="10">Senkrecht fallen lassen</text>
-            <text x="534" y="74" text-anchor="middle" fill="var(--svg-text-sub)" font-size="9.5">muss im Bereich liegen bleiben</text>
-          </svg>
-        `;
+          <div class="rd-head">
+            <span class="material-symbols-rounded filled" style="font-size: 18px; color: var(--md-sys-color-primary);">info</span>
+            <span><strong>So droppst du richtig</strong> (Regel 14.3) – gilt für fast jede Erleichterung</span>
+          </div>
+          <div class="rd-steps">
+            <div class="rd-step"><span class="rd-num">1</span><div><strong>Bezugspunkt</strong><span>Je nach Regel, z. B. nächstgelegener Punkt der Erleichterung – nie näher zur Fahne</span></div></div>
+            <div class="rd-step"><span class="rd-num">2</span><div><strong>Bereich abmessen</strong><span>1 oder 2 Schlägerlängen mit dem längsten Schläger außer dem Putter</span></div></div>
+            <div class="rd-step"><span class="rd-num">3</span><div><strong>Aus Kniehöhe droppen</strong><span>Senkrecht fallen lassen – der Ball muss im Bereich liegen bleiben. Sonst nochmal droppen, danach dort hinlegen, wo er beim 2. Drop aufkam</span></div></div>
+          </div>`;
       }
 
       const filtered = GOLF_RULES_DATA.filter(r => {
