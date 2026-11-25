@@ -9,8 +9,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="apple-mobile-web-app-title" content="Golf Pocket Trainer" />
   <meta name="application-name" content="Golf Pocket Trainer" />
-  <meta name="description" content="Golf Pocket Trainer v4.20.0 – Material Design 3 Golf Technik-, Trainings-, Rules-, Scratch-Blueprint-, Komparator-, Warm-up-, Video-Analyse-, 40-Tage-Challenge- & Gamification-Statistik-Begleiter" />
-  <title>Golf Pocket Trainer (v4.20.0)</title>
+  <meta name="description" content="Golf Pocket Trainer v4.21.0 – Material Design 3 Golf Technik-, Trainings-, Rules-, Scratch-Blueprint-, Komparator-, Warm-up-, Video-Analyse-, 40-Tage-Challenge- & Gamification-Statistik-Begleiter" />
+  <title>Golf Pocket Trainer (v4.21.0)</title>
 
   <link rel="manifest" href="manifest.webmanifest" />
   <link rel="icon" type="image/png" sizes="48x48" href="icons/favicon-48.png" />
@@ -981,6 +981,17 @@
       border-radius: 1rem;
       box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
     }
+
+    .sf-root { width: 100%; display: flex; flex-direction: column; gap: 0.6rem; }
+    .sf-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; flex-wrap: wrap; }
+    .sf-toolbar .md-segmented-btn { height: 2rem; padding: 0 0.85rem; font-size: 0.78rem; }
+    .sf-canvas { width: 100%; display: block; border-radius: 1rem; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06); cursor: pointer; touch-action: manipulation; }
+    .sf-phases { display: flex; gap: 0.35rem; overflow-x: auto; scrollbar-width: none; padding-bottom: 2px; }
+    .sf-phases::-webkit-scrollbar { display: none; }
+    .sf-phases .md-filter-chip { flex-shrink: 0; height: 1.9rem; font-size: 0.76rem; }
+    .sf-controls { display: flex; align-items: center; gap: 0.6rem; }
+    .sf-scrub { flex: 1; accent-color: var(--md-sys-color-primary); min-width: 0; }
+    .sf-speed { min-width: 3.2rem; justify-content: center; font-variant-numeric: tabular-nums; }
 
     .md-svg-grid {
       padding: 1rem;
@@ -2156,7 +2167,7 @@
         <div class="md-brand-text-wrap">
           <div style="display: flex; align-items: center; gap: 0.4rem;">
             <h1 class="md-brand-title">Golf Pocket Trainer</h1>
-            <span class="md-version-badge font-mono">v4.20.0</span>
+            <span class="md-version-badge font-mono">v4.21.0</span>
           </div>
           <p class="md-brand-sub">Statistik &bull; Check-in &bull; Drills &bull; Rules &bull; Scratch</p>
         </div>
@@ -2234,7 +2245,7 @@
               <span class="material-symbols-rounded" style="color: var(--md-sys-color-on-surface-variant);">history</span>
               <span>Versionsverlauf</span>
             </span>
-            <span class="font-mono" style="font-size: 0.72rem; color: var(--md-sys-color-on-surface-variant);">v4.20.0</span>
+            <span class="font-mono" style="font-size: 0.72rem; color: var(--md-sys-color-on-surface-variant);">v4.21.0</span>
           </button>
         </div>
       </div>
@@ -2333,7 +2344,7 @@
               <h3 class="md-card-title">Körperhaltung &amp; Arm-Dreieck</h3>
               <p class="md-card-subtitle">Frontal (Face-On) &amp; Seitenansicht (Down-the-Line)</p>
             </div>
-            <span class="md-assist-badge">Setup-Check</span>
+            <span class="md-assist-badge">Animiert</span>
           </div>
           <div id="svgGolferContainer" class="md-svg-editorial"></div>
           <div class="md-card-supporting">
@@ -3076,7 +3087,7 @@
        ======================================================================== -->
   <footer class="md-footer">
     <div class="md-container" style="display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; flex-wrap: wrap;">
-      <span><strong>Golf Pocket Trainer</strong> (<span class="font-mono">v4.20.0</span>) &bull; Dein interaktiver Trainings- &amp; Platzbegleiter</span>
+      <span><strong>Golf Pocket Trainer</strong> (<span class="font-mono">v4.21.0</span>) &bull; Dein interaktiver Trainings- &amp; Platzbegleiter</span>
       <button type="button" onclick="openChangelogModal()" class="md-text-btn" style="height: 1.85rem;">Versionsverlauf ansehen</button>
     </div>
   </footer>
@@ -3106,9 +3117,17 @@
 
         <div style="background-color: var(--md-sys-color-surface-container); border-radius: 1.1rem; padding: 0.95rem 1.05rem; display: flex; flex-direction: column; gap: 0.7rem;">
           <div style="display: flex; align-items: flex-start; gap: 0.65rem; font-size: 0.83rem;">
+            <span class="material-symbols-rounded filled" style="font-size: 20px; color: var(--md-sys-color-primary); margin-top: 1px;">sports_golf</span>
+            <div>
+              <strong>Animierte Schwung-Figur (Neu!):</strong>
+              <div style="color: var(--md-sys-color-on-surface-variant); margin-top: 0.1rem;">In der Schlagtechnik zeigt eine animierte Figur den ganzen Schwung – frontal oder seitlich, mit Zeitlupe und Sprung zu jeder Phase.</div>
+            </div>
+          </div>
+
+          <div style="display: flex; align-items: flex-start; gap: 0.65rem; font-size: 0.83rem;">
             <span class="material-symbols-rounded filled" style="font-size: 20px; color: var(--md-sys-color-primary); margin-top: 1px;">dock_to_bottom</span>
             <div>
-              <strong>Feste Navigation (Neu!):</strong>
+              <strong>Feste Navigation:</strong>
               <div style="color: var(--md-sys-color-on-surface-variant); margin-top: 0.1rem;">Die Tab-Leiste bleibt unten am Bildschirm, und die Kopfzeile mit dem Menü bleibt oben. So wechselst du jederzeit den Bereich, auch mitten in langen Seiten.</div>
             </div>
           </div>
@@ -3217,7 +3236,7 @@
       <div class="md-dialog-header">
         <div>
           <span class="md-assist-badge" style="background-color: var(--md-sys-color-tertiary-container); color: var(--md-sys-color-on-tertiary-container);">Release Notes &amp; Wartung</span>
-          <h2 id="changelogTitle" class="font-display" style="font-size: 1.25rem; font-weight: 800; margin-top: 0.3rem;">Versionsverlauf (v1.0.0 – v4.20.0)</h2>
+          <h2 id="changelogTitle" class="font-display" style="font-size: 1.25rem; font-weight: 800; margin-top: 0.3rem;">Versionsverlauf (v1.0.0 – v4.21.0)</h2>
         </div>
         <button type="button" onclick="closeChangelogModal()" class="md-icon-btn" aria-label="Schließen">
           <span class="material-symbols-rounded">close</span>
@@ -3232,20 +3251,33 @@
   </div>
 
   <!-- ========================================================================
-       COMPLETE SELF-CONTAINED JAVASCRIPT ENGINE (v4.20.0)
+       COMPLETE SELF-CONTAINED JAVASCRIPT ENGINE (v4.21.0)
        ======================================================================== -->
   <div id="appToast" class="md-toast" role="status" aria-live="polite"></div>
   <input type="file" id="backupFileInput" accept="application/json,.json" hidden onchange="handleBackupFile(event)" />
 
   <script>
-    const APP_VERSION = 'v4.20.0';
+    const APP_VERSION = 'v4.21.0';
 
     const CHANGELOG_ENTRIES = [
       {
-        version: 'v4.20.0',
+        version: 'v4.21.0',
         date: 'Aktuell',
-        title: 'Feste Navigation, bessere Video-Analyse & Fixes',
+        title: 'Animierte Schwung-Figur in der Schlagtechnik',
         latest: true,
+        notes: [
+          'Schlagtechnik: Die starren Figuren sind durch eine animierte Golfer-Figur ersetzt, die den kompletten Schwung zeigt – vom Ansprechen über Top und Treffmoment bis ins Finish.',
+          'Umschaltbar zwischen Frontal (Face-On) und Seitlich (Down-the-Line), mit Zeitlupe (½× / ¼×), Schieberegler und Sprung zu jeder Schwungphase.',
+          'Je Schläger passend: voller Schwung für Driver und Eisen, kurze Bewegung für Chip, halber Schwung für Pitch und Pendel beim Putten.',
+          'Hilfslinien für Wirbelsäulenwinkel und Schaftebene, Spur des Schlägerkopfs und Ballflug nach dem Treffmoment.',
+          'Schwungbahn-Grafik: Beschriftungen überlappen nicht mehr, Tippfehler korrigiert, Schlägerkopf läuft animiert über den Bogen.'
+        ]
+      },
+      {
+        version: 'v4.20.0',
+        date: 'Vorherige Version',
+        title: 'Feste Navigation, bessere Video-Analyse & Fixes',
+        latest: false,
         notes: [
           'Die Tab-Leiste sitzt am Handy jetzt fest unten, die Kopfzeile mit dem Menü bleibt beim Scrollen oben.',
           'Video-Analyse: Hochformat-Clips füllen das Bild, Aufnahmen lassen sich per „Clip speichern“ sichern, die Anzeige „Aufnahme läuft“ verschwindet korrekt.',
@@ -3257,7 +3289,7 @@
       },
       {
         version: 'v4.19.0',
-        date: 'Vorherige Version',
+        date: 'Meilenstein 45',
         title: 'Installierbare App & Offline-Modus (PWA)',
         notes: [
           'Der Golf Pocket Trainer lässt sich jetzt auf dem Startbildschirm installieren und funktioniert danach auch ohne Netz, etwa auf dem Platz.',
@@ -6135,467 +6167,652 @@
     }
 
     /* ========================================================================
-       2X RETINA HTML5 CANVAS GOLFER ILLUSTRATION (FACE-ON & DOWN-THE-LINE)
+       ANIMIERTE SCHWUNG-FIGUR (3D-SKELETT → FRONTAL & DOWN-THE-LINE)
+       Ein Skelett-Modell in Metern (x = Richtung Ziel, y = oben, z = Richtung Ball),
+       Keyframes je Schwungart, Hermite-Interpolation, Arm-/Bein-IK, Canvas-Rendering.
        ======================================================================== */
+    const SwingFig = {
+      cfg: null, label: '', view: 'face', t: 0, playing: true, speed: 1,
+      overlays: true, raf: 0, last: 0, keys: null, type: 'full', model: null,
+      canvas: null, ctx: null, W: 0, H: 0, dpr: 1, visible: true, key: ''
+    };
+
+    const SF_SPEEDS = [1, 0.5, 0.25];
+
+    const sfV = (x, y, z) => ({ x, y, z });
+    const sfAdd = (a, b) => sfV(a.x + b.x, a.y + b.y, a.z + b.z);
+    const sfSub = (a, b) => sfV(a.x - b.x, a.y - b.y, a.z - b.z);
+    const sfMul = (a, k) => sfV(a.x * k, a.y * k, a.z * k);
+    const sfDot = (a, b) => a.x * b.x + a.y * b.y + a.z * b.z;
+    const sfLen = a => Math.hypot(a.x, a.y, a.z);
+    const sfNorm = a => { const l = sfLen(a) || 1; return sfMul(a, 1 / l); };
+    const sfRad = d => (d * Math.PI) / 180;
+
+    /* Rotationen: Gieren um y (positiv = Rückschwung, Brust dreht vom Ziel weg),
+       Vorbeugen um x (positiv = Richtung Ball), Seitneigung um z (positiv = vom Ziel weg). */
+    function sfYaw(v, deg) { const a = sfRad(deg), c = Math.cos(a), s = Math.sin(a); return sfV(v.x * c - v.z * s, v.y, v.x * s + v.z * c); }
+    function sfBend(v, deg) { const a = sfRad(deg), c = Math.cos(a), s = Math.sin(a); return sfV(v.x, v.y * c - v.z * s, v.y * s + v.z * c); }
+    function sfSide(v, deg) { const a = sfRad(deg), c = Math.cos(a), s = Math.sin(a); return sfV(v.x * c - v.y * s, v.x * s + v.y * c, v.z); }
+    const sfTorso = (v, yaw, bend, side) => sfSide(sfBend(sfYaw(v, yaw), bend), side);
+
+    function sfIK(root, target, l1, l2, pole) {
+      const d = sfSub(target, root);
+      const dist = sfLen(d) || 1e-6;
+      const dir = sfMul(d, 1 / dist);
+      if (dist >= l1 + l2 - 1e-4) return sfAdd(root, sfMul(dir, l1 * dist / (l1 + l2)));
+      const a = (l1 * l1 - l2 * l2 + dist * dist) / (2 * dist);
+      const h = Math.sqrt(Math.max(0, l1 * l1 - a * a));
+      let p = sfSub(pole, sfMul(dir, sfDot(pole, dir)));
+      if (sfLen(p) < 1e-5) p = sfV(0, -1, 0);
+      return sfAdd(sfAdd(root, sfMul(dir, a)), sfMul(sfNorm(p), h));
+    }
+
+    function sfSwingType(cfg, label) {
+      const l = (label || '').toLowerCase();
+      if (cfg.clubType === 'putter') return 'putt';
+      if (l.includes('chip')) return 'chip';
+      if (l.includes('pitch')) return 'pitch';
+      return 'full';
+    }
+
+    /* Schlägerdaten: Länge (m), Lie-Winkel (°), Vorbeuge der Wirbelsäule (°) */
+    const SF_CLUBS = {
+      driver: { L: 1.12, lie: 47, bend: 35, handsZ: 0.30, head: 'driver' },
+      iron:   { L: 0.94, lie: 61, bend: 39, handsZ: 0.29, head: 'iron' },
+      wedge:  { L: 0.89, lie: 63, bend: 41, handsZ: 0.27, head: 'iron' },
+      putter: { L: 0.86, lie: 71, bend: 46, handsZ: 0.24, head: 'putter' }
+    };
+
+    function sfBuildModel(cfg, label) {
+      const club = SF_CLUBS[cfg.clubType] || SF_CLUBS.iron;
+      const type = sfSwingType(cfg, label);
+      const lean = cfg.shaftLeanDeg || 0;
+      const tee = Math.max(0, (cfg.teeHeight || 0) * 0.0017);
+      const half = Math.max(0.12, (cfg.stanceWidth || 132) * 0.0021);
+      const ballX = -(cfg.ballOffset || 0) * 0.0024;
+      const tilt = cfg.spineTiltDeg || 0;
+      const a0 = club.bend;
+
+      const d0 = sfNorm(sfV(-Math.sin(sfRad(lean)), -Math.sin(sfRad(club.lie)), Math.cos(sfRad(club.lie))));
+      const headZ = club.handsZ + club.L * d0.z;
+      const headAddr = sfV(ballX - 0.01, 0.03, headZ);
+      const H0 = sfSub(headAddr, sfMul(d0, club.L));
+      const ball = sfV(ballX, 0.021 + tee + (tee > 0 ? 0.012 : 0), headZ + 0.005);
+      const dImp = sfNorm(sfAdd(d0, sfV(type === 'putt' ? -0.02 : -0.12, 0, 0)));
+      const hImp = sfAdd(H0, sfV(type === 'putt' ? 0.01 : 0.05, type === 'putt' ? 0 : 0.01, 0));
+
+      const k = (t, o) => Object.assign({ t, hold: false, hip: 0, sh: 0, a: a0, b: tilt, px: 0, ph: 0.92, heel: 0, gaze: 0 }, o);
+      const hv = (x, y, z) => sfV(x, y, z);
+      let keys;
+      let impactT;
+      let launch = Math.max(2, -(cfg.ballTrajectoryAngle || -16));
+
+      if (type === 'putt') {
+        impactT = 0.56;
+        keys = [
+          k(0, { hold: true, hands: H0, club: d0 }),
+          k(0.14, { hold: true, hands: H0, club: d0 }),
+          k(0.38, { hold: true, sh: 10, hands: sfAdd(H0, hv(-0.13, 0.025, -0.01)), club: sfNorm(sfAdd(d0, hv(-0.13, 0, 0))) }),
+          k(impactT, { hands: hImp, club: dImp }),
+          k(0.76, { hold: true, sh: -12, hands: sfAdd(H0, hv(0.16, 0.03, -0.01)), club: sfNorm(sfAdd(d0, hv(0.17, 0.02, 0))) }),
+          k(1, { hold: true, sh: -12, hands: sfAdd(H0, hv(0.16, 0.03, -0.01)), club: sfNorm(sfAdd(d0, hv(0.17, 0.02, 0))) })
+        ];
+        launch = 0;
+      } else if (type === 'chip') {
+        impactT = 0.58;
+        keys = [
+          k(0, { hold: true, hands: H0, club: d0, px: 0.03 }),
+          k(0.12, { hold: true, hands: H0, club: d0, px: 0.03 }),
+          k(0.38, { hold: true, hip: 4, sh: 24, px: 0.03, hands: sfAdd(H0, hv(-0.22, 0.06, -0.01)), club: sfNorm(sfAdd(d0, hv(-0.55, 0.28, 0))) }),
+          k(impactT, { hip: -10, sh: -6, px: 0.04, hands: hImp, club: dImp }),
+          k(0.76, { hold: true, hip: -25, sh: -32, px: 0.05, b: tilt + 2, hands: sfAdd(H0, hv(0.25, 0.07, -0.03)), club: sfNorm(sfAdd(d0, hv(0.55, 0.25, 0))), gaze: 0.5 }),
+          k(1, { hold: true, hip: -25, sh: -32, px: 0.05, b: tilt + 2, hands: sfAdd(H0, hv(0.25, 0.07, -0.03)), club: sfNorm(sfAdd(d0, hv(0.55, 0.25, 0))), gaze: 0.5 })
+        ];
+      } else if (type === 'pitch') {
+        impactT = 0.6;
+        keys = [
+          k(0, { hold: true, hands: H0, club: d0 }),
+          k(0.1, { hold: true, hands: H0, club: d0 }),
+          k(0.26, { hip: 8, sh: 30, hands: hv(-0.3, 0.9, 0.28), club: sfNorm(hv(-1, 0.12, 0.08)) }),
+          k(0.44, { hold: true, hip: 20, sh: 62, b: tilt + 3, hands: hv(-0.44, 1.12, 0.18), club: sfNorm(hv(-0.2, 1, -0.05)) }),
+          k(0.54, { hip: 0, sh: 32, b: tilt + 6, px: 0.04, hands: hv(-0.25, 0.94, 0.28), club: sfNorm(hv(-1, 0.25, 0.12)) }),
+          k(impactT, { hip: -30, sh: -12, b: tilt + 8, px: 0.06, hands: hImp, club: dImp, heel: 0.15 }),
+          k(0.68, { hip: -50, sh: -50, b: tilt + 8, px: 0.08, hands: hv(0.33, 0.95, 0.25), club: sfNorm(hv(1, 0.15, 0.15)), heel: 0.35, gaze: 0.4 }),
+          k(0.8, { hold: true, hip: -62, sh: -78, a: a0 - 12, b: tilt + 2, px: 0.1, ph: 0.94, hands: hv(0.36, 1.2, 0.1), club: sfNorm(hv(0.25, 1, -0.2)), heel: 0.6, gaze: 1 }),
+          k(1, { hold: true, hip: -62, sh: -78, a: a0 - 12, b: tilt + 2, px: 0.1, ph: 0.94, hands: hv(0.36, 1.2, 0.1), club: sfNorm(hv(0.25, 1, -0.2)), heel: 0.6, gaze: 1 })
+        ];
+      } else {
+        impactT = 0.61;
+        keys = [
+          k(0, { hold: true, hands: H0, club: d0 }),
+          k(0.08, { hold: true, hands: H0, club: d0 }),
+          k(0.22, { hip: 8, sh: 30, b: tilt + 1, px: -0.01, hands: hv(-0.33, 0.92, 0.3), club: sfNorm(hv(-1, 0.06, 0.06)) }),
+          k(0.33, { hip: 25, sh: 60, b: tilt + 3, px: -0.02, ph: 0.93, hands: hv(-0.47, 1.18, 0.18), club: sfNorm(hv(-0.15, 1, -0.08)) }),
+          k(0.46, { hold: true, hip: 45, sh: 90, a: a0 - 2, b: tilt + 4, px: -0.02, ph: 0.93, hands: hv(-0.3, 1.55, 0.0), club: sfNorm(hv(1, -0.08, 0.12)) }),
+          k(0.53, { hip: 22, sh: 72, b: tilt + 8, px: 0.03, ph: 0.9, hands: hv(-0.45, 1.16, 0.2), club: sfNorm(hv(-0.25, 1, 0.05)) }),
+          k(0.57, { hip: 2, sh: 40, b: tilt + 12, px: 0.06, ph: 0.89, hands: hv(-0.28, 0.95, 0.3), club: sfNorm(hv(-1, 0.12, 0.15)), heel: 0.05 }),
+          k(impactT, { hip: -38, sh: -15, a: a0 - 3, b: tilt + 15, px: 0.08, ph: 0.9, hands: hImp, club: dImp, heel: 0.25 }),
+          k(0.655, { hip: -60, sh: -55, a: a0 - 9, b: tilt + 14, px: 0.1, ph: 0.92, hands: hv(0.35, 0.95, 0.25), club: sfNorm(hv(1, 0.06, 0.15)), heel: 0.5, gaze: 0.4 }),
+          k(0.71, { hip: -80, sh: -90, a: a0 - 20, b: tilt + 5, px: 0.13, ph: 0.95, hands: hv(0.42, 1.25, 0.1), club: sfNorm(hv(0.2, 1, -0.15)), heel: 0.8, gaze: 0.85 }),
+          k(0.8, { hold: true, hip: -95, sh: -115, a: 14, b: -4, px: 0.16, ph: 0.98, hands: hv(0.12, 1.5, -0.28), club: sfNorm(hv(-0.75, -0.35, -0.55)), heel: 1, gaze: 1 }),
+          k(1, { hold: true, hip: -95, sh: -115, a: 14, b: -4, px: 0.16, ph: 0.98, hands: hv(0.12, 1.5, -0.28), club: sfNorm(hv(-0.75, -0.35, -0.55)), heel: 1, gaze: 1 })
+        ];
+      }
+
+      const phases = type === 'putt'
+        ? [['Ansprechen', 0], ['Rückschwung', 0.3], ['Treffmoment', impactT], ['Durchschwung', 0.72]]
+        : type === 'chip'
+          ? [['Ansprechen', 0], ['Rückschwung', 0.3], ['Treffmoment', impactT], ['Finish', 0.74]]
+          : type === 'pitch'
+            ? [['Ansprechen', 0], ['Rückschwung', 0.26], ['9 Uhr', 0.44], ['Treffmoment', impactT], ['Finish', 0.8]]
+            : [['Ansprechen', 0], ['Rückschwung', 0.22], ['Top', 0.46], ['Abschwung', 0.56], ['Treffmoment', impactT], ['Finish', 0.8]];
+
+      return {
+        type, club, keys, phases, impactT, launch, ball, half, H0, d0, tee,
+        leadFoot: -(cfg.leftFootAngle ?? -15), trailFoot: -(cfg.rightFootAngle ?? 0)
+      };
+    }
+
+    /* Hermite-Interpolation mit zeitskalierten Tangenten; Halte-Keys haben Tangente 0 */
+    function sfSample(model, t) {
+      const K = model.keys;
+      let i = 0;
+      while (i < K.length - 2 && t >= K[i + 1].t) i++;
+      const k0 = K[i], k1 = K[i + 1];
+      const span = Math.max(1e-6, k1.t - k0.t);
+      const s = Math.min(1, Math.max(0, (t - k0.t) / span));
+      const tan = (j, get) => {
+        const kj = K[j];
+        if (kj.hold || j === 0 || j === K.length - 1) return 0;
+        return (get(K[j + 1]) - get(K[j - 1])) / (K[j + 1].t - K[j - 1].t);
+      };
+      const s2 = s * s, s3 = s2 * s;
+      const h00 = 2 * s3 - 3 * s2 + 1, h10 = s3 - 2 * s2 + s, h01 = -2 * s3 + 3 * s2, h11 = s3 - s2;
+      const lerp = get => h00 * get(k0) + h10 * span * tan(i, get) + h01 * get(k1) + h11 * span * tan(i + 1, get);
+      const out = {};
+      ['hip', 'sh', 'a', 'b', 'px', 'ph', 'heel', 'gaze'].forEach(p => { out[p] = lerp(kk => kk[p]); });
+      out.hands = sfV(lerp(kk => kk.hands.x), lerp(kk => kk.hands.y), lerp(kk => kk.hands.z));
+      out.club = sfNorm(sfV(lerp(kk => kk.club.x), lerp(kk => kk.club.y), lerp(kk => kk.club.z)));
+      return out;
+    }
+
+    function sfPose(model, t) {
+      const p = sfSample(model, t);
+      const pelvis = sfV(p.px, p.ph, -0.1);
+      const up = sfTorso(sfV(0, 1, 0), 0, p.a, p.b);
+      const lat = sfTorso(sfV(1, 0, 0), p.sh, p.a, p.b);
+      const neck = sfAdd(pelvis, sfMul(up, 0.52));
+      const head = sfAdd(neck, sfTorso(sfV(0, 0.15, 0.045), 0, p.a, p.b));
+      const lSh = sfAdd(sfAdd(neck, sfMul(lat, 0.19)), sfMul(up, -0.035));
+      const tSh = sfAdd(sfAdd(neck, sfMul(lat, -0.19)), sfMul(up, -0.035));
+      const hipLat = sfYaw(sfV(1, 0, 0), p.hip * 0.95);
+      const lHip = sfAdd(pelvis, sfAdd(sfMul(hipLat, 0.11), sfV(0, -0.02, 0)));
+      const tHip = sfAdd(pelvis, sfAdd(sfMul(hipLat, -0.11), sfV(0, -0.02, 0)));
+
+      const grip = p.hands;
+      const tHand = sfAdd(grip, sfMul(p.club, 0.085));
+      const poleL = sfAdd(sfMul(up, -1), sfMul(lat, 0.35));
+      const poleT = sfAdd(sfAdd(sfMul(up, -0.7), sfV(0, -0.5, 0)), sfMul(lat, -0.25));
+      const lElb = sfIK(lSh, grip, 0.29, 0.31, poleL);
+      const tElb = sfIK(tSh, tHand, 0.29, 0.31, poleT);
+
+      const fDir = deg => sfV(Math.sin(sfRad(deg)), 0, Math.cos(sfRad(deg)));
+      const lFootDir = fDir(model.leadFoot);
+      const lAnk = sfV(model.half, 0.075, -0.02);
+      const lToe = sfAdd(sfV(lAnk.x, 0.03, lAnk.z), sfMul(lFootDir, 0.17));
+      const lHeel = sfAdd(sfV(lAnk.x, 0.03, lAnk.z), sfMul(lFootDir, -0.06));
+
+      const heel = Math.max(0, Math.min(1, p.heel));
+      const tToe = sfAdd(sfV(-model.half, 0.03, -0.02), sfMul(fDir(model.trailFoot), 0.17));
+      const tDir = sfNorm(sfAdd(fDir(model.trailFoot + heel * 55), sfV(0, -heel * 1.4, 0)));
+      const tAnk = sfAdd(tToe, sfAdd(sfMul(tDir, -0.17), sfV(0, 0.045, 0)));
+      const tHeel = sfAdd(tToe, sfMul(tDir, -0.23));
+
+      const lKnee = sfIK(lHip, lAnk, 0.47, 0.47, sfV(-0.15, 0, 1));
+      const tKnee = sfIK(tHip, tAnk, 0.47, 0.47, sfV(0.3, 0, 1));
+
+      const clubHead = sfAdd(grip, sfMul(p.club, model.club.L));
+      return { p, pelvis, up, lat, neck, head, lSh, tSh, lHip, tHip, grip, tHand, lElb, tElb, lAnk, lToe, lHeel, tAnk, tToe, tHeel, lKnee, tKnee, clubHead };
+    }
+
+    function sfPalette() {
+      const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      return isDark ? {
+        bgTop: '#162033', bgBot: '#111827', ground: '#1d3a2a', groundLine: '#3f7d58', shadow: 'rgba(0,0,0,0.35)',
+        text: '#F1F5F9', sub: '#94A3B8', skin: '#e2ad86', skinShade: '#b87d56', polo: '#2f7d55', poloShade: '#1d5a3b',
+        pants: '#8f9aab', pantsShade: '#5b6577', cap: '#e5e7eb', capBrim: '#94a3b8', shoe: '#f8fafc', sole: '#334155',
+        shaft: '#cbd5e1', grip: '#0f172a', clubHead: '#e2e8f0', trail: '#86D89D', trailFaint: 'rgba(134,216,157,0.18)',
+        spine: '#38bdf8', plane: '#facc15', tri: '#86D89D', badgeBg: 'rgba(15,23,42,0.92)', badgeText: '#F8FAFC', hair: '#3b2f2a'
+      } : {
+        bgTop: '#F7F5EE', bgBot: '#EEF2E8', ground: '#cfe3cf', groundLine: '#5f9b72', shadow: 'rgba(20,40,25,0.16)',
+        text: '#181D18', sub: '#414942', skin: '#eab48c', skinShade: '#c6865c', polo: '#1E563A', poloShade: '#143d29',
+        pants: '#7d8794', pantsShade: '#5A6370', cap: '#ffffff', capBrim: '#2b3440', shoe: '#ffffff', sole: '#374151',
+        shaft: '#6b7280', grip: '#111827', clubHead: '#374151', trail: '#146C38', trailFaint: 'rgba(20,108,56,0.14)',
+        spine: '#0284C7', plane: '#B45309', tri: '#146C38', badgeBg: 'rgba(255,255,255,0.95)', badgeText: '#181D18', hair: '#4a3426'
+      };
+    }
+
+    function sfProject(view, pt, S, ox, oy) {
+      const sx = view === 'face' ? pt.x : pt.z;
+      return { x: ox + sx * S, y: oy - pt.y * S, d: view === 'face' ? pt.z : -pt.x };
+    }
+
+    function sfDraw() {
+      const F = SwingFig;
+      if (!F.ctx || !F.model || !F.W) return;
+      const ctx = F.ctx, W = F.W, H = F.H, m = F.model, view = F.view;
+      const pal = sfPalette();
+      ctx.setTransform(F.dpr, 0, 0, F.dpr, 0, 0);
+
+      const bg = ctx.createLinearGradient(0, 0, 0, H);
+      bg.addColorStop(0, pal.bgTop);
+      bg.addColorStop(1, pal.bgBot);
+      ctx.fillStyle = bg;
+      ctx.fillRect(0, 0, W, H);
+
+      const worldW = view === 'face' ? 2.9 : 2.4;
+      const S = Math.min(W / worldW, (H - 30) / 2.3);
+      const centerWorld = view === 'face' ? 0.02 : (m.ball.z * 0.5 - 0.05);
+      const ox = W / 2 - centerWorld * S;
+      const oy = H - 26;
+      const P = pt => sfProject(view, pt, S, ox, oy);
+
+      ctx.fillStyle = pal.ground;
+      ctx.fillRect(0, oy, W, H - oy);
+      ctx.strokeStyle = pal.groundLine;
+      ctx.lineWidth = 2;
+      ctx.beginPath(); ctx.moveTo(0, oy); ctx.lineTo(W, oy); ctx.stroke();
+
+      const fade = F.t > 0.965 ? Math.max(0, 1 - (F.t - 0.965) / 0.035) : 1;
+      const pose = sfPose(m, F.t);
+
+      // Bodenschatten
+      ctx.fillStyle = pal.shadow;
+      ctx.beginPath();
+      const sc = P(sfV(pose.pelvis.x, 0, pose.pelvis.z + 0.05));
+      ctx.ellipse(sc.x, oy + 2, (view === 'face' ? m.half + 0.3 : 0.45) * S, 0.05 * S, 0, 0, Math.PI * 2);
+      ctx.fill();
+
+      // Schlägerkopf-Spur: die letzten Momente der Bewegung als ausblendender Schweif
+      ctx.lineCap = 'round';
+      ctx.lineJoin = 'round';
+      const tail = m.type === 'putt' || m.type === 'chip' ? 0.3 : 0.2;
+      const t0 = Math.max(0, F.t - tail);
+      if (F.t - t0 > 0.004) {
+        const n = 28;
+        let prev = P(sfPose(m, t0).clubHead);
+        for (let i = 1; i <= n; i++) {
+          const tt = t0 + ((F.t - t0) * i) / n;
+          const cur = P(sfPose(m, tt).clubHead);
+          ctx.globalAlpha = fade * (i / n) * 0.8;
+          ctx.strokeStyle = pal.trail;
+          ctx.lineWidth = Math.max(1.5, 0.022 * S * (0.3 + 0.7 * i / n));
+          ctx.beginPath(); ctx.moveTo(prev.x, prev.y); ctx.lineTo(cur.x, cur.y); ctx.stroke();
+          prev = cur;
+        }
+        ctx.globalAlpha = 1;
+      }
+
+      // Hilfslinien hinter der Figur
+      const addr = sfPose(m, 0);
+      if (F.overlays) {
+        ctx.save();
+        ctx.setLineDash([6, 5]);
+        ctx.lineWidth = 1.8;
+        if (view === 'dtl' && m.type !== 'putt') {
+          // Schaftebene (Shaft Plane) vom Ball durch die Hände verlängert
+          const b = P(m.ball), h = P(addr.grip);
+          const dx = h.x - b.x, dy = h.y - b.y;
+          ctx.strokeStyle = pal.plane;
+          ctx.globalAlpha = 0.85;
+          ctx.beginPath(); ctx.moveTo(b.x - dx * 0.15, b.y - dy * 0.15); ctx.lineTo(b.x + dx * 2.6, b.y + dy * 2.6); ctx.stroke();
+        }
+        // Referenz der Wirbelsäule beim Ansprechen
+        const r0 = P(addr.pelvis), r1 = P(sfAdd(addr.pelvis, sfMul(addr.up, 0.85)));
+        ctx.strokeStyle = pal.spine;
+        ctx.globalAlpha = 0.55;
+        ctx.beginPath(); ctx.moveTo(r0.x, r0.y); ctx.lineTo(r1.x, r1.y); ctx.stroke();
+        if (view === 'face') {
+          const bx = P(m.ball);
+          ctx.strokeStyle = pal.sub;
+          ctx.globalAlpha = 0.35;
+          ctx.beginPath(); ctx.moveTo(bx.x, oy); ctx.lineTo(bx.x, oy - 1.5 * S); ctx.stroke();
+        }
+        ctx.restore();
+      }
+
+      // Figur als tiefensortierte Primitive
+      const prims = [];
+      const seg = (a, b, r1, r2, col, col2, bias = 0) => prims.push({ k: 'seg', a, b, r1, r2, col, col2, d: (P(a).d + P(b).d) / 2 + bias });
+      seg(pose.lHip, pose.lKnee, 0.085, 0.065, pal.pants, pal.pantsShade);
+      seg(pose.lKnee, pose.lAnk, 0.062, 0.05, pal.pantsShade, pal.pantsShade);
+      seg(pose.tHip, pose.tKnee, 0.085, 0.065, pal.pants, pal.pantsShade);
+      seg(pose.tKnee, pose.tAnk, 0.062, 0.05, pal.pantsShade, pal.pantsShade);
+      // Frontal zeigen die Schuhspitzen zur Kamera: als breite Front-Silhouette zeichnen
+      const shoeFace = (heelP, toeP) => {
+        const mid = sfMul(sfAdd(heelP, toeP), 0.5);
+        const lift = Math.max(heelP.y, toeP.y) - 0.03;
+        return [sfV(mid.x - 0.045, 0.035 + lift * 0.6, toeP.z), sfV(mid.x + 0.045, 0.035 + lift * 0.6, toeP.z)];
+      };
+      const lS = view === 'face' ? shoeFace(pose.lHeel, pose.lToe) : [pose.lHeel, pose.lToe];
+      const tS = view === 'face' ? shoeFace(pose.tHeel, pose.tToe) : [pose.tHeel, pose.tToe];
+      seg(lS[0], lS[1], 0.04, 0.04, pal.shoe, pal.shoe, 0.02);
+      seg(tS[0], tS[1], 0.04, 0.04, pal.shoe, pal.shoe, 0.02);
+      prims.push({ k: 'torso', d: (P(pose.lSh).d + P(pose.tSh).d + P(pose.lHip).d + P(pose.tHip).d) / 4 });
+      seg(pose.neck, sfAdd(pose.neck, sfMul(sfSub(pose.head, pose.neck), 0.6)), 0.05, 0.05, pal.skinShade, pal.skin, -0.01);
+      prims.push({ k: 'head', d: P(pose.head).d });
+      seg(pose.lSh, pose.lElb, 0.055, 0.045, pal.polo, pal.polo);
+      seg(pose.lElb, pose.grip, 0.044, 0.036, pal.skin, pal.skinShade);
+      seg(pose.tSh, pose.tElb, 0.055, 0.045, pal.polo, pal.polo);
+      seg(pose.tElb, pose.tHand, 0.044, 0.036, pal.skin, pal.skinShade);
+      prims.push({ k: 'club', d: P(sfAdd(pose.grip, sfMul(pose.p.club, 0.4))).d });
+      prims.sort((a, b) => a.d - b.d);
+
+      ctx.save();
+      ctx.globalAlpha = fade;
+      const capsule = (a, b, r1, r2, c1, c2) => {
+        const A = P(a), B = P(b);
+        const R1 = r1 * S, R2 = r2 * S;
+        const dx = B.x - A.x, dy = B.y - A.y, L = Math.hypot(dx, dy) || 1e-3;
+        const nx = -dy / L, ny = dx / L;
+        const g = ctx.createLinearGradient(A.x, A.y, B.x, B.y);
+        g.addColorStop(0, c1); g.addColorStop(1, c2);
+        ctx.fillStyle = g;
+        ctx.beginPath();
+        ctx.moveTo(A.x + nx * R1, A.y + ny * R1);
+        ctx.lineTo(B.x + nx * R2, B.y + ny * R2);
+        ctx.arc(B.x, B.y, R2, Math.atan2(ny, nx), Math.atan2(ny, nx) + Math.PI, true);
+        ctx.lineTo(A.x - nx * R1, A.y - ny * R1);
+        ctx.arc(A.x, A.y, R1, Math.atan2(-ny, -nx), Math.atan2(-ny, -nx) + Math.PI, true);
+        ctx.closePath();
+        ctx.fill();
+      };
+
+      prims.forEach(pr => {
+        if (pr.k === 'seg') {
+          capsule(pr.a, pr.b, pr.r1, pr.r2, pr.col, pr.col2);
+          if (pr.col === pal.shoe) {
+            const A = P(pr.a), B = P(pr.b);
+            ctx.strokeStyle = pal.sole; ctx.lineWidth = Math.max(1.5, 0.012 * S);
+            ctx.beginPath(); ctx.moveTo(A.x, A.y + pr.r1 * S * 0.8); ctx.lineTo(B.x, B.y + pr.r2 * S * 0.8); ctx.stroke();
+          }
+        } else if (pr.k === 'torso') {
+          const pts = [pose.lSh, pose.tSh, pose.tHip, pose.lHip].map(P);
+          const g = ctx.createLinearGradient(0, pts[0].y, 0, pts[2].y);
+          g.addColorStop(0, pal.polo); g.addColorStop(1, pal.poloShade);
+          capsule(sfAdd(pose.pelvis, sfMul(pose.up, 0.02)), sfAdd(pose.neck, sfMul(pose.up, -0.06)), 0.13, 0.14, pal.poloShade, pal.polo);
+          ctx.fillStyle = g;
+          ctx.beginPath();
+          pts.forEach((q, i) => (i ? ctx.lineTo(q.x, q.y) : ctx.moveTo(q.x, q.y)));
+          ctx.closePath(); ctx.fill();
+          ctx.lineWidth = 0.1 * S; ctx.strokeStyle = g; ctx.lineJoin = 'round'; ctx.stroke();
+          // Gürtel
+          const a = P(pose.lHip), b = P(pose.tHip);
+          ctx.strokeStyle = pal.grip; ctx.lineWidth = Math.max(2, 0.03 * S);
+          ctx.beginPath(); ctx.moveTo(a.x, a.y - 0.02 * S); ctx.lineTo(b.x, b.y - 0.02 * S); ctx.stroke();
+        } else if (pr.k === 'head') {
+          const hc = P(pose.head);
+          const r = 0.105 * S;
+          const tgt = sfNorm(sfSub(sfAdd(m.ball, sfV(1.5 * pose.p.gaze, 0.35 * pose.p.gaze, -0.3 * pose.p.gaze)), pose.head));
+          const gz = P(sfAdd(pose.head, sfMul(tgt, 0.12)));
+          const gx = (gz.x - hc.x) / S / 0.12, gy = (gz.y - hc.y) / S / 0.12;
+          ctx.fillStyle = pal.skin;
+          ctx.beginPath(); ctx.arc(hc.x, hc.y, r, 0, Math.PI * 2); ctx.fill();
+          // Kappe: Kuppel entgegen der Blickrichtung, Schirm in Blickrichtung
+          const upP = P(sfAdd(pose.head, sfMul(pose.up, 0.1)));
+          const ang = Math.atan2(upP.y - hc.y, upP.x - hc.x);
+          ctx.fillStyle = pal.cap;
+          ctx.beginPath(); ctx.arc(hc.x, hc.y, r * 1.04, ang - Math.PI / 2 - 0.15, ang + Math.PI / 2 + 0.15); ctx.closePath(); ctx.fill();
+          ctx.strokeStyle = pal.capBrim; ctx.lineWidth = 1; ctx.stroke();
+          const px = Math.cos(ang + Math.PI / 2), py = Math.sin(ang + Math.PI / 2);
+          const bl = Math.abs(gx * px + gy * py);
+          ctx.fillStyle = pal.capBrim;
+          ctx.save();
+          ctx.translate(hc.x + Math.cos(ang) * r * 0.25, hc.y + Math.sin(ang) * r * 0.25);
+          ctx.rotate(ang + Math.PI / 2);
+          ctx.beginPath();
+          const side = Math.sign(gx * px + gy * py) || 1;
+          if (bl > 0.45) {
+            ctx.ellipse(side * r * 0.9, r * 0.05, r * 0.7 * Math.min(1, bl + 0.2), r * 0.2, 0, 0, Math.PI * 2);
+          } else {
+            ctx.ellipse(0, r * 0.12, r * 1.05, r * 0.24, 0, 0, Math.PI * 2);
+          }
+          ctx.fill();
+          ctx.restore();
+        } else if (pr.k === 'club') {
+          const g = P(sfSub(pose.grip, sfMul(pose.p.club, 0.06)));
+          const ge = P(sfAdd(pose.grip, sfMul(pose.p.club, 0.24)));
+          const hd = P(pose.clubHead);
+          ctx.strokeStyle = pal.shaft; ctx.lineWidth = Math.max(2, 0.013 * S);
+          ctx.beginPath(); ctx.moveTo(ge.x, ge.y); ctx.lineTo(hd.x, hd.y); ctx.stroke();
+          ctx.strokeStyle = pal.grip; ctx.lineWidth = Math.max(3, 0.03 * S);
+          ctx.beginPath(); ctx.moveTo(g.x, g.y); ctx.lineTo(ge.x, ge.y); ctx.stroke();
+          const hz = sfV(pose.p.club.x, 0, pose.p.club.z);
+          const toe = sfLen(hz) > 0.15 ? sfNorm(hz) : sfV(0, 0, 1);
+          const kind = m.club.head;
+          const len = kind === 'driver' ? 0.11 : kind === 'putter' ? 0.1 : 0.075;
+          const rad = kind === 'driver' ? 0.045 : kind === 'putter' ? 0.022 : 0.026;
+          capsule(sfSub(pose.clubHead, sfMul(toe, 0.012)), sfAdd(pose.clubHead, sfMul(toe, len)), rad * 0.8, rad, pal.clubHead, pal.clubHead);
+          // Hände (Handschuh)
+          const gp = P(pose.grip), tp = P(pose.tHand);
+          ctx.fillStyle = pal.cap; ctx.strokeStyle = pal.capBrim; ctx.lineWidth = 1;
+          ctx.beginPath(); ctx.arc(gp.x, gp.y, 0.036 * S, 0, Math.PI * 2); ctx.fill(); ctx.stroke();
+          ctx.fillStyle = pal.skin;
+          ctx.beginPath(); ctx.arc(tp.x, tp.y, 0.034 * S, 0, Math.PI * 2); ctx.fill();
+        }
+      });
+      ctx.restore();
+
+      // Ball (+ Tee) und Ballflug nach dem Treffmoment
+      const bP = P(sfV(m.ball.x, 0, m.ball.z));
+      if (m.tee > 0) {
+        ctx.strokeStyle = '#D97706'; ctx.lineWidth = Math.max(2, 0.012 * S);
+        ctx.beginPath(); ctx.moveTo(bP.x, oy + 2); ctx.lineTo(bP.x, P(m.ball).y + 0.015 * S); ctx.stroke();
+      }
+      let ball = m.ball, br = 0.0214;
+      if (F.t > m.impactT) {
+        const k = Math.min(1, (F.t - m.impactT) / (0.95 - m.impactT));
+        const L = Math.tan(sfRad(m.launch));
+        if (view === 'face') {
+          const dist = m.type === 'putt' ? k * 1.6 : k * 3.2;
+          ball = sfV(m.ball.x + dist, m.ball.y + dist * L - (m.type === 'putt' ? 0 : dist * dist * L * 0.18), m.ball.z);
+        } else {
+          const dist = m.type === 'putt' ? k * 1.2 : k * 4;
+          ball = sfV(m.ball.x + dist, m.ball.y + dist * L * 0.55 - (m.type === 'putt' ? 0 : dist * dist * L * 0.05), m.ball.z);
+          br = 0.0214 / (1 + dist * 0.9);
+        }
+        if (ball.y < 0.021) ball = sfV(ball.x, 0.021, ball.z);
+      }
+      const bb = P(ball);
+      if (bb.x < W + 20) {
+        ctx.save();
+        ctx.globalAlpha = fade;
+        ctx.fillStyle = '#ffffff'; ctx.strokeStyle = '#181D18'; ctx.lineWidth = 1.3;
+        ctx.beginPath(); ctx.arc(bb.x, bb.y, Math.max(2.5, br * S * 1.25), 0, Math.PI * 2); ctx.fill(); ctx.stroke();
+        ctx.restore();
+      }
+
+      // Kopfzeile: Ansicht + Phase
+      const phase = [...m.phases].reverse().find(ph => F.t >= ph[1] - 0.005) || m.phases[0];
+      ctx.textAlign = 'left'; ctx.textBaseline = 'alphabetic';
+      ctx.fillStyle = pal.text;
+      ctx.font = '800 13px "Plus Jakarta Sans", Roboto, sans-serif';
+      ctx.fillText(view === 'face' ? 'FRONTAL (Face-On)' : 'SEITLICH (Down-the-Line)', 14, 22);
+      ctx.fillStyle = pal.sub;
+      ctx.font = '500 11.5px Roboto, sans-serif';
+      ctx.fillText(F.label || '', 14, 38);
+      ctx.textAlign = 'right';
+      ctx.fillStyle = pal.text;
+      ctx.font = '700 12px Roboto, sans-serif';
+      ctx.fillText(view === 'face' ? 'Ziel →' : 'Ziel: in Blickrichtung', W - 14, 22);
+
+      const pillTxt = phase[0];
+      ctx.font = '800 12px "Plus Jakarta Sans", Roboto, sans-serif';
+      const pw = ctx.measureText(pillTxt).width + 22;
+      ctx.fillStyle = pal.trail;
+      ctx.beginPath(); ctx.roundRect(W - 14 - pw, 32, pw, 22, 11); ctx.fill();
+      ctx.fillStyle = document.documentElement.getAttribute('data-theme') === 'dark' ? '#0b1a10' : '#ffffff';
+      ctx.textAlign = 'center';
+      ctx.fillText(pillTxt, W - 14 - pw / 2, 47);
+
+      // Messwerte nur im Setup (Ansprechen)
+      if (F.overlays && F.t < (m.keys[1].t + 0.005)) {
+        const cfg = F.cfg || {};
+        const sgn = v => (v > 0 ? '+' : '') + v;
+        const badge = (txt, wx, col) => {
+          ctx.font = '700 11px "Plus Jakarta Sans", Roboto, sans-serif';
+          const w = ctx.measureText(txt).width + 18;
+          const x = Math.max(8, Math.min(W - w - 8, wx.x - w / 2));
+          const y = Math.max(60, Math.min(oy - 28, wx.y - 11));
+          ctx.fillStyle = pal.badgeBg; ctx.strokeStyle = col; ctx.lineWidth = 1.5;
+          ctx.beginPath(); ctx.roundRect(x, y, w, 22, 11); ctx.fill(); ctx.stroke();
+          ctx.fillStyle = pal.badgeText; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+          ctx.fillText(txt, x + w / 2, y + 11.5);
+          ctx.textBaseline = 'alphabetic';
+        };
+        if (view === 'face') {
+          const hd = P(addr.head);
+          badge(`Spine Tilt ${sgn(cfg.spineTiltDeg || 0)}°`, { x: hd.x + 0.42 * S, y: hd.y - 0.02 * S }, pal.spine);
+          const gp = P(addr.grip);
+          badge(`Shaft Lean ${sgn(cfg.shaftLeanDeg || 0)}°`, { x: gp.x - 0.5 * S, y: gp.y - 0.05 * S }, pal.plane);
+          badge(`Attack ${sgn(cfg.attackAngle || 0)}°`, { x: bP.x + 0.5 * S, y: oy - 0.2 * S }, pal.tri);
+        } else {
+          const hd = P(addr.head);
+          badge(`Vorbeuge ~${Math.round(m.club.bend)}°`, { x: hd.x - 0.55 * S, y: hd.y - 0.1 * S }, pal.spine);
+          if (m.type !== 'putt') {
+            const gp = P(addr.grip);
+            badge('Schaftebene', { x: gp.x + 0.5 * S, y: gp.y - 0.35 * S }, pal.plane);
+          }
+        }
+      }
+    }
+
+    function sfLoop(ts) {
+      const F = SwingFig;
+      F.raf = 0;
+      if (!F.canvas || !F.canvas.isConnected || F.canvas.offsetParent === null || document.hidden || !F.visible) return;
+      const dt = F.last ? Math.min(0.05, (ts - F.last) / 1000) : 0;
+      F.last = ts;
+      if (F.playing) {
+        const dur = F.model && F.model.type === 'putt' ? 2.6 : F.model && F.model.type === 'chip' ? 2.6 : 3.2;
+        F.t += (dt * F.speed) / dur;
+        if (F.t >= 1) F.t -= 1;
+        sfSyncControls();
+      }
+      sfDraw();
+      if (F.playing) F.raf = requestAnimationFrame(sfLoop);
+    }
+
+    function sfKick() {
+      const F = SwingFig;
+      if (F.raf) return;
+      F.last = 0;
+      F.raf = requestAnimationFrame(sfLoop);
+    }
+
+    function sfResize() {
+      const F = SwingFig;
+      if (!F.canvas) return;
+      const w = F.canvas.clientWidth;
+      if (!w) return;
+      const h = Math.round(Math.min(w * 0.86, 430));
+      F.dpr = Math.min(window.devicePixelRatio || 1, 2);
+      F.W = w; F.H = h;
+      F.canvas.style.height = h + 'px';
+      F.canvas.width = Math.round(w * F.dpr);
+      F.canvas.height = Math.round(h * F.dpr);
+      sfDraw();
+    }
+
+    function sfSyncControls() {
+      const F = SwingFig;
+      const root = document.getElementById('swingFigRoot');
+      if (!root || !F.model) return;
+      const slider = root.querySelector('.sf-scrub');
+      if (slider && document.activeElement !== slider) slider.value = String(Math.round(F.t * 1000));
+      const playIcon = root.querySelector('.sf-play-icon');
+      if (playIcon) playIcon.textContent = F.playing ? 'pause' : 'play_arrow';
+      const playBtn = root.querySelector('.sf-play');
+      if (playBtn) playBtn.setAttribute('aria-label', F.playing ? 'Pause' : 'Abspielen');
+      const spd = root.querySelector('.sf-speed');
+      if (spd) spd.textContent = F.speed === 1 ? '1×' : F.speed === 0.5 ? '½×' : '¼×';
+      const cur = [...F.model.phases].reverse().find(ph => F.t >= ph[1] - 0.005) || F.model.phases[0];
+      root.querySelectorAll('.sf-phase').forEach(b => b.classList.toggle('selected', b.dataset.name === cur[0]));
+      root.querySelectorAll('.sf-view').forEach(b => b.classList.toggle('selected', b.dataset.view === F.view));
+      const ov = root.querySelector('.sf-overlay');
+      if (ov) ov.classList.toggle('selected', F.overlays);
+    }
+
+    function swingFigToggle() { SwingFig.playing = !SwingFig.playing; sfSyncControls(); if (SwingFig.playing) sfKick(); else sfDraw(); }
+    function swingFigSpeed() { const i = SF_SPEEDS.indexOf(SwingFig.speed); SwingFig.speed = SF_SPEEDS[(i + 1) % SF_SPEEDS.length]; sfSyncControls(); }
+    function swingFigView(v) { SwingFig.view = v; sfSyncControls(); sfResize(); }
+    function swingFigOverlays() { SwingFig.overlays = !SwingFig.overlays; sfSyncControls(); sfDraw(); }
+    function swingFigScrub(val) { SwingFig.t = Math.min(0.999, Math.max(0, val / 1000)); SwingFig.playing = false; sfSyncControls(); sfDraw(); }
+    function swingFigPhase(i) {
+      const ph = SwingFig.model && SwingFig.model.phases[i];
+      if (!ph) return;
+      SwingFig.t = ph[1] + (i === 0 ? 0 : 0.001);
+      SwingFig.playing = false;
+      sfSyncControls();
+      sfDraw();
+    }
+
     function renderGolferPostureCanvas(cfg, subLabel) {
       const container = document.getElementById('svgGolferContainer');
       if (!container) return;
+      const F = SwingFig;
+      const newKey = JSON.stringify(cfg) + '|' + subLabel;
 
-      const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-      const W = 920;
-      const H = 480;
-      const dpr = Math.min(window.devicePixelRatio || 2, 2);
-
-      const canvas = document.createElement('canvas');
-      canvas.width = W * dpr;
-      canvas.height = H * dpr;
-      const ctx = canvas.getContext('2d');
-      ctx.scale(dpr, dpr);
-
-      const useSage = cfg.clubType === 'iron' && (cfg.stanceWidth || 130) >= 140;
-      const palette = isDark ? {
-        bg: '#111827',
-        divider: 'rgba(148, 163, 184, 0.22)',
-        title: '#F1F5F9',
-        subtitle: '#94A3B8',
-        turf: 'rgba(134, 216, 157, 0.14)',
-        skinTop: '#e8b892',
-        skinBot: '#b87d56',
-        poloTop: useSage ? '#64748b' : '#2563eb',
-        poloBot: useSage ? '#334155' : '#1e3a8a',
-        pantsTop: '#94a3b8',
-        pantsBot: '#475569',
-        cap: '#64748b',
-        capBrim: '#1e293b',
-        shoe: '#f8fafc',
-        shoeSole: '#334155',
-        armTri: '#86D89D',
-        spineCol: '#38bdf8',
-        shaftCol: '#eab308',
-        badgeBg: 'rgba(15, 23, 42, 0.92)',
-        badgeBorder: 'rgba(148, 163, 184, 0.35)',
-        badgeText: '#F8FAFC'
-      } : {
-        bg: '#F7F5EE',
-        divider: 'rgba(113, 121, 113, 0.25)',
-        title: '#181D18',
-        subtitle: '#414942',
-        turf: 'rgba(20, 108, 56, 0.12)',
-        skinTop: '#f0c097',
-        skinBot: '#c6865c',
-        poloTop: useSage ? '#6B8E78' : '#1E563A',
-        poloBot: useSage ? '#496654' : '#123824',
-        pantsTop: '#8C96A3',
-        pantsBot: '#5A6370',
-        cap: '#6B7280',
-        capBrim: '#1F2937',
-        shoe: '#FFFFFF',
-        shoeSole: '#374151',
-        armTri: '#146C38',
-        spineCol: '#0284C7',
-        shaftCol: '#B45309',
-        badgeBg: 'rgba(255, 255, 255, 0.95)',
-        badgeBorder: '#C0C9BF',
-        badgeText: '#181D18'
-      };
-
-      ctx.fillStyle = palette.bg;
-      ctx.fillRect(0, 0, W, H);
-
-      ctx.save();
-      ctx.strokeStyle = palette.divider;
-      ctx.lineWidth = 1.5;
-      ctx.setLineDash([6, 6]);
-      ctx.beginPath();
-      ctx.moveTo(W / 2, 24);
-      ctx.lineTo(W / 2, H - 24);
-      ctx.stroke();
-      ctx.restore();
-
-      function drawBadge(text, x, y, accentColor) {
-        ctx.save();
-        ctx.font = '700 11.5px "Plus Jakarta Sans", Roboto, sans-serif';
-        const padX = 11;
-        const h = 24;
-        const w = ctx.measureText(text).width + padX * 2;
-        const bx = Math.max(10, Math.min(W - w - 10, x - w / 2));
-        const by = Math.max(8, Math.min(H - h - 8, y - h / 2));
-
-        ctx.shadowColor = 'rgba(0,0,0,0.08)';
-        ctx.shadowBlur = 6;
-        ctx.shadowOffsetY = 2;
-
-        ctx.fillStyle = palette.badgeBg;
-        ctx.beginPath();
-        ctx.roundRect(bx, by, w, h, 12);
-        ctx.fill();
-
-        ctx.shadowColor = 'transparent';
-        ctx.strokeStyle = accentColor || palette.badgeBorder;
-        ctx.lineWidth = 1.5;
-        ctx.stroke();
-
-        ctx.fillStyle = palette.badgeText;
-        ctx.textAlign = 'center';
-        ctx.textBaseline = 'middle';
-        ctx.fillText(text, bx + w / 2, by + h / 2 + 0.5);
-        ctx.restore();
-      }
-
-      function drawSmoothLimb(x1, y1, x2, y2, r1, r2, colTop, colBot) {
-        const dx = x2 - x1;
-        const dy = y2 - y1;
-        const len = Math.hypot(dx, dy) || 1;
-        const nx = -dy / len;
-        const ny = dx / len;
-
-        const grad = ctx.createLinearGradient(x1, y1, x2, y2);
-        grad.addColorStop(0, colTop);
-        grad.addColorStop(1, colBot);
-
-        ctx.save();
-        ctx.fillStyle = grad;
-        ctx.beginPath();
-        ctx.moveTo(x1 + nx * r1, y1 + ny * r1);
-        ctx.lineTo(x2 + nx * r2, y2 + ny * r2);
-        ctx.lineTo(x2 - nx * r2, y2 - ny * r2);
-        ctx.lineTo(x1 - nx * r1, y1 - ny * r1);
-        ctx.closePath();
-        ctx.fill();
-
-        ctx.beginPath();
-        ctx.arc(x1, y1, r1, 0, Math.PI * 2);
-        ctx.fill();
-
-        ctx.beginPath();
-        ctx.arc(x2, y2, r2, 0, Math.PI * 2);
-        ctx.fill();
-        ctx.restore();
-      }
-
-      function drawShoe(x, y, dir = -1, width = 34) {
-        ctx.save();
-        ctx.fillStyle = palette.shoeSole;
-        ctx.beginPath();
-        ctx.roundRect(dir < 0 ? x - width + 8 : x - 8, y - 5, width, 6, 3);
-        ctx.fill();
-
-        ctx.fillStyle = palette.shoe;
-        ctx.strokeStyle = palette.capBrim;
-        ctx.lineWidth = 1.2;
-        ctx.beginPath();
-        if (dir < 0) {
-          ctx.moveTo(x + 8, y - 5);
-          ctx.lineTo(x + 8, y - 14);
-          ctx.quadraticCurveTo(x - 4, y - 16, x - width + 8, y - 9);
-          ctx.lineTo(x - width + 8, y - 5);
-        } else {
-          ctx.moveTo(x - 8, y - 5);
-          ctx.lineTo(x - 8, y - 14);
-          ctx.quadraticCurveTo(x + 4, y - 16, x + width - 8, y - 9);
-          ctx.lineTo(x + width - 8, y - 5);
+      if (!document.getElementById('swingFigRoot')) {
+        container.innerHTML = `
+          <div id="swingFigRoot" class="sf-root">
+            <div class="sf-toolbar">
+              <div class="md-segmented-group" role="group" aria-label="Ansicht wählen">
+                <button type="button" class="md-segmented-btn sf-view" data-view="face" onclick="swingFigView('face')">Frontal</button>
+                <button type="button" class="md-segmented-btn sf-view" data-view="dtl" onclick="swingFigView('dtl')">Seitlich</button>
+              </div>
+              <button type="button" class="md-filter-chip sf-overlay" onclick="swingFigOverlays()" aria-label="Hilfslinien ein/aus">
+                <span class="material-symbols-rounded" style="font-size: 16px;">straighten</span><span>Hilfslinien</span>
+              </button>
+            </div>
+            <canvas class="sf-canvas" role="img" aria-label="Animierter Golfschwung"></canvas>
+            <div class="sf-phases"></div>
+            <div class="sf-controls">
+              <button type="button" class="md-icon-btn sf-play" onclick="swingFigToggle()" aria-label="Pause"><span class="material-symbols-rounded sf-play-icon">pause</span></button>
+              <input type="range" class="sf-scrub" min="0" max="999" value="0" aria-label="Schwungposition" oninput="swingFigScrub(this.value)">
+              <button type="button" class="md-tonal-btn sf-speed" onclick="swingFigSpeed()" title="Geschwindigkeit / Zeitlupe">1×</button>
+            </div>
+          </div>`;
+        F.canvas = container.querySelector('.sf-canvas');
+        F.ctx = F.canvas.getContext('2d');
+        F.canvas.addEventListener('click', swingFigToggle);
+        if (window.ResizeObserver) new ResizeObserver(() => sfResize()).observe(F.canvas);
+        if (window.IntersectionObserver) {
+          new IntersectionObserver(entries => {
+            F.visible = entries.some(e => e.isIntersecting);
+            if (F.visible && F.playing) sfKick();
+          }).observe(F.canvas);
         }
-        ctx.closePath();
-        ctx.fill();
-        ctx.stroke();
-        ctx.restore();
+        if (!F.listenersBound) {
+          F.listenersBound = true;
+          document.addEventListener('visibilitychange', () => { if (!document.hidden && F.playing) sfKick(); });
+          if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) F.playing = false;
+        }
       }
 
-      ctx.fillStyle = palette.title;
-      ctx.font = '800 13px "Plus Jakarta Sans", Roboto, sans-serif';
-      ctx.textAlign = 'left';
-      ctx.fillText('FRONTALANSICHT (Face-On)', 26, 32);
-
-      ctx.fillStyle = palette.subtitle;
-      ctx.font = '500 11.5px Roboto, sans-serif';
-      ctx.fillText(subLabel || 'Setup & Ballposition', 26, 49);
-
-      const foCenterX = 230;
-      const groundY = 414;
-      const halfStance = (cfg.stanceWidth || 132) * 0.48;
-      const leftFootX = foCenterX - halfStance;
-      const rightFootX = foCenterX + halfStance;
-      const tiltRad = ((cfg.spineTiltDeg || 2) * Math.PI) / 180;
-
-      ctx.fillStyle = palette.turf;
-      ctx.beginPath();
-      ctx.ellipse(foCenterX, groundY + 2, halfStance + 46, 12, 0, 0, Math.PI * 2);
-      ctx.fill();
-
-      ctx.save();
-      ctx.strokeStyle = palette.armTri;
-      ctx.globalAlpha = 0.4;
-      ctx.setLineDash([4, 4]);
-      ctx.beginPath();
-      ctx.moveTo(leftFootX, groundY - 12);
-      ctx.lineTo(leftFootX, 240);
-      ctx.moveTo(rightFootX, groundY - 12);
-      ctx.lineTo(rightFootX, 240);
-      ctx.stroke();
-      ctx.restore();
-
-      const hipY = 266;
-      const leftHipX = foCenterX - 24;
-      const rightHipX = foCenterX + 24;
-      const leftKneeX = leftFootX + 5;
-      const rightKneeX = rightFootX - 5;
-      const kneeY = 338;
-
-      drawSmoothLimb(leftHipX, hipY, leftKneeX, kneeY, 17, 13, palette.pantsTop, palette.pantsBot);
-      drawSmoothLimb(leftKneeX, kneeY, leftFootX, groundY - 8, 13, 10, palette.pantsBot, palette.pantsBot);
-      drawSmoothLimb(rightHipX, hipY, rightKneeX, kneeY, 17, 13, palette.pantsTop, palette.pantsBot);
-      drawSmoothLimb(rightKneeX, kneeY, rightFootX, groundY - 8, 13, 10, palette.pantsBot, palette.pantsBot);
-      drawShoe(leftFootX, groundY, -1, 34);
-      drawShoe(rightFootX, groundY, 1, 34);
-
-      const torsoLen = 104;
-      const shoulderCenterX = foCenterX + Math.sin(tiltRad) * torsoLen;
-      const shoulderCenterY = hipY - Math.cos(tiltRad) * torsoLen;
-      const lShoulderX = shoulderCenterX - 36 * Math.cos(tiltRad);
-      const lShoulderY = shoulderCenterY - 36 * Math.sin(tiltRad);
-      const rShoulderX = shoulderCenterX + 36 * Math.cos(tiltRad);
-      const rShoulderY = shoulderCenterY + 36 * Math.sin(tiltRad);
-
-      const torsoGrad = ctx.createLinearGradient(shoulderCenterX, shoulderCenterY, foCenterX, hipY);
-      torsoGrad.addColorStop(0, palette.poloTop);
-      torsoGrad.addColorStop(1, palette.poloBot);
-
-      ctx.fillStyle = torsoGrad;
-      ctx.beginPath();
-      ctx.moveTo(lShoulderX, lShoulderY);
-      ctx.lineTo(rShoulderX, rShoulderY);
-      ctx.lineTo(rightHipX + 3, hipY + 4);
-      ctx.lineTo(leftHipX - 3, hipY + 4);
-      ctx.closePath();
-      ctx.fill();
-
-      ctx.fillStyle = palette.capBrim;
-      ctx.fillRect(leftHipX - 2, hipY - 3, rightHipX - leftHipX + 4, 7);
-
-      const headX = shoulderCenterX + Math.sin(tiltRad) * 32;
-      const headY = shoulderCenterY - Math.cos(tiltRad) * 32;
-      drawSmoothLimb(shoulderCenterX, shoulderCenterY, headX, headY + 10, 9, 8, palette.skinTop, palette.skinBot);
-
-      ctx.fillStyle = palette.skinTop;
-      ctx.beginPath();
-      ctx.ellipse(headX, headY - 4, 15, 19, tiltRad * 0.6, 0, Math.PI * 2);
-      ctx.fill();
-
-      ctx.fillStyle = palette.cap;
-      ctx.beginPath();
-      ctx.arc(headX, headY - 9, 15.5, Math.PI, 0);
-      ctx.fill();
-      ctx.fillStyle = palette.capBrim;
-      ctx.beginPath();
-      ctx.ellipse(headX - 8, headY - 10, 17, 4, -0.15, 0, Math.PI * 2);
-      ctx.fill();
-
-      const ballX = foCenterX + (cfg.ballOffset || 0);
-      const teeH = cfg.teeHeight || 0;
-      const ballY = groundY - 6 - teeH;
-      const leanRad = ((cfg.shaftLeanDeg || 4) * Math.PI) / 180;
-      const handsX = ballX - Math.tan(leanRad) * 145;
-      const handsY = 266;
-
-      const lElbowX = (lShoulderX + handsX) * 0.5 - 8;
-      const lElbowY = (lShoulderY + handsY) * 0.5 + 4;
-      const rElbowX = (rShoulderX + handsX) * 0.5 + 10;
-      const rElbowY = (rShoulderY + handsY) * 0.5 + 6;
-
-      drawSmoothLimb(lShoulderX, lShoulderY + 4, lElbowX, lElbowY, 11, 9, palette.poloTop, palette.skinBot);
-      drawSmoothLimb(lElbowX, lElbowY, handsX, handsY, 9, 7.5, palette.skinTop, palette.skinBot);
-      drawSmoothLimb(rShoulderX, rShoulderY + 4, rElbowX, rElbowY, 11, 9, palette.poloTop, palette.skinBot);
-      drawSmoothLimb(rElbowX, rElbowY, handsX + 3, handsY + 3, 9, 7.5, palette.skinTop, palette.skinBot);
-
-      ctx.strokeStyle = palette.pantsBot;
-      ctx.lineWidth = 3.5;
-      ctx.beginPath();
-      ctx.moveTo(handsX, handsY);
-      ctx.lineTo(ballX + 5, ballY + 2);
-      ctx.stroke();
-
-      ctx.fillStyle = palette.capBrim;
-      ctx.beginPath();
-      if (cfg.clubType === 'driver') {
-        ctx.ellipse(ballX + 10, ballY, 16, 10, -0.1, 0, Math.PI * 2);
-      } else if (cfg.clubType === 'putter') {
-        ctx.roundRect(ballX - 2, ballY - 4, 18, 8, 3);
-      } else {
-        ctx.ellipse(ballX + 7, ballY + 1, 12, 6, -0.25, 0, Math.PI * 2);
+      F.cfg = cfg;
+      F.label = subLabel || '';
+      if (newKey !== F.key) {
+        F.key = newKey;
+        F.model = sfBuildModel(cfg, subLabel);
+        F.t = 0;
+        const phaseBox = document.querySelector('#swingFigRoot .sf-phases');
+        if (phaseBox) {
+          phaseBox.innerHTML = F.model.phases.map((ph, i) => `<button type="button" class="md-filter-chip sf-phase" data-name="${ph[0]}" onclick="swingFigPhase(${i})">${ph[0]}</button>`).join('');
+        }
       }
-      ctx.fill();
-
-      ctx.fillStyle = '#FFFFFF';
-      ctx.strokeStyle = palette.capBrim;
-      ctx.lineWidth = 1.2;
-      ctx.beginPath();
-      ctx.arc(handsX + 1, handsY + 1, 8, 0, Math.PI * 2);
-      ctx.fill();
-      ctx.stroke();
-
-      if (teeH > 0) {
-        ctx.strokeStyle = '#D97706';
-        ctx.lineWidth = 3;
-        ctx.beginPath();
-        ctx.moveTo(ballX, groundY - 1);
-        ctx.lineTo(ballX, ballY + 5);
-        ctx.stroke();
-      }
-      ctx.fillStyle = '#FFFFFF';
-      ctx.strokeStyle = '#181D18';
-      ctx.lineWidth = 1.4;
-      ctx.beginPath();
-      ctx.arc(ballX, ballY, 6, 0, Math.PI * 2);
-      ctx.fill();
-      ctx.stroke();
-
-      ctx.save();
-      ctx.setLineDash([5, 4]);
-      ctx.lineWidth = 2;
-      ctx.strokeStyle = palette.spineCol;
-      ctx.beginPath();
-      ctx.moveTo(foCenterX, hipY);
-      ctx.lineTo(foCenterX, 118);
-      ctx.stroke();
-
-      ctx.strokeStyle = palette.armTri;
-      ctx.beginPath();
-      ctx.moveTo(lShoulderX, lShoulderY);
-      ctx.lineTo(handsX, handsY);
-      ctx.lineTo(rShoulderX, rShoulderY);
-      ctx.stroke();
-      ctx.restore();
-
-      const tiltSign = (cfg.spineTiltDeg || 0) > 0 ? '+' : '';
-      drawBadge(`Spine Tilt ${tiltSign}${cfg.spineTiltDeg || 0}°`, foCenterX + 76, 124, palette.spineCol);
-      drawBadge(cfg.clubType === 'putter' ? 'Entspanntes Fünfeck' : 'Arm-Dreieck', foCenterX + 86, 206, palette.armTri);
-      const leanSign = (cfg.shaftLeanDeg || 0) > 0 ? '+' : '';
-      drawBadge(`Shaft Lean ${leanSign}${cfg.shaftLeanDeg || 0}°`, handsX - 58, 250, palette.shaftCol);
-      const atkSign = (cfg.attackAngle || 0) > 0 ? '+' : '';
-      drawBadge(`Attack ${atkSign}${cfg.attackAngle || 0}°`, ballX - 48, 376, palette.armTri);
-
-      const dtlOffset = W / 2;
-      ctx.fillStyle = palette.title;
-      ctx.font = '800 13px "Plus Jakarta Sans", Roboto, sans-serif';
-      ctx.textAlign = 'left';
-      ctx.fillText('SEITENANSICHT (Down-the-Line)', dtlOffset + 26, 32);
-
-      ctx.fillStyle = palette.subtitle;
-      ctx.font = '500 11.5px Roboto, sans-serif';
-      ctx.fillText(`${subLabel || 'Setup'} (DTL)`, dtlOffset + 26, 49);
-
-      const dtlHipX = dtlOffset + 278;
-      const dtlHipY = 264;
-      const dtlFootX = dtlOffset + 264;
-      const dtlKneeX = dtlOffset + 252;
-      const dtlKneeY = 338;
-
-      ctx.fillStyle = palette.turf;
-      ctx.beginPath();
-      ctx.ellipse(dtlOffset + 225, groundY + 2, 105, 11, 0, 0, Math.PI * 2);
-      ctx.fill();
-
-      drawSmoothLimb(dtlHipX, dtlHipY, dtlKneeX, dtlKneeY, 18, 13.5, palette.pantsTop, palette.pantsBot);
-      drawSmoothLimb(dtlKneeX, dtlKneeY, dtlFootX, groundY - 8, 13.5, 10.5, palette.pantsBot, palette.pantsBot);
-      drawShoe(dtlFootX, groundY, -1, 38);
-
-      const hingeRad = cfg.clubType === 'putter' ? 0.56 : 0.44;
-      const dtlShoulderX = dtlHipX - Math.sin(hingeRad) * 106;
-      const dtlShoulderY = dtlHipY - Math.cos(hingeRad) * 106;
-
-      drawSmoothLimb(dtlHipX, dtlHipY, dtlShoulderX, dtlShoulderY, 19, 17, palette.poloBot, palette.poloTop);
-
-      const dtlHeadX = dtlShoulderX - Math.sin(hingeRad) * 32;
-      const dtlHeadY = dtlShoulderY - Math.cos(hingeRad) * 32;
-      drawSmoothLimb(dtlShoulderX, dtlShoulderY, dtlHeadX, dtlHeadY + 10, 9, 8, palette.skinTop, palette.skinBot);
-
-      ctx.fillStyle = palette.skinTop;
-      ctx.beginPath();
-      ctx.ellipse(dtlHeadX, dtlHeadY - 4, 15, 18, -0.25, 0, Math.PI * 2);
-      ctx.fill();
-
-      ctx.fillStyle = palette.cap;
-      ctx.beginPath();
-      ctx.arc(dtlHeadX, dtlHeadY - 9, 15.5, Math.PI, 0);
-      ctx.fill();
-      ctx.fillStyle = palette.capBrim;
-      ctx.beginPath();
-      ctx.ellipse(dtlHeadX - 13, dtlHeadY - 8, 16, 4, -0.2, 0, Math.PI * 2);
-      ctx.fill();
-
-      const dtlHandsX = dtlShoulderX - 12;
-      const dtlHandsY = 268;
-      const dtlElbowX = dtlShoulderX - 4;
-      const dtlElbowY = 212;
-      const dtlBallX = dtlOffset + 168;
-      const dtlBallY = groundY - 6 - teeH;
-
-      drawSmoothLimb(dtlShoulderX, dtlShoulderY + 4, dtlElbowX, dtlElbowY, 11.5, 9.5, palette.poloTop, palette.skinBot);
-      drawSmoothLimb(dtlElbowX, dtlElbowY, dtlHandsX, dtlHandsY, 9.5, 8, palette.skinTop, palette.skinBot);
-
-      ctx.strokeStyle = palette.pantsBot;
-      ctx.lineWidth = 3.5;
-      ctx.beginPath();
-      ctx.moveTo(dtlHandsX, dtlHandsY);
-      ctx.lineTo(dtlBallX, dtlBallY);
-      ctx.stroke();
-
-      ctx.fillStyle = palette.capBrim;
-      ctx.beginPath();
-      ctx.ellipse(dtlBallX - 4, dtlBallY + 1, 13, 7, -0.25, 0, Math.PI * 2);
-      ctx.fill();
-
-      ctx.fillStyle = '#FFFFFF';
-      ctx.strokeStyle = palette.capBrim;
-      ctx.lineWidth = 1.2;
-      ctx.beginPath();
-      ctx.arc(dtlHandsX, dtlHandsY, 7.5, 0, Math.PI * 2);
-      ctx.fill();
-      ctx.stroke();
-
-      if (teeH > 0) {
-        ctx.strokeStyle = '#D97706';
-        ctx.lineWidth = 3;
-        ctx.beginPath();
-        ctx.moveTo(dtlBallX, groundY - 1);
-        ctx.lineTo(dtlBallX, dtlBallY + 5);
-        ctx.stroke();
-      }
-      ctx.fillStyle = '#FFFFFF';
-      ctx.strokeStyle = '#181D18';
-      ctx.lineWidth = 1.4;
-      ctx.beginPath();
-      ctx.arc(dtlBallX, dtlBallY, 6, 0, Math.PI * 2);
-      ctx.fill();
-      ctx.stroke();
-
-      ctx.save();
-      ctx.setLineDash([5, 4]);
-      ctx.strokeStyle = palette.shaftCol;
-      ctx.lineWidth = 2;
-      ctx.beginPath();
-      ctx.moveTo(dtlHipX + 6, dtlHipY + 8);
-      ctx.lineTo(dtlHeadX - 10, dtlHeadY - 26);
-      ctx.stroke();
-
-      ctx.setLineDash([]);
-      ctx.strokeStyle = palette.armTri;
-      ctx.beginPath();
-      ctx.moveTo(dtlHandsX + 8, dtlHandsY);
-      ctx.lineTo(dtlHipX - 18, dtlHandsY);
-      ctx.stroke();
-      ctx.restore();
-
-      drawBadge('Wirbelsäulen-Winkel', dtlOffset + 345, 138, palette.shaftCol);
-      drawBadge('Natürliche Faustbreite', dtlOffset + 145, 252, palette.armTri);
-      drawBadge(`Attack ${atkSign}${cfg.attackAngle || 0}°`, dtlOffset + 128, 376, palette.spineCol);
-
-      const img = document.createElement('img');
-      img.className = 'golfer-hd-render';
-      img.alt = `Golfer-Haltung & Armstellung: ${subLabel || ''}`;
-      img.src = canvas.toDataURL('image/png');
-      container.innerHTML = '';
-      container.appendChild(img);
+      sfSyncControls();
+      requestAnimationFrame(() => { sfResize(); if (F.playing) sfKick(); });
     }
 
     /* ========================================================================
@@ -6658,7 +6875,7 @@
 
       el.innerHTML = `
         <svg viewBox="0 0 480 280" role="img" aria-label="Seitenansicht Schwungbahn und Tiefpunkt">
-          <text x="16" y="24" fill="var(--svg-text-main)" font-size="12" font-weight="800" font-family="Plus Jakarta Sans, sans-serif">SCHWUNGBAHN &amp; TIEFPUKT (Low Point)</text>
+          <text x="16" y="24" fill="var(--svg-text-main)" font-size="12" font-weight="800" font-family="Plus Jakarta Sans, sans-serif">SCHWUNGBAHN &amp; TIEFPUNKT (Low Point)</text>
           <text x="16" y="40" fill="var(--svg-text-sub)" font-size="10.5" font-family="Roboto, sans-serif">Zielrichtung: Links ← | Eintreffwinkel: ${cfg.attackAngle > 0 ? '+' : ''}${cfg.attackAngle}°</text>
 
           <rect x="24" y="${groundY}" width="432" height="36" rx="10" fill="var(--svg-turf-fill)" />
@@ -6666,10 +6883,13 @@
 
           ${cfg.showDivot ? `
             <path d="M ${ballX - 4} ${groundY} Q ${(ballX + lowX) / 2} ${groundY + 14} ${lowX - 18} ${groundY}" fill="#78350F" opacity="0.85" />
-            <text x="${lowX - 10}" y="${groundY + 26}" text-anchor="middle" fill="var(--svg-text-sub)" font-size="9.5" font-weight="700">Divot nach dem Ball</text>
+            <text x="${(ballX + lowX) / 2 - 9}" y="${groundY + 46}" text-anchor="middle" fill="var(--svg-text-sub)" font-size="9.5" font-weight="700">Divot nach dem Ball</text>
           ` : ''}
 
           <path d="M ${lowX + 125} 98 Q ${lowX} ${groundY + 16} ${lowX - 125} 102" fill="none" stroke="var(--svg-overlay-spine)" stroke-width="2.6" stroke-dasharray="7 5" class="animate-swing" />
+          <circle r="7" fill="var(--svg-text-main)" opacity="0.85">
+            <animateMotion dur="1.6s" repeatCount="indefinite" keyPoints="0;1" keyTimes="0;1" calcMode="spline" keySplines="0.55 0 0.35 1" path="M ${lowX + 125} 98 Q ${lowX} ${groundY + 16} ${lowX - 125} 102" />
+          </circle>
 
           <circle cx="${lowX}" cy="${groundY + 3}" r="5.5" fill="var(--svg-overlay-spine)" />
           <text x="${lowX}" y="${groundY + 26}" text-anchor="middle" fill="var(--svg-overlay-spine)" font-size="10" font-weight="800">Tiefpunkt</text>
