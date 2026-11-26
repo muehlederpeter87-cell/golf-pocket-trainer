@@ -9,8 +9,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="apple-mobile-web-app-title" content="Golf Pocket Trainer" />
   <meta name="application-name" content="Golf Pocket Trainer" />
-  <meta name="description" content="Golf Pocket Trainer v4.36.0 – Material Design 3 Golf Technik-, Trainings-, Rules-, Scratch-Blueprint-, Komparator-, Warm-up-, Video-Analyse-, 40-Tage-Challenge- & Gamification-Statistik-Begleiter" />
-  <title>Golf Pocket Trainer (v4.36.0)</title>
+  <meta name="description" content="Golf Pocket Trainer v4.37.0 – Material Design 3 Golf Technik-, Trainings-, Rules-, Scratch-Blueprint-, Komparator-, Warm-up-, Video-Analyse-, 40-Tage-Challenge- & Gamification-Statistik-Begleiter" />
+  <title>Golf Pocket Trainer (v4.37.0)</title>
 
   <link rel="manifest" href="manifest.webmanifest" />
   <link rel="icon" type="image/png" sizes="48x48" href="icons/favicon-48.png" />
@@ -72,7 +72,7 @@
 
       /* SVG & Editorial Golfer Stage Tokens (Light Mode) */
       --svg-bg: #F0F5EE;
-      --svg-editorial-bg: #F7F5EE;
+      --svg-editorial-bg: #F0F5EE;
       --svg-grid: rgba(24, 29, 24, 0.05);
       --svg-turf-fill: #E4EAE2;
       --svg-turf-stroke: #146C38;
@@ -147,7 +147,7 @@
 
       /* SVG & Editorial Golfer Stage Tokens (Dark Mode) */
       --svg-bg: #181D18;
-      --svg-editorial-bg: #111827;
+      --svg-editorial-bg: #181D18;
       --svg-grid: rgba(224, 228, 221, 0.05);
       --svg-turf-fill: #262B26;
       --svg-turf-stroke: #86D89D;
@@ -403,85 +403,6 @@
     @media (max-width: 380px) {
       #toolsChecklistCounter { display: none; }
       .md-version-badge { display: none; }
-    }
-
-    .md-brand {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-    }
-
-    .md-brand-avatar {
-      width: 2.5rem;
-      height: 2.5rem;
-      border-radius: 999px;
-      background-color: var(--md-sys-color-primary-container);
-      color: var(--md-sys-color-on-primary-container);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-
-    .md-brand-title {
-      font-size: 1.25rem;
-      font-weight: 700;
-      color: var(--md-sys-color-on-surface);
-      line-height: 1.2;
-    }
-
-    .md-version-badge {
-      font-size: 0.72rem;
-      font-weight: 700;
-      padding: 0.2rem 0.6rem;
-      border-radius: 0.5rem;
-      background-color: var(--md-sys-color-tertiary-container);
-      color: var(--md-sys-color-on-tertiary-container);
-    }
-
-    .md-top-actions {
-      display: flex;
-      align-items: center;
-      gap: 0.35rem;
-      position: relative;
-    }
-
-    .md-icon-btn {
-      width: 2.5rem;
-      height: 2.5rem;
-      border-radius: 999px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--md-sys-color-on-surface-variant);
-      position: relative;
-      overflow: hidden;
-      transition: background-color 0.2s cubic-bezier(0.2, 0, 0, 1);
-    }
-
-    .md-icon-btn:hover {
-      background-color: var(--md-state-hover);
-      color: var(--md-sys-color-on-surface);
-    }
-
-    .md-icon-btn:active {
-      background-color: var(--md-state-pressed);
-    }
-
-    .md-tonal-btn {
-      height: 2.5rem;
-      padding: 0 1rem;
-      border-radius: 999px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.45rem;
-      font-size: 0.85rem;
-      font-weight: 500;
-      letter-spacing: 0.01em;
-      background-color: var(--md-sys-color-secondary-container);
-      color: var(--md-sys-color-on-secondary-container);
-      transition: box-shadow 0.2s cubic-bezier(0.2, 0, 0, 1), filter 0.2s ease;
     }
 
     .md-tonal-btn:hover {
@@ -2080,7 +2001,7 @@
     }
 
     .md-cal-day.today-ring::after {
-      content: 'HEUTE';
+      content: 'Heute';
       position: absolute;
       top: -6px;
       font-size: 0.56rem;
@@ -2542,6 +2463,103 @@
       .md-comp-tick { min-height: 44px; }
     }
     @media (prefers-reduced-motion: reduce) { .md-toast { transition: none; } }
+    /* ==========================================================================
+       11. EINHEITLICHES DESIGN (v4.37.0)
+       Referenz ist die Startseite: flache, tonale Karten ohne Schatten, eine
+       Schrift für Text und Zahlen, Satzschreibweise statt Großbuchstaben.
+       Kräftiges Mint (primary-container) nur für Fortschritt, Erledigtes & Icons.
+       ========================================================================== */
+
+    /* Zahlen & Daten: Roboto mit gleich breiten Ziffern statt Schreibmaschinen-Schrift */
+    .font-mono,
+    .md-date-input {
+      font-family: inherit;
+      font-variant-numeric: tabular-nums;
+      letter-spacing: 0;
+    }
+
+    /* Beschriftungen in Satzschreibweise */
+    .md-menu-heading,
+    .md-gear-group-label,
+    .md-home-section,
+    .md-kpi-label,
+    .md-scratch-table th,
+    .md-wedge-matrix-table th {
+      text-transform: none;
+      letter-spacing: 0;
+    }
+    .md-home-section { font-size: 0.86rem; color: var(--md-sys-color-on-surface); margin-top: 0.5rem; }
+    .md-menu-heading { font-size: 0.76rem; }
+    .md-kpi-label { font-size: 0.76rem; }
+    .md-gear-group-label { font-size: 0.78rem; }
+    .md-scratch-table th, .md-wedge-matrix-table th { font-size: 0.75rem; }
+    .md-form-ring-label { letter-spacing: 0; font-size: 0.78rem; }
+    @media (max-width: 400px) { .md-kpi-label { letter-spacing: 0; font-size: 0.72rem; } }
+
+    /* Karten: tonal & flach wie auf der Startseite */
+    .md-card-elevated {
+      background-color: var(--md-sys-color-surface-container-low);
+      border: 1px solid var(--md-sys-color-outline-variant);
+      box-shadow: none;
+    }
+    .md-drill-card,
+    .md-rule-card,
+    .md-scratch-card,
+    .md-checkin-card,
+    .md-achievement-tile.earned,
+    .md-cal-day.training-day.selected-day,
+    .md-timer-dial { box-shadow: none; }
+    .md-svg-editorial img.golfer-hd-render { box-shadow: none; }
+
+    /* Tipps, Erfolgs-Ziele & Korrekturen: ruhiges Salbeigrün statt grellem Mint */
+    .md-pro-fix-box {
+      background-color: var(--md-sys-color-secondary-container);
+      color: var(--md-sys-color-on-secondary-container);
+    }
+    .md-pro-fix-box > .material-symbols-rounded:first-child { color: var(--md-sys-color-primary); }
+
+    /* Kennzeichnungen über Überschriften: dezente Pille */
+    .md-assist-badge {
+      border-radius: 999px;
+      padding: 0.2rem 0.65rem;
+      font-weight: 700;
+      background-color: var(--md-sys-color-secondary-container);
+      color: var(--md-sys-color-on-secondary-container);
+    }
+
+    /* Kopfbereiche (Warm-up-Timer, Level) wie die Golf-Form auf der Startseite */
+    .md-timer-surface,
+    .md-gamification-hero {
+      background: linear-gradient(165deg, var(--md-sys-color-primary-container), var(--md-sys-color-surface-container-low) 62%);
+      color: var(--md-sys-color-on-surface);
+      border: 1px solid var(--md-sys-color-outline-variant);
+      border-radius: 1.5rem;
+      box-shadow: none;
+    }
+    .md-xp-track,
+    [data-theme="dark"] .md-xp-track { background-color: var(--md-sys-color-surface-container-highest); }
+    .md-level-step-chip:not(.unlocked) { background-color: var(--md-sys-color-surface); }
+    .md-level-emblem { box-shadow: none; }
+
+    /* Leise Rücksetz-Aktion (die Sicherheitsabfrage bleibt) */
+    .md-text-btn-quiet { color: var(--md-sys-color-on-surface-variant); font-weight: 600; }
+
+    /* Abzeichen auf schmalen Bildschirmen: Symbol über dem Text, kein Umbruch mitten im Wort */
+    .md-achievement-tile > div:not(.md-kpi-icon-circle) { overflow-wrap: break-word; hyphens: auto; }
+    @media (max-width: 480px) {
+      .md-achievement-tile { flex-direction: column; gap: 0.45rem; }
+    }
+
+    /* Stufen-Farben auch im Dark Mode lesbar */
+    [data-theme="dark"] .md-rep-tier.tier-bronze { background-color: #4A2E14; color: #F3DEC8; }
+    [data-theme="dark"] .md-rep-tier.tier-silver { background-color: #3A4248; color: #E3E7EA; }
+    [data-theme="dark"] .md-rep-tier.tier-gold { background-color: #4D3A00; color: #FBE7A6; }
+
+    /* Sichtbarer Tastatur-Fokus überall */
+    :where(button, a, summary, input, select, [role="button"], [tabindex]):focus-visible {
+      outline: 2px solid var(--md-sys-color-primary);
+      outline-offset: 2px;
+    }
   </style>
 </head>
 <body>
@@ -2558,7 +2576,6 @@
         <div class="md-brand-text-wrap">
           <div style="display: flex; align-items: center; gap: 0.4rem;">
             <h1 class="md-brand-title">Golf Pocket Trainer</h1>
-            <span class="md-version-badge font-mono">v4.36.0</span>
           </div>
           <p class="md-brand-sub">Dein Trainings- &amp; Platzbegleiter</p>
         </div>
@@ -2635,7 +2652,7 @@
               <span class="material-symbols-rounded" style="color: var(--md-sys-color-on-surface-variant);">history</span>
               <span>Versionsverlauf</span>
             </span>
-            <span class="font-mono" style="font-size: 0.72rem; color: var(--md-sys-color-on-surface-variant);">v4.36.0</span>
+            <span class="font-mono" style="font-size: 0.72rem; color: var(--md-sys-color-on-surface-variant);">v4.37.0</span>
           </button>
         </div>
       </div>
@@ -2892,7 +2909,7 @@
               <span class="material-symbols-rounded" style="font-size: 17px;">help</span>
               <span id="btnDrillsGuideLabel">So trainierst du effektiv</span>
             </button>
-            <button type="button" onclick="resetCompletedDrills()" class="md-text-btn" style="color: var(--md-sys-color-error);">Zurücksetzen</button>
+            <button type="button" onclick="resetCompletedDrills()" class="md-text-btn md-text-btn-quiet">Zurücksetzen</button>
           </div>
         </div>
 
@@ -2904,22 +2921,22 @@
           </div>
           <div class="md-scratch-steps-row">
             <div class="md-scratch-step-tile">
-              <span class="font-mono" style="font-size: 0.72rem; font-weight: 800; color: var(--md-sys-color-primary);">SCHRITT 1 · FOKUS</span>
+              <span class="font-mono" style="font-size: 0.72rem; font-weight: 800; color: var(--md-sys-color-primary);">Schritt 1 · Fokus</span>
               <strong style="font-size: 0.84rem;">1–2 Drills wählen</strong>
               <span style="font-size: 0.77rem; color: var(--md-sys-color-on-surface-variant);">Wähle gezielt eine Kategorie statt wahllos 100 Bälle zu schlagen.</span>
             </div>
             <div class="md-scratch-step-tile">
-              <span class="font-mono" style="font-size: 0.72rem; font-weight: 800; color: var(--md-sys-color-primary);">SCHRITT 2 · AUFBAU</span>
+              <span class="font-mono" style="font-size: 0.72rem; font-weight: 800; color: var(--md-sys-color-primary);">Schritt 2 · Aufbau</span>
               <strong style="font-size: 0.84rem;">Video &amp; Hilfsmittel</strong>
               <span style="font-size: 0.77rem; color: var(--md-sys-color-on-surface-variant);">Schau das Tutorial an und lege Handtuch, Tees oder Sticks sauber aus.</span>
             </div>
             <div class="md-scratch-step-tile">
-              <span class="font-mono" style="font-size: 0.72rem; font-weight: 800; color: var(--md-sys-color-primary);">SCHRITT 3 · TEMPO</span>
+              <span class="font-mono" style="font-size: 0.72rem; font-weight: 800; color: var(--md-sys-color-primary);">Schritt 3 · Tempo</span>
               <strong style="font-size: 0.84rem;">75%-Schwung &amp; Ziel</strong>
               <span style="font-size: 0.77rem; color: var(--md-sys-color-on-surface-variant);">Trainiere kontrolliert auf das definierte Erfolgs-Ziel hin.</span>
             </div>
             <div class="md-scratch-step-tile">
-              <span class="font-mono" style="font-size: 0.72rem; font-weight: 800; color: var(--md-sys-color-primary);">SCHRITT 4 · TRANSFER</span>
+              <span class="font-mono" style="font-size: 0.72rem; font-weight: 800; color: var(--md-sys-color-primary);">Schritt 4 · Transfer</span>
               <strong style="font-size: 0.84rem;">Eintragen &amp; wiederholen</strong>
               <span style="font-size: 0.77rem; color: var(--md-sys-color-on-surface-variant);">Trag den Drill nach jedem Training ein. Jeder neue Trainingstag bringt XP und führt zur nächsten Stufe: 🥉 3 · 🥈 8 · 🥇 15 Tage.</span>
             </div>
@@ -3056,7 +3073,7 @@
               <span class="material-symbols-rounded" style="font-size: 17px;">help</span>
               <span id="btnScratchGuideLabel">So nutzt du die 8 Säulen</span>
             </button>
-            <button type="button" onclick="resetScratchMastered()" class="md-text-btn" style="color: var(--md-sys-color-error);">Zurücksetzen</button>
+            <button type="button" onclick="resetScratchMastered()" class="md-text-btn md-text-btn-quiet">Zurücksetzen</button>
           </div>
         </div>
 
@@ -3250,7 +3267,7 @@
           </div>
           <div style="display: flex; align-items: center; gap: 0.45rem; flex-wrap: wrap;">
             <span id="challengeProgressBadge" class="md-assist-badge font-mono">0 / 14 Einheiten</span>
-            <button type="button" onclick="resetChallenge40Progress()" class="md-text-btn" style="color: var(--md-sys-color-error);">Zurücksetzen</button>
+            <button type="button" onclick="resetChallenge40Progress()" class="md-text-btn md-text-btn-quiet">Zurücksetzen</button>
           </div>
         </div>
 
@@ -3345,7 +3362,7 @@
             </div>
             <div>
               <div style="display: flex; align-items: center; gap: 0.45rem; flex-wrap: wrap;">
-                <span id="gamificationLevelBadge" class="md-assist-badge font-mono" style="background-color: var(--md-sys-color-primary); color: var(--md-sys-color-on-primary);">LEVEL 1 / 6</span>
+                <span id="gamificationLevelBadge" class="md-assist-badge font-mono" style="background-color: var(--md-sys-color-primary); color: var(--md-sys-color-on-primary);">Level 1 / 6</span>
                 <span id="gamificationTotalXp" class="font-mono" style="font-weight: 800; font-size: 0.86rem;">0 XP</span>
               </div>
               <h2 id="gamificationLevelTitle" class="font-display" style="font-size: 1.3rem; font-weight: 800; margin-top: 0.2rem;">Range-Rookie</h2>
@@ -3440,7 +3457,7 @@
         <article class="md-card-outlined md-card-pad" style="display: flex; flex-direction: column; gap: 0.85rem;">
           <div style="display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; flex-wrap: wrap;">
             <h3 class="font-display" style="font-size: 1rem; font-weight: 800;">Chronologischer Zeitverlauf</h3>
-            <button type="button" onclick="clearActivityLogHistory()" class="md-text-btn" style="color: var(--md-sys-color-error); font-size: 0.75rem;">Verlauf leeren</button>
+            <button type="button" onclick="clearActivityLogHistory()" class="md-text-btn md-text-btn-quiet" style="font-size: 0.75rem;">Verlauf leeren</button>
           </div>
 
           <div class="md-segmented-group">
@@ -3470,7 +3487,7 @@
        ======================================================================== -->
   <footer class="md-footer">
     <div class="md-container" style="display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; flex-wrap: wrap;">
-      <span><strong>Golf Pocket Trainer</strong> (<span class="font-mono">v4.36.0</span>) &bull; Dein interaktiver Trainings- &amp; Platzbegleiter</span>
+      <span><strong>Golf Pocket Trainer</strong> (<span class="font-mono">v4.37.0</span>) &bull; Dein interaktiver Trainings- &amp; Platzbegleiter</span>
       <button type="button" onclick="openChangelogModal()" class="md-text-btn" style="height: 1.85rem;">Versionsverlauf ansehen</button>
     </div>
   </footer>
@@ -3549,7 +3566,7 @@
       </div>
       <div id="checklistItems" class="md-dialog-body" style="padding-top: 1rem;"></div>
       <div class="md-dialog-actions" style="justify-content: space-between;">
-        <button type="button" onclick="resetChecklist()" class="md-text-btn" style="color: var(--md-sys-color-error);">Zurücksetzen</button>
+        <button type="button" onclick="resetChecklist()" class="md-text-btn md-text-btn-quiet">Zurücksetzen</button>
         <button type="button" onclick="closeChecklistDrawer()" class="md-filled-btn">Fertig</button>
       </div>
     </aside>
@@ -3593,7 +3610,7 @@
       <div class="md-dialog-header">
         <div>
           <span class="md-assist-badge" style="background-color: var(--md-sys-color-tertiary-container); color: var(--md-sys-color-on-tertiary-container);">Release Notes &amp; Wartung</span>
-          <h2 id="changelogTitle" class="font-display" style="font-size: 1.25rem; font-weight: 800; margin-top: 0.3rem;">Versionsverlauf (v1.0.0 – v4.36.0)</h2>
+          <h2 id="changelogTitle" class="font-display" style="font-size: 1.25rem; font-weight: 800; margin-top: 0.3rem;">Versionsverlauf (v1.0.0 – v4.37.0)</h2>
         </div>
         <button type="button" onclick="closeChangelogModal()" class="md-icon-btn" aria-label="Schließen">
           <span class="material-symbols-rounded">close</span>
@@ -3608,20 +3625,34 @@
   </div>
 
   <!-- ========================================================================
-       COMPLETE SELF-CONTAINED JAVASCRIPT ENGINE (v4.36.0)
+       COMPLETE SELF-CONTAINED JAVASCRIPT ENGINE (v4.37.0)
        ======================================================================== -->
   <div id="appToast" class="md-toast" role="status" aria-live="polite"></div>
   <input type="file" id="backupFileInput" accept="application/json,.json" hidden onchange="handleBackupFile(event)" />
 
   <script>
-    const APP_VERSION = 'v4.36.0';
+    const APP_VERSION = 'v4.37.0';
 
     const CHANGELOG_ENTRIES = [
       {
-        version: 'v4.36.0',
+        version: 'v4.37.0',
         date: 'Aktuell',
-        title: 'Neue Startseite mit Golf-Form & Runden',
+        title: 'Einheitliches Design in der ganzen App',
         latest: true,
+        notes: [
+          'Alle Bereiche sehen jetzt aus wie die neue Startseite: ruhige, flache Karten statt Schatten und eine Schrift für Text und Zahlen – die Schreibmaschinen-Schrift ist überall verschwunden.',
+          'Erfolgs-Ziele, Praxis-Tipps, Sofort-Korrekturen und Scratch-Benchmarks stehen in dezentem Salbeigrün statt in grellem Mint. Kräftiges Grün bleibt für Fortschritt und Erledigtes reserviert.',
+          'Warm-up-Timer und Level-Übersicht haben denselben Kopfbereich wie die Golf-Form auf der Startseite.',
+          'Überschriften und Beschriftungen in normaler Schreibweise statt in GROSSBUCHSTABEN – leichter lesbar.',
+          'Abzeichen auf dem Handy: Schloss-Symbol über dem Text, damit Namen nicht mehr mitten im Wort umbrechen.',
+          'Kopfzeile auf dem Handy kompakter (Versionsnummer steht im Menü), „Zurücksetzen“ ist nicht mehr rot hervorgehoben und Fokus-Rahmen für die Tastatur sind überall sichtbar.'
+        ]
+      },
+      {
+        version: 'v4.36.0',
+        date: 'Vorherige Version',
+        title: 'Neue Startseite mit Golf-Form & Runden',
+        latest: false,
         notes: [
           'Ganz oben steht jetzt deine Golf-Form (0–100) groß im Kreis – berechnet aus deinen Trainings und Runden der letzten 14 Tage. Ohne Training sinkt sie langsam, mit dem nächsten Training steigt sie sofort wieder.',
           'Dein Level bleibt darunter als Abzeichen mit Fortschrittsbalken – es kann nur steigen. Dazu Serie, Wochenziel und Challenge-Stand auf einen Blick.',
@@ -3633,7 +3664,7 @@
       },
       {
         version: 'v4.35.0',
-        date: 'Vorherige Version',
+        date: 'Meilenstein 61',
         title: 'Challenge mit echten Golfübungen & Packliste',
         latest: false,
         notes: [
@@ -7672,7 +7703,7 @@
             <circle class="value" cx="84" cy="84" r="${r}" stroke-width="14" fill="none" stroke-linecap="round" stroke-dasharray="${c.toFixed(1)}" stroke-dashoffset="${(c * (1 - form.value / 100)).toFixed(1)}"/>
           </svg>
           <div class="md-form-ring-center">
-            <span class="md-form-ring-label">GOLF-FORM</span>
+            <span class="md-form-ring-label">Golf-Form</span>
             <span class="md-form-ring-num">${form.value}</span>
             <span class="md-form-ring-status">${golfFormStatus(form.value)}</span>
           </div>
@@ -11149,7 +11180,7 @@
               ${checked ? '<span class="material-symbols-rounded" style="font-size: 16px;">check</span>' : ''}
             </div>
             <div>
-              <div style="font-size: 0.72rem; font-weight: 700; text-transform: uppercase; color: var(--md-sys-color-primary);">${item.cat}</div>
+              <div style="font-size: 0.72rem; font-weight: 700; color: var(--md-sys-color-primary);">${item.cat}</div>
               <div class="md-check-label" style="font-size: 0.85rem; margin-top: 0.1rem;">${item.text}</div>
             </div>
           </div>
@@ -11736,7 +11767,7 @@
       const stepsEl = document.getElementById('gamificationLevelSteps');
 
       if (lvlIcon) lvlIcon.textContent = currentLvl.icon;
-      if (lvlBadge) lvlBadge.textContent = `LEVEL ${currentLvl.level} / ${GAMIFICATION_LEVELS.length}`;
+      if (lvlBadge) lvlBadge.textContent = `Level ${currentLvl.level} / ${GAMIFICATION_LEVELS.length}`;
       if (lvlXp) lvlXp.textContent = `${totalXp} XP`;
       if (lvlTitle) lvlTitle.textContent = currentLvl.name;
       if (lvlDesc) lvlDesc.textContent = currentLvl.desc;
@@ -11986,7 +12017,7 @@
                 <span class="material-symbols-rounded filled" style="font-size: 20px; color: var(--md-sys-color-primary); flex-shrink: 0; margin-top: 2px;">${meta.icon}</span>
                 <div style="flex: 1; min-width: 0;">
                   <div style="display: flex; align-items: center; justify-content: space-between; gap: 0.4rem; flex-wrap: wrap;">
-                    <span style="font-size: 0.7rem; font-weight: 700; text-transform: uppercase; color: var(--md-sys-color-primary);">${meta.label}</span>
+                    <span style="font-size: 0.7rem; font-weight: 700; color: var(--md-sys-color-primary);">${meta.label}</span>
                     <span class="font-mono" style="font-size: 0.7rem; color: var(--md-sys-color-on-surface-variant);">${formatTimelineTimestamp(item.timestamp)}</span>
                   </div>
                   <div style="font-weight: 700; font-size: 0.86rem; margin-top: 0.1rem;">${item.title}</div>
