@@ -9,8 +9,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="apple-mobile-web-app-title" content="Golf Pocket Trainer" />
   <meta name="application-name" content="Golf Pocket Trainer" />
-  <meta name="description" content="Golf Pocket Trainer v4.32.0 – Material Design 3 Golf Technik-, Trainings-, Rules-, Scratch-Blueprint-, Komparator-, Warm-up-, Video-Analyse-, 40-Tage-Challenge- & Gamification-Statistik-Begleiter" />
-  <title>Golf Pocket Trainer (v4.32.0)</title>
+  <meta name="description" content="Golf Pocket Trainer v4.32.1 – Material Design 3 Golf Technik-, Trainings-, Rules-, Scratch-Blueprint-, Komparator-, Warm-up-, Video-Analyse-, 40-Tage-Challenge- & Gamification-Statistik-Begleiter" />
+  <title>Golf Pocket Trainer (v4.32.1)</title>
 
   <link rel="manifest" href="manifest.webmanifest" />
   <link rel="icon" type="image/png" sizes="48x48" href="icons/favicon-48.png" />
@@ -2399,7 +2399,7 @@
         <div class="md-brand-text-wrap">
           <div style="display: flex; align-items: center; gap: 0.4rem;">
             <h1 class="md-brand-title">Golf Pocket Trainer</h1>
-            <span class="md-version-badge font-mono">v4.32.0</span>
+            <span class="md-version-badge font-mono">v4.32.1</span>
           </div>
           <p class="md-brand-sub">Dein Trainings- &amp; Platzbegleiter</p>
         </div>
@@ -2476,7 +2476,7 @@
               <span class="material-symbols-rounded" style="color: var(--md-sys-color-on-surface-variant);">history</span>
               <span>Versionsverlauf</span>
             </span>
-            <span class="font-mono" style="font-size: 0.72rem; color: var(--md-sys-color-on-surface-variant);">v4.32.0</span>
+            <span class="font-mono" style="font-size: 0.72rem; color: var(--md-sys-color-on-surface-variant);">v4.32.1</span>
           </button>
         </div>
       </div>
@@ -3301,7 +3301,7 @@
        ======================================================================== -->
   <footer class="md-footer">
     <div class="md-container" style="display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; flex-wrap: wrap;">
-      <span><strong>Golf Pocket Trainer</strong> (<span class="font-mono">v4.32.0</span>) &bull; Dein interaktiver Trainings- &amp; Platzbegleiter</span>
+      <span><strong>Golf Pocket Trainer</strong> (<span class="font-mono">v4.32.1</span>) &bull; Dein interaktiver Trainings- &amp; Platzbegleiter</span>
       <button type="button" onclick="openChangelogModal()" class="md-text-btn" style="height: 1.85rem;">Versionsverlauf ansehen</button>
     </div>
   </footer>
@@ -3424,7 +3424,7 @@
       <div class="md-dialog-header">
         <div>
           <span class="md-assist-badge" style="background-color: var(--md-sys-color-tertiary-container); color: var(--md-sys-color-on-tertiary-container);">Release Notes &amp; Wartung</span>
-          <h2 id="changelogTitle" class="font-display" style="font-size: 1.25rem; font-weight: 800; margin-top: 0.3rem;">Versionsverlauf (v1.0.0 – v4.32.0)</h2>
+          <h2 id="changelogTitle" class="font-display" style="font-size: 1.25rem; font-weight: 800; margin-top: 0.3rem;">Versionsverlauf (v1.0.0 – v4.32.1)</h2>
         </div>
         <button type="button" onclick="closeChangelogModal()" class="md-icon-btn" aria-label="Schließen">
           <span class="material-symbols-rounded">close</span>
@@ -3439,20 +3439,32 @@
   </div>
 
   <!-- ========================================================================
-       COMPLETE SELF-CONTAINED JAVASCRIPT ENGINE (v4.32.0)
+       COMPLETE SELF-CONTAINED JAVASCRIPT ENGINE (v4.32.1)
        ======================================================================== -->
   <div id="appToast" class="md-toast" role="status" aria-live="polite"></div>
   <input type="file" id="backupFileInput" accept="application/json,.json" hidden onchange="handleBackupFile(event)" />
 
   <script>
-    const APP_VERSION = 'v4.32.0';
+    const APP_VERSION = 'v4.32.1';
 
     const CHANGELOG_ENTRIES = [
       {
-        version: 'v4.32.0',
+        version: 'v4.32.1',
         date: 'Aktuell',
-        title: 'Warm-up überarbeitet: Rückwärts-Aufbau, Notfall-Variante & smarter Timer',
+        title: 'Trainingsinhalte fachlich geprüft & korrigiert',
         latest: true,
+        notes: [
+          'Drills korrigiert: Abstände in der Carry-Leiter (20–25 m zwischen Eisen 9, 7 und 5), Roll-Verhältnis beim Chippen (Eisen 8 etwa 1:4), Lage der Alignment-Sticks und der Schlägerhaube, eindeutige Angaben „zielseitig der Linie“ bei Rasen- und Bunkerlinie.',
+          'Zielzahlen an die Ballanzahl angepasst (Rasenlinie 12 von 15, Bunkerlinie 10 von 15).',
+          'Scratch-Säulen und Challenge: unrealistische Statistiken korrigiert. Auch Tour-Profis lochen aus 1,5 m rund drei Viertel der Putts und kommen mit dem Wedge im Schnitt 5–6 m ans Loch.',
+          'Drei passendere Videos: Pitchen auf 30–70 m (Landehandtuch & Challenge Tag 16), Carry-Längen kennen (Carry-Leiter) und Annäherung unter 100 m (Challenge Tag 25).'
+        ]
+      },
+      {
+        version: 'v4.32.0',
+        date: 'Vorherige Version',
+        title: 'Warm-up überarbeitet: Rückwärts-Aufbau, Notfall-Variante & smarter Timer',
+        latest: false,
         notes: [
           'Das 45-Min.-Turnier-Warm-up folgt jetzt wirklich dem Rückwärts-Aufbau: Mobilisation → Putten → Chip/Pitch/Bunker → Wedges → Eisen → Abschläge mit Simulation von Loch 1–3 → Übergang zu Tee 1.',
           'Das 15-Min.-Warm-up plant eine Minute für den Weg zum Grün ein. Der Abschlag-Test erfolgt mit dem Schläger, den du an Tee 1 wirklich spielst.',
@@ -3465,7 +3477,7 @@
       },
       {
         version: 'v4.31.0',
-        date: 'Vorherige Version',
+        date: 'Meilenstein 56',
         title: 'Schlagtechnik-Videos passend zu jeder Variante',
         latest: false,
         notes: [
@@ -4469,7 +4481,7 @@
     const WARMUP_ROUTINE_KEYS = Object.keys(WARMUP_ROUTINES);
     const WARMUP_PHASE_TOTAL = WARMUP_ROUTINE_KEYS.reduce((sum, k) => sum + WARMUP_ROUTINES[k].phases.length, 0);
 
-    // Phasen-Schlüssel: "<routine>-<phasen-id>" (seit v4.32.0; ältere Index-Schlüssel werden verworfen).
+    // Phasen-Schlüssel: "<routine>-<phasen-id>" (seit v4.32.1; ältere Index-Schlüssel werden verworfen).
     function parseWarmupPhaseKey(phaseKey) {
       const str = String(phaseKey || '');
       const sep = str.indexOf('-');
@@ -4492,7 +4504,7 @@
         durationBalls: '15 Bälle · ca. 10 Min.',
         setupMaterial: 'Driver, hohes Tee, 1 Schlägerhaube (Headcover)',
         steps: [
-          'Lege deine Driver-Haube ca. 20 cm hinter und 10 cm außerhalb (rechts) des aufgeteeten Balls auf die Matte.',
+          'Lege deine Driver-Haube ca. 20 cm hinter den aufgeteeten Ball (Richtung rechter Fuß) und ca. 10 cm weiter von dir weg als die Ball-Ziel-Linie.',
           'Schwinge im 75%-Tempo so von innen nach außen, dass der Schlägerkopf die Haube nicht berührt.',
           'Steigere das Tempo erst, wenn 5 Bälle in Folge ohne Berührung sauber starten.'
         ],
@@ -4546,11 +4558,11 @@
         durationBalls: '15 Bälle · ca. 10 Min.',
         setupMaterial: 'Eisen 8/9, Kreidespray oder Alignment-Stick auf Rasen',
         steps: [
-          'Ziehe eine gerade Linie auf dem Rasen und lege 5 Bälle direkt auf diese Linie.',
+          'Ziehe eine gerade Linie quer zur Ziellinie auf dem Rasen und lege jeweils einen Ball direkt auf diese Linie.',
           'Schlage die Bälle und kontrolliere nach jedem Schlag, wo dein Divot beginnt.',
-          'Jedes Divot muss exakt AUF oder ZIELSEITIG VOR der Linie beginnen.'
+          'Das Divot soll genau auf der Linie oder zielseitig davon beginnen – also erst Ball, dann Rasen.'
         ],
-        successGoal: 'Mindestens 8 von 10 Divots beginnen zielseitig vor der Linie.',
+        successGoal: 'Mindestens 12 von 15 Divots beginnen auf der Linie oder zielseitig davon.',
         videoId: 'fIRndq3lXlk',
         videoTitle: 'Zuerst der Ball, dann der Boden (Golf Technik)',
         videoChannel: 'Einfach besser golfen',
@@ -4569,10 +4581,10 @@
           'Wiederhole die Übung auf 45 m (9 Uhr) und 60 m (10 Uhr).'
         ],
         successGoal: 'Mindestens 4 von 6 Bällen landen innerhalb eines 2-Meter-Radius um das Handtuch.',
-        videoId: 'wqTFfCZxQOY',
-        videoTitle: 'Das Wedge Book: Der Spickzettel für dein Short Game',
-        videoChannel: 'TaylorMade Golf Europe',
-        videoDuration: ''
+        videoId: 'MZZ_jdZ56_A',
+        videoTitle: 'Golf Pitch: Die schwierigen halben Entfernungen (30–70 m)',
+        videoChannel: 'Vaughan spielt den Platz',
+        videoDuration: '05:16'
       },
       {
         id: 'drill-wedge-onehand',
@@ -4582,7 +4594,7 @@
         durationBalls: '12 Bälle · ca. 8 Min.',
         setupMaterial: 'Sand Wedge (56°)',
         steps: [
-          'Greife das Sand Wedge nur mit der rechten Hand und lege die linke Hand auf die linke Schulter.',
+          'Greife das Sand Wedge nur mit der rechten Hand und lege die linke Hand an deine rechte Schulter.',
           'Spiele kleine 15-Meter-Pitches und lasse die Sohle (Bounce) weich über den Rasen gleiten.',
           'Spüre, wie sich die Brustkorb-Rotation mit dem Schlägerkopf synchronisiert.'
         ],
@@ -4636,7 +4648,7 @@
         durationBalls: '15 Bälle · ca. 10 Min.',
         setupMaterial: 'Eisen 7, 2 Alignment-Sticks (oder 2 Schläger)',
         steps: [
-          'Lege Stick 1 direkt auf die Ball-Ziel-Linie und Stick 2 parallel dazu vor deine Zehenspitzen.',
+          'Lege Stick 1 knapp hinter dem Ball parallel zur Ball-Ziel-Linie (Richtung Ziel zeigend) und Stick 2 parallel dazu vor deine Zehenspitzen.',
           'Baue bei jedem einzelnen Ball deine komplette Pre-Shot-Routine von hinten auf.',
           'Prüfe vor dem Abzug, ob Hüfte und Schultern exakt parallel zu Stick 2 stehen.'
         ],
@@ -4746,7 +4758,7 @@
         steps: [
           'Lege den Golfball auf das Anfangsloch eines 1 Meter langen flachen Metall-Lineals auf dem Teppich.',
           'Putte den Ball so gerade entlang der Linealkante, dass er erst am Ende herunterrollt und in ein flach hingelegtes Trinkglas (oder Putt-Cup) läuft.',
-          'Fällt der Ball seitlich vom Lineal herunter, war das Schlägerblatt im Treffmoment um mehr als 1° verdreht.'
+          'Fällt der Ball seitlich vom Lineal herunter, stand die Schlagfläche im Treffmoment nicht gerade zur Linie.'
         ],
         successGoal: '10 Putts in Folge über das komplette 1-Meter-Lineal ins Glas rollen lassen.',
         videoId: 'Aw8qsRdLXuk',
@@ -4892,11 +4904,11 @@
           'Schätze die Carry-Distanz (Landepunkt, nicht Ausrollen) und notiere den Durchschnitt.',
           'Vergleiche die Abstände zwischen den Schlägern – sie sollten gleichmäßig sein.'
         ],
-        successGoal: 'Du kennst deine Carry-Distanzen und die Abstände betragen ca. 10–12 m pro Schläger.',
-        videoId: 'MJCG7gvGC0I',
-        videoTitle: 'Effektiver trainieren auf der Driving Range',
-        videoChannel: 'GOLFSTUN.DE',
-        videoDuration: ''
+        successGoal: 'Du kennst deine Carry-Distanzen. Pro Eisen-Nummer liegen etwa 10–12 m dazwischen, zwischen Eisen 9, 7 und 5 also jeweils etwa 20–25 m.',
+        videoId: 'fxr7iuGPhHs',
+        videoTitle: 'Carrylängen: Warum du deine Flugdistanz kennen musst',
+        videoChannel: 'Martina Eberl Coaching',
+        videoDuration: '02:54'
       },
       {
         id: 'drill-iron-gate',
@@ -4948,7 +4960,7 @@
           'Chippe mit allen drei Schlägern je 5 Bälle auf dieselbe Landezone und benutze dieselbe kurze Bewegung.',
           'Beobachte, wie weit jeder Schläger danach rollt.'
         ],
-        successGoal: 'Du kennst das Verhältnis von Flug zu Rollen für jeden Schläger (etwa Eisen 8 1:3, PW 1:2, SW 1:1).',
+        successGoal: 'Du kennst das Verhältnis von Flug zu Rollen für jeden Schläger (Faustregel: Eisen 8 etwa 1:4, PW 1:2, SW 1:1).',
         videoId: '67tzqp2q-tE',
         videoTitle: 'Golf Training Chip: Flach spielen, hoch gewinnen',
         videoChannel: 'Golf.de',
@@ -4984,9 +4996,9 @@
         steps: [
           'Ziehe eine Linie quer zur Ziellinie in den Sand.',
           'Schwinge zuerst ohne Ball und triff den Sand genau ab der Linie – 5 Wiederholungen.',
-          'Lege jetzt den Ball 5 cm vor die Linie und spiele ihn mit offener Schlagfläche heraus.'
+          'Lege jetzt den Ball 5 cm zielseitig der Linie und spiele ihn mit offener Schlagfläche heraus – der Schläger taucht an der Linie in den Sand ein.'
         ],
-        successGoal: '8 von 10 Bällen landen beim ersten Versuch auf dem Grün.',
+        successGoal: '10 von 15 Bällen landen beim ersten Versuch auf dem Grün.',
         videoId: 'f7nalUCMRQY',
         videoTitle: 'Bunkerschlag: Golf-Übung für den richtigen Treffmoment',
         videoChannel: 'GOLFSTUN.DE',
@@ -5446,7 +5458,7 @@
         actionSteps: [
           'Spiele vom Tee nur einen Schläger, mit dem deine Streuung innerhalb der Fairway- bzw. Rough-Breite bleibt – niemals den Driver erzwingen, wenn bei 230 m Aus oder Wasser lauert.',
           'Nach einem Fehlschlag in den Wald gilt ausschließlich der sicherste Chip quer zurück aufs Fairway („Take your medicine“) – niemals durch eine 1-Meter-Lücke zwischen Bäumen zocken.',
-          'Vermeide konsequent die „Short Side“: Zielt die Fahne rechts nahe am Bunker, ziele immer auf die linke/mittlere Grünhälfte.'
+          'Vermeide konsequent die „Short Side“: Steckt die Fahne rechts nahe am Bunker, ziele immer auf die linke bzw. mittlere Grünhälfte.'
         ],
         benchmark: 'Maximal 1 Strafschlag alle 2 Runden (Ø 0,6 / Runde) und weniger als 0,5 Doppelbogeys pro 18 Loch.'
       },
@@ -5460,7 +5472,7 @@
         actionSteps: [
           'Ziele bei Annäherungen über 130 m grundsätzlich auf die Mitte des Grüns – unabhängig davon, wo die Fahne steckt.',
           'Greife nur dann eine Fahne direkt an, wenn du ein Wedge (unter 100 m) in der Hand hast UND kein Wasser oder tiefer Bunker auf der Fahnenseite liegt.',
-          'Wähle bei der Schlägerwahl immer die Carry-Distanz bis zur Grünmitte/Hinterkante – 80 % aller Amateure lassen Annäherungen zu kurz.'
+          'Wähle bei der Schlägerwahl immer die Carry-Distanz bis zur Grünmitte/Hinterkante – die meisten Amateure lassen ihre Annäherungen zu kurz.'
         ],
         benchmark: 'Mindestens 11 Greens in Regulation (60 % GIR) pro Runde.'
       },
@@ -5490,7 +5502,7 @@
           'Schwinge bei allen Teil-Wedges mit demselben ruhigen Rhythmus wie bei einem Pitch und kontrolliere die Flugbahn niedrig (Spin-Loft).',
           'Lege dir auf Par 5s den zweiten Schlag immer exakt auf deine Lieblings-Wedge-Distanz (z. B. 75 m) vor.'
         ],
-        benchmark: 'Durchschnittliche Nähe zum Loch (Proximity) von unter 3,3 m bei Schlägen unter 50 m.'
+        benchmark: 'Durchschnittliche Nähe zum Loch (Proximity) von unter 7 m bei Schlägen aus 40–100 m (Tour-Spieler: ca. 5–6 m).'
       },
       {
         id: 'scratch-scrambling',
@@ -5512,13 +5524,13 @@
         categoryLabel: 'Wedges & Putting',
         impactTag: 'Max. 29–30 Putts / Runde',
         title: '6. 1,5-Meter-Dominanz & 3-Putt-Vermeidung (Lag Putting)',
-        summary: 'Tour- und Scratch-Spieler lochen aus 6 Metern nur ca. 15 % ihrer Putts – aber sie lochen über 90 % aus 1,5 m und machen fast nie 3-Putts.',
+        summary: 'Tour- und Scratch-Spieler lochen aus 6 Metern nur ca. 15 % ihrer Putts – aber aus 1 m lochen sie fast alles, aus 1,5 m rund drei Viertel, und 3-Putts sind selten.',
         actionSteps: [
           'Trainiere den „1,5-Meter-Uhr-Drill“ (8 Bälle rund ums Loch): Verlasse das Übungsgrün erst, wenn 16 Putts in Folge gelocht wurden.',
           'Bei Putts über 9 Meter (Lag Putts) zählt nur die Geschwindigkeit: Stelle dir einen 1-Meter-Kreis um das Loch vor und fokussiere dich zu 90 % auf das Tempo.',
           'Lies das Grün bereits beim Herangehen aus der tiefsten Perspektive (AimPoint / Gefälle spüren), um die Routine am Ball unter 15 Sekunden zu halten.'
         ],
-        benchmark: '93 % Lochquote bis 1,8 m (6 ft) und maximal 0,7 3-Putts pro Runde.'
+        benchmark: 'Mindestens 3 von 4 Putts aus 1,5 m gelocht und maximal 0,7 3-Putts pro Runde.'
       },
       {
         id: 'scratch-practice',
@@ -5556,7 +5568,7 @@
     const CHECKLIST_ITEMS = [
       { id: 'chk-1', cat: 'Aufwärmen', text: '5 Min. dynamische Mobilisation (Brustwirbelsäule, Hüfte, Schultern) vor dem ersten Ball.' },
       { id: 'chk-2', cat: 'Griff-Check', text: 'Neutraler 2-Knöchel-Griff der linken Hand & lockerer Griffdruck (4 von 10) geprüft.' },
-      { id: 'chk-3', cat: 'Ausrichtung', text: '2 Alignment-Sticks als Eisenbahnschienen (Ball-Ziel-Linie & Körperlinie) ausgelegt.' },
+      { id: 'chk-3', cat: 'Ausrichtung', text: '2 Alignment-Sticks als Eisenbahnschienen (parallel zur Ball-Ziel-Linie & als Fußlinie) ausgelegt.' },
       { id: 'chk-4', cat: 'Kurzspiel Start', text: 'Erste 10 Bälle mit Pitching Wedge & Sand Wedge auf 30–60 m zum Rhythmus-Aufbau geschlagen.' },
       { id: 'chk-5', cat: 'Eisenschläge', text: 'Ball-Boden-Kontakt geprüft: Tiefpunkt (Low Point) liegt zielseitig vor dem Ball.' },
       { id: 'chk-6', cat: 'Driver Setup', text: 'Ball an Innenseite linke Ferse, Spine Tilt (+10°) und Aufwärtswinkel geprüft.' },
@@ -5636,7 +5648,7 @@
           },
           intermediate: {
             title: 'Tag 1: Pre-Shot-Routine & Startlinien-Kalibrierung',
-            goal: 'Ausrichtung unter 1° Abweichung und konstante Ballposition.',
+            goal: 'Füße, Hüfte und Schultern stehen bei jedem Ball parallel zur Ziellinie, die Ballposition bleibt konstant.',
             exercises: [
               '<strong>10 Min. Zwischenziel-Routine:</strong> 15 Bälle mit Eisen 7 – bei jedem Ball von hinten ein Zwischenziel 1 m vor dem Ball wählen.',
               '<strong>10 Min. Ballpositions-Check:</strong> Je 5 Bälle mit Pitching Wedge, Eisen 7 und Hybrid mit exakt geprüfter Ballposition.',
@@ -5678,7 +5690,7 @@
           },
           advanced: {
             title: 'Tag 4: Scratch Putting-Dominanz (1,5 m & Lag)',
-            goal: '95 % Lochquote bis 1,5 m und null 3-Putts auf 18 Loch.',
+            goal: 'Aus 1 m praktisch alles lochen, aus 1,5 m mindestens 3 von 4 – und keine 3-Putts.',
             exercises: [
               '<strong>15 Min. 1,5-Meter-Druck-Uhr:</strong> 20 Putts in Folge lochen – bei Fehlschlag wieder bei 0 starten.',
               '<strong>10 Min. 10–14 m Lag-Putting:</strong> 12 Putts auf ein 90-cm-Zonenfeld um das Loch.',
@@ -5788,7 +5800,7 @@
       },
       {
         day: 16, sessionNum: 6, focus: 'Pitching · Uhren-System (30–70 m)',
-        duration: '35 Min.', videoId: 'wqTFfCZxQOY',
+        duration: '35 Min.', videoId: 'MZZ_jdZ56_A',
         levels: {
           beginner: {
             title: 'Tag 16: Bounce nutzen & 8/9/10-Uhr-Schwung',
@@ -5809,7 +5821,7 @@
           },
           advanced: {
             title: 'Tag 16: Wedge-Matrix Kalibrierung (12 Distanzen)',
-            goal: 'Proximity unter 3,3 m aus unter 50 Metern.',
+            goal: 'Aus 30–50 m im Schnitt näher als 6 m ans Loch.',
             exercises: [
               '<strong>20 Min. 12-Distanzen-Matrix:</strong> Alle 4 Wedges (PW, 52°, 56°, 60°) mit 8, 9 und 10 Uhr durchspielen.',
               '<strong>15 Min. Grünbunker-Präzision:</strong> 12 Bunkerschläge auf kurze und lange Fahnenpositionen.'
@@ -5881,7 +5893,7 @@
       },
       {
         day: 25, sessionNum: 9, focus: 'Scoring Zone · 50 bis 100 Meter',
-        duration: '35 Min.', videoId: 'SEXD-jqF088',
+        duration: '35 Min.', videoId: 'jY9vM25UvdA',
         levels: {
           beginner: {
             title: 'Tag 25: Sicherheit aus 50–80 Metern',
@@ -5901,7 +5913,7 @@
           },
           advanced: {
             title: 'Tag 25: Birdie-Zone Attacke (55–105 m)',
-            goal: 'Durchschnittliche Nähe zum Loch unter 4,0 m.',
+            goal: 'Durchschnittliche Nähe zum Loch unter 7 m.',
             exercises: [
               '<strong>25 Min. Random Wedge Combine:</strong> 18 Bälle auf wechselnde Distanzen zwischen 55 und 105 m.',
               '<strong>10 Min. Spin-Kontrolle:</strong> 10 Wedges mit niedrigem Ballstart und schnellem Stopp.'
@@ -5931,7 +5943,7 @@
           },
           advanced: {
             title: 'Tag 28: Sub-29 Putts Tour-Routine',
-            goal: '93 %+ Lochquote bis 1,8 m und null 3-Putts.',
+            goal: 'Mindestens 3 von 4 Putts aus 1,8 m lochen und keine 3-Putts.',
             exercises: [
               '<strong>20 Min. 1,8-m-Druckserie:</strong> 15 Putts aus 1,8 m mit voller Pre-Putt-Routine.',
               '<strong>15 Min. 15-m-Monster-Lag-Putts:</strong> 10 Putts aus 15 m innerhalb von 90 cm ans Loch.'
@@ -7403,7 +7415,7 @@
       return `${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
     }
 
-    // Timer rechnet seit v4.32.0 mit der echten Uhrzeit (Endzeitpunkt), damit er auch bei
+    // Timer rechnet seit v4.32.1 mit der echten Uhrzeit (Endzeitpunkt), damit er auch bei
     // gesperrtem Bildschirm bzw. gedrosseltem Hintergrund-Tab korrekt bleibt.
     let warmupEndAt = 0;
     let warmupPhaseIdx = -1;
