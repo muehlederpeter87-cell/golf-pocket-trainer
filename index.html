@@ -9,8 +9,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="apple-mobile-web-app-title" content="Golf Pocket Trainer" />
   <meta name="application-name" content="Golf Pocket Trainer" />
-  <meta name="description" content="Golf Pocket Trainer v4.37.0 – Material Design 3 Golf Technik-, Trainings-, Rules-, Scratch-Blueprint-, Komparator-, Warm-up-, Video-Analyse-, 40-Tage-Challenge- & Gamification-Statistik-Begleiter" />
-  <title>Golf Pocket Trainer (v4.37.0)</title>
+  <meta name="description" content="Golf Pocket Trainer v4.38.0 – Material Design 3 Golf Technik-, Trainings-, Rules-, Scratch-Blueprint-, Komparator-, Warm-up-, Video-Analyse-, 40-Tage-Challenge- & Gamification-Statistik-Begleiter" />
+  <title>Golf Pocket Trainer (v4.38.0)</title>
 
   <link rel="manifest" href="manifest.webmanifest" />
   <link rel="icon" type="image/png" sizes="48x48" href="icons/favicon-48.png" />
@@ -859,6 +859,19 @@
     .md-form-kpi strong { font-size: 1.05rem; font-weight: 800; }
     .md-form-kpi span { font-size: 0.7rem; color: var(--md-sys-color-on-surface-variant); }
     .md-form-help { font-size: 0.7rem; color: var(--md-sys-color-on-surface-variant); }
+    .md-form-share { height: 2.4rem; padding: 0 1rem; }
+    .md-form-record { display: inline-block; margin-left: 0.25rem; font-weight: 700; color: var(--md-sys-color-primary); }
+    /* Persönliche Bestwerte & Wochenkarte (v4.38.0) */
+    .md-bests-card { display: flex; flex-direction: column; gap: 0.75rem; padding: 1rem; border-radius: 1.35rem; background-color: var(--md-sys-color-surface-container); }
+    .md-bests-head { display: flex; align-items: center; justify-content: space-between; gap: 0.6rem; flex-wrap: wrap; }
+    .md-bests-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.45rem; }
+    .md-best { position: relative; display: flex; flex-direction: column; gap: 0.15rem; padding: 0.65rem 0.55rem; border-radius: 1rem; background-color: var(--md-sys-color-surface); min-width: 0; }
+    .md-best strong { font-size: 1.35rem; font-weight: 800; color: var(--md-sys-color-primary); font-variant-numeric: tabular-nums; }
+    .md-best-label { font-size: 0.74rem; font-weight: 700; line-height: 1.25; }
+    .md-best-when { font-size: 0.68rem; color: var(--md-sys-color-on-surface-variant); }
+    .md-best-new { position: absolute; top: 0.4rem; right: 0.4rem; font-size: 0.62rem; font-weight: 800; padding: 0.05rem 0.35rem; border-radius: 99px; background-color: var(--md-sys-color-primary); color: var(--md-sys-color-on-primary); }
+    .md-share-preview { width: 100%; max-width: 20rem; align-self: center; border-radius: 1rem; display: block; box-shadow: var(--md-sys-elevation-1); }
+    @media (max-width: 380px) { .md-bests-grid { grid-template-columns: 1fr; } }
     .md-home-section { font-size: 0.74rem; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; color: var(--md-sys-color-on-surface-variant); margin: 0.3rem 0.2rem -0.45rem; }
     .md-home-stack { display: flex; flex-direction: column; gap: 0.75rem; }
     .md-home-card { display: flex; flex-direction: column; gap: 0.7rem; padding: 0.95rem 1rem; border-radius: 1.35rem; background-color: var(--md-sys-color-surface-container); }
@@ -2652,7 +2665,7 @@
               <span class="material-symbols-rounded" style="color: var(--md-sys-color-on-surface-variant);">history</span>
               <span>Versionsverlauf</span>
             </span>
-            <span class="font-mono" style="font-size: 0.72rem; color: var(--md-sys-color-on-surface-variant);">v4.37.0</span>
+            <span class="font-mono" style="font-size: 0.72rem; color: var(--md-sys-color-on-surface-variant);">v4.38.0</span>
           </button>
         </div>
       </div>
@@ -3398,6 +3411,9 @@
       </article>
 
 
+      <!-- Persönliche Bestwerte + Woche teilen -->
+      <article id="personalBestsCard" class="md-bests-card"></article>
+
       <!-- KPI Overview -->
       <div class="md-kpi-grid">
         <div class="md-kpi-card">
@@ -3487,7 +3503,7 @@
        ======================================================================== -->
   <footer class="md-footer">
     <div class="md-container" style="display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; flex-wrap: wrap;">
-      <span><strong>Golf Pocket Trainer</strong> (<span class="font-mono">v4.37.0</span>) &bull; Dein interaktiver Trainings- &amp; Platzbegleiter</span>
+      <span><strong>Golf Pocket Trainer</strong> (<span class="font-mono">v4.38.0</span>) &bull; Dein interaktiver Trainings- &amp; Platzbegleiter</span>
       <button type="button" onclick="openChangelogModal()" class="md-text-btn" style="height: 1.85rem;">Versionsverlauf ansehen</button>
     </div>
   </footer>
@@ -3495,6 +3511,29 @@
   <!-- ========================================================================
        MATERIAL 3 DIALOG: WHAT'S NEW / NEUERUNGEN POP-UP ON APP START
        ======================================================================== -->
+  <div id="shareWeekModal" class="md-dialog-scrim" onclick="if(event.target.id==='shareWeekModal') closeShareWeekModal()">
+    <div class="md-dialog" style="max-width: 28rem;" role="dialog" aria-modal="true" aria-labelledby="shareWeekTitle">
+      <div class="md-dialog-header">
+        <div>
+          <h2 id="shareWeekTitle" class="font-display" style="font-size: 1.2rem; font-weight: 800;">Deine Woche teilen</h2>
+          <p style="font-size: 0.8rem; color: var(--md-sys-color-on-surface-variant); margin-top: 0.15rem;">Speichere das Bild oder kopiere den Text – z. B. für deine WhatsApp-Gruppe.</p>
+        </div>
+        <button type="button" onclick="closeShareWeekModal()" class="md-icon-btn" aria-label="Schließen">
+          <span class="material-symbols-rounded">close</span>
+        </button>
+      </div>
+      <div class="md-dialog-body" style="display: flex; flex-direction: column; gap: 0.75rem;">
+        <img id="shareWeekPreview" class="md-share-preview" alt="Wochenkarte mit Golf-Form, Trainingstagen und Runden" />
+        <p id="shareWeekText" style="font-size: 0.82rem; padding: 0.65rem 0.8rem; border-radius: 0.9rem; background-color: var(--md-sys-color-surface-container); white-space: pre-line;"></p>
+      </div>
+      <div class="md-dialog-actions" style="justify-content: flex-end; flex-wrap: wrap; gap: 0.45rem;">
+        <button type="button" id="shareWeekTextBtn" class="md-text-btn hidden" onclick="shareWeekTextOnly()"><span class="material-symbols-rounded" style="font-size: 18px;">share</span><span>Text teilen</span></button>
+        <button type="button" class="md-tonal-btn" onclick="copyWeekShareText()"><span class="material-symbols-rounded" style="font-size: 18px;">content_copy</span><span id="shareWeekCopyLabel">Text kopieren</span></button>
+        <a id="shareWeekDownload" class="md-filled-btn" style="text-decoration: none;" download="golf-woche.png" href="#"><span class="material-symbols-rounded" style="font-size: 18px;">download</span><span>Bild speichern</span></a>
+      </div>
+    </div>
+  </div>
+
   <div id="challengePromoModal" class="md-dialog-scrim" onclick="if(event.target.id==='challengePromoModal') closeChallengePromoModal()">
     <div class="md-dialog" style="max-width: 36rem;" role="dialog" aria-modal="true" aria-labelledby="challengePromoTitle">
       <div class="md-dialog-header">
@@ -3513,24 +3552,24 @@
       <div class="md-dialog-body">
         <div style="background-color: var(--md-sys-color-surface-container); border-radius: 1.1rem; padding: 0.95rem 1.05rem; display: flex; flex-direction: column; gap: 0.7rem;">
           <div style="display: flex; align-items: flex-start; gap: 0.65rem; font-size: 0.83rem;">
-            <span class="material-symbols-rounded filled" style="font-size: 20px; color: var(--md-sys-color-primary); margin-top: 1px;">donut_large</span>
+            <span class="material-symbols-rounded filled" style="font-size: 20px; color: var(--md-sys-color-primary); margin-top: 1px;">ios_share</span>
             <div>
-              <strong>Deine Golf-Form im Kreis:</strong>
-              <div style="color: var(--md-sys-color-on-surface-variant); margin-top: 0.1rem;">Ganz oben siehst du, wie fit dein Golfspiel gerade ist – aus deinen Trainings und Runden der letzten 14 Tage. Dein Level bleibt als Abzeichen erhalten.</div>
+              <strong>Woche teilen:</strong>
+              <div style="color: var(--md-sys-color-on-surface-variant); margin-top: 0.1rem;">Ein Bild mit Golf-Form, Trainingstagen, Runden und Level – direkt in deine WhatsApp-Gruppe. Ohne Konto, ohne Server.</div>
             </div>
           </div>
           <div style="display: flex; align-items: flex-start; gap: 0.65rem; font-size: 0.83rem;">
-            <span class="material-symbols-rounded filled" style="font-size: 20px; color: var(--md-sys-color-primary); margin-top: 1px;">golf_course</span>
+            <span class="material-symbols-rounded filled" style="font-size: 20px; color: var(--md-sys-color-primary); margin-top: 1px;">trophy</span>
             <div>
-              <strong>Runden zählen als Training:</strong>
-              <div style="color: var(--md-sys-color-on-surface-variant); margin-top: 0.1rem;">Mit „Runde gespielt?“ trägst du 9 oder 18 Loch ein – gut für Form, Serie und Wochenziel.</div>
+              <strong>Deine Bestwerte:</strong>
+              <div style="color: var(--md-sys-color-on-surface-variant); margin-top: 0.1rem;">Höchste Golf-Form, längste Serie und die meisten Trainingstage einer Woche – im Fortschritt. Neue Rekorde siehst du auch auf der Startseite.</div>
             </div>
           </div>
           <div style="display: flex; align-items: flex-start; gap: 0.65rem; font-size: 0.83rem;">
-            <span class="material-symbols-rounded filled" style="font-size: 20px; color: var(--md-sys-color-primary); margin-top: 1px;">dashboard</span>
+            <span class="material-symbols-rounded filled" style="font-size: 20px; color: var(--md-sys-color-primary); margin-top: 1px;">palette</span>
             <div>
-              <strong>Aufgeräumte Startseite:</strong>
-              <div style="color: var(--md-sys-color-on-surface-variant); margin-top: 0.1rem;">Tagestraining, 40-Tage-Challenge und Warm-up mit einem Tipp – ohne langes Formular.</div>
+              <strong>Einheitliches Design:</strong>
+              <div style="color: var(--md-sys-color-on-surface-variant); margin-top: 0.1rem;">Alle Bereiche sehen jetzt aus wie die neue Startseite – ruhig, flach und gut lesbar.</div>
             </div>
           </div>
         </div>
@@ -3610,7 +3649,7 @@
       <div class="md-dialog-header">
         <div>
           <span class="md-assist-badge" style="background-color: var(--md-sys-color-tertiary-container); color: var(--md-sys-color-on-tertiary-container);">Release Notes &amp; Wartung</span>
-          <h2 id="changelogTitle" class="font-display" style="font-size: 1.25rem; font-weight: 800; margin-top: 0.3rem;">Versionsverlauf (v1.0.0 – v4.37.0)</h2>
+          <h2 id="changelogTitle" class="font-display" style="font-size: 1.25rem; font-weight: 800; margin-top: 0.3rem;">Versionsverlauf (v1.0.0 – v4.38.0)</h2>
         </div>
         <button type="button" onclick="closeChangelogModal()" class="md-icon-btn" aria-label="Schließen">
           <span class="material-symbols-rounded">close</span>
@@ -3625,20 +3664,32 @@
   </div>
 
   <!-- ========================================================================
-       COMPLETE SELF-CONTAINED JAVASCRIPT ENGINE (v4.37.0)
+       COMPLETE SELF-CONTAINED JAVASCRIPT ENGINE (v4.38.0)
        ======================================================================== -->
   <div id="appToast" class="md-toast" role="status" aria-live="polite"></div>
   <input type="file" id="backupFileInput" accept="application/json,.json" hidden onchange="handleBackupFile(event)" />
 
   <script>
-    const APP_VERSION = 'v4.37.0';
+    const APP_VERSION = 'v4.38.0';
 
     const CHANGELOG_ENTRIES = [
       {
-        version: 'v4.37.0',
+        version: 'v4.38.0',
         date: 'Aktuell',
-        title: 'Einheitliches Design in der ganzen App',
+        title: 'Woche teilen & persönliche Bestwerte',
         latest: true,
+        notes: [
+          'Neu: „Woche teilen“ auf der Startseite und im Fortschritt. Die App erstellt ein Bild mit Golf-Form, Trainingstagen, Runden, Serie und Level – direkt teilbar, z. B. in deiner WhatsApp-Gruppe. Alternativ Bild speichern oder Text kopieren.',
+          'Kein Konto, kein Server: Es wird nur geteilt, was du selbst verschickst.',
+          'Deine Bestwerte im Fortschritt: höchste Golf-Form, längste Serie und die meisten Trainingstage in einer Woche.',
+          'Stellst du einen neuen Rekord auf, zeigt die Startseite „🏆 Neuer Rekord diese Woche“ – und die Wochenkarte nennt ihn.'
+        ]
+      },
+      {
+        version: 'v4.37.0',
+        date: 'Vorherige Version',
+        title: 'Einheitliches Design in der ganzen App',
+        latest: false,
         notes: [
           'Alle Bereiche sehen jetzt aus wie die neue Startseite: ruhige, flache Karten statt Schatten und eine Schrift für Text und Zahlen – die Schreibmaschinen-Schrift ist überall verschwunden.',
           'Erfolgs-Ziele, Praxis-Tipps, Sofort-Korrekturen und Scratch-Benchmarks stehen in dezentem Salbeigrün statt in grellem Mint. Kräftiges Grün bleibt für Fortschritt und Erledigtes reserviert.',
@@ -3650,7 +3701,7 @@
       },
       {
         version: 'v4.36.0',
-        date: 'Vorherige Version',
+        date: 'Meilenstein 61',
         title: 'Neue Startseite mit Golf-Form & Runden',
         latest: false,
         notes: [
@@ -7693,6 +7744,8 @@
       else msg = `${form.daysSince} Tage ohne Training – eine kurze Einheit reicht, um die Form zu halten.`;
       const trendHtml = form.daysSince !== null && trend !== 0
         ? ` <span class="md-form-trend ${trend < 0 ? 'down' : ''}">${trend > 0 ? '▲ +' : '▼ '}${trend} zur Vorwoche</span>` : '';
+      const rec = personalBestsWithRecords().isNew;
+      const recordHtml = rec.form || rec.week || rec.streak ? ' <span class="md-form-record">🏆 Neuer Rekord diese Woche</span>' : '';
 
       const r = 72, c = 2 * Math.PI * r;
       el.setAttribute('aria-label', `Golf-Form ${form.value} von 100, ${golfFormStatus(form.value)}. Level ${currentLvl.level}: ${currentLvl.name}. Zum Fortschritt.`);
@@ -7708,7 +7761,7 @@
             <span class="md-form-ring-status">${golfFormStatus(form.value)}</span>
           </div>
         </div>
-        <div class="md-form-msg">${msg}${trendHtml}</div>
+        <div class="md-form-msg">${msg}${trendHtml}${recordHtml}</div>
         <div class="md-level-pill">
           <span class="material-symbols-rounded filled" aria-hidden="true">${currentLvl.icon || 'military_tech'}</span>
           <span class="md-level-pill-text">
@@ -7723,7 +7776,290 @@
           <div class="md-form-kpi"><strong>${Math.min(w.currentWeekDays, w.target)}/${w.target}</strong><span>Wochenziel</span></div>
           <div class="md-form-kpi"><strong>${done}/${total}</strong><span>Challenge</span></div>
         </div>
+        <button type="button" class="md-tonal-btn md-form-share" onclick="shareWeek(event)" onkeydown="event.stopPropagation()">
+          <span class="material-symbols-rounded" style="font-size: 18px;">ios_share</span><span>Woche teilen</span>
+        </button>
         <div class="md-form-help">Golf-Form = deine Trainings & Runden der letzten 14 Tage. Ohne Training sinkt sie – dein Level bleibt.</div>`;
+    }
+
+    /* ========================================================================
+       PERSÖNLICHE BESTWERTE & WOCHENKARTE ZUM TEILEN (v4.38.0) – ohne Server
+       ======================================================================== */
+    function formValueAt(load, day) {
+      let sum = 0;
+      for (let i = 0; i < FORM_RULES.windowDays; i++) sum += (load.get(shiftDayKey(day, -i)) || 0) * Math.pow(FORM_RULES.decay, i);
+      return Math.min(100, Math.round((sum / FORM_RULES.target) * 100));
+    }
+
+    // Alle Tage mit Training (Drills, Warm-up, Check-in, Challenge, Runden …)
+    function allTrainingDays() {
+      const days = trainingDaySet();
+      activityLog.forEach(item => { const d = localDateKey(item.timestamp); if (d) days.add(d); });
+      return days;
+    }
+
+    // Bestwerte bis einschließlich 'until'
+    function computePersonalBests(until = localDateKey(), load = dailyTrainingLoad(), daySet = allTrainingDays()) {
+      const bests = { form: { value: 0, day: null }, streak: { value: 0, day: null }, week: { value: 0, day: null } };
+      const loadDays = [...load.keys()].filter(d => d <= until && load.get(d) > 0).sort();
+      if (loadDays.length) {
+        // Form: jeden Tag ab dem ersten Training (höchstens 2 Jahre) durchrechnen
+        let d = loadDays[0];
+        const earliest = shiftDayKey(until, -730);
+        if (d < earliest) d = earliest;
+        while (d <= until) {
+          const v = formValueAt(load, d);
+          if (v > bests.form.value) bests.form = { value: v, day: d };
+          d = shiftDayKey(d, 1);
+        }
+      }
+      const days = [...daySet].filter(d => isValidIsoDate(d) && d <= until).sort();
+      let run = 0, prev = null;
+      const perWeek = new Map();
+      days.forEach(d => {
+        run = prev && shiftDayKey(prev, 1) === d ? run + 1 : 1;
+        if (run > bests.streak.value) bests.streak = { value: run, day: d };
+        prev = d;
+        const wk = weekKeyOf(d);
+        perWeek.set(wk, (perWeek.get(wk) || 0) + 1);
+      });
+      perWeek.forEach((n, wk) => { if (n > bests.week.value) bests.week = { value: n, day: wk }; });
+      return bests;
+    }
+
+    // Bestwerte jetzt + welche davon diese Woche neu aufgestellt wurden
+    function personalBestsWithRecords() {
+      const load = dailyTrainingLoad();
+      const daySet = allTrainingDays();
+      const today = localDateKey();
+      const monday = weekKeyOf(today);
+      const now = computePersonalBests(today, load, daySet);
+      const before = computePersonalBests(shiftDayKey(monday, -1), load, daySet);
+      const isNew = k => now[k].value > 0 && now[k].value > before[k].value && now[k].day >= monday;
+      return { bests: now, isNew: { form: isNew('form'), streak: isNew('streak'), week: isNew('week') } };
+    }
+
+    function formatDayShort(day) {
+      if (!day) return '';
+      const [y, m, d] = day.split('-');
+      return `${d}.${m}.${String(y).slice(2)}`;
+    }
+
+    function weekShareSummary() {
+      const today = localDateKey();
+      const monday = weekKeyOf(today);
+      const sunday = shiftDayKey(monday, 6);
+      const load = dailyTrainingLoad();
+      const daysThisWeek = [...allTrainingDays()].filter(d => d >= monday && d <= today).length;
+      const inWeek = list => list.filter(d => d >= monday && d <= today).length;
+      const r9 = inWeek(repDates('round', '9')), r18 = inWeek(repDates('round', '18'));
+      const form = formValueAt(load, today);
+      const { currentLvl } = computeGamificationState();
+      const { streak } = computeActivityStreakAndDays();
+      const { bests, isNew } = personalBestsWithRecords();
+      const records = [];
+      if (isNew.form) records.push(`Golf-Form ${bests.form.value}`);
+      if (isNew.week) records.push(`${bests.week.value} Trainingstage in einer Woche`);
+      if (isNew.streak) records.push(`${bests.streak.value} Tage Serie`);
+      const [, m1, d1] = monday.split('-');
+      const [, m2, d2] = sunday.split('-');
+      return {
+        range: `${d1}.${m1}. – ${d2}.${m2}.`,
+        form, status: golfFormStatus(form),
+        days: daysThisWeek, target: XP_RULES.weeklyGoalDays,
+        rounds: r9 + r18, holes: r9 * 9 + r18 * 18,
+        streak, level: currentLvl,
+        challenge: `${completedChallengeDays.size}/${challengeTotal()}`,
+        records
+      };
+    }
+
+    function weekShareText(w = weekShareSummary()) {
+      const lines = [
+        `⛳ Meine Golf-Woche (${w.range})`,
+        `Golf-Form ${w.form} · ${w.status}`,
+        `${w.days} Trainingstage${w.rounds ? ` · ${w.rounds} ${w.rounds === 1 ? 'Runde' : 'Runden'} (${w.holes} Loch)` : ''}${w.streak > 1 ? ` · ${w.streak} Tage Serie` : ''}`,
+        `Level ${w.level.level} · ${w.level.name}`
+      ];
+      if (w.records.length) lines.push(`🏆 Neuer Rekord: ${w.records.join(', ')}`);
+      lines.push('– Golf Pocket Trainer');
+      return lines.join('\n');
+    }
+
+    function roundRectPath(ctx, x, y, w, h, r) {
+      ctx.beginPath();
+      ctx.moveTo(x + r, y);
+      ctx.arcTo(x + w, y, x + w, y + h, r);
+      ctx.arcTo(x + w, y + h, x, y + h, r);
+      ctx.arcTo(x, y + h, x, y, r);
+      ctx.arcTo(x, y, x + w, y, r);
+      ctx.closePath();
+    }
+
+    async function renderWeekShareImage(w = weekShareSummary()) {
+      const W = 1080, H = 1350;
+      const cv = document.createElement('canvas');
+      cv.width = W; cv.height = H;
+      const ctx = cv.getContext('2d');
+      const F = 'Roboto, "Helvetica Neue", Arial, sans-serif';
+      try { await Promise.all(['400', '700', '800'].map(wt => document.fonts.load(`${wt} 40px Roboto`))); } catch (e) { /* Systemschrift */ }
+
+      const bg = ctx.createLinearGradient(0, 0, W * 0.4, H);
+      bg.addColorStop(0, '#1C7A43');
+      bg.addColorStop(1, '#0B3B20');
+      ctx.fillStyle = bg;
+      ctx.fillRect(0, 0, W, H);
+      ctx.fillStyle = 'rgba(255,255,255,0.05)';
+      ctx.beginPath(); ctx.arc(W - 80, 140, 260, 0, Math.PI * 2); ctx.fill();
+
+      ctx.textAlign = 'center';
+      ctx.fillStyle = '#CDEBD5';
+      ctx.font = `700 34px ${F}`;
+      ctx.fillText('MEINE GOLF-WOCHE', W / 2, 110);
+      ctx.fillStyle = '#FFFFFF';
+      ctx.font = `400 34px ${F}`;
+      ctx.fillText(w.range, W / 2, 160);
+
+      // Ring
+      const cx = W / 2, cy = 445, r = 210;
+      ctx.lineWidth = 42; ctx.lineCap = 'round';
+      ctx.strokeStyle = 'rgba(255,255,255,0.16)';
+      ctx.beginPath(); ctx.arc(cx, cy, r, 0, Math.PI * 2); ctx.stroke();
+      if (w.form > 0) {
+        ctx.strokeStyle = '#8FE0A6';
+        ctx.beginPath(); ctx.arc(cx, cy, r, -Math.PI / 2, -Math.PI / 2 + Math.PI * 2 * (w.form / 100)); ctx.stroke();
+      }
+      ctx.fillStyle = '#CDEBD5'; ctx.font = `700 32px ${F}`;
+      ctx.fillText('GOLF-FORM', cx, cy - 90);
+      ctx.fillStyle = '#FFFFFF'; ctx.font = `800 170px ${F}`;
+      ctx.fillText(String(w.form), cx, cy + 58);
+      ctx.font = `700 38px ${F}`;
+      ctx.fillText(w.status, cx, cy + 118);
+
+      // Kacheln
+      const tiles = [
+        [`${w.days}/${w.target}`, 'Trainingstage'],
+        [String(w.rounds), w.rounds ? `Runden · ${w.holes} Loch` : 'Runden'],
+        [String(w.streak), 'Tage Serie']
+      ];
+      const tw = 300, th = 190, gap = 30, ty = 735, tx0 = (W - (tw * 3 + gap * 2)) / 2;
+      tiles.forEach(([val, lab], i) => {
+        const x = tx0 + i * (tw + gap);
+        ctx.fillStyle = 'rgba(255,255,255,0.12)';
+        roundRectPath(ctx, x, ty, tw, th, 36); ctx.fill();
+        ctx.fillStyle = '#FFFFFF'; ctx.font = `800 80px ${F}`;
+        ctx.fillText(val, x + tw / 2, ty + 105);
+        ctx.fillStyle = '#CDEBD5'; ctx.font = `400 30px ${F}`;
+        ctx.fillText(lab, x + tw / 2, ty + 155);
+      });
+
+      // Level
+      ctx.fillStyle = 'rgba(255,255,255,0.12)';
+      roundRectPath(ctx, tx0, 960, tw * 3 + gap * 2, 110, 36); ctx.fill();
+      ctx.fillStyle = '#FFFFFF'; ctx.font = `700 42px ${F}`;
+      ctx.fillText(`Level ${w.level.level} · ${w.level.name}`, W / 2, 1030);
+
+      // Rekord
+      let y = 1150;
+      if (w.records.length) {
+        ctx.fillStyle = '#FFD877'; ctx.font = `800 40px ${F}`;
+        ctx.fillText('🏆 Neuer Rekord', W / 2, y);
+        ctx.fillStyle = '#FFFFFF'; ctx.font = `400 34px ${F}`;
+        ctx.fillText(w.records.join(' · '), W / 2, y + 50, W - 120);
+      } else {
+        ctx.fillStyle = '#CDEBD5'; ctx.font = `400 34px ${F}`;
+        ctx.fillText(`40-Tage-Challenge: ${w.challenge} Einheiten`, W / 2, y + 20);
+      }
+      ctx.fillStyle = 'rgba(255,255,255,0.65)'; ctx.font = `700 30px ${F}`;
+      ctx.fillText('⛳ Golf Pocket Trainer', W / 2, H - 60);
+
+      return new Promise(resolve => cv.toBlob(b => resolve(b), 'image/png'));
+    }
+
+    let shareWeekState = { url: '', text: '' };
+
+    async function shareWeek(ev) {
+      if (ev) ev.stopPropagation();
+      const w = weekShareSummary();
+      const text = weekShareText(w);
+      let blob = null;
+      try { blob = await renderWeekShareImage(w); } catch (e) { blob = null; }
+      if (blob && typeof File === 'function' && navigator.canShare) {
+        const file = new File([blob], 'golf-woche.png', { type: 'image/png' });
+        try {
+          if (navigator.canShare({ files: [file] })) {
+            await navigator.share({ files: [file], text });
+            return;
+          }
+        } catch (e) {
+          if (e && e.name === 'AbortError') return;
+        }
+      }
+      openShareWeekModal(blob, text);
+    }
+
+    function openShareWeekModal(blob, text) {
+      if (shareWeekState.url) URL.revokeObjectURL(shareWeekState.url);
+      shareWeekState = { url: blob ? URL.createObjectURL(blob) : '', text };
+      const img = document.getElementById('shareWeekPreview');
+      const dl = document.getElementById('shareWeekDownload');
+      if (img) { img.src = shareWeekState.url; img.classList.toggle('hidden', !blob); }
+      if (dl) { dl.href = shareWeekState.url || '#'; dl.classList.toggle('hidden', !blob); }
+      const t = document.getElementById('shareWeekText');
+      if (t) t.textContent = text;
+      document.getElementById('shareWeekTextBtn')?.classList.toggle('hidden', !navigator.share);
+      const lbl = document.getElementById('shareWeekCopyLabel');
+      if (lbl) lbl.textContent = 'Text kopieren';
+      document.getElementById('shareWeekModal')?.classList.add('open');
+    }
+
+    function closeShareWeekModal() {
+      document.getElementById('shareWeekModal')?.classList.remove('open');
+    }
+
+    async function shareWeekTextOnly() {
+      try { await navigator.share({ text: shareWeekState.text }); } catch (e) { /* abgebrochen */ }
+    }
+
+    async function copyWeekShareText() {
+      const lbl = document.getElementById('shareWeekCopyLabel');
+      let ok = false;
+      try { await navigator.clipboard.writeText(shareWeekState.text); ok = true; } catch (e) {
+        const ta = document.createElement('textarea');
+        ta.value = shareWeekState.text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+        document.body.appendChild(ta); ta.select();
+        try { ok = document.execCommand('copy'); } catch (e2) { ok = false; }
+        document.body.removeChild(ta);
+      }
+      if (lbl) { lbl.textContent = ok ? 'Kopiert!' : 'Kopieren nicht möglich'; setTimeout(() => { lbl.textContent = 'Text kopieren'; }, 2000); }
+    }
+
+    function renderPersonalBestsCard() {
+      const el = document.getElementById('personalBestsCard');
+      if (!el) return;
+      const { bests, isNew } = personalBestsWithRecords();
+      const tile = (key, value, label, when) => `
+        <div class="md-best">
+          ${isNew[key] ? '<span class="md-best-new">Neu</span>' : ''}
+          <strong>${value}</strong>
+          <span class="md-best-label">${label}</span>
+          <span class="md-best-when">${when}</span>
+        </div>`;
+      el.innerHTML = `
+        <div class="md-bests-head">
+          <div style="display: flex; align-items: center; gap: 0.5rem;">
+            <span class="material-symbols-rounded filled" style="color: var(--md-sys-color-primary);" aria-hidden="true">trophy</span>
+            <h3 class="font-display" style="font-size: 1.02rem; font-weight: 800;">Deine Bestwerte</h3>
+          </div>
+          <button type="button" class="md-tonal-btn md-form-share" onclick="shareWeek(event)">
+            <span class="material-symbols-rounded" style="font-size: 18px;">ios_share</span><span>Woche teilen</span>
+          </button>
+        </div>
+        <div class="md-bests-grid">
+          ${tile('form', bests.form.value, 'Höchste Golf-Form', bests.form.day ? `am ${formatDayShort(bests.form.day)}` : 'noch offen')}
+          ${tile('streak', bests.streak.value, `Längste Serie (${bests.streak.value === 1 ? 'Tag' : 'Tage'})`, bests.streak.day ? `bis ${formatDayShort(bests.streak.day)}` : 'noch offen')}
+          ${tile('week', bests.week.value, 'Trainingstage in einer Woche', bests.week.day ? `Woche ab ${formatDayShort(bests.week.day)}` : 'noch offen')}
+        </div>`;
     }
 
     function renderTodayChallengeCard() {
@@ -11753,6 +12089,7 @@
       updateStatsMenuBadge();
       renderDailyCheckinCard();
       renderTodayShortcuts();
+      renderPersonalBestsCard();
 
       // Render Gamification Level Hero & Steps
       const { totalXp, currentLvl, nextLvl, progressPct, xpRemaining } = computeGamificationState();
