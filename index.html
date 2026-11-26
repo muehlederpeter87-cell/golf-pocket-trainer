@@ -9,8 +9,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="apple-mobile-web-app-title" content="Golf Pocket Trainer" />
   <meta name="application-name" content="Golf Pocket Trainer" />
-  <meta name="description" content="Golf Pocket Trainer v4.34.0 – Material Design 3 Golf Technik-, Trainings-, Rules-, Scratch-Blueprint-, Komparator-, Warm-up-, Video-Analyse-, 40-Tage-Challenge- & Gamification-Statistik-Begleiter" />
-  <title>Golf Pocket Trainer (v4.34.0)</title>
+  <meta name="description" content="Golf Pocket Trainer v4.35.0 – Material Design 3 Golf Technik-, Trainings-, Rules-, Scratch-Blueprint-, Komparator-, Warm-up-, Video-Analyse-, 40-Tage-Challenge- & Gamification-Statistik-Begleiter" />
+  <title>Golf Pocket Trainer (v4.35.0)</title>
 
   <link rel="manifest" href="manifest.webmanifest" />
   <link rel="icon" type="image/png" sizes="48x48" href="icons/favicon-48.png" />
@@ -835,6 +835,20 @@
     .md-chal-drill > summary { cursor: pointer; list-style: none; display: flex; flex-direction: column; min-height: 44px; justify-content: center; }
     .md-chal-drill > summary::-webkit-details-marker { display: none; }
     .md-chal-drill[open] > summary { margin-bottom: 0.35rem; }
+    .md-gear-card { display: flex; flex-direction: column; gap: 0.55rem; padding: 0.75rem 0.85rem; border-radius: 1rem; border: 1px solid var(--md-sys-color-outline-variant); background-color: var(--md-sys-color-surface); }
+    .md-gear-card > summary { cursor: pointer; list-style: none; display: flex; align-items: center; gap: 0.45rem; min-height: 44px; font-size: 0.9rem; }
+    .md-gear-card > summary::-webkit-details-marker { display: none; }
+    .md-gear-card > summary .material-symbols-rounded { font-size: 20px; color: var(--md-sys-color-primary); }
+    .md-gear-card[open] > summary { margin-bottom: 0.1rem; }
+    .md-gear-count { margin-left: auto; font-size: 0.74rem; font-weight: 700; color: var(--md-sys-color-on-surface-variant); white-space: nowrap; }
+    .md-gear-group { display: flex; flex-direction: column; gap: 0.3rem; margin-top: 0.45rem; }
+    .md-gear-group-label { display: flex; align-items: center; gap: 0.3rem; font-size: 0.72rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.04em; color: var(--md-sys-color-on-surface-variant); }
+    .md-gear-group-label .material-symbols-rounded { font-size: 15px; }
+    .md-gear-items { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+    .md-gear-item { display: inline-flex; align-items: center; gap: 0.35rem; min-height: 40px; padding: 0.3rem 0.7rem 0.3rem 0.5rem; border-radius: 0.7rem; border: 1px solid var(--md-sys-color-outline-variant); background-color: var(--md-sys-color-surface-container); color: var(--md-sys-color-on-surface); font: inherit; font-size: 0.8rem; text-align: left; cursor: pointer; }
+    .md-gear-item .material-symbols-rounded { font-size: 19px; color: var(--md-sys-color-primary); flex-shrink: 0; }
+    .md-gear-item.checked { background-color: var(--md-sys-color-secondary-container); color: var(--md-sys-color-on-secondary-container); border-color: transparent; }
+    .md-gear-item.checked span:last-child { text-decoration: line-through; opacity: 0.75; }
     .md-chal-steps { margin: 0.35rem 0 0.35rem 1.1rem; font-size: 0.8rem; line-height: 1.45; display: flex; flex-direction: column; gap: 0.2rem; }
 
     /* Unter-Navigation (Training: Drills/Warm-up/Challenge/Scratch, Technik: Schlagtechnik/Vergleich/Video) */
@@ -2505,7 +2519,7 @@
         <div class="md-brand-text-wrap">
           <div style="display: flex; align-items: center; gap: 0.4rem;">
             <h1 class="md-brand-title">Golf Pocket Trainer</h1>
-            <span class="md-version-badge font-mono">v4.34.0</span>
+            <span class="md-version-badge font-mono">v4.35.0</span>
           </div>
           <p class="md-brand-sub">Dein Trainings- &amp; Platzbegleiter</p>
         </div>
@@ -2582,7 +2596,7 @@
               <span class="material-symbols-rounded" style="color: var(--md-sys-color-on-surface-variant);">history</span>
               <span>Versionsverlauf</span>
             </span>
-            <span class="font-mono" style="font-size: 0.72rem; color: var(--md-sys-color-on-surface-variant);">v4.34.0</span>
+            <span class="font-mono" style="font-size: 0.72rem; color: var(--md-sys-color-on-surface-variant);">v4.35.0</span>
           </button>
         </div>
       </div>
@@ -3421,7 +3435,7 @@
        ======================================================================== -->
   <footer class="md-footer">
     <div class="md-container" style="display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; flex-wrap: wrap;">
-      <span><strong>Golf Pocket Trainer</strong> (<span class="font-mono">v4.34.0</span>) &bull; Dein interaktiver Trainings- &amp; Platzbegleiter</span>
+      <span><strong>Golf Pocket Trainer</strong> (<span class="font-mono">v4.35.0</span>) &bull; Dein interaktiver Trainings- &amp; Platzbegleiter</span>
       <button type="button" onclick="openChangelogModal()" class="md-text-btn" style="height: 1.85rem;">Versionsverlauf ansehen</button>
     </div>
   </footer>
@@ -3447,24 +3461,24 @@
       <div class="md-dialog-body">
         <div style="background-color: var(--md-sys-color-surface-container); border-radius: 1.1rem; padding: 0.95rem 1.05rem; display: flex; flex-direction: column; gap: 0.7rem;">
           <div style="display: flex; align-items: flex-start; gap: 0.65rem; font-size: 0.83rem;">
-            <span class="material-symbols-rounded filled" style="font-size: 20px; color: var(--md-sys-color-primary); margin-top: 1px;">tune</span>
+            <span class="material-symbols-rounded filled" style="font-size: 20px; color: var(--md-sys-color-primary); margin-top: 1px;">backpack</span>
             <div>
-              <strong>Deine eigene 40-Tage-Challenge:</strong>
-              <div style="color: var(--md-sys-color-on-surface-variant); margin-top: 0.1rem;">Wähle Fokus (z. B. Langes Spiel & Putten), 2–4 Einheiten pro Woche und für jede Einheit den Ort – Zuhause, Range oder Übungsgrün. Unter Training → Challenge → „Eigene Challenge einrichten“.</div>
+              <strong>Das brauchst du heute:</strong>
+              <div style="color: var(--md-sys-color-on-surface-variant); margin-top: 0.1rem;">Jede Challenge-Einheit listet Ort, Schläger, Bälle und Hilfsmittel – zum Abhaken, bevor du losgehst.</div>
             </div>
           </div>
           <div style="display: flex; align-items: flex-start; gap: 0.65rem; font-size: 0.83rem;">
-            <span class="material-symbols-rounded filled" style="font-size: 20px; color: var(--md-sys-color-primary); margin-top: 1px;">home</span>
+            <span class="material-symbols-rounded filled" style="font-size: 20px; color: var(--md-sys-color-primary); margin-top: 1px;">sports_golf</span>
             <div>
-              <strong>11 neue Übungen für zuhause:</strong>
-              <div style="color: var(--md-sys-color-on-surface-variant); margin-top: 0.1rem;">Putten, Schwung und Chippen im Wohnzimmer – alle mit Video.</div>
+              <strong>Echte Golfübungen statt Gymnastik:</strong>
+              <div style="color: var(--md-sys-color-on-surface-variant); margin-top: 0.1rem;">Aufwärmen mit Schläger und Ball, 4 neue Übungen für zuhause (Griff, Halbschwung von der Matte, Tiefpunkt-Drill, Ausrichtung) – Schritt für Schritt und mit Video.</div>
             </div>
           </div>
           <div style="display: flex; align-items: flex-start; gap: 0.65rem; font-size: 0.83rem;">
-            <span class="material-symbols-rounded filled" style="font-size: 20px; color: var(--md-sys-color-primary); margin-top: 1px;">trending_up</span>
+            <span class="material-symbols-rounded filled" style="font-size: 20px; color: var(--md-sys-color-primary); margin-top: 1px;">list_alt</span>
             <div>
-              <strong>Fortschritt messen:</strong>
-              <div style="color: var(--md-sys-color-on-surface-variant); margin-top: 0.1rem;">Ein kurzer Test am ersten und letzten Tag zeigt, was die 40 Tage gebracht haben.</div>
+              <strong>Klassische Challenge zum Aufklappen:</strong>
+              <div style="color: var(--md-sys-color-on-surface-variant); margin-top: 0.1rem;">Zu den Übungen gibt es jetzt die passende Schritt-für-Schritt-Anleitung samt Video.</div>
             </div>
           </div>
         </div>
@@ -3544,7 +3558,7 @@
       <div class="md-dialog-header">
         <div>
           <span class="md-assist-badge" style="background-color: var(--md-sys-color-tertiary-container); color: var(--md-sys-color-on-tertiary-container);">Release Notes &amp; Wartung</span>
-          <h2 id="changelogTitle" class="font-display" style="font-size: 1.25rem; font-weight: 800; margin-top: 0.3rem;">Versionsverlauf (v1.0.0 – v4.34.0)</h2>
+          <h2 id="changelogTitle" class="font-display" style="font-size: 1.25rem; font-weight: 800; margin-top: 0.3rem;">Versionsverlauf (v1.0.0 – v4.35.0)</h2>
         </div>
         <button type="button" onclick="closeChangelogModal()" class="md-icon-btn" aria-label="Schließen">
           <span class="material-symbols-rounded">close</span>
@@ -3559,20 +3573,34 @@
   </div>
 
   <!-- ========================================================================
-       COMPLETE SELF-CONTAINED JAVASCRIPT ENGINE (v4.34.0)
+       COMPLETE SELF-CONTAINED JAVASCRIPT ENGINE (v4.35.0)
        ======================================================================== -->
   <div id="appToast" class="md-toast" role="status" aria-live="polite"></div>
   <input type="file" id="backupFileInput" accept="application/json,.json" hidden onchange="handleBackupFile(event)" />
 
   <script>
-    const APP_VERSION = 'v4.34.0';
+    const APP_VERSION = 'v4.35.0';
 
     const CHANGELOG_ENTRIES = [
       {
-        version: 'v4.34.0',
+        version: 'v4.35.0',
         date: 'Aktuell',
-        title: 'Eigene 40-Tage-Challenge & 11 neue Übungen für zuhause',
+        title: 'Challenge mit echten Golfübungen & Packliste',
         latest: true,
+        notes: [
+          'Jede Challenge-Einheit zeigt oben „Das brauchst du heute“: Ort, Schläger, Bälle und Hilfsmittel auf einen Blick – zum Abhaken beim Packen.',
+          'Aufwärmen ist jetzt Golf statt Gymnastik: zuhause Griff, Setup und Schwünge mit dem Wedge, auf der Range vom Wedge zum Eisen 7, am Grün Chips und Putts – Schritt für Schritt und mit Video.',
+          '4 neue Übungen für zuhause mit Schläger und Ball: Griff Schritt für Schritt, Halbschwung 9–3 Uhr von der Matte, Handtuch-Drill für den Tiefpunkt und Ausrichtung & Ballposition mit 2 Sticks.',
+          'Die eigene Challenge setzt zuerst auf diese Kernübungen. Der Eingangstest fürs lange Spiel zuhause misst jetzt den Treffmoment statt „Finish halten“.',
+          'Einheiten füllen die gewählte Zeit: Bleibt Zeit übrig, folgt ein 2. Durchgang mit dem Ziel, dein Ergebnis zu verbessern.',
+          'Klassische Challenge: Jede Übung, zu der es einen passenden Drill gibt, lässt sich aufklappen – mit Material, Schritt-für-Schritt-Anleitung und Video.'
+        ]
+      },
+      {
+        version: 'v4.34.0',
+        date: 'Vorherige Version',
+        title: 'Eigene 40-Tage-Challenge & 11 neue Übungen für zuhause',
+        latest: false,
         notes: [
           'Die 40-Tage-Challenge lässt sich jetzt selbst zusammenstellen: bis zu 3 Fokus-Bereiche (z. B. Langes Spiel & Putten), 2–4 Einheiten pro Woche, 15–60 Minuten und dein Niveau.',
           'Für jede Einheit der Woche wählst du den Ort – z. B. zweimal Zuhause und einmal Range & Kurzspiel. Die App stellt passende Drills zusammen.',
@@ -3584,7 +3612,7 @@
       },
       {
         version: 'v4.33.0',
-        date: 'Vorherige Version',
+        date: 'Meilenstein 59',
         title: 'Gamification neu: Wiederholung zählt',
         latest: false,
         notes: [
@@ -4722,6 +4750,7 @@
         disciplineLabel: 'Wedges',
         title: 'Landehandtuch-Challenge (30 / 45 / 60 m)',
         durationBalls: '18 Bälle · ca. 15 Min.',
+        places: ['range'],
         setupMaterial: 'Sand Wedge (56°), 1 Handtuch als Landezone',
         steps: [
           'Lege ein Handtuch bei 30 Metern auf das Pitching-Grün oder die Range.',
@@ -5529,6 +5558,88 @@
         videoTitle: 'Visualisieren und Fokussieren mit der Pre-Shot-Routine',
         videoChannel: 'GOLFSTUN.DE',
         videoDuration: '02:15'
+      },
+      {
+        id: 'drill-indoor-grip',
+        discipline: 'indoor',
+        disciplineLabel: 'Winter & Indoor',
+        title: 'Griff Schritt für Schritt aufbauen',
+        durationBalls: '10 Griffe · ca. 8 Min.',
+        setupMaterial: 'Eisen 7 (oder ein anderer Schläger), Spiegel oder Handy-Kamera zur Kontrolle',
+        steps: [
+          'Stelle den Schläger mit flach aufliegender Sohle vor dich, die Schlagfläche zeigt gerade zum Ziel.',
+          'Linke Hand: Lege den Griff schräg durch die Finger – vom Grundgelenk des Zeigefingers bis knapp unter den Ballen des kleinen Fingers. Dann die Hand schließen.',
+          'Kontrolle linke Hand: Du siehst 2 bis 3 Knöchel, der Daumen liegt leicht rechts der Griffmitte, das „V“ zwischen Daumen und Zeigefinger zeigt zur rechten Schulter.',
+          'Rechte Hand: Greife in den Fingern, die Handfläche deckt den linken Daumen ab. Kleiner Finger rechts über den Zeigefinger links legen (Overlap) oder einhaken (Interlock).',
+          'Griffdruck auf 4 von 10 einstellen – fest genug, dass der Schläger nicht wackelt, locker genug, dass die Unterarme weich bleiben.',
+          'Hände lösen, ausschütteln und den Griff 10-mal komplett neu aufbauen. Jedes Mal im Spiegel oder per Handyfoto prüfen.'
+        ],
+        successGoal: '10 Griffe in Folge, bei denen Knöchel, „V“ und Griffdruck ohne Nachkorrigieren stimmen.',
+        videoId: 'gvDbVHB03-M',
+        videoTitle: 'Grundlagen: Richtig greifen beim Golf',
+        videoChannel: 'GOLFSTUN.DE',
+        videoDuration: '01:41'
+      },
+      {
+        id: 'drill-indoor-halfswing',
+        discipline: 'indoor',
+        disciplineLabel: 'Winter & Indoor',
+        title: 'Halbschwung 9–3 Uhr von der Matte (Schaumstoffbälle)',
+        durationBalls: '20 Schaumstoffbälle · ca. 10 Min.',
+        setupMaterial: 'Eisen 9 oder Pitching Wedge, Schlagmatte oder Teppichrest, Schaumstoff- oder Lochbälle, Ziel (Sofa, Netz oder Decke an der Wand) – vorher Platz zur Decke prüfen!',
+        steps: [
+          'Lege die Matte so, dass du auf ein weiches Ziel in 3 bis 4 m Entfernung schlägst (Sofa, Netz oder eine an die Wand gehängte Decke).',
+          'Ball in die Mitte des Stands, Füße schulterbreit, Gewicht leicht links (55 %).',
+          'Rückschwung bis „9 Uhr“: Der linke Arm ist waagerecht, der Schaft zeigt nach oben – das Handgelenk winkelt sich an.',
+          'Durchschwung bis „3 Uhr“: Der rechte Arm ist waagerecht, die Gürtelschnalle zeigt zum Ziel. Finish 2 Sekunden halten.',
+          'Achte auf das Geräusch: Erst der Ball, dann ein leises Streifen der Matte. Ein dumpfes „Plopp“ vor dem Ball heißt: Tiefpunkt zu früh.',
+          '2 Durchgänge à 10 Bälle, dazwischen 3 Probeschwünge in Zeitlupe.'
+        ],
+        successGoal: '8 von 10 Bällen starten gerade ins Ziel, mit sauberem Kontakt (Ball vor Matte).',
+        videoId: 'JrEkbwZXSEw',
+        videoTitle: 'Golfschwung in klein (Übung)',
+        videoChannel: 'Golfreich',
+        videoDuration: '04:33'
+      },
+      {
+        id: 'drill-indoor-lowpoint',
+        discipline: 'indoor',
+        disciplineLabel: 'Winter & Indoor',
+        title: 'Handtuch-Drill auf der Matte: Tiefpunkt vor dem Ball',
+        durationBalls: '15 Schaumstoffbälle · ca. 8 Min.',
+        setupMaterial: 'Eisen 9 oder Wedge, Schlagmatte oder Teppichrest, Golfhandtuch, Schaumstoffbälle (oder ein Gummi-Tee als Ball-Ersatz) – vorher Platz zur Decke prüfen!',
+        steps: [
+          'Lege den Ball (oder ein Gummi-Tee) auf die Matte und das gefaltete Handtuch eine Handbreit (ca. 10 cm) dahinter.',
+          'Ansprechen mit 60 % Gewicht auf dem linken Fuß, die Hände leicht vor dem Ball.',
+          'Spiele kleine Schwünge (8 bis 4 Uhr): Der Schläger darf das Handtuch nicht berühren und streift die Matte erst nach dem Ball.',
+          'Klappt das 5-mal in Folge, verlängere auf Halbschwünge (9 bis 3 Uhr).',
+          'Berührst du das Handtuch: Gewicht mehr nach links und die Hände im Treffmoment vor dem Schlägerkopf lassen.'
+        ],
+        successGoal: '12 von 15 Schwüngen ohne Handtuch-Berührung – erst Ball, dann Matte.',
+        videoId: 'dKkA0KyVNKw',
+        videoTitle: 'Konstante Eisen dank Handtuch-Drill',
+        videoChannel: 'Golfundich',
+        videoDuration: ''
+      },
+      {
+        id: 'drill-indoor-alignment',
+        discipline: 'indoor',
+        disciplineLabel: 'Winter & Indoor',
+        title: 'Ausrichtung & Ballposition mit 2 Sticks',
+        durationBalls: '12 Setups · ca. 8 Min.',
+        setupMaterial: 'Wedge, Eisen 7, Driver, 2 Alignment-Sticks (oder 2 Schläger), 1 Golfball, Spiegel oder Handy-Kamera',
+        steps: [
+          'Wähle ein Ziel im Raum (z. B. eine Türkante). Lege Stick 1 als Fußlinie parallel zur Linie Ball–Ziel auf den Boden.',
+          'Lege Stick 2 im rechten Winkel dazu – er zeigt genau auf die Ballposition.',
+          'Wedge: Ball in der Mitte des Stands. Füße, Knie, Hüfte und Schultern parallel zu Stick 1.',
+          'Eisen 7: Ball eine Ballbreite links der Mitte. Driver: Ball auf Höhe der linken Ferse, Stand etwas breiter.',
+          'Baue jedes Setup 4-mal neu auf – je einmal mit einem Handyfoto von hinten (Blick zum Ziel) kontrollieren: Zeigen die Schultern parallel zur Fußlinie?'
+        ],
+        successGoal: '12 Setups (je 4 mit Wedge, Eisen 7 und Driver) mit korrekter Ballposition und paralleler Ausrichtung.',
+        videoId: '_sPzvK8bJmc',
+        videoTitle: 'Die richtige Ballposition',
+        videoChannel: 'GOLFSTUN.DE',
+        videoDuration: '02:11'
       }
     ];
 
@@ -9672,33 +9783,350 @@
     // Drills, die in der Druck-Phase bevorzugt werden
     const CHALLENGE_PRESSURE_DRILLS = ['drill-putt-pressure', 'drill-chip-updown', 'drill-warmup-par4', 'drill-warmup-1ball', 'drill-warmup-random', 'drill-indoor-putt-gate', 'drill-indoor-chip-basket'];
 
-    // Eingangs- und Abschlusstest je Fokus. 'home' = Wohnzimmer, 'green'/'range' = draußen.
+    // Eingangs- und Abschlusstest je Fokus. 'home' = Wohnzimmer, 'out' = draußen. gear = Material (Schlüssel aus GOLF_GEAR).
     const CHALLENGE_TESTS = {
       putting: {
-        home: { title: 'Putt-Test: 10 Putts aus 1,5 m', how: '10 Putts aus 1,5 m auf ein Ziel auf dem Teppich (liegendes Glas oder Münze). Zähle die Treffer.', max: 10 },
-        out: { title: 'Putt-Test: 10 Putts aus 1,5 m', how: '10 Putts aus 1,5 m auf dem Übungsgrün, rund ums Loch verteilt. Zähle die gelochten Putts.', max: 10 }
+        home: { title: 'Putt-Test: 10 Putts aus 1,5 m', how: '10 Putts aus 1,5 m auf ein Ziel auf dem Teppich (liegendes Glas oder Putt-Becher). Jeder Putt mit kurzer Routine. Zähle die Treffer.', max: 10, gear: ['putter', 'balls', 'cup'] },
+        out: { title: 'Putt-Test: 10 Putts aus 1,5 m', how: '10 Putts aus 1,5 m auf dem Übungsgrün, rund ums Loch verteilt. Zähle die gelochten Putts.', max: 10, gear: ['putter', 'balls', 'tees', 'green'] }
       },
       longgame: {
-        home: { title: 'Schwung-Test: 10 × Finish halten', how: '10 Schwünge ohne Ball mit 80 % Tempo. Zähle die Schwünge, bei denen du das Finish 3 Sekunden ruhig halten kannst.', max: 10 },
-        out: { title: 'Eisen-Test: 10 Bälle mit Eisen 7', how: '10 Bälle mit Eisen 7 auf eine Range-Fahne. Zähle die Bälle, die innerhalb von 15 m um die Fahne landen.', max: 10 }
+        home: { title: 'Treffmoment-Test: 10 Halbschwünge von der Matte', how: 'Lege ein Handtuch eine Handbreit hinter den Ball. Spiele 10 Halbschwünge (9 bis 3 Uhr) mit dem kurzen Eisen auf dein Ziel. Zähle die Schläge, bei denen du das Handtuch nicht berührst und der Ball Richtung Ziel startet.', max: 10, gear: ['iron9', 'foamballs', 'mat', 'towel', 'target'] },
+        out: { title: 'Eisen-Test: 10 Bälle mit Eisen 7', how: '10 Bälle mit Eisen 7 auf eine Range-Fahne, jeder Ball mit voller Routine. Zähle die Bälle, die innerhalb von 15 m um die Fahne landen.', max: 10, gear: ['iron7', 'rangeballs', 'range'] }
       },
       shortgame: {
-        home: { title: 'Chip-Test: 10 Chips in den Korb', how: '10 Chips mit Schaumstoffbällen aus 3 m in einen Wäschekorb. Zähle die Treffer.', max: 10 },
-        out: { title: 'Kurzspiel-Test: 10 Chips & Pitches', how: '10 Bälle von verschiedenen Stellen rund ums Grün (oder 10 Pitches auf 40 m). Zähle die Bälle, die innerhalb von 2 m (Pitch: 5 m) am Ziel liegen bleiben.', max: 10 }
+        home: { title: 'Chip-Test: 10 Chips in den Korb', how: '10 Chips mit Schaumstoffbällen aus 3 m in einen Wäschekorb – Gewicht links, kurzer Schulter-Pendel. Zähle die Treffer.', max: 10, gear: ['wedge', 'foamballs', 'basket', 'mat'] },
+        out: { title: 'Kurzspiel-Test: 10 Chips & Pitches', how: '10 Bälle von verschiedenen Stellen rund ums Grün (oder 10 Pitches auf 40 m). Zähle die Bälle, die innerhalb von 2 m (Pitch: 5 m) am Ziel liegen bleiben.', max: 10, gear: ['wedge', 'balls', 'green'] }
       },
       basics: {
-        home: { title: 'Setup-Test: 10 Setups', how: 'Baue 10-mal dein Setup neu auf und prüfe es im Spiegel: Griff, Haltung, Ballposition. Zähle die Setups, die ohne Korrektur stimmen.', max: 10 },
-        out: { title: 'Setup-Test: 10 Setups', how: 'Baue 10-mal dein Setup mit Eisen 7 neu auf und prüfe es mit einem Alignment-Stick: Füße, Hüfte und Schultern parallel zur Ziellinie. Zähle die korrekten Setups.', max: 10 }
+        home: { title: 'Setup-Test: 10 Setups', how: 'Baue 10-mal Griff und Ansprechhaltung neu auf und prüfe im Spiegel: Knöchel der linken Hand, Hüftbeuge, Ballposition. Zähle die Setups, die ohne Korrektur stimmen.', max: 10, gear: ['iron7', 'mirror', 'balls'] },
+        out: { title: 'Setup-Test: 10 Setups', how: 'Baue 10-mal dein Setup mit Eisen 7 neu auf und prüfe es mit einem Alignment-Stick: Füße, Hüfte und Schultern parallel zur Ziellinie. Zähle die korrekten Setups.', max: 10, gear: ['iron7', 'rangeballs', 'sticks'] }
       },
       shaping: {
-        home: { title: 'Schlagflächen-Test: 10 × Pause am Top', how: '10 Zeitlupen-Schwünge mit Pause am Top. Zähle, wie oft die Schlagfläche im Spiegel parallel zum linken Unterarm steht.', max: 10 },
-        out: { title: 'Kurven-Test: 10 Bälle Draw & Fade', how: '10 Bälle mit Eisen 7, abwechselnd als Draw und Fade angesagt. Zähle die Bälle mit der geplanten Kurve.', max: 10 }
+        home: { title: 'Schlagflächen-Test: 10 × Pause am Top', how: '10 Zeitlupen-Schwünge mit Pause am Top. Zähle, wie oft die Schlagfläche im Spiegel parallel zum linken Unterarm steht.', max: 10, gear: ['iron9', 'mirror'] },
+        out: { title: 'Kurven-Test: 10 Bälle Draw & Fade', how: '10 Bälle mit Eisen 7, abwechselnd als Draw und Fade angesagt. Zähle die Bälle mit der geplanten Kurve.', max: 10, gear: ['iron7', 'rangeballs'] }
       },
       course: {
-        home: { title: 'Routine-Test: 10 Probeschläge', how: '10 Probeschwünge mit kompletter Pre-Shot-Routine, gestoppt mit dem Handy. Zähle die Routinen, die 15–25 Sekunden dauern.', max: 10 },
-        out: { title: '9-Ball-Test', how: '9 Bälle mit 9 verschiedenen Schlägern auf wechselnde Ziele, jeweils mit voller Routine. Zähle die Bälle im Zielkorridor.', max: 9 }
+        home: { title: 'Routine-Test: 10 Probeschläge', how: '10 Probeschwünge mit kompletter Pre-Shot-Routine (hinter dem Ball, Zwischenziel, Setup, Schwung), gestoppt mit dem Handy. Zähle die Routinen, die 15–25 Sekunden dauern.', max: 10, gear: ['anyclub', 'phone'] },
+        out: { title: '9-Ball-Test', how: '9 Bälle mit 9 verschiedenen Schlägern auf wechselnde Ziele, jeweils mit voller Routine. Zähle die Bälle im Zielkorridor.', max: 9, gear: ['fullbag', 'rangeballs', 'tees'] }
       }
     };
+
+    /* Golf-Material: Katalog für die Liste „Das brauchst du heute“ */
+    const GOLF_GEAR_GROUPS = [
+      { key: 'place', label: 'Ort', icon: 'place' },
+      { key: 'club', label: 'Schläger', icon: 'sports_golf' },
+      { key: 'ball', label: 'Bälle', icon: 'circle' },
+      { key: 'aid', label: 'Hilfsmittel', icon: 'construction' }
+    ];
+    const GOLF_GEAR = {
+      range: { group: 'place', label: 'Driving Range (mit Fahnen oder Distanzschildern)' },
+      green: { group: 'place', label: 'Übungsgrün' },
+      bunker: { group: 'place', label: 'Übungsbunker' },
+      putter: { group: 'club', label: 'Putter' },
+      wedge: { group: 'club', label: 'Wedge (Sand oder Pitching Wedge)' },
+      pw: { group: 'club', label: 'Pitching Wedge' },
+      sw: { group: 'club', label: 'Sand Wedge (56°)' },
+      wedges: { group: 'club', label: 'Alle Wedges (z. B. PW, 52°, 56°, 60°)' },
+      iron9: { group: 'club', label: 'Kurzes Eisen (8 oder 9)' },
+      iron7: { group: 'club', label: 'Eisen 7' },
+      iron6: { group: 'club', label: 'Eisen 6' },
+      iron5: { group: 'club', label: 'Eisen 5' },
+      longiron: { group: 'club', label: 'Langes Eisen (4 oder 5)' },
+      hybrid: { group: 'club', label: 'Hybrid' },
+      wood3: { group: 'club', label: 'Holz 3' },
+      driver: { group: 'club', label: 'Driver' },
+      fullbag: { group: 'club', label: 'Komplettes Bag (mind. 9 Schläger)' },
+      anyclub: { group: 'club', label: 'Ein beliebiger Schläger' },
+      rangeballs: { group: 'ball', label: 'Range-Bälle (1 Korb)' },
+      balls: { group: 'ball', label: 'Eigene Golfbälle (3–10 Stück)' },
+      foamballs: { group: 'ball', label: 'Schaumstoff- oder Lochbälle (10–20 Stück)' },
+      tees: { group: 'aid', label: 'Tees' },
+      sticks: { group: 'aid', label: '2 Alignment-Sticks (oder 2 Schläger)' },
+      towel: { group: 'aid', label: 'Golfhandtuch' },
+      towels3: { group: 'aid', label: '3 kleine Handtücher' },
+      headcover: { group: 'aid', label: 'Schlägerhaube (Headcover)' },
+      footspray: { group: 'aid', label: 'Fußspray oder Trockenshampoo (Treffbild)' },
+      chalk: { group: 'aid', label: 'Kreidespray (oder ein Alignment-Stick)' },
+      coins: { group: 'aid', label: '4 Münzen oder Ballmarker' },
+      cup: { group: 'aid', label: 'Trinkglas (liegend) oder Putt-Becher' },
+      ruler: { group: 'aid', label: '1-m-Lineal oder Holzleiste' },
+      books: { group: 'aid', label: '2 Bücher (als Tor)' },
+      basket: { group: 'aid', label: 'Wäschekorb' },
+      cushion: { group: 'aid', label: 'Sofakissen' },
+      impactbag: { group: 'aid', label: 'Impact-Bag oder fest gestopfte Sporttasche' },
+      mat: { group: 'aid', label: 'Schlagmatte oder Teppichrest (schützt den Boden)' },
+      target: { group: 'aid', label: 'Weiches Ziel: Sofa, Netz oder Decke an der Wand' },
+      mirror: { group: 'aid', label: 'Spiegel (oder Terrassentür)' },
+      phone: { group: 'aid', label: 'Handy (Stoppuhr / Kamera)' },
+      metronome: { group: 'aid', label: 'Metronom-App' },
+      wall: { group: 'aid', label: 'Freie Zimmerwand' },
+      notes: { group: 'aid', label: 'Lochplan deines Heimatplatzes + Stift' },
+      scorecard: { group: 'aid', label: 'Notizblock oder Scorekarte' }
+    };
+
+    // Material je Drill (Schlüssel aus GOLF_GEAR)
+    const DRILL_GEAR = {
+      'drill-driver-headcover': ['driver', 'rangeballs', 'tees', 'headcover'],
+      'drill-driver-step': ['driver', 'rangeballs', 'tees'],
+      'drill-iron-towel': ['iron7', 'rangeballs', 'towel'],
+      'drill-iron-line': ['iron9', 'rangeballs', 'chalk'],
+      'drill-wedge-towel': ['sw', 'rangeballs', 'towel', 'range'],
+      'drill-wedge-onehand': ['sw', 'rangeballs'],
+      'drill-putt-gate': ['putter', 'balls', 'tees', 'green'],
+      'drill-putt-ladder': ['putter', 'balls', 'tees', 'green'],
+      'drill-basics-rails': ['iron7', 'rangeballs', 'sticks'],
+      'drill-basics-gripcheck': ['iron9', 'rangeballs'],
+      'drill-shaping-9window': ['iron6', 'rangeballs'],
+      'drill-shaping-startline': ['iron7', 'rangeballs', 'sticks'],
+      'drill-warmup-par4': ['driver', 'iron7', 'pw', 'rangeballs', 'tees'],
+      'drill-warmup-1ball': ['fullbag', 'rangeballs', 'tees'],
+      'drill-indoor-ruler': ['putter', 'balls', 'ruler', 'cup'],
+      'drill-indoor-mirror': ['iron7', 'mirror'],
+      'drill-indoor-wallhip': ['wall'],
+      'drill-indoor-cushion': ['wedge', 'foamballs', 'cushion', 'mat'],
+      'drill-driver-teeheight': ['driver', 'rangeballs', 'tees', 'footspray'],
+      'drill-driver-fairway': ['driver', 'rangeballs', 'tees', 'range'],
+      'drill-driver-tempo': ['driver', 'rangeballs', 'tees'],
+      'drill-iron-compression': ['iron7', 'rangeballs'],
+      'drill-iron-carryladder': ['iron9', 'iron7', 'iron5', 'rangeballs', 'range'],
+      'drill-iron-gate': ['iron7', 'rangeballs', 'tees'],
+      'drill-wedge-clock': ['sw', 'rangeballs', 'range'],
+      'drill-chip-ladder': ['iron9', 'pw', 'sw', 'balls', 'towel', 'green'],
+      'drill-chip-updown': ['wedge', 'putter', 'balls', 'green'],
+      'drill-bunker-line': ['sw', 'balls', 'bunker'],
+      'drill-putt-clock': ['putter', 'balls', 'tees', 'green'],
+      'drill-putt-lagzone': ['putter', 'balls', 'tees', 'green'],
+      'drill-putt-pressure': ['putter', 'balls', 'green'],
+      'drill-basics-ballpos': ['wedge', 'iron7', 'driver', 'rangeballs', 'tees', 'sticks'],
+      'drill-basics-finish': ['iron7', 'rangeballs'],
+      'drill-shaping-height': ['iron7', 'rangeballs'],
+      'drill-warmup-random': ['driver', 'hybrid', 'iron7', 'wedge', 'rangeballs', 'tees'],
+      'drill-warmup-routine': ['anyclub', 'rangeballs', 'phone'],
+      'drill-indoor-towelarms': ['iron9', 'towel'],
+      'drill-indoor-slowmo': ['iron9', 'mirror'],
+      'drill-indoor-putt-gate': ['putter', 'balls', 'books', 'cup'],
+      'drill-indoor-putt-ladder': ['putter', 'balls', 'coins'],
+      'drill-indoor-putt-rhythm': ['putter', 'balls', 'metronome'],
+      'drill-indoor-putt-onehand': ['putter', 'balls', 'cup'],
+      'drill-indoor-pump': ['iron9', 'mirror'],
+      'drill-indoor-metronome': ['iron9', 'metronome'],
+      'drill-indoor-speed': ['driver'],
+      'drill-indoor-impact': ['iron9', 'impactbag'],
+      'drill-indoor-chip-basket': ['wedge', 'foamballs', 'basket', 'mat'],
+      'drill-indoor-chip-towels': ['wedge', 'foamballs', 'towels3', 'mat'],
+      'drill-indoor-visualize': ['anyclub', 'notes'],
+      'drill-indoor-grip': ['iron7', 'mirror'],
+      'drill-indoor-halfswing': ['iron9', 'foamballs', 'mat', 'target'],
+      'drill-indoor-lowpoint': ['iron9', 'foamballs', 'mat', 'towel'],
+      'drill-indoor-alignment': ['wedge', 'iron7', 'driver', 'sticks', 'balls', 'phone']
+    };
+
+    function drillGear(id) {
+      return DRILL_GEAR[id] || [];
+    }
+
+    // Golfspezifisches Aufwärmen – mit Schläger und Ball statt reiner Gymnastik
+    const GOLF_WARMUPS = {
+      home: {
+        title: 'Golf-Warm-up mit dem Wedge',
+        meta: 'Mit Schläger, ohne Ball',
+        gear: ['wedge'],
+        steps: [
+          'Griff und Ansprechhaltung 5-mal komplett neu aufbauen – so kommst du in deine Golfposition.',
+          '10 Mini-Schwünge (8 bis 4 Uhr) mit dem Wedge: Der Schläger streift leise den Teppich oder die Matte.',
+          '5 Halbschwünge (9 bis 3 Uhr), dann 5 Dreiviertel-Schwünge – jedes Finish 2 Sekunden halten.'
+        ],
+        puttStep: '5 Putts aus 1 m auf dein Ziel, damit du ins Gefühl kommst.',
+        videoId: 'k3bvkl6jbA8',
+        videoTitle: 'Einfaches Aufwärmen vor dem Training und Golfspiel',
+        videoChannel: 'Golfen mit Freude'
+      },
+      homePutt: {
+        title: 'Putt-Warm-up auf dem Teppich',
+        meta: 'Mit Putter und Ball',
+        gear: ['putter', 'balls', 'cup'],
+        steps: [
+          'Putt-Griff und Setup 5-mal neu aufbauen: Augen über dem Ball, Arme hängen locker, Schultern parallel zur Ziellinie.',
+          '10 Pendel-Bewegungen ohne Ball – nur die Schultern bewegen, die Handgelenke bleiben ruhig.',
+          '10 Putts aus 1 m auf dein Ziel, dann 5 Putts über 3 m nur fürs Tempo.'
+        ],
+        videoId: '2QFk4Jncu4s',
+        videoTitle: 'Rhythmus beim Putten – Golf zu Hause trainieren',
+        videoChannel: 'GOLFSTUN.DE'
+      },
+      range: {
+        title: 'Range-Warm-up: vom Wedge zum Eisen 7',
+        meta: 'ca. 10 Bälle',
+        gear: ['wedge', 'iron7', 'rangeballs'],
+        steps: [
+          'Ohne Ball: 10 lockere Schwünge mit dem Wedge, die von klein (8 bis 4 Uhr) langsam länger werden.',
+          '5 Bälle mit dem Wedge im Halbschwung (9 bis 3 Uhr) – es zählt nur sauberer Kontakt, nicht die Länge.',
+          '5 Bälle mit Eisen 7 im Dreiviertel-Schwung auf eine Fahne. Erst danach zu den Übungen.'
+        ],
+        videoId: 'k3bvkl6jbA8',
+        videoTitle: 'Einfaches Aufwärmen vor dem Training und Golfspiel',
+        videoChannel: 'Golfen mit Freude'
+      },
+      green: {
+        title: 'Grün-Warm-up: Kontakt & Tempo',
+        meta: 'ca. 15 Bälle',
+        gear: ['wedge', 'putter', 'balls'],
+        steps: [
+          '5 kurze Chips mit dem Wedge auf die Grünmitte – Gewicht links, ruhige Handgelenke.',
+          '5 lange Putts quer übers Grün: Wie schnell ist das Grün heute?',
+          '5 Putts aus 1 m – sieh den Ball ein paar Mal fallen, bevor die Übungen starten.'
+        ],
+        videoId: 'PI9o7pwJpbc',
+        videoTitle: 'Putts richtig dosieren – Längenkontrolle beim Putten',
+        videoChannel: 'GOLFSTUN.DE'
+      }
+    };
+
+    // Welches Warm-up passt? 'both' = Range & Kurzspiel: Range, außer es geht nur um Kurzspiel/Putten.
+    function golfWarmupKey(placeKey, focusKeys) {
+      if (placeKey === 'home') return (focusKeys || []).length && focusKeys.every(k => k === 'putting') ? 'homePutt' : 'home';
+      if (placeKey === 'green' || placeKey === 'range') return placeKey;
+      const shortOnly = (focusKeys || []).length && focusKeys.every(k => ['putting', 'shortgame'].includes(k));
+      return shortOnly ? 'green' : 'range';
+    }
+
+    function golfWarmup(placeKey, focusKeys) {
+      const key = golfWarmupKey(placeKey, focusKeys);
+      const w = GOLF_WARMUPS[key];
+      const withPutt = key === 'home' && (focusKeys || []).includes('putting');
+      if (key === 'green' && (focusKeys || []).length && focusKeys.every(k => k === 'putting')) {
+        return { key, title: 'Grün-Warm-up: Tempo & Startlinie', meta: 'ca. 15 Putts', steps: w.steps.slice(1).concat('3 Putts bergauf und 3 bergab aus 5 m – merke dir, wie unterschiedlich das Grün läuft.'), gear: ['putter', 'balls'] };
+      }
+      return {
+        key,
+        title: w.title,
+        meta: w.meta,
+        steps: withPutt ? [...w.steps, w.puttStep] : [...w.steps],
+        gear: withPutt ? [...w.gear, 'putter', 'balls'] : [...w.gear]
+      };
+    }
+
+    function openGolfWarmupVideo(key, ev) {
+      if (ev) ev.stopPropagation();
+      const w = GOLF_WARMUPS[key];
+      if (w) openVideoModal(w.videoId, w.videoTitle, 'Aufwärmen', w.videoChannel);
+    }
+
+    // Bevorzugte Kern-Drills je Fokus und Ort (in dieser Reihenfolge) – echte Golfübungen mit Schläger und Ball zuerst
+    const CHALLENGE_CORE = {
+      longgame: { home: ['drill-indoor-halfswing', 'drill-indoor-lowpoint', 'drill-indoor-impact', 'drill-indoor-pump'], out: ['drill-iron-towel', 'drill-iron-compression', 'drill-driver-step', 'drill-iron-gate'] },
+      putting: { home: ['drill-indoor-putt-gate', 'drill-indoor-putt-ladder', 'drill-indoor-ruler'], out: ['drill-putt-gate', 'drill-putt-ladder', 'drill-putt-clock'] },
+      shortgame: { home: ['drill-indoor-chip-towels', 'drill-indoor-lowpoint', 'drill-indoor-chip-basket'], out: ['drill-chip-ladder', 'drill-wedge-clock', 'drill-wedge-onehand'] },
+      basics: { home: ['drill-indoor-grip', 'drill-indoor-alignment', 'drill-indoor-mirror'], out: ['drill-basics-gripcheck', 'drill-basics-rails', 'drill-basics-ballpos'] },
+      shaping: { home: ['drill-indoor-slowmo', 'drill-indoor-impact', 'drill-indoor-alignment'], out: ['drill-shaping-startline', 'drill-shaping-height', 'drill-shaping-9window'] },
+      course: { home: ['drill-indoor-visualize', 'drill-indoor-alignment', 'drill-indoor-metronome'], out: ['drill-warmup-routine', 'drill-warmup-1ball', 'drill-warmup-par4'] }
+    };
+
+    /* Klassische Challenge: Material je Einheit & Stufe sowie passende Drills (Schritt für Schritt) je Übung */
+    const CLASSIC_PLAN_EXTRAS = {
+      '1-beginner': { gear: ['iron9', 'putter', 'rangeballs', 'balls', 'sticks', 'mirror', 'green'], drills: ['drill-basics-gripcheck', 'drill-basics-rails', 'drill-putt-gate'] },
+      '1-intermediate': { gear: ['pw', 'iron7', 'hybrid', 'putter', 'rangeballs', 'balls', 'tees', 'sticks', 'green'], drills: ['drill-warmup-routine', 'drill-basics-ballpos', 'drill-putt-gate'] },
+      '1-advanced': { gear: ['iron7', 'putter', 'rangeballs', 'balls', 'tees', 'sticks', 'green'], drills: ['drill-shaping-startline', 'drill-shaping-height', 'drill-putt-clock'] },
+      '4-beginner': { gear: ['putter', 'balls', 'tees', 'ruler', 'green'], drills: ['drill-indoor-ruler', 'drill-putt-clock', 'drill-putt-lagzone'] },
+      '4-intermediate': { gear: ['putter', 'balls', 'tees', 'green'], drills: ['drill-putt-ladder', 'drill-putt-gate', null] },
+      '4-advanced': { gear: ['putter', 'balls', 'tees', 'green'], drills: ['drill-putt-clock', 'drill-putt-lagzone', null] },
+      '7-beginner': { gear: ['iron9', 'rangeballs', 'towel'], drills: ['drill-iron-towel', 'drill-iron-compression', 'drill-basics-finish'] },
+      '7-intermediate': { gear: ['iron9', 'iron7', 'iron5', 'rangeballs', 'chalk', 'range'], drills: ['drill-iron-line', 'drill-iron-carryladder', null] },
+      '7-advanced': { gear: ['iron7', 'iron6', 'longiron', 'rangeballs', 'range'], drills: ['drill-shaping-height', null, null] },
+      '10-beginner': { gear: ['iron9', 'pw', 'putter', 'balls', 'towel', 'green'], drills: ['drill-chip-ladder', null, 'drill-chip-updown'] },
+      '10-intermediate': { gear: ['iron9', 'pw', 'sw', 'putter', 'balls', 'towel', 'green'], drills: ['drill-chip-ladder', null, 'drill-chip-updown'] },
+      '10-advanced': { gear: ['wedges', 'putter', 'balls', 'green'], drills: ['drill-chip-updown', null, null] },
+      '13-beginner': { gear: ['driver', 'rangeballs', 'tees', 'headcover', 'range'], drills: ['drill-driver-step', 'drill-driver-headcover', 'drill-driver-fairway'] },
+      '13-intermediate': { gear: ['driver', 'rangeballs', 'tees', 'footspray', 'phone', 'range'], drills: ['drill-driver-fairway', 'drill-driver-teeheight', 'drill-warmup-routine'] },
+      '13-advanced': { gear: ['driver', 'wood3', 'longiron', 'rangeballs', 'tees', 'range'], drills: ['drill-driver-fairway', 'drill-driver-tempo', null] },
+      '16-beginner': { gear: ['sw', 'rangeballs', 'range'], drills: ['drill-wedge-onehand', 'drill-wedge-clock', null] },
+      '16-intermediate': { gear: ['sw', 'rangeballs', 'balls', 'towel', 'range', 'bunker'], drills: ['drill-wedge-towel', 'drill-bunker-line'] },
+      '16-advanced': { gear: ['wedges', 'rangeballs', 'balls', 'scorecard', 'range', 'bunker'], drills: ['drill-wedge-clock', 'drill-bunker-line'] },
+      '19-beginner': { gear: ['fullbag', 'putter', 'rangeballs', 'balls', 'tees', 'green'], drills: ['drill-warmup-1ball', 'drill-warmup-par4', 'drill-putt-pressure'] },
+      '19-intermediate': { gear: ['fullbag', 'putter', 'rangeballs', 'balls', 'tees', 'notes', 'green'], drills: [null, 'drill-chip-updown'] },
+      '19-advanced': { gear: ['fullbag', 'putter', 'rangeballs', 'balls', 'tees', 'scorecard', 'green'], drills: [null, 'drill-putt-pressure'] },
+      '22-beginner': { gear: ['iron7', 'rangeballs', 'sticks'], drills: ['drill-shaping-startline', 'drill-shaping-9window', 'drill-shaping-9window'] },
+      '22-intermediate': { gear: ['iron6', 'rangeballs'], drills: ['drill-shaping-9window', 'drill-shaping-height'] },
+      '22-advanced': { gear: ['iron9', 'iron7', 'iron6', 'iron5', 'driver', 'rangeballs', 'tees', 'range'], drills: ['drill-shaping-9window', null] },
+      '25-beginner': { gear: ['pw', 'sw', 'rangeballs', 'range'], drills: ['drill-wedge-clock', 'drill-wedge-towel'] },
+      '25-intermediate': { gear: ['wedges', 'rangeballs', 'balls', 'scorecard', 'range', 'bunker'], drills: ['drill-wedge-clock', 'drill-bunker-line'] },
+      '25-advanced': { gear: ['wedges', 'rangeballs', 'range'], drills: [null, null] },
+      '28-beginner': { gear: ['putter', 'balls', 'tees', 'green'], drills: ['drill-putt-lagzone', 'drill-putt-pressure'] },
+      '28-intermediate': { gear: ['putter', 'balls', 'tees', 'green'], drills: ['drill-putt-clock', 'drill-putt-ladder'] },
+      '28-advanced': { gear: ['putter', 'balls', 'tees', 'green'], drills: ['drill-putt-pressure', 'drill-putt-lagzone'] },
+      '31-beginner': { gear: ['hybrid', 'driver', 'iron7', 'rangeballs', 'tees'], drills: [null, 'drill-driver-tempo', null] },
+      '31-intermediate': { gear: ['driver', 'wood3', 'hybrid', 'iron6', 'wedge', 'rangeballs', 'tees', 'range'], drills: [null, null] },
+      '31-advanced': { gear: ['driver', 'wood3', 'hybrid', 'rangeballs', 'tees', 'range'], drills: ['drill-driver-fairway', null] },
+      '34-beginner': { gear: ['sw', 'putter', 'balls', 'bunker', 'green'], drills: ['drill-bunker-line', 'drill-chip-updown'] },
+      '34-intermediate': { gear: ['wedges', 'putter', 'balls', 'bunker', 'green'], drills: ['drill-chip-updown', null] },
+      '34-advanced': { gear: ['wedges', 'putter', 'balls', 'bunker', 'green'], drills: ['drill-chip-updown', 'drill-bunker-line'] },
+      '37-beginner': { gear: ['fullbag', 'putter', 'rangeballs', 'balls', 'tees', 'phone', 'green'], drills: [null, null] },
+      '37-intermediate': { gear: ['fullbag', 'putter', 'rangeballs', 'balls', 'tees', 'notes', 'green'], drills: [null, null] },
+      '37-advanced': { gear: ['fullbag', 'putter', 'rangeballs', 'balls', 'tees', 'scorecard', 'green'], drills: [null, null] },
+      '40-beginner': { gear: ['driver', 'iron7', 'wedge', 'putter', 'rangeballs', 'balls', 'tees', 'green'], drills: ['drill-warmup-routine', 'drill-chip-updown', 'drill-putt-pressure'] },
+      '40-intermediate': { gear: ['driver', 'iron7', 'wedge', 'putter', 'rangeballs', 'balls', 'tees', 'range', 'green'], drills: ['drill-driver-fairway', 'drill-chip-updown', 'drill-putt-clock'] },
+      '40-advanced': { gear: ['driver', 'iron7', 'wedges', 'putter', 'rangeballs', 'balls', 'tees', 'range', 'green'], drills: ['drill-driver-fairway', 'drill-wedge-clock', 'drill-putt-clock'] }
+    };
+
+    /* Abhak-Liste „Das brauchst du heute“ (pro Gerät gemerkt) */
+    let challengeGearChecked = {};
+    try {
+      const raw = JSON.parse(localStorage.getItem('gpg_chal_gear') || '{}');
+      if (isPlainObject(raw)) challengeGearChecked = raw;
+    } catch (e) { challengeGearChecked = {}; }
+
+    function gearListKey(day) {
+      return `${customChallenge ? customChallenge.id : 'classic-' + challengeLevel}|${day}`;
+    }
+
+    function toggleChallengeGear(day, gearKey) {
+      const k = gearListKey(day);
+      const list = Array.isArray(challengeGearChecked[k]) ? challengeGearChecked[k] : [];
+      challengeGearChecked[k] = list.includes(gearKey) ? list.filter(x => x !== gearKey) : [...list, gearKey];
+      try { localStorage.setItem('gpg_chal_gear', JSON.stringify(challengeGearChecked)); } catch (e) { /* nur Komfort */ }
+      renderChallenge40View();
+    }
+
+    // Fasst Material zusammen: doppelte raus, „Wedge“ entfällt, wenn ein konkreter Wedge dabei ist usw.
+    function mergeGear(keys) {
+      const set = new Set(keys.filter(k => GOLF_GEAR[k]));
+      if (set.has('rangeballs')) set.add('range');
+      if (set.has('wedges')) ['wedge', 'pw', 'sw'].forEach(k => set.delete(k));
+      if (set.has('wedge') && (set.has('pw') || set.has('sw'))) set.delete('wedge');
+      if (set.has('fullbag')) ['anyclub'].forEach(k => set.delete(k));
+      if (set.has('anyclub') && [...set].some(k => GOLF_GEAR[k].group === 'club' && k !== 'anyclub')) set.delete('anyclub');
+      if (set.has('longiron') && set.has('iron5')) set.delete('iron5');
+      const order = Object.keys(GOLF_GEAR);
+      return [...set].sort((a, b) => order.indexOf(a) - order.indexOf(b));
+    }
+
+    function renderGearChecklist(day, keys) {
+      const gear = mergeGear(keys);
+      if (!gear.length) return '';
+      const checked = new Set(challengeGearChecked[gearListKey(day)] || []);
+      const doneCount = gear.filter(k => checked.has(k)).length;
+      const groups = GOLF_GEAR_GROUPS.map(g => {
+        const items = gear.filter(k => GOLF_GEAR[k].group === g.key);
+        if (!items.length) return '';
+        return `<div class="md-gear-group">
+          <div class="md-gear-group-label"><span class="material-symbols-rounded" aria-hidden="true">${g.icon}</span>${g.label}</div>
+          <div class="md-gear-items">${items.map(k => `
+            <button type="button" class="md-gear-item ${checked.has(k) ? 'checked' : ''}" onclick="toggleChallengeGear(${day}, '${k}')" aria-pressed="${checked.has(k)}">
+              <span class="material-symbols-rounded ${checked.has(k) ? 'filled' : ''}" aria-hidden="true">${checked.has(k) ? 'check_box' : 'check_box_outline_blank'}</span>
+              <span>${GOLF_GEAR[k].label}</span>
+            </button>`).join('')}</div>
+        </div>`;
+      }).join('');
+      return `<details class="md-gear-card" ${doneCount === gear.length ? '' : 'open'}>
+        <summary>
+          <span class="material-symbols-rounded" aria-hidden="true">backpack</span>
+          <strong>Das brauchst du heute</strong>
+          <span class="md-gear-count font-mono">${doneCount}/${gear.length} gepackt</span>
+        </summary>
+        <p class="md-chal-block-text">Leg alles vorab bereit – dann kannst du ohne Unterbrechung trainieren. Tippe an, was du eingepackt hast.</p>
+        ${groups}
+      </details>`;
+    }
 
     // Aktive eigene Challenge oder null (= klassische Challenge)
     let customChallenge = null;
@@ -9770,8 +10198,13 @@
       [...new Set(cfg.slots)].forEach(pk => {
         pools[pk] = {};
         cfg.focus.forEach(fk => {
-          const shuffled = seededShuffle(challengePool(fk, pk), rand);
+          const pool = challengePool(fk, pk);
+          // Kern-Drills (echte Golfübungen mit Schläger und Ball) stehen vorne, der Rest gemischt dahinter
+          const coreIds = (CHALLENGE_CORE[fk] || {})[pk === 'home' ? 'home' : 'out'] || [];
+          const core = coreIds.map(id => pool.find(d => d.id === id)).filter(Boolean);
+          const shuffled = seededShuffle(pool.filter(d => !core.includes(d)), rand);
           pools[pk][fk] = [
+            ...core,
             ...shuffled.filter(d => !CHALLENGE_PRESSURE_DRILLS.includes(d.id)),
             ...shuffled.filter(d => CHALLENGE_PRESSURE_DRILLS.includes(d.id))
           ];
@@ -9790,10 +10223,9 @@
         const notes = [];
         let remaining = cfg.minutes;
 
-        const warmMin = cfg.minutes <= 15 ? 2 : placeKey === 'home' ? 3 : 5;
-        blocks.push({ type: 'warmup', min: warmMin, title: 'Aufwärmen', text: placeKey === 'home'
-          ? 'Arme und Schultern kreisen, Rumpfdrehung mit dem Schläger hinter den Schultern, 5 lockere Probeschwünge.'
-          : 'Kurze Mobilisation, dann 5 lockere Schwünge mit einem Wedge, die langsam länger werden.' });
+        const warmMin = cfg.minutes <= 15 ? 3 : 5;
+        const warm = golfWarmup(placeKey, cfg.focus);
+        blocks.push(Object.assign({ type: 'warmup', min: warmMin }, warm));
         remaining -= warmMin;
 
         if (isFirst || isLast) {
@@ -9802,7 +10234,7 @@
             const t = CHALLENGE_TESTS[fk]?.[variant];
             if (!t) return;
             const min = 5;
-            blocks.push({ type: 'test', min, focus: fk, testKey: `${fk}-${variant}`, title: (isFirst ? 'Eingangstest · ' : 'Abschlusstest · ') + t.title, text: t.how, max: t.max });
+            blocks.push({ type: 'test', min, focus: fk, testKey: `${fk}-${variant}`, title: (isFirst ? 'Eingangstest · ' : 'Abschlusstest · ') + t.title, text: t.how, max: t.max, gear: t.gear || [] });
             remaining -= min;
           });
         }
@@ -9847,6 +10279,27 @@
           misses = 0;
         }
 
+        // Restzeit füllen: in Phase Fundament lieber wiederholen; sonst (oder wenn noch gar kein Drill passt)
+        // zuerst weitere passende Drills aus deinem Fokus …
+        if (phaseIdx > 0 || !blocks.some(b => b.type === 'drill')) cfg.focus.forEach(fk => {
+          (pools[placeKey][fk] || []).forEach(d => {
+            if (remaining >= 5 && !used.has(d.id) && drillMinutes(d) <= remaining + 2) {
+              used.add(d.id);
+              blocks.push({ type: 'drill', id: d.id, min: drillMinutes(d), focus: fk });
+              remaining -= drillMinutes(d);
+            }
+          });
+        });
+
+        // … dann die Drills des Tages ein zweites Mal – mit dem Ziel, das Ergebnis zu verbessern
+        const firstRound = blocks.filter(b => b.type === 'drill');
+        for (let r = 0; r < firstRound.length && remaining >= 5; r++) {
+          const b = firstRound[r];
+          const min = Math.min(b.min, remaining);
+          blocks.push({ type: 'drill', id: b.id, min, focus: b.focus, repeat: true });
+          remaining -= min;
+        }
+
         const labels = cfg.focus.map(fk => CHALLENGE_FOCUS.find(f => f.key === fk).label);
         const focusLabel = labels.length > 1 ? `${labels.slice(0, -1).join(', ')} & ${labels[labels.length - 1]}` : labels[0];
         const firstDrill = blocks.find(b => b.type === 'drill');
@@ -9864,6 +10317,7 @@
           focus: `${isFirst ? 'Eingangstest' : isLast ? 'Abschlusstest' : phase.label} · ${focusLabel}`,
           duration: `${cfg.minutes} Min.`,
           videoId: drillMeta ? drillMeta.videoId : '',
+          gear: blocks.flatMap(b => b.type === 'drill' ? drillGear(b.id) : (b.gear || [])).map(k => placeKey === 'green' && k === 'rangeballs' ? 'balls' : k),
           blocks,
           notes
         };
@@ -10052,7 +10506,7 @@
                 <div class="md-chal-sample-item">
                   <div class="md-chal-sample-head">Tag ${s.day} · ${challengePlaceOf(s.place).icon} ${challengePlaceOf(s.place).label}</div>
                   <div class="md-chal-sample-title">${s.focus}</div>
-                  <div class="md-chal-sample-drills">${s.blocks.filter(b => b.type !== 'warmup').map(b => b.type === 'test' ? b.title : (TRAINING_DRILLS.find(d => d.id === b.id)?.title || '')).join(' · ')}</div>
+                  <div class="md-chal-sample-drills">${s.blocks.filter(b => b.type !== 'warmup' && !b.repeat).map(b => b.type === 'test' ? b.title : (TRAINING_DRILLS.find(d => d.id === b.id)?.title || '')).join(' · ')}</div>
                 </div>`).join('')}
             </div>
           </div>
@@ -10078,7 +10532,15 @@
       const firstSession = sessions[0];
       const blocksHtml = s.blocks.map(b => {
         if (b.type === 'warmup') {
-          return `<li class="md-chal-block"><span class="md-chal-block-min font-mono">${b.min}′</span><div><strong>${b.title}</strong><div class="md-chal-block-text">${b.text}</div></div></li>`;
+          const w = GOLF_WARMUPS[b.key];
+          return `<li class="md-chal-block"><span class="md-chal-block-min font-mono">${b.min}′</span><div style="flex: 1; min-width: 0;">
+            <details class="md-chal-drill">
+              <summary><strong>${b.title || 'Aufwärmen'}</strong><span class="md-chal-block-text">${b.meta || 'Aufwärmen'} · Schritt für Schritt</span></summary>
+              ${b.gear && b.gear.length ? `<div class="md-chal-block-text"><strong>Material:</strong> ${mergeGear(b.gear).map(k => GOLF_GEAR[k].label).join(', ')}</div>` : ''}
+              <ol class="md-chal-steps">${(b.steps || [b.text]).map(st => `<li>${st}</li>`).join('')}</ol>
+              ${w && w.videoId ? `<button type="button" class="md-text-btn" onclick="openGolfWarmupVideo('${b.key}', event)"><span class="material-symbols-rounded" style="font-size: 18px;">smart_display</span><span>Video (${w.videoChannel})</span></button>` : ''}
+            </details>
+          </div></li>`;
         }
         if (b.type === 'test') {
           const val = challengeTestResult(s.day, b.testKey);
@@ -10087,6 +10549,7 @@
           return `<li class="md-chal-block md-chal-test"><span class="md-chal-block-min font-mono">${b.min}′</span><div style="flex: 1; min-width: 0;">
             <strong>${b.title}</strong>
             <div class="md-chal-block-text">${b.text}</div>
+            ${b.gear && b.gear.length ? `<div class="md-chal-block-text"><strong>Material:</strong> ${mergeGear(b.gear).map(k => GOLF_GEAR[k].label).join(', ')}</div>` : ''}
             <label class="md-chal-test-input">
               <span>Ergebnis</span>
               <input type="number" inputmode="numeric" min="0" max="${b.max}" value="${val === null ? '' : val}" onchange="setChallengeTestResult(${s.day}, '${b.testKey}', this.value)" aria-label="Ergebnis ${b.title}" />
@@ -10098,9 +10561,15 @@
         const d = TRAINING_DRILLS.find(x => x.id === b.id);
         if (!d) return '';
         const m = drillMastery(d.id);
+        if (b.repeat) {
+          return `<li class="md-chal-block"><span class="md-chal-block-min font-mono">${b.min}′</span><div style="flex: 1; min-width: 0;">
+            <strong>2. Durchgang: ${d.title}</strong>
+            <span class="md-chal-block-text">Gleicher Aufbau wie oben – versuche, dein Ergebnis aus dem 1. Durchgang zu übertreffen. Ziel: ${d.successGoal}</span>
+          </div></li>`;
+        }
         return `<li class="md-chal-block"><span class="md-chal-block-min font-mono">${b.min}′</span><div style="flex: 1; min-width: 0;">
           <details class="md-chal-drill">
-            <summary><strong>${d.title}</strong><span class="md-chal-block-text">${d.disciplineLabel}${m.tier ? ` · ${m.tier.icon} ${m.tier.label}` : ''} · ${m.reps}× trainiert</span></summary>
+            <summary><strong>${d.title}</strong><span class="md-chal-block-text">${d.disciplineLabel}${m.tier ? ` · ${m.tier.icon} ${m.tier.label}` : ''} · ${m.reps}× trainiert · Schritt für Schritt</span></summary>
             <div class="md-chal-block-text"><strong>Material:</strong> ${d.setupMaterial}</div>
             <ol class="md-chal-steps">${d.steps.map(st => `<li>${st}</li>`).join('')}</ol>
             <div class="md-chal-block-text"><strong>Ziel:</strong> ${d.successGoal}</div>
@@ -10120,6 +10589,7 @@
           <p style="font-size: 0.84rem; color: var(--md-sys-color-on-surface-variant); margin-top: 0.25rem;">${s.isFirst ? 'Der Eingangstest zeigt, wo du heute stehst. Am letzten Tag wiederholst du ihn.' : s.isLast ? 'Wiederhole die Tests vom ersten Tag und sieh, was die 40 Tage gebracht haben.' : s.phaseHint}</p>
         </div>
         ${s.notes.map(n => `<p class="md-chal-note"><span class="material-symbols-rounded" aria-hidden="true">info</span>${n}</p>`).join('')}
+        ${renderGearChecklist(s.day, s.gear || [])}
         <ul class="md-chal-blocks">${blocksHtml}</ul>
         <div style="background-color: var(--md-sys-color-surface-container); border-radius: 0.95rem; padding: 0.7rem 0.9rem; font-size: 0.8rem; display: flex; align-items: center; gap: 0.5rem;">
           <span class="material-symbols-rounded" style="font-size: 18px; color: var(--md-sys-color-secondary);">schedule</span>
@@ -10155,7 +10625,7 @@
       const sessions = getChallengeSessions();
       const session = sessions.find(s => s.day === dayNum);
       const today = localDateKey();
-      const drillIds = session && session.custom ? session.blocks.filter(b => b.type === 'drill').map(b => b.id) : [];
+      const drillIds = session && session.custom ? [...new Set(session.blocks.filter(b => b.type === 'drill').map(b => b.id))] : [];
       if (completedChallengeDays.has(dayNum)) {
         completedChallengeDays.delete(dayNum);
         removeActivityEvent(challengeActivityRef(dayNum));
@@ -10314,6 +10784,7 @@
         const activeSession = sessions.find(s => s.day === selectedChallengeDay) || sessions[0];
         if (activeSession.custom) { detailCard.innerHTML = renderCustomSessionDetail(activeSession); return; }
         const plan = activeSession.levels[challengeLevel] || activeSession.levels.beginner;
+        const extras = CLASSIC_PLAN_EXTRAS[`${activeSession.day}-${activeSession.levels[challengeLevel] ? challengeLevel : 'beginner'}`] || {};
         const isDone = completedChallengeDays.has(activeSession.day);
         const dateLabel = formatChallengeDateLabel(challengeStartDate, activeSession.day);
         const nextDayNum = activeSession.day + 3 <= 40 ? activeSession.day + 3 : null;
@@ -10333,13 +10804,23 @@
             </p>
           </div>
 
+          ${renderGearChecklist(activeSession.day, extras.gear || [])}
+
           <ul class="md-tip-list" style="margin-top: 0.1rem;">
-            ${plan.exercises.map(ex => `
+            ${plan.exercises.map((ex, i) => {
+              const d = extras.drills && extras.drills[i] ? TRAINING_DRILLS.find(x => x.id === extras.drills[i]) : null;
+              return `
               <li class="md-tip-item">
                 <span class="material-symbols-rounded filled" style="font-size: 18px; color: var(--md-sys-color-primary); flex-shrink: 0; margin-top: 2px;">sports_golf</span>
-                <span>${ex}</span>
-              </li>
-            `).join('')}
+                ${d ? `<details class="md-chal-drill" style="flex: 1; min-width: 0;">
+                  <summary><span>${ex}</span><span class="md-chal-block-text" style="color: var(--md-sys-color-primary); font-weight: 700;">Schritt für Schritt: ${d.title}</span></summary>
+                  <div class="md-chal-block-text"><strong>Material:</strong> ${d.setupMaterial}</div>
+                  <ol class="md-chal-steps">${d.steps.map(st => `<li>${st}</li>`).join('')}</ol>
+                  <div class="md-chal-block-text"><strong>Ziel im Drill:</strong> ${d.successGoal}</div>
+                  ${d.videoId ? `<button type="button" class="md-text-btn" onclick="openCheckinDrillVideo('${d.id}', event)"><span class="material-symbols-rounded" style="font-size: 18px;">smart_display</span><span>Video (${d.videoChannel})</span></button>` : ''}
+                </details>` : `<span>${ex}</span>`}
+              </li>`;
+            }).join('')}
           </ul>
 
           <div style="background-color: var(--md-sys-color-surface-container); border-radius: 0.95rem; padding: 0.7rem 0.9rem; font-size: 0.8rem; display: flex; align-items: center; gap: 0.5rem;">
@@ -10558,7 +11039,7 @@
       'drill-indoor-ruler': ['putting', 'mix'],
       'drill-indoor-cushion': ['shortgame', 'mix'],
       'drill-indoor-mirror': ['basics', 'irons', 'driver', 'course'],
-      'drill-indoor-wallhip': ['driver', 'irons', 'shaping', 'basics', 'mix'],
+      'drill-indoor-wallhip': ['basics', 'mix'],
       'drill-indoor-towelarms': ['irons', 'driver', 'basics', 'shortgame', 'mix'],
       'drill-indoor-slowmo': ['driver', 'irons', 'shaping', 'basics', 'course', 'mix'],
       'drill-indoor-putt-gate': ['putting', 'mix'],
@@ -10568,10 +11049,14 @@
       'drill-indoor-pump': ['driver', 'irons', 'mix'],
       'drill-indoor-metronome': ['driver', 'irons', 'basics', 'course'],
       'drill-indoor-speed': ['driver'],
-      'drill-indoor-impact': ['irons', 'shortgame', 'basics', 'mix'],
+      'drill-indoor-impact': ['irons', 'shortgame', 'basics', 'shaping', 'mix'],
       'drill-indoor-chip-basket': ['shortgame', 'mix'],
       'drill-indoor-chip-towels': ['shortgame'],
-      'drill-indoor-visualize': ['course', 'mix']
+      'drill-indoor-visualize': ['course', 'mix'],
+      'drill-indoor-grip': ['basics', 'irons', 'driver', 'mix'],
+      'drill-indoor-halfswing': ['irons', 'driver', 'basics', 'mix'],
+      'drill-indoor-lowpoint': ['irons', 'shortgame', 'basics', 'mix'],
+      'drill-indoor-alignment': ['basics', 'driver', 'irons', 'shaping', 'course']
     };
 
     /* Verwandte Bereiche, falls der Fokus allein die Zeit nicht füllt */
@@ -10618,14 +11103,10 @@
       };
     }
 
-    function warmupBlockFor(place, minutes) {
+    function warmupBlockFor(place, minutes, focusKeys) {
       const min = minutes <= 15 ? 3 : minutes <= 30 ? 5 : minutes <= 45 ? 7 : minutes <= 60 ? 8 : 10;
-      const steps = place === 'home'
-        ? ['Schulter- und Hüftkreise, je 10 pro Richtung.', '10 langsame Rotationen mit einem Schläger hinter den Schultern.', '10 Probeschwünge in Zeitlupe, dann 5 in normalem Tempo.']
-        : place === 'green'
-          ? ['Schulter- und Hüftkreise, je 10 pro Richtung.', 'Ein paar lange Putts zum Lesen des Grüns und für das Tempo.', '5 kurze Chips mit lockeren Handgelenken.']
-          : ['Schulter- und Hüftkreise, je 10 pro Richtung, Rotationen mit dem Schläger hinter den Schultern.', '10 halbe Schwünge mit dem Wedge, dann 5 Dreiviertel-Schwünge mit einem kurzen Eisen.', 'Erst danach die längeren Schläger.'];
-      return { type: 'warmup', min, title: 'Aufwärmen & Mobilisation', steps };
+      const w = golfWarmup(place, focusKeys || []);
+      return { type: 'warmup', min, title: w.title, meta: w.meta, key: w.key, steps: w.steps, gear: w.gear };
     }
 
     function buildTrainingPlan(focusKeys, placeKey, minutes, reshuffle) {
@@ -10634,7 +11115,7 @@
       const notes = [];
       const blocks = [];
 
-      const warm = warmupBlockFor(placeKey, minutes);
+      const warm = warmupBlockFor(placeKey, minutes, focusKeys);
       blocks.push(warm);
 
       const fits = d => drillPlaces(d).some(p => place.places.includes(p));
@@ -10889,8 +11370,10 @@
               <div class="ck-time">${start}–${t}′</div>
               <div class="ck-body">
                 <div class="ck-title">${b.title}</div>
-                <div class="ck-meta">Ohne Ball · ${b.min} Min.</div>
-                ${isOpen ? `<ul class="ck-detail">${b.steps.map(s => `<li>${s}</li>`).join('')}</ul>` : ''}
+                <div class="ck-meta">${b.meta || 'Aufwärmen'} · ${b.min} Min.</div>
+                ${isOpen ? `<ol class="ck-detail">${b.steps.map(s => `<li>${s}</li>`).join('')}</ol>
+                ${b.gear && b.gear.length ? `<div class="ck-info"><strong>Material:</strong> ${mergeGear(b.gear).map(k => GOLF_GEAR[k].label).join(', ')}</div>` : ''}
+                ${b.key ? `<button type="button" class="md-tonal-btn ck-video" onclick="openGolfWarmupVideo('${b.key}', event)"><span class="material-symbols-rounded" style="font-size: 18px;">smart_display</span><span>Video ansehen</span></button>` : ''}` : ''}
               </div>
               <button type="button" class="ck-check" onclick="toggleCheckinBlockDone(${i}, event)" aria-label="Erledigt"><span class="material-symbols-rounded ${isDone ? 'filled' : ''}">${isDone ? 'check_circle' : 'radio_button_unchecked'}</span></button>
             </div>`;
