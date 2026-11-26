@@ -9,8 +9,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="apple-mobile-web-app-title" content="Golf Pocket Trainer" />
   <meta name="application-name" content="Golf Pocket Trainer" />
-  <meta name="description" content="Golf Pocket Trainer v4.32.1 – Material Design 3 Golf Technik-, Trainings-, Rules-, Scratch-Blueprint-, Komparator-, Warm-up-, Video-Analyse-, 40-Tage-Challenge- & Gamification-Statistik-Begleiter" />
-  <title>Golf Pocket Trainer (v4.32.1)</title>
+  <meta name="description" content="Golf Pocket Trainer v4.33.0 – Material Design 3 Golf Technik-, Trainings-, Rules-, Scratch-Blueprint-, Komparator-, Warm-up-, Video-Analyse-, 40-Tage-Challenge- & Gamification-Statistik-Begleiter" />
+  <title>Golf Pocket Trainer (v4.33.0)</title>
 
   <link rel="manifest" href="manifest.webmanifest" />
   <link rel="icon" type="image/png" sizes="48x48" href="icons/favicon-48.png" />
@@ -1448,6 +1448,83 @@
       border-width: 2px;
     }
 
+    /* Wiederholungen & Stufen je Drill (v4.33.0) */
+    .md-rep-box {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      padding: 0.7rem 0.8rem;
+      border-radius: 1rem;
+      background-color: var(--md-sys-color-surface-container);
+      font-size: 0.76rem;
+      color: var(--md-sys-color-on-surface-variant);
+    }
+    .md-rep-head {
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      flex-wrap: wrap;
+    }
+    .md-rep-tier {
+      font-weight: 800;
+      font-size: 0.72rem;
+      padding: 0.15rem 0.55rem;
+      border-radius: 999px;
+      background-color: var(--md-sys-color-surface-container-highest);
+      color: var(--md-sys-color-on-surface);
+    }
+    .md-rep-tier.tier-bronze { background-color: #F3DEC8; color: #6B3E12; }
+    .md-rep-tier.tier-silver { background-color: #E3E7EA; color: #39434A; }
+    .md-rep-tier.tier-gold { background-color: #FBE7A6; color: #6A4D00; }
+    .md-rep-due {
+      font-weight: 800;
+      font-size: 0.7rem;
+      padding: 0.12rem 0.5rem;
+      border-radius: 999px;
+      background-color: var(--md-sys-color-tertiary-container, #FFDDB3);
+      color: var(--md-sys-color-on-tertiary-container, #2A1700);
+    }
+    .md-rep-track {
+      height: 6px;
+      border-radius: 999px;
+      background-color: var(--md-sys-color-surface-container-highest);
+      overflow: hidden;
+    }
+    .md-rep-fill {
+      height: 100%;
+      border-radius: 999px;
+      background-color: var(--md-sys-color-primary);
+      transition: width 0.3s ease;
+    }
+    .md-rep-next { font-weight: 600; }
+    .md-weekly-goal {
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+      flex-wrap: wrap;
+      font-size: 0.78rem;
+      font-weight: 700;
+    }
+    .md-weekly-dots { display: inline-flex; gap: 0.3rem; }
+    .md-weekly-dot {
+      width: 0.8rem;
+      height: 0.8rem;
+      border-radius: 50%;
+      border: 2px solid currentColor;
+      opacity: 0.55;
+    }
+    .md-weekly-dot.on { background-color: currentColor; opacity: 1; }
+    .md-xp-rules {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 0.35rem 1rem;
+      font-size: 0.76rem;
+      color: var(--md-sys-color-on-surface-variant);
+      margin: 0.8rem 0;
+    }
+    .md-xp-rules div { display: flex; justify-content: space-between; gap: 0.5rem; }
+    .md-xp-rules strong { color: var(--md-sys-color-on-surface); white-space: nowrap; }
+
     .md-drill-thumb {
       position: relative;
       width: 116px;
@@ -2399,7 +2476,7 @@
         <div class="md-brand-text-wrap">
           <div style="display: flex; align-items: center; gap: 0.4rem;">
             <h1 class="md-brand-title">Golf Pocket Trainer</h1>
-            <span class="md-version-badge font-mono">v4.32.1</span>
+            <span class="md-version-badge font-mono">v4.33.0</span>
           </div>
           <p class="md-brand-sub">Dein Trainings- &amp; Platzbegleiter</p>
         </div>
@@ -2476,7 +2553,7 @@
               <span class="material-symbols-rounded" style="color: var(--md-sys-color-on-surface-variant);">history</span>
               <span>Versionsverlauf</span>
             </span>
-            <span class="font-mono" style="font-size: 0.72rem; color: var(--md-sys-color-on-surface-variant);">v4.32.1</span>
+            <span class="font-mono" style="font-size: 0.72rem; color: var(--md-sys-color-on-surface-variant);">v4.33.0</span>
           </button>
         </div>
       </div>
@@ -2710,7 +2787,7 @@
 
       <article class="md-card-outlined md-card-pad">
         <h3 class="font-display" style="font-size: 1.05rem; font-weight: 800;">Phasen-Checkliste</h3>
-        <p style="font-size: 0.78rem; color: var(--md-sys-color-on-surface-variant); margin-top: 0.2rem;">Läuft der Timer, wird jede Phase am Ende automatisch abgehakt. Antippen hakt ab oder nimmt das Häkchen zurück.</p>
+        <p style="font-size: 0.78rem; color: var(--md-sys-color-on-surface-variant); margin-top: 0.2rem;">Läuft der Timer, wird jede Phase am Ende automatisch abgehakt. Antippen hakt ab oder nimmt das Häkchen zurück. Die Häkchen gelten für heute – jedes Warm-up zählt neu (+10 XP je Phase).</p>
         <div id="warmupPhasesGrid" class="md-phases-grid"></div>
       </article>
     </section>
@@ -2760,8 +2837,8 @@
             </div>
             <div class="md-scratch-step-tile">
               <span class="font-mono" style="font-size: 0.72rem; font-weight: 800; color: var(--md-sys-color-primary);">SCHRITT 4 · TRANSFER</span>
-              <strong style="font-size: 0.84rem;">Abhaken &amp; freie Bälle</strong>
-              <span style="font-size: 0.77rem; color: var(--md-sys-color-on-surface-variant);">Hake den Drill ab und beende die Einheit mit 5 Bällen im Platz-Rhythmus.</span>
+              <strong style="font-size: 0.84rem;">Eintragen &amp; wiederholen</strong>
+              <span style="font-size: 0.77rem; color: var(--md-sys-color-on-surface-variant);">Trag den Drill nach jedem Training ein. Jeder neue Trainingstag bringt XP und führt zur nächsten Stufe: 🥉 3 · 🥈 8 · 🥇 15 Tage.</span>
             </div>
           </div>
         </div>
@@ -3208,12 +3285,14 @@
         <div style="display: flex; flex-direction: column; gap: 0.35rem;">
           <div style="display: flex; justify-content: space-between; flex-wrap: wrap; column-gap: 0.75rem; row-gap: 0.15rem; font-size: 0.78rem; font-weight: 700;">
             <span id="gamificationNextLevelLabel">Nächstes Level: Platzreife-Anwärter</span>
-            <span id="gamificationXpToNext" class="font-mono">Noch 120 XP bis Level 2</span>
+            <span id="gamificationXpToNext" class="font-mono">Noch 300 XP bis Level 2</span>
           </div>
           <div class="md-xp-track">
             <div id="gamificationXpBarFill" class="md-xp-fill" style="width: 0%;"></div>
           </div>
         </div>
+
+        <div id="gamificationWeeklyGoal" class="md-weekly-goal"></div>
 
         <details class="md-collapsible" open>
           <summary>Alle 6 Level</summary>
@@ -3251,7 +3330,8 @@
           </span>
           <span id="statsBadgesCountBadge" class="md-assist-badge font-mono">0 / 10 Abzeichen</span>
         </summary>
-        <p style="font-size: 0.78rem; color: var(--md-sys-color-on-surface-variant); margin: 0.8rem 0;">Sammle XP: Scratch (+60 XP) · Challenge (+50 XP) · Drill (+30 XP) · Check-in (+25 XP) · Warm-up/Checkliste (+15 XP)</p>
+        <p style="font-size: 0.78rem; color: var(--md-sys-color-on-surface-variant); margin-top: 0.8rem;"><strong>Wiederholung zahlt sich aus:</strong> Drills, Warm-ups und die Range-Checkliste bringen an jedem Trainingstag neu XP. So sammelst du – rechts deine bisherigen XP:</p>
+        <div id="statsXpRules" class="md-xp-rules"></div>
         <div id="statsAchievementsGrid" class="md-badges-grid"></div>
       </details>
 
@@ -3301,7 +3381,7 @@
        ======================================================================== -->
   <footer class="md-footer">
     <div class="md-container" style="display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; flex-wrap: wrap;">
-      <span><strong>Golf Pocket Trainer</strong> (<span class="font-mono">v4.32.1</span>) &bull; Dein interaktiver Trainings- &amp; Platzbegleiter</span>
+      <span><strong>Golf Pocket Trainer</strong> (<span class="font-mono">v4.33.0</span>) &bull; Dein interaktiver Trainings- &amp; Platzbegleiter</span>
       <button type="button" onclick="openChangelogModal()" class="md-text-btn" style="height: 1.85rem;">Versionsverlauf ansehen</button>
     </div>
   </footer>
@@ -3424,7 +3504,7 @@
       <div class="md-dialog-header">
         <div>
           <span class="md-assist-badge" style="background-color: var(--md-sys-color-tertiary-container); color: var(--md-sys-color-on-tertiary-container);">Release Notes &amp; Wartung</span>
-          <h2 id="changelogTitle" class="font-display" style="font-size: 1.25rem; font-weight: 800; margin-top: 0.3rem;">Versionsverlauf (v1.0.0 – v4.32.1)</h2>
+          <h2 id="changelogTitle" class="font-display" style="font-size: 1.25rem; font-weight: 800; margin-top: 0.3rem;">Versionsverlauf (v1.0.0 – v4.33.0)</h2>
         </div>
         <button type="button" onclick="closeChangelogModal()" class="md-icon-btn" aria-label="Schließen">
           <span class="material-symbols-rounded">close</span>
@@ -3439,20 +3519,34 @@
   </div>
 
   <!-- ========================================================================
-       COMPLETE SELF-CONTAINED JAVASCRIPT ENGINE (v4.32.1)
+       COMPLETE SELF-CONTAINED JAVASCRIPT ENGINE (v4.33.0)
        ======================================================================== -->
   <div id="appToast" class="md-toast" role="status" aria-live="polite"></div>
   <input type="file" id="backupFileInput" accept="application/json,.json" hidden onchange="handleBackupFile(event)" />
 
   <script>
-    const APP_VERSION = 'v4.32.1';
+    const APP_VERSION = 'v4.33.0';
 
     const CHANGELOG_ENTRIES = [
       {
-        version: 'v4.32.1',
+        version: 'v4.33.0',
         date: 'Aktuell',
-        title: 'Trainingsinhalte fachlich geprüft & korrigiert',
+        title: 'Gamification neu: Wiederholung zählt',
         latest: true,
+        notes: [
+          'Drills sind nicht mehr nach einmal Abhaken „fertig“: Jeder neue Trainingstag zählt als Wiederholung und bringt +20 XP. Wiederholst du denselben Drill innerhalb von 7 Tagen, gibt es +10 XP Konstanz-Bonus.',
+          'Neue Stufen je Drill: 🥉 Bronze (3 Trainingstage), 🥈 Silber (8) und 🥇 Gold (15) mit Bonus-XP. Jede Drill-Karte zeigt Stufe, Anzahl, letztes Training und „Wieder fällig“ nach einer Woche Pause.',
+          'Neues Wochenziel: an 3 Tagen pro Woche trainieren für +50 XP.',
+          'Warm-up-Phasen und die Range-Checkliste gelten jetzt pro Tag und bringen bei jedem Training neu XP (Checkliste komplett: +25 XP).',
+          'Neu verteilte Level-Schwellen (bis 7.000 XP) und neue Abzeichen für Wiederholung. Unter „Golf-Abzeichen“ siehst du, woher deine XP stammen.',
+          'Bisherige Häkchen werden als je ein Trainingstag übernommen. Durch die neuen Schwellen kann dein Level einmalig sinken – ab jetzt zählt jede Wiederholung.'
+        ]
+      },
+      {
+        version: 'v4.32.1',
+        date: 'Vorherige Version',
+        title: 'Trainingsinhalte fachlich geprüft & korrigiert',
+        latest: false,
         notes: [
           'Drills korrigiert: Abstände in der Carry-Leiter (20–25 m zwischen Eisen 9, 7 und 5), Roll-Verhältnis beim Chippen (Eisen 8 etwa 1:4), Lage der Alignment-Sticks und der Schlägerhaube, eindeutige Angaben „zielseitig der Linie“ bei Rasen- und Bunkerlinie.',
           'Zielzahlen an die Ballanzahl angepasst (Rasenlinie 12 von 15, Bunkerlinie 10 von 15).',
@@ -3462,7 +3556,7 @@
       },
       {
         version: 'v4.32.0',
-        date: 'Vorherige Version',
+        date: 'Meilenstein 57',
         title: 'Warm-up überarbeitet: Rückwärts-Aufbau, Notfall-Variante & smarter Timer',
         latest: false,
         notes: [
@@ -4481,7 +4575,7 @@
     const WARMUP_ROUTINE_KEYS = Object.keys(WARMUP_ROUTINES);
     const WARMUP_PHASE_TOTAL = WARMUP_ROUTINE_KEYS.reduce((sum, k) => sum + WARMUP_ROUTINES[k].phases.length, 0);
 
-    // Phasen-Schlüssel: "<routine>-<phasen-id>" (seit v4.32.1; ältere Index-Schlüssel werden verworfen).
+    // Phasen-Schlüssel: "<routine>-<phasen-id>" (seit v4.32.0; ältere Index-Schlüssel werden verworfen).
     function parseWarmupPhaseKey(phaseKey) {
       const str = String(phaseKey || '');
       const sep = str.indexOf('-');
@@ -5601,7 +5695,10 @@
     let isMentalAutoPlaying = false; // seit v4.29.0 kein automatischer Wechsel mehr
     let mentalAutoInterval = null;
 
-    let checkedSet = new Set();
+    // Wiederholungs-Protokoll (v4.33.0): je Übung die Kalendertage, an denen trainiert wurde.
+    // Schlüssel 'drill:<id>' | 'warmup:<phaseKey>' | 'chk:<id>' → sortierte, eindeutige 'YYYY-MM-DD'.
+    let repLog = {};
+    // Abgeleitet aus repLog (refreshDerivedRepSets): mindestens einmal trainiert.
     let completedDrills = new Set();
     let completedPhases = new Set();
     let masteredScratchPillars = new Set();
@@ -6081,7 +6178,8 @@
        PERSISTED STATE, THEME & NAVIGATION
        ======================================================================== */
     /* --- Speicher-Schema & robuste Helfer (v4.18.0) --- */
-    const STORAGE_SCHEMA_VERSION = 1;
+    // Schema 2 (v4.33.0): einmalige Häkchen (gpg_drills/gpg_phases/gpg_checks) → Wiederholungs-Protokoll gpg_rep_log.
+    const STORAGE_SCHEMA_VERSION = 2;
     /* --- Lokale Kalendertage (v4.20.0) ---
        toISOString() liefert UTC: in Wien wechselte der „Tag" dadurch erst um 1 bzw. 2 Uhr nachts. */
     function localDateKey(input) {
@@ -6148,9 +6246,6 @@
     function applyStateSnapshot(snap) {
       const data = isPlainObject(snap) ? snap : {};
 
-      checkedSet = new Set(cleanIdList(data.checks));
-      completedDrills = new Set(cleanIdList(data.drills));
-      completedPhases = new Set(cleanIdList(data.phases).filter(k => parseWarmupPhaseKey(k)));
       masteredScratchPillars = new Set(cleanIdList(data.scratch));
       completedChallengeDays = new Set(cleanIdList(data.challengeDays));
 
@@ -6170,13 +6265,46 @@
         });
       }
       dailyCheckins = checkins;
+
+      repLog = isPlainObject(data.repLog)
+        ? sanitizeRepLog(data.repLog)
+        : migrateLegacyChecksToRepLog(data);
+      refreshDerivedRepSets();
+    }
+
+    function sanitizeRepLog(raw) {
+      const out = {};
+      Object.keys(raw).forEach(key => {
+        if (!/^(drill|warmup|chk):./.test(key) || !Array.isArray(raw[key])) return;
+        const days = [...new Set(raw[key].filter(isValidIsoDate))].sort();
+        if (days.length) out[key] = days;
+      });
+      return out;
+    }
+
+    // Altformat (Schema ≤ 1): ein Häkchen = eine Wiederholung am Tag des Verlaufseintrags.
+    // Die Verlaufseinträge erhalten dabei die neue, tagesgenaue Referenz (z. B. 'drill-<id>@2026-11-20').
+    function migrateLegacyChecksToRepLog(data) {
+      const out = {};
+      const migrate = (ids, type, refPrefix) => {
+        cleanIdList(ids).forEach(id => {
+          const ref = `${refPrefix}-${id}`;
+          const entry = activityLog.find(a => a.refId === ref);
+          const day = (entry && localDateKey(entry.timestamp)) || localDateKey();
+          if (entry) entry.refId = `${ref}@${day}`;
+          const key = `${type}:${id}`;
+          out[key] = [...new Set([...(out[key] || []), day])].sort();
+        });
+      };
+      migrate(data.drills, 'drill', 'drill');
+      migrate(cleanIdList(data.phases).filter(k => parseWarmupPhaseKey(k)), 'warmup', 'warmup');
+      migrate(data.checks, 'chk', 'chk');
+      return out;
     }
 
     function buildStateSnapshot() {
       return {
-        checks: [...checkedSet],
-        drills: [...completedDrills],
-        phases: [...completedPhases],
+        repLog,
         scratch: [...masteredScratchPillars],
         challengeDays: [...completedChallengeDays],
         challengeLevel,
@@ -6195,6 +6323,8 @@
 
       // Jeder Key wird einzeln gelesen: ein beschädigter Eintrag blockiert die anderen nicht mehr.
       applyStateSnapshot({
+        repLog: readStoredJSON('gpg_rep_log', null, isPlainObject),
+        // Altdaten nur für die einmalige Migration (Schema ≤ 1)
         checks: readStoredJSON('gpg_checks', [], Array.isArray),
         drills: readStoredJSON('gpg_drills', [], Array.isArray),
         phases: readStoredJSON('gpg_phases', [], Array.isArray),
@@ -6207,15 +6337,16 @@
       });
 
       try { syncLegacyItemsIntoActivityLog(); } catch (e) {}
+      // Migration auf Schema 2 sofort festschreiben, damit sie nur einmal läuft.
+      if (storedSchema < 2 && readStoredString('gpg_rep_log') === null) savePersistedState();
     }
 
     // Gibt true zurück, wenn alles gespeichert werden konnte.
     function savePersistedState() {
       const snap = buildStateSnapshot();
       try {
-        localStorage.setItem('gpg_checks', JSON.stringify(snap.checks));
-        localStorage.setItem('gpg_drills', JSON.stringify(snap.drills));
-        localStorage.setItem('gpg_phases', JSON.stringify(snap.phases));
+        localStorage.setItem('gpg_rep_log', JSON.stringify(snap.repLog));
+        ['gpg_checks', 'gpg_drills', 'gpg_phases'].forEach(k => localStorage.removeItem(k));
         localStorage.setItem('gpg_scratch', JSON.stringify(snap.scratch));
         localStorage.setItem('gpg_chal_days', JSON.stringify(snap.challengeDays));
         localStorage.setItem('gpg_chal_lvl', snap.challengeLevel);
@@ -6391,6 +6522,87 @@
       updateStatsMenuBadge();
     }
 
+    // Entfernt alle Tages-Einträge einer Übung (alte Referenz 'x' und neue 'x@YYYY-MM-DD').
+    function removeActivityEventsFor(refBase) {
+      activityLog = activityLog.filter(item => item.refId !== refBase && !item.refId.startsWith(`${refBase}@`));
+      savePersistedState();
+      updateStatsMenuBadge();
+    }
+
+    /* --- Wiederholungs-Protokoll (v4.33.0) --- */
+    function repDates(type, id) {
+      return repLog[`${type}:${id}`] || [];
+    }
+
+    function hasRepOn(type, id, day = localDateKey()) {
+      return repDates(type, id).includes(day);
+    }
+
+    function addRep(type, id, day = localDateKey()) {
+      const key = `${type}:${id}`;
+      const list = repDates(type, id);
+      if (list.includes(day)) return false;
+      repLog[key] = [...list, day].sort();
+      refreshDerivedRepSets();
+      return true;
+    }
+
+    function removeRep(type, id, day = localDateKey()) {
+      const key = `${type}:${id}`;
+      const list = repDates(type, id).filter(d => d !== day);
+      if (list.length) repLog[key] = list; else delete repLog[key];
+      refreshDerivedRepSets();
+    }
+
+    function clearReps(type, id) {
+      delete repLog[`${type}:${id}`];
+      refreshDerivedRepSets();
+    }
+
+    function refreshDerivedRepSets() {
+      completedDrills = new Set();
+      completedPhases = new Set();
+      Object.keys(repLog).forEach(key => {
+        if (!repLog[key].length) return;
+        if (key.startsWith('drill:')) completedDrills.add(key.slice(6));
+        else if (key.startsWith('warmup:') && parseWarmupPhaseKey(key.slice(7))) completedPhases.add(key.slice(7));
+      });
+    }
+
+    // Range-Checkliste gilt pro Trainingstag
+    function checklistIdsOn(day = localDateKey()) {
+      return new Set(CHECKLIST_ITEMS.filter(item => hasRepOn('chk', item.id, day)).map(item => item.id));
+    }
+
+    function daysBetweenKeys(a, b) {
+      const [y1, m1, d1] = a.split('-').map(Number);
+      const [y2, m2, d2] = b.split('-').map(Number);
+      return Math.round((Date.UTC(y2, m2 - 1, d2) - Date.UTC(y1, m1 - 1, d1)) / 86400000);
+    }
+
+    function relativeDayLabel(day) {
+      const diff = daysBetweenKeys(day, localDateKey());
+      if (diff <= 0) return 'heute';
+      if (diff === 1) return 'gestern';
+      return `vor ${diff} Tagen`;
+    }
+
+    // Führt eine Aktion aus und meldet die gewonnenen XP (inkl. Stufen-, Wochen- und Level-Boni).
+    function withXpFeedback(action, describe) {
+      const before = computeGamificationState();
+      action();
+      const after = computeGamificationState();
+      const gain = after.totalXp - before.totalXp;
+      const parts = [];
+      if (gain > 0) parts.push(`+${gain} XP`);
+      const text = describe ? describe(before, after) : '';
+      if (text) parts.push(text);
+      if (after.breakdown.weeklyGoalsReached > before.breakdown.weeklyGoalsReached) parts.push('Wochenziel erreicht! 🎯');
+      if (after.currentLvl.level > before.currentLvl.level) parts.push(`Level ${after.currentLvl.level}: ${after.currentLvl.name}! 🏆`);
+      if (parts.length) showToast(parts.join(' · '), 4200);
+      return gain;
+    }
+
     function syncLegacyItemsIntoActivityLog() {
       const existingRefs = new Set(activityLog.map(a => a.refId));
       const fallbackTs = new Date().toISOString();
@@ -6406,22 +6618,6 @@
             title: `40-Tage Challenge · Tag ${dayNum}`,
             detail: s ? s.focus : 'Trainingseinheit abgeschlossen',
             minutes: 35,
-            timestamp: fallbackTs
-          });
-        }
-      });
-
-      completedDrills.forEach(drillId => {
-        const ref = `drill-${drillId}`;
-        if (!existingRefs.has(ref)) {
-          const d = TRAINING_DRILLS.find(x => x.id === drillId);
-          activityLog.push({
-            id: `sync-${ref}`,
-            refId: ref,
-            category: 'drill',
-            title: d ? d.title : 'Trainings-Drill',
-            detail: d ? `${d.disciplineLabel} · ${d.durationBalls}` : 'Range-Drill absolviert',
-            minutes: 12,
             timestamp: fallbackTs
           });
         }
@@ -6443,35 +6639,34 @@
         }
       });
 
-      completedPhases.forEach(phaseKey => {
-        const ref = `warmup-${phaseKey}`;
-        if (!existingRefs.has(ref)) {
-          activityLog.push({
-            id: `sync-${ref}`,
-            refId: ref,
-            category: 'warmup',
-            title: parseWarmupPhaseKey(phaseKey)?.phase.title || 'Warm-up Phase absolviert',
-            detail: parseWarmupPhaseKey(phaseKey)?.routine.activityLabel || 'Warm-up',
-            minutes: 5,
-            timestamp: fallbackTs
-          });
-        }
-      });
-
-      checkedSet.forEach(chkId => {
-        const ref = `chk-${chkId}`;
-        if (!existingRefs.has(ref)) {
-          const c = CHECKLIST_ITEMS.find(x => x.id === chkId);
-          activityLog.push({
-            id: `sync-${ref}`,
-            refId: ref,
-            category: 'checklist',
-            title: c ? `Checkliste: ${c.cat}` : 'Range-Checkliste',
-            detail: c ? c.text : 'Punkt abgehakt',
-            minutes: 5,
-            timestamp: fallbackTs
-          });
-        }
+      // Wiederholungen ohne Verlaufseintrag (z. B. aus einem Backup) nachtragen – solange der Verlauf Platz hat.
+      Object.keys(repLog).forEach(key => {
+        const sep = key.indexOf(':');
+        const type = key.slice(0, sep);
+        const id = key.slice(sep + 1);
+        repLog[key].forEach(day => {
+          const ref = `${type}-${id}@${day}`;
+          if (existingRefs.has(ref) || activityLog.length >= 300) return;
+          let category = type, title = 'Training', detail = '', minutes = 5;
+          if (type === 'drill') {
+            const d = TRAINING_DRILLS.find(x => x.id === id);
+            category = 'drill';
+            title = d ? d.title : 'Trainings-Drill';
+            detail = d ? `${d.disciplineLabel} · ${d.durationBalls}` : 'Drill trainiert';
+            minutes = 12;
+          } else if (type === 'warmup') {
+            const p = parseWarmupPhaseKey(id);
+            title = p?.phase.title || 'Warm-up Phase absolviert';
+            detail = p?.routine.activityLabel || 'Warm-up';
+          } else {
+            const c = CHECKLIST_ITEMS.find(x => x.id === id);
+            category = 'checklist';
+            title = c ? `Checkliste: ${c.cat}` : 'Range-Checkliste';
+            detail = c ? c.text : 'Punkt abgehakt';
+          }
+          activityLog.push({ id: `sync-${ref}`, refId: ref, category, title, detail, minutes, timestamp: new Date(`${day}T12:00:00`).toISOString() });
+          existingRefs.add(ref);
+        });
       });
     }
 
@@ -6497,51 +6692,160 @@
       {
         level: 2,
         name: 'Platzreife-Anwärter',
-        minXp: 120,
+        minXp: 300,
         icon: 'flag',
         desc: 'Erste Routinen sitzen! Du trainierst strukturiert an Eisen, Kurzspiel und Putten.'
       },
       {
         level: 3,
         name: 'Club-Golfer',
-        minXp: 320,
+        minXp: 900,
         icon: 'golf_course',
         desc: 'Solide Konstanz auf der Range und ein klarer Plan für Tee 1.'
       },
       {
         level: 4,
         name: 'Single-Handicaper',
-        minXp: 620,
+        minXp: 2000,
         icon: 'military_tech',
         desc: 'Starkes Kursmanagement, kalibrierte Wedges und kaum noch 3-Putts.'
       },
       {
         level: 5,
         name: 'Tour-Aspirant',
-        minXp: 1000,
+        minXp: 4000,
         icon: 'workspace_premium',
-        desc: 'Herausragende Disziplin über Challenge-Sessions, Drills und Scratch-Säulen.'
+        desc: 'Herausragende Disziplin: Du wiederholst deine Drills Woche für Woche und sammelst Gold-Stufen.'
       },
       {
         level: 6,
         name: 'Scratch-Legende (HCP 0)',
-        minXp: 1450,
+        minXp: 7000,
         icon: 'emoji_events',
         desc: 'Maximale Meisterschaft: Du beherrschst Technik, Strategie und mentales Spiel.'
       }
     ];
 
+    /* --- XP-Regeln (v4.33.0): Wiederholung wird belohnt, nicht nur das erste Mal --- */
+    const XP_RULES = {
+      drillRep: 20,            // je Drill und Trainingstag
+      drillConsistency: 10,    // Konstanz-Bonus: gleicher Drill innerhalb von 7 Tagen wiederholt
+      consistencyWindowDays: 7,
+      warmupPhase: 10,         // je Warm-up-Phase und Tag
+      checklistDay: 25,        // Range-Checkliste an einem Tag komplett
+      checkin: 25,             // Trainings-Check-in je Tag
+      weeklyGoal: 50,          // Wochenziel erreicht
+      weeklyGoalDays: 3,       // … an 3 Tagen pro Woche trainiert
+      challenge: 50,           // Challenge-Einheit (einmaliger Programm-Meilenstein)
+      scratch: 60              // Scratch-Säule (einmaliger Meilenstein)
+    };
+
+    // Stufen je Drill, gezählt in verschiedenen Trainingstagen
+    const DRILL_MASTERY_TIERS = [
+      { key: 'bronze', label: 'Bronze', icon: '🥉', days: 3, xp: 30 },
+      { key: 'silver', label: 'Silber', icon: '🥈', days: 8, xp: 60 },
+      { key: 'gold', label: 'Gold', icon: '🥇', days: 15, xp: 120 }
+    ];
+
+    function drillMastery(drillId) {
+      const dates = repDates('drill', drillId);
+      const reps = dates.length;
+      let tier = null;
+      DRILL_MASTERY_TIERS.forEach(t => { if (reps >= t.days) tier = t; });
+      const next = DRILL_MASTERY_TIERS.find(t => reps < t.days) || null;
+      const prevDays = tier ? tier.days : 0;
+      const pct = next ? Math.round(((reps - prevDays) / (next.days - prevDays)) * 100) : 100;
+      const today = localDateKey();
+      const lastBeforeToday = [...dates].reverse().find(d => d < today) || null;
+      return { reps, tier, next, toNext: next ? next.days - reps : 0, pct, last: dates[dates.length - 1] || null, lastBeforeToday };
+    }
+
+    // XP, die ein heute neu eingetragener Drill bringt (ohne Wochen-/Level-Effekte)
+    function drillGainIfLoggedToday(drillId) {
+      const m = drillMastery(drillId);
+      let xp = XP_RULES.drillRep;
+      if (m.lastBeforeToday && daysBetweenKeys(m.lastBeforeToday, localDateKey()) <= XP_RULES.consistencyWindowDays) xp += XP_RULES.drillConsistency;
+      const reached = DRILL_MASTERY_TIERS.find(t => t.days === m.reps + 1);
+      if (reached) xp += reached.xp;
+      return xp;
+    }
+
+    // Montag der Kalenderwoche als Schlüssel
+    function weekKeyOf(day) {
+      const [y, m, d] = day.split('-').map(Number);
+      const dt = new Date(y, m - 1, d);
+      dt.setDate(dt.getDate() - ((dt.getDay() + 6) % 7));
+      return localDateKey(dt);
+    }
+
+    // Trainingstage = Tage mit eingetragenem Drill, Warm-up, Checkliste, Check-in, Challenge oder Scratch-Säule
+    function trainingDaySet() {
+      const days = new Set();
+      Object.values(repLog).forEach(list => list.forEach(d => days.add(d)));
+      Object.keys(dailyCheckins).forEach(d => { if (isValidIsoDate(d)) days.add(d); });
+      activityLog.forEach(item => {
+        if (item.category === 'challenge' || item.category === 'scratch') {
+          const d = localDateKey(item.timestamp);
+          if (d) days.add(d);
+        }
+      });
+      return days;
+    }
+
+    function computeWeeklyGoalState() {
+      const perWeek = new Map();
+      trainingDaySet().forEach(d => {
+        const wk = weekKeyOf(d);
+        perWeek.set(wk, (perWeek.get(wk) || 0) + 1);
+      });
+      let reached = 0;
+      perWeek.forEach(n => { if (n >= XP_RULES.weeklyGoalDays) reached++; });
+      const currentWeekDays = perWeek.get(weekKeyOf(localDateKey())) || 0;
+      return { reached, currentWeekDays, target: XP_RULES.weeklyGoalDays };
+    }
+
+    function computeXpBreakdown() {
+      const drillIds = new Set(TRAINING_DRILLS.map(d => d.id));
+      let drills = 0, consistency = 0, mastery = 0, drillReps = 0;
+      drillIds.forEach(id => {
+        const dates = repDates('drill', id);
+        dates.forEach((day, i) => {
+          drillReps++;
+          drills += XP_RULES.drillRep;
+          if (i > 0 && daysBetweenKeys(dates[i - 1], day) <= XP_RULES.consistencyWindowDays) consistency += XP_RULES.drillConsistency;
+        });
+        DRILL_MASTERY_TIERS.forEach(t => { if (dates.length >= t.days) mastery += t.xp; });
+      });
+
+      let warmupReps = 0;
+      Object.keys(repLog).forEach(key => {
+        if (key.startsWith('warmup:') && parseWarmupPhaseKey(key.slice(7))) warmupReps += repLog[key].length;
+      });
+
+      const checklistDayCount = new Map();
+      CHECKLIST_ITEMS.forEach(item => repDates('chk', item.id).forEach(d => checklistDayCount.set(d, (checklistDayCount.get(d) || 0) + 1)));
+      let checklistDays = 0;
+      checklistDayCount.forEach(n => { if (n >= CHECKLIST_ITEMS.length) checklistDays++; });
+
+      const weekly = computeWeeklyGoalState();
+      const parts = {
+        drills,
+        consistency,
+        mastery,
+        warmup: warmupReps * XP_RULES.warmupPhase,
+        checklist: checklistDays * XP_RULES.checklistDay,
+        checkin: Object.keys(dailyCheckins).length * XP_RULES.checkin,
+        weekly: weekly.reached * XP_RULES.weeklyGoal,
+        challenge: completedChallengeDays.size * XP_RULES.challenge,
+        scratch: masteredScratchPillars.size * XP_RULES.scratch
+      };
+      const total = Object.values(parts).reduce((a, b) => a + b, 0);
+      return Object.assign({ total, drillReps, warmupReps, checklistDays, weeklyGoalsReached: weekly.reached, weeklyState: weekly }, parts);
+    }
+
     function computeGamificationState() {
-      // XP values per completed milestone:
-      // Challenge Session: 50 XP | Scratch Pillar: 60 XP | Drill: 30 XP | Daily Check-in: 25 XP | Warm-up Phase: 15 XP | Checklist Item: 15 XP
-      const dailyCheckinCount = Object.keys(dailyCheckins).length;
-      const totalXp =
-        completedChallengeDays.size * 50 +
-        masteredScratchPillars.size * 60 +
-        completedDrills.size * 30 +
-        dailyCheckinCount * 25 +
-        completedPhases.size * 15 +
-        checkedSet.size * 15;
+      const breakdown = computeXpBreakdown();
+      const totalXp = breakdown.total;
 
       let currentIdx = 0;
       for (let i = 0; i < GAMIFICATION_LEVELS.length; i++) {
@@ -6562,14 +6866,20 @@
         xpRemaining = Math.max(0, nextLvl.minXp - totalXp);
       }
 
-      return { totalXp, currentLvl, nextLvl, progressPct, xpRemaining };
+      return { totalXp, currentLvl, nextLvl, progressPct, xpRemaining, breakdown };
     }
 
     function getGamificationAchievements() {
       const { activeDays, streak } = computeActivityStreakAndDays();
       const indoorDrillsCount = TRAINING_DRILLS.filter(d => d.discipline === 'indoor' && completedDrills.has(d.id)).length;
-      const puttingDrillsCount = TRAINING_DRILLS.filter(d => d.discipline === 'putting' && completedDrills.has(d.id)).length;
+      const puttingDrills = TRAINING_DRILLS.filter(d => d.discipline === 'putting');
+      const puttingBronze = puttingDrills.filter(d => drillMastery(d.id).tier).length;
+      const tierCount = key => {
+        const min = DRILL_MASTERY_TIERS.find(t => t.key === key).days;
+        return TRAINING_DRILLS.filter(d => repDates('drill', d.id).length >= min).length;
+      };
       const dailyCheckinCount = Object.keys(dailyCheckins).length;
+      const xp = computeXpBreakdown();
 
       return [
         {
@@ -6583,29 +6893,57 @@
           id: 'ach-daily-checkin',
           icon: 'today',
           title: 'Tages-Routine',
-          desc: 'Mindestens 5 tägliche 60-Sekunden Golf-Check-ins abgeschlossen.',
+          desc: 'Mindestens 5 Trainings-Check-ins abgeschlossen.',
           earned: dailyCheckinCount >= 5
         },
         {
           id: 'ach-range-pro',
           icon: 'fact_check',
           title: 'Range-Stratege',
-          desc: 'Alle 10 Punkte der Driving-Range Checkliste abgehakt.',
-          earned: checkedSet.size >= CHECKLIST_ITEMS.length
+          desc: `An 5 Tagen alle ${CHECKLIST_ITEMS.length} Punkte der Range-Checkliste abgehakt (${Math.min(5, xp.checklistDays)}/5).`,
+          earned: xp.checklistDays >= 5
         },
         {
           id: 'ach-drill-master',
           icon: 'fitness_center',
-          title: 'Drill-Spezialist',
-          desc: 'Mindestens 6 Trainings-Drills erfolgreich trainiert.',
+          title: 'Drill-Entdecker',
+          desc: `Mindestens 6 verschiedene Drills trainiert (${Math.min(6, completedDrills.size)}/6).`,
           earned: completedDrills.size >= 6
+        },
+        {
+          id: 'ach-drill-bronze',
+          icon: 'repeat',
+          title: 'Erste Routine',
+          desc: 'Einen Drill an 3 verschiedenen Tagen trainiert (🥉 Bronze).',
+          earned: tierCount('bronze') >= 1
+        },
+        {
+          id: 'ach-drill-silver',
+          icon: 'workspace_premium',
+          title: 'Muskelgedächtnis',
+          desc: `3 Drills auf 🥈 Silber gebracht – je 8 Trainingstage (${Math.min(3, tierCount('silver'))}/3).`,
+          earned: tierCount('silver') >= 3
+        },
+        {
+          id: 'ach-drill-gold',
+          icon: 'emoji_events',
+          title: 'Gold-Standard',
+          desc: 'Einen Drill an 15 verschiedenen Tagen trainiert (🥇 Gold).',
+          earned: tierCount('gold') >= 1
+        },
+        {
+          id: 'ach-weekly-rhythm',
+          icon: 'event_repeat',
+          title: 'Wochen-Rhythmus',
+          desc: `Das Wochenziel (${XP_RULES.weeklyGoalDays} Trainingstage) in 4 Wochen erreicht (${Math.min(4, xp.weeklyGoalsReached)}/4).`,
+          earned: xp.weeklyGoalsReached >= 4
         },
         {
           id: 'ach-putt-wizard',
           icon: 'adjust',
           title: 'Grün-Flüsterer',
-          desc: 'Alle Putting-Drills (Tee-Tor & Leiter-Drill) gemeistert.',
-          earned: puttingDrillsCount >= 2
+          desc: `Alle ${puttingDrills.length} Putting-Drills auf 🥉 Bronze gebracht (${puttingBronze}/${puttingDrills.length}).`,
+          earned: puttingDrills.length > 0 && puttingBronze >= puttingDrills.length
         },
         {
           id: 'ach-winter-warrior',
@@ -7415,7 +7753,7 @@
       return `${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
     }
 
-    // Timer rechnet seit v4.32.1 mit der echten Uhrzeit (Endzeitpunkt), damit er auch bei
+    // Timer rechnet seit v4.32.0 mit der echten Uhrzeit (Endzeitpunkt), damit er auch bei
     // gesperrtem Bildschirm bzw. gedrosseltem Hintergrund-Tab korrekt bleibt.
     let warmupEndAt = 0;
     let warmupPhaseIdx = -1;
@@ -7684,7 +8022,7 @@
 
     function recordWarmupPhaseEvent(phaseKey, routine, phase) {
       recordActivityEvent(
-        `warmup-${phaseKey}`,
+        `warmup-${phaseKey}@${localDateKey()}`,
         'warmup',
         phase.title,
         routine.activityLabel,
@@ -7696,21 +8034,25 @@
     function markWarmupPhaseDone(routineKey, phase) {
       if (!phase) return;
       const phaseKey = `${routineKey}-${phase.id}`;
-      if (completedPhases.has(phaseKey)) return;
-      completedPhases.add(phaseKey);
+      if (hasRepOn('warmup', phaseKey)) return;
+      addRep('warmup', phaseKey);
       recordWarmupPhaseEvent(phaseKey, WARMUP_ROUTINES[routineKey], phase);
       savePersistedState();
     }
 
+    // Häkchen gelten für heute – jedes Warm-up vor einer Runde zählt neu.
     function toggleWarmupPhaseDone(phaseKey) {
       const parsed = parseWarmupPhaseKey(phaseKey);
       if (!parsed) return;
-      if (completedPhases.has(phaseKey)) {
-        completedPhases.delete(phaseKey);
-        removeActivityEvent(`warmup-${phaseKey}`);
+      const today = localDateKey();
+      if (hasRepOn('warmup', phaseKey, today)) {
+        removeRep('warmup', phaseKey, today);
+        removeActivityEvent(`warmup-${phaseKey}@${today}`);
       } else {
-        completedPhases.add(phaseKey);
-        recordWarmupPhaseEvent(phaseKey, parsed.routine, parsed.phase);
+        withXpFeedback(() => {
+          addRep('warmup', phaseKey, today);
+          recordWarmupPhaseEvent(phaseKey, parsed.routine, parsed.phase);
+        });
       }
       savePersistedState();
       renderWarmupView();
@@ -7727,7 +8069,7 @@
       if (!grid) return;
       grid.innerHTML = routine.phases.map((p, idx) => {
         const phaseKey = `${activeWarmupKey}-${p.id}`;
-        const done = completedPhases.has(phaseKey);
+        const done = hasRepOn('warmup', phaseKey);
         return `
           <div class="md-phase-card ${done ? 'done-phase' : ''} ${idx === activeIdx ? 'active-phase' : ''}" role="button" tabindex="0" aria-pressed="${done}" onclick="toggleWarmupPhaseDone('${phaseKey}')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleWarmupPhaseDone('${phaseKey}');}">
             <div style="display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; margin-bottom: 0.4rem;">
@@ -7840,20 +8182,37 @@
       openVideoModal(sess.videoId, meta ? meta.videoTitle : sess.focus, `40-Tage Challenge · Tag ${sess.day}`, meta ? meta.videoChannel : 'YouTube');
     }
 
-    function toggleDrillCompleted(drillId) {
-      if (completedDrills.has(drillId)) {
-        completedDrills.delete(drillId);
-        removeActivityEvent(`drill-${drillId}`);
-      } else {
-        completedDrills.add(drillId);
-        const d = TRAINING_DRILLS.find(x => x.id === drillId);
+    // Trägt das heutige Training eines Drills ein (eine Wiederholung pro Tag zählt).
+    function logDrillRepToday(drillId) {
+      const today = localDateKey();
+      if (hasRepOn('drill', drillId, today)) return 0;
+      const d = TRAINING_DRILLS.find(x => x.id === drillId);
+      return withXpFeedback(() => {
+        addRep('drill', drillId, today);
+        const reps = repDates('drill', drillId).length;
         recordActivityEvent(
-          `drill-${drillId}`,
+          `drill-${drillId}@${today}`,
           'drill',
           d ? d.title : 'Trainings-Drill',
-          d ? `${d.disciplineLabel} · ${d.durationBalls}` : 'Drill absolviert',
+          d ? `${d.disciplineLabel} · ${reps}. Trainingstag` : `${reps}. Trainingstag`,
           12
         );
+      }, () => {
+        const m = drillMastery(drillId);
+        const tierNow = DRILL_MASTERY_TIERS.find(t => t.days === m.reps);
+        if (tierNow) return `${tierNow.icon} ${tierNow.label} erreicht!`;
+        return m.next ? `${m.reps}. Trainingstag · noch ${m.toNext} bis ${m.next.icon} ${m.next.label}` : `${m.reps}. Trainingstag`;
+      });
+    }
+
+    function toggleDrillCompleted(drillId) {
+      const today = localDateKey();
+      if (hasRepOn('drill', drillId, today)) {
+        removeRep('drill', drillId, today);
+        removeActivityEvent(`drill-${drillId}@${today}`);
+        showToast('Heutiges Training zurückgenommen.', 2500);
+      } else {
+        logDrillRepToday(drillId);
       }
       savePersistedState();
       renderDrillsView();
@@ -7865,13 +8224,13 @@
     }
 
     function resetCompletedDrills() {
-      if (!confirmReset('Die abgehakten Drills')) return;
+      if (!confirmReset('Die Trainingshistorie der angezeigten Drills (inkl. Stufen und XP)')) return;
       const visible = currentTrainingFilter === 'all'
         ? TRAINING_DRILLS
         : TRAINING_DRILLS.filter(d => d.discipline === currentTrainingFilter);
       visible.forEach(d => {
-        completedDrills.delete(d.id);
-        removeActivityEvent(`drill-${d.id}`);
+        clearReps('drill', d.id);
+        removeActivityEventsFor(`drill-${d.id}`);
       });
       savePersistedState();
       renderDrillsView();
@@ -7901,15 +8260,25 @@
         ? TRAINING_DRILLS
         : TRAINING_DRILLS.filter(d => d.discipline === currentTrainingFilter);
 
-      const doneCount = filtered.filter(d => completedDrills.has(d.id)).length;
+      const todayCount = filtered.filter(d => hasRepOn('drill', d.id)).length;
       const progEl = document.getElementById('trainingSessionProgress');
-      if (progEl) progEl.textContent = `${doneCount} / ${filtered.length} Drills trainiert`;
+      if (progEl) progEl.textContent = `Heute ${todayCount} / ${filtered.length} Drills trainiert`;
 
       const grid = document.getElementById('drillsGrid');
       if (!grid) return;
 
       grid.innerHTML = filtered.map(d => {
-        const isDone = completedDrills.has(d.id);
+        const isDone = hasRepOn('drill', d.id);
+        const m = drillMastery(d.id);
+        const gain = isDone ? 0 : drillGainIfLoggedToday(d.id);
+        const due = !isDone && m.last && daysBetweenKeys(m.last, localDateKey()) >= XP_RULES.consistencyWindowDays;
+        const tierPill = m.tier
+          ? `<span class="md-rep-tier tier-${m.tier.key}">${m.tier.icon} ${m.tier.label}</span>`
+          : `<span class="md-rep-tier">${m.reps ? 'Im Aufbau' : 'Neu'}</span>`;
+        const lastLabel = m.last ? `zuletzt ${relativeDayLabel(m.last)}` : 'noch nicht trainiert';
+        const nextLabel = m.next
+          ? `Noch ${m.toNext} ${m.toNext === 1 ? 'Trainingstag' : 'Trainingstage'} bis ${m.next.icon} ${m.next.label}`
+          : 'Gold erreicht – halte das Niveau mit regelmäßigen Wiederholungen';
         return `
           <article class="md-drill-card ${isDone ? 'completed' : ''}">
             <div style="padding: 1.25rem; display: flex; flex-direction: column; gap: 0.75rem;">
@@ -7942,17 +8311,27 @@
                 <span class="material-symbols-rounded filled" style="font-size: 18px; flex-shrink: 0;">flag</span>
                 <span><strong>Erfolgs-Ziel:</strong> ${d.successGoal}</span>
               </div>
+
+              <div class="md-rep-box">
+                <div class="md-rep-head">
+                  ${tierPill}
+                  <span class="font-mono">${m.reps}× trainiert · ${lastLabel}</span>
+                  ${due ? '<span class="md-rep-due">Wieder fällig</span>' : ''}
+                </div>
+                <div class="md-rep-track"><div class="md-rep-fill" style="width: ${m.pct}%;"></div></div>
+                <div class="md-rep-next">${nextLabel}</div>
+              </div>
             </div>
 
-            <div style="padding: 0.85rem 1.25rem; border-top: 1px solid var(--md-sys-color-outline-variant); display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; background-color: var(--md-sys-color-surface-container-low);">
+            <div style="padding: 0.85rem 1.25rem; border-top: 1px solid var(--md-sys-color-outline-variant); display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; flex-wrap: wrap; background-color: var(--md-sys-color-surface-container-low);">
               <button type="button" onclick="openDrillVideo('${d.id}')" class="md-text-btn" title="${d.videoTitle.replace(/"/g, '&quot;')}">
                 <span class="material-symbols-rounded" style="font-size: 18px;">smart_display</span>
                 <span>Video · ${d.videoChannel}</span>
               </button>
 
-              <button type="button" onclick="toggleDrillCompleted('${d.id}')" class="${isDone ? 'md-filled-btn' : 'md-outlined-btn'}" style="height: 2.15rem;">
-                <span class="material-symbols-rounded" style="font-size: 17px;">${isDone ? 'check_circle' : 'radio_button_unchecked'}</span>
-                <span>${isDone ? 'Trainiert' : 'Als erledigt markieren'}</span>
+              <button type="button" onclick="toggleDrillCompleted('${d.id}')" class="${isDone ? 'md-filled-btn' : 'md-outlined-btn'}" style="height: 2.15rem;" title="${isDone ? 'Tippen, um das heutige Training zurückzunehmen' : 'Jeder neue Trainingstag zählt als Wiederholung'}">
+                <span class="material-symbols-rounded" style="font-size: 17px;">${isDone ? 'check_circle' : 'add_circle'}</span>
+                <span>${isDone ? 'Heute trainiert' : `Training eintragen · +${gain} XP`}</span>
               </button>
             </div>
           </article>
@@ -9197,7 +9576,7 @@
        CHECKLIST DRAWER, VIDEO MODAL & CHANGELOG DIALOG
        ======================================================================== */
     function updateChecklistBadges() {
-      const count = checkedSet.size;
+      const count = checklistIdsOn().size;
       const total = CHECKLIST_ITEMS.length;
       const str = `${count}/${total}`;
       const topCounter = document.getElementById('toolsChecklistCounter');
@@ -9206,15 +9585,16 @@
       const drawerBar = document.getElementById('drawerProgressBar');
       if (topCounter) topCounter.textContent = str;
       if (dropBadge) dropBadge.textContent = str;
-      if (drawerTxt) drawerTxt.textContent = `${count} von ${total} Punkten erledigt`;
+      if (drawerTxt) drawerTxt.textContent = `${count} von ${total} Punkten heute erledigt${count === total ? ' · +25 XP' : ''}`;
       if (drawerBar) drawerBar.style.width = `${Math.round((count / total) * 100)}%`;
     }
 
     function renderChecklistItems() {
       const container = document.getElementById('checklistItems');
       if (!container) return;
+      const todayChecked = checklistIdsOn();
       container.innerHTML = CHECKLIST_ITEMS.map(item => {
-        const checked = checkedSet.has(item.id);
+        const checked = todayChecked.has(item.id);
         return `
           <div class="md-check-tile ${checked ? 'checked' : ''}" onclick="toggleChecklistItem('${item.id}')">
             <div class="md-checkbox-box">
@@ -9230,29 +9610,36 @@
       updateChecklistBadges();
     }
 
+    // Die Range-Checkliste gilt pro Trainingstag: jeden Tag frisch abarbeiten.
     function toggleChecklistItem(id) {
-      if (checkedSet.has(id)) {
-        checkedSet.delete(id);
-        removeActivityEvent(`chk-${id}`);
+      const today = localDateKey();
+      if (hasRepOn('chk', id, today)) {
+        removeRep('chk', id, today);
+        removeActivityEvent(`chk-${id}@${today}`);
       } else {
-        checkedSet.add(id);
         const c = CHECKLIST_ITEMS.find(x => x.id === id);
-        recordActivityEvent(
-          `chk-${id}`,
-          'checklist',
-          c ? `Checkliste: ${c.cat}` : 'Range-Checkliste',
-          c ? c.text : 'Punkt abgehakt',
-          5
-        );
+        withXpFeedback(() => {
+          addRep('chk', id, today);
+          recordActivityEvent(
+            `chk-${id}@${today}`,
+            'checklist',
+            c ? `Checkliste: ${c.cat}` : 'Range-Checkliste',
+            c ? c.text : 'Punkt abgehakt',
+            5
+          );
+        }, (before, after) => after.breakdown.checklistDays > before.breakdown.checklistDays ? 'Checkliste komplett ✓' : '');
       }
       savePersistedState();
       renderChecklistItems();
     }
 
     function resetChecklist() {
-      if (!confirmReset('Die Checkliste')) return;
-      checkedSet.forEach(id => removeActivityEvent(`chk-${id}`));
-      checkedSet.clear();
+      if (!confirmReset('Die heutige Checkliste')) return;
+      const today = localDateKey();
+      checklistIdsOn(today).forEach(id => {
+        removeRep('chk', id, today);
+        removeActivityEvent(`chk-${id}@${today}`);
+      });
       savePersistedState();
       renderChecklistItems();
     }
@@ -9307,7 +9694,7 @@
     }
 
     function clearActivityLogHistory() {
-      if (!confirmReset('Den gesamten Aktivitätsverlauf (inkl. XP und Abzeichen)')) return;
+      if (!confirmReset('Den gesamten Aktivitätsverlauf (XP, Drill-Stufen und Wiederholungen bleiben erhalten)')) return;
       activityLog = [];
       savePersistedState();
       updateStatsMenuBadge();
@@ -9316,11 +9703,12 @@
 
     function exportStatsSummaryText() {
       const totalModules = 14 + TRAINING_DRILLS.length + SCRATCH_PILLARS.length + 10 + CHECKLIST_ITEMS.length;
-      const doneModules = completedChallengeDays.size + completedDrills.size + masteredScratchPillars.size + completedPhases.size + checkedSet.size;
+      const doneModules = completedChallengeDays.size + completedDrills.size + masteredScratchPillars.size + completedPhases.size + checklistIdsOn().size;
       const pct = Math.round((doneModules / totalModules) * 100);
       const { activeDays, streak } = computeActivityStreakAndDays();
       const estMins = activityLog.reduce((acc, item) => acc + (item.minutes || 10), 0);
-      const { totalXp, currentLvl } = computeGamificationState();
+      const { totalXp, currentLvl, breakdown } = computeGamificationState();
+      const bronzePlus = TRAINING_DRILLS.filter(d => drillMastery(d.id).tier).length;
 
       const summary = [
         `Golf Pocket Trainer (${APP_VERSION}) – Persönliche Statistik`,
@@ -9328,9 +9716,10 @@
         `• Gesamt-Fortschritt: ${pct}% (${doneModules}/${totalModules} Meilensteine)`,
         `• Tägliche Check-ins: ${Object.keys(dailyCheckins).length} Tage eingecheckt`,
         `• 40-Tage Challenge: ${completedChallengeDays.size}/14 Sessions`,
-        `• Trainings-Drills: ${completedDrills.size}/${TRAINING_DRILLS.length} absolviert`,
+        `• Trainings-Drills: ${completedDrills.size}/${TRAINING_DRILLS.length} trainiert · ${breakdown.drillReps} Wiederholungen · ${bronzePlus} auf Bronze oder höher`,
+        `• Wochenziel (${XP_RULES.weeklyGoalDays} Trainingstage): ${breakdown.weeklyGoalsReached}× erreicht · diese Woche ${breakdown.weeklyState.currentWeekDays}/${XP_RULES.weeklyGoalDays}`,
         `• Scratch (HCP 0) Säulen: ${masteredScratchPillars.size}/${SCRATCH_PILLARS.length} gemeistert`,
-        `• Warm-up Phasen: ${completedPhases.size}/${WARMUP_PHASE_TOTAL} | Range-Checkliste: ${checkedSet.size}/${CHECKLIST_ITEMS.length}`,
+        `• Warm-up Phasen: ${breakdown.warmupReps}× absolviert | Range-Checkliste: an ${breakdown.checklistDays} Tagen komplett`,
         `• Aktive Trainingstage: ${activeDays} (Aktuelle Serie: ${streak} Tage) · ~${estMins} Min. Trainingszeit`
       ].join('\n');
 
@@ -9448,7 +9837,9 @@
       blocks.push(warm);
 
       const fits = d => drillPlaces(d).some(p => place.places.includes(p));
-      const score = d => rand() + (completedDrills.has(d.id) ? 0.35 : 0);
+      // Kürzlich (gestern/vorgestern) trainierte Drills etwas nach hinten – heutige Einträge ändern den Plan nicht.
+      const recentlyTrained = d => { const last = drillMastery(d.id).lastBeforeToday; return !!last && daysBetweenKeys(last, localDateKey()) <= 2; };
+      const score = d => rand() + (recentlyTrained(d) ? 0.35 : 0);
       const byScore = list => list.map(d => ({ d, s: score(d) })).sort((a, b) => a.s - b.s).map(x => x.d);
 
       // Pools je Fokus
@@ -9603,8 +9994,8 @@
         done.add(i);
         const plan = buildTrainingPlan(entry.focusKeys, entry.place, entry.minutes, entry.reshuffle);
         const b = plan.blocks[i];
-        if (b && b.type === 'drill' && !completedDrills.has(b.id)) {
-          toggleDrillCompleted(b.id);
+        if (b && b.type === 'drill' && !hasRepOn('drill', b.id)) {
+          logDrillRepToday(b.id);
         }
       }
       entry.done = [...done];
@@ -9762,6 +10153,34 @@
       if (lvlDesc) lvlDesc.textContent = currentLvl.desc;
       if (xpBarFill) xpBarFill.style.width = `${progressPct}%`;
 
+      const { breakdown } = computeGamificationState();
+      const weeklyEl = document.getElementById('gamificationWeeklyGoal');
+      if (weeklyEl) {
+        const w = breakdown.weeklyState;
+        const dots = Array.from({ length: w.target }, (_, i) => `<span class="md-weekly-dot ${i < w.currentWeekDays ? 'on' : ''}"></span>`).join('');
+        weeklyEl.innerHTML = `
+          <span class="material-symbols-rounded filled" style="font-size: 18px;">event_repeat</span>
+          <span>Wochenziel: ${Math.min(w.currentWeekDays, w.target)}/${w.target} Trainingstage</span>
+          <span class="md-weekly-dots">${dots}</span>
+          <span style="opacity: 0.85;">${w.currentWeekDays >= w.target ? 'erreicht ✓' : `+${XP_RULES.weeklyGoal} XP`}</span>`;
+      }
+      const rulesEl = document.getElementById('statsXpRules');
+      if (rulesEl) {
+        const tiers = DRILL_MASTERY_TIERS.map(t => `${t.icon} ${t.days}`).join(' · ');
+        const rows = [
+          [`Drill trainiert (je Drill & Tag) +${XP_RULES.drillRep}`, breakdown.drills],
+          [`Konstanz-Bonus (gleicher Drill innerhalb ${XP_RULES.consistencyWindowDays} Tagen) +${XP_RULES.drillConsistency}`, breakdown.consistency],
+          [`Stufen-Bonus (${tiers} Tage) +${DRILL_MASTERY_TIERS.map(t => t.xp).join('/+')}`, breakdown.mastery],
+          [`Wochenziel (${XP_RULES.weeklyGoalDays} Trainingstage) +${XP_RULES.weeklyGoal}`, breakdown.weekly],
+          [`Trainings-Check-in (je Tag) +${XP_RULES.checkin}`, breakdown.checkin],
+          [`Warm-up-Phase (je Tag) +${XP_RULES.warmupPhase}`, breakdown.warmup],
+          [`Range-Checkliste komplett (je Tag) +${XP_RULES.checklistDay}`, breakdown.checklist],
+          [`Challenge-Einheit (einmalig) +${XP_RULES.challenge}`, breakdown.challenge],
+          [`Scratch-Säule (einmalig) +${XP_RULES.scratch}`, breakdown.scratch]
+        ];
+        rulesEl.innerHTML = rows.map(([label, xp]) => `<div><span>${label}</span><strong class="font-mono">${xp} XP</strong></div>`).join('');
+      }
+
       if (nextLbl && xpToNext) {
         if (nextLvl) {
           nextLbl.textContent = `Nächstes Level: ${nextLvl.name}`;
@@ -9809,7 +10228,7 @@
       }
 
       const totalModules = 14 + TRAINING_DRILLS.length + SCRATCH_PILLARS.length + 10 + CHECKLIST_ITEMS.length;
-      const doneModules = completedChallengeDays.size + completedDrills.size + masteredScratchPillars.size + completedPhases.size + checkedSet.size;
+      const doneModules = completedChallengeDays.size + completedDrills.size + masteredScratchPillars.size + completedPhases.size + checklistIdsOn().size;
       const overallPct = Math.min(100, Math.round((doneModules / totalModules) * 100));
       const { activeDays, streak } = computeActivityStreakAndDays();
       const estMinutes = activityLog.reduce((sum, item) => sum + (item.minutes || 10), 0);
@@ -9883,10 +10302,11 @@
       // 2. Module Progress Breakdown
       const moduleRows = [
         { label: '40-Tage Golf-Challenge', done: completedChallengeDays.size, total: 14, color: '#146C38', tab: 'challenge' },
-        { label: 'Trainings- & Indoor-Drills', done: completedDrills.size, total: TRAINING_DRILLS.length, color: '#0284C7', tab: 'drills' },
+        { label: 'Trainings-Drills (mind. 1× trainiert)', done: completedDrills.size, total: TRAINING_DRILLS.length, color: '#0284C7', tab: 'drills' },
+        { label: 'Drills auf 🥉 Bronze oder höher', done: TRAINING_DRILLS.filter(d => drillMastery(d.id).tier).length, total: TRAINING_DRILLS.length, color: '#B7791F', tab: 'drills' },
         { label: 'Scratch (HCP 0) Säulen', done: masteredScratchPillars.size, total: SCRATCH_PILLARS.length, color: '#D97706', tab: 'scratch' },
         { label: 'Warm-up Routinen (Phasen)', done: completedPhases.size, total: WARMUP_PHASE_TOTAL, color: '#3A6470', tab: 'warmup' },
-        { label: 'Driving-Range Checkliste', done: checkedSet.size, total: CHECKLIST_ITEMS.length, color: '#4E6354', tab: null }
+        { label: 'Driving-Range Checkliste (heute)', done: checklistIdsOn().size, total: CHECKLIST_ITEMS.length, color: '#4E6354', tab: null }
       ];
 
       const modEl = document.getElementById('statsModuleBreakdown');
@@ -9923,12 +10343,13 @@
         discEl.innerHTML = discGroups.map(g => {
           const allInCat = TRAINING_DRILLS.filter(d => d.discipline === g.key);
           const doneInCat = allInCat.filter(d => completedDrills.has(d.id)).length;
+          const repsInCat = allInCat.reduce((sum, d) => sum + repDates('drill', d.id).length, 0);
           const pct = allInCat.length > 0 ? Math.round((doneInCat / allInCat.length) * 100) : 0;
           return `
             <div style="display: flex; flex-direction: column; gap: 0.25rem;">
               <div style="display: flex; align-items: center; justify-content: space-between; font-size: 0.8rem;">
                 <span style="font-weight: 600;">${g.label}</span>
-                <span class="font-mono" style="font-size: 0.75rem; color: var(--md-sys-color-on-surface-variant);">${doneInCat} / ${allInCat.length} Drills</span>
+                <span class="font-mono" style="font-size: 0.75rem; color: var(--md-sys-color-on-surface-variant);">${doneInCat} / ${allInCat.length} Drills · ${repsInCat}× trainiert</span>
               </div>
               <div class="md-progress-track" style="height: 0.42rem;">
                 <div class="md-progress-fill" style="width: ${pct}%;"></div>
