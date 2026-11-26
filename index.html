@@ -9,8 +9,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="apple-mobile-web-app-title" content="Golf Pocket Trainer" />
   <meta name="application-name" content="Golf Pocket Trainer" />
-  <meta name="description" content="Golf Pocket Trainer v4.35.0 – Material Design 3 Golf Technik-, Trainings-, Rules-, Scratch-Blueprint-, Komparator-, Warm-up-, Video-Analyse-, 40-Tage-Challenge- & Gamification-Statistik-Begleiter" />
-  <title>Golf Pocket Trainer (v4.35.0)</title>
+  <meta name="description" content="Golf Pocket Trainer v4.36.0 – Material Design 3 Golf Technik-, Trainings-, Rules-, Scratch-Blueprint-, Komparator-, Warm-up-, Video-Analyse-, 40-Tage-Challenge- & Gamification-Statistik-Begleiter" />
+  <title>Golf Pocket Trainer (v4.36.0)</title>
 
   <link rel="manifest" href="manifest.webmanifest" />
   <link rel="icon" type="image/png" sizes="48x48" href="icons/favicon-48.png" />
@@ -912,6 +912,44 @@
     }
 
     /* Schnellzugriffe auf „Heute“ */
+    /* Startseite (v4.36.0): Golf-Form, Karten, Runde */
+    .md-form-hero { display: flex; flex-direction: column; align-items: center; gap: 0.55rem; padding: 1.1rem 1rem 1rem; border-radius: 1.5rem; border: 1px solid var(--md-sys-color-outline-variant); background: linear-gradient(165deg, var(--md-sys-color-primary-container), var(--md-sys-color-surface-container-low) 62%); cursor: pointer; text-align: center; }
+    .md-form-hero:focus-visible { outline: 2px solid var(--md-sys-color-primary); outline-offset: 2px; }
+    .md-form-ring { position: relative; width: 168px; height: 168px; }
+    .md-form-ring svg { transform: rotate(-90deg); display: block; }
+    .md-form-ring .track { stroke: var(--md-sys-color-surface-container-highest); }
+    .md-form-ring .value { stroke: var(--md-sys-color-primary); transition: stroke-dashoffset 0.6s ease; }
+    .md-form-ring-center { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+    .md-form-ring-label { font-size: 0.68rem; font-weight: 800; letter-spacing: 0.08em; color: var(--md-sys-color-on-surface-variant); }
+    .md-form-ring-num { font-size: 3.1rem; font-weight: 800; line-height: 1.05; color: var(--md-sys-color-primary); font-family: inherit; }
+    .md-form-ring-status { font-size: 0.78rem; font-weight: 700; }
+    .md-form-msg { font-size: 0.84rem; color: var(--md-sys-color-on-surface-variant); max-width: 22rem; line-height: 1.4; }
+    .md-form-trend { font-weight: 700; color: var(--md-sys-color-primary); }
+    .md-form-trend.down { color: var(--md-sys-color-error); }
+    .md-level-pill { display: flex; align-items: center; gap: 0.55rem; width: 100%; padding: 0.55rem 0.75rem; border-radius: 1rem; background-color: var(--md-sys-color-surface); text-align: left; }
+    .md-level-pill .material-symbols-rounded { font-size: 22px; color: var(--md-sys-color-primary); }
+    .md-level-pill-text { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 0.25rem; }
+    .md-level-pill-title { font-size: 0.86rem; font-weight: 800; }
+    .md-level-pill-sub { font-size: 0.72rem; color: var(--md-sys-color-on-surface-variant); }
+    .md-mini-bar { height: 6px; border-radius: 99px; background-color: var(--md-sys-color-surface-container-highest); overflow: hidden; }
+    .md-mini-bar > i { display: block; height: 100%; background-color: var(--md-sys-color-primary); border-radius: 99px; }
+    .md-form-kpis { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.45rem; width: 100%; }
+    .md-form-kpi { padding: 0.5rem 0.3rem; border-radius: 0.9rem; background-color: var(--md-sys-color-surface); display: flex; flex-direction: column; align-items: center; gap: 0.1rem; }
+    .md-form-kpi strong { font-size: 1.05rem; font-weight: 800; }
+    .md-form-kpi span { font-size: 0.7rem; color: var(--md-sys-color-on-surface-variant); }
+    .md-form-help { font-size: 0.7rem; color: var(--md-sys-color-on-surface-variant); }
+    .md-home-section { font-size: 0.74rem; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; color: var(--md-sys-color-on-surface-variant); margin: 0.3rem 0.2rem -0.45rem; }
+    .md-home-stack { display: flex; flex-direction: column; gap: 0.75rem; }
+    .md-home-card { display: flex; flex-direction: column; gap: 0.7rem; padding: 0.95rem 1rem; border-radius: 1.35rem; background-color: var(--md-sys-color-surface-container); }
+    .md-home-card[role="button"] { cursor: pointer; }
+    .md-home-card[role="button"]:focus-visible { outline: 2px solid var(--md-sys-color-primary); outline-offset: 2px; }
+    .md-home-row { display: flex; align-items: center; gap: 0.8rem; }
+    .md-home-btns { display: flex; gap: 0.45rem; }
+    .md-home-btns > button { flex: 1; min-width: 0; height: 2.6rem; padding: 0 0.4rem; justify-content: center; }
+    .md-home-meta { font-size: 0.78rem; color: var(--md-sys-color-on-surface-variant); }
+    .md-home-chips { display: flex; flex-wrap: wrap; gap: 0.35rem; align-items: center; }
+    .md-home-chip { display: inline-flex; align-items: center; min-height: 32px; padding: 0.2rem 0.6rem; border-radius: 0.6rem; border: 1px solid var(--md-sys-color-outline-variant); background-color: var(--md-sys-color-surface); font-size: 0.78rem; font-weight: 600; }
+    .md-home-done { display: flex; align-items: center; gap: 0.4rem; font-size: 0.84rem; font-weight: 700; color: var(--md-sys-color-primary); }
     .md-today-list {
       display: flex;
       flex-direction: column;
@@ -2136,6 +2174,7 @@
     .md-timeline-item.cat-warmup { border-left-color: #3A6470; }
     .md-timeline-item.cat-checklist { border-left-color: #4E6354; }
     .md-timeline-item.cat-checkin { border-left-color: #7C3AED; }
+    .md-timeline-item.cat-round { border-left-color: #B45309; }
 
     /* Daily 60-Second Golf Check-in Card */
     .md-checkin-card {
@@ -2519,7 +2558,7 @@
         <div class="md-brand-text-wrap">
           <div style="display: flex; align-items: center; gap: 0.4rem;">
             <h1 class="md-brand-title">Golf Pocket Trainer</h1>
-            <span class="md-version-badge font-mono">v4.35.0</span>
+            <span class="md-version-badge font-mono">v4.36.0</span>
           </div>
           <p class="md-brand-sub">Dein Trainings- &amp; Platzbegleiter</p>
         </div>
@@ -2596,7 +2635,7 @@
               <span class="material-symbols-rounded" style="color: var(--md-sys-color-on-surface-variant);">history</span>
               <span>Versionsverlauf</span>
             </span>
-            <span class="font-mono" style="font-size: 0.72rem; color: var(--md-sys-color-on-surface-variant);">v4.35.0</span>
+            <span class="font-mono" style="font-size: 0.72rem; color: var(--md-sys-color-on-surface-variant);">v4.36.0</span>
           </button>
         </div>
       </div>
@@ -2811,6 +2850,7 @@
           <div id="tee1ReadyBanner" class="hidden" style="background-color: var(--md-sys-color-primary); color: var(--md-sys-color-on-primary); border-radius: 0.9rem; padding: 0.65rem; text-align: center; font-weight: 700; font-size: 0.85rem;">
             Warm-up abgeschlossen – Viel Erfolg an Tee 1!
           </div>
+          <div id="warmupRoundPrompt"></div>
         </article>
 
         <article class="md-card-outlined md-card-pad" style="display: flex; flex-direction: column; justify-content: space-between; gap: 0.85rem;">
@@ -3262,48 +3302,34 @@
     <!-- ======================================================================
          TAB 9: TOOL – PERSÖNLICHE STATISTIK, GAMIFICATION & ZEITVERLAUF
          ====================================================================== -->
-    <section id="tabStats" role="tabpanel" aria-label="Heute" style="display: flex; flex-direction: column; gap: 1.15rem;">
-      <!-- Täglicher Trainings-Check-in: Fokus, Ort & Dauer -> Trainingsplan -->
-      <article id="dailyCheckinCard" class="md-checkin-card"></article>
+    <section id="tabStats" role="tabpanel" aria-label="Heute" style="display: flex; flex-direction: column; gap: 1rem;">
+      <!-- Golf-Form (Kreis) + Level-Abzeichen + Kennzahlen -->
+      <div id="todayFormHero" class="md-form-hero" role="button" tabindex="0" onclick="switchMainTab('progress')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();switchMainTab('progress');}"></div>
 
-
-      <!-- Schnellzugriffe für heute -->
-      <div class="md-today-list">
-        <button type="button" class="md-today-tile" onclick="openTodayChallenge()">
-          <span class="md-today-icon"><span class="material-symbols-rounded filled">calendar_month</span></span>
-          <span class="md-today-text">
-            <span class="md-today-label" id="todayChallengeLabel">40-Tage-Challenge · Einheit 1 von 14</span>
-            <span class="md-today-title" id="todayChallengeTitle">Tag 1: Neutraler Griff &amp; Eisenbahnschienen-Setup</span>
-          </span>
-          <span class="material-symbols-rounded md-today-chevron" aria-hidden="true">chevron_right</span>
-        </button>
-        <button type="button" class="md-today-tile" onclick="switchMainTab('warmup')">
-          <span class="md-today-icon"><span class="material-symbols-rounded filled">timer</span></span>
-          <span class="md-today-text">
-            <span class="md-today-label">Vor der Runde</span>
-            <span class="md-today-title">Warm-up mit Timer (5, 15 oder 45 Min.)</span>
-          </span>
-          <span class="material-symbols-rounded md-today-chevron" aria-hidden="true">chevron_right</span>
-        </button>
-        <button type="button" class="md-today-tile" onclick="switchMainTab('progress')">
-          <span class="md-today-icon"><span class="material-symbols-rounded filled">military_tech</span></span>
-          <span class="md-today-text">
-            <span class="md-today-label" id="todayLevelLabel">Level 1 · 0 XP</span>
-            <span class="md-today-title" id="todayLevelTitle">Range-Rookie · noch 120 XP bis Level 2</span>
-          </span>
-          <span class="material-symbols-rounded md-today-chevron" aria-hidden="true">chevron_right</span>
-        </button>
+      <div class="md-home-section">Heute trainieren</div>
+      <div id="todayTrainStack" class="md-home-stack">
+        <!-- Tagestraining: Check-in -> individueller Trainingsplan -->
+        <article id="dailyCheckinCard" class="md-checkin-card"></article>
+        <!-- 40-Tage-Challenge: nächste Einheit -->
+        <article id="todayChallengeCard" class="md-home-card" role="button" tabindex="0" onclick="openTodayChallenge()" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openTodayChallenge();}"></article>
       </div>
 
-      <!-- Mental Tee-Box: kompakter Spruch, Tippen zeigt den nächsten -->
-      <button type="button" class="md-mental-banner" onclick="nextMentalQuote()" aria-label="Motivationsspruch – tippen für den nächsten">
-        <span class="material-symbols-rounded filled" style="font-size: 18px; flex-shrink: 0;" aria-hidden="true">psychology</span>
-        <span id="mentalQuoteContent" class="md-mental-content" aria-live="polite">
-          <span id="mentalInlineText" class="md-mental-text">„Golf wird auf einem Platz gespielt, der 15 Zentimeter breit ist – dem Raum zwischen deinen Ohren.“</span>
-          <span id="mentalInlineAuthor" class="md-mental-author">— Bobby Jones</span>
-        </span>
-        <span class="material-symbols-rounded" style="font-size: 18px; flex-shrink: 0; opacity: 0.7;" aria-hidden="true">refresh</span>
-      </button>
+      <div class="md-home-section">Rund um die Runde</div>
+      <article class="md-home-card">
+        <div class="md-home-row">
+          <span class="md-today-icon"><span class="material-symbols-rounded filled">timer</span></span>
+          <span class="md-today-text">
+            <span class="md-today-label">Warm-up vor der Runde · mit Timer</span>
+            <span class="md-today-title">Wie viel Zeit hast du bis zum Abschlag?</span>
+          </span>
+        </div>
+        <div class="md-home-btns">
+          <button type="button" class="md-tonal-btn" onclick="startWarmupFromHome('quick5')">5 Min.</button>
+          <button type="button" class="md-tonal-btn" onclick="startWarmupFromHome('round15')">15 Min.</button>
+          <button type="button" class="md-tonal-btn" onclick="startWarmupFromHome('tournament45')">45 Min.</button>
+        </div>
+      </article>
+      <article id="todayRoundCard" class="md-home-card"></article>
     </section>
 
     <!-- ======================================================================
@@ -3426,6 +3452,15 @@
           <div id="statsTimelineList" class="md-timeline-list"></div>
         </article>
       </div>
+      <!-- Mental Tee-Box: kompakter Spruch, Tippen zeigt den nächsten -->
+      <button type="button" class="md-mental-banner" onclick="nextMentalQuote()" aria-label="Motivationsspruch – tippen für den nächsten">
+        <span class="material-symbols-rounded filled" style="font-size: 18px; flex-shrink: 0;" aria-hidden="true">psychology</span>
+        <span id="mentalQuoteContent" class="md-mental-content" aria-live="polite">
+          <span id="mentalInlineText" class="md-mental-text">„Golf wird auf einem Platz gespielt, der 15 Zentimeter breit ist – dem Raum zwischen deinen Ohren.“</span>
+          <span id="mentalInlineAuthor" class="md-mental-author">— Bobby Jones</span>
+        </span>
+        <span class="material-symbols-rounded" style="font-size: 18px; flex-shrink: 0; opacity: 0.7;" aria-hidden="true">refresh</span>
+      </button>
     </section>
 
   </main>
@@ -3435,7 +3470,7 @@
        ======================================================================== -->
   <footer class="md-footer">
     <div class="md-container" style="display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; flex-wrap: wrap;">
-      <span><strong>Golf Pocket Trainer</strong> (<span class="font-mono">v4.35.0</span>) &bull; Dein interaktiver Trainings- &amp; Platzbegleiter</span>
+      <span><strong>Golf Pocket Trainer</strong> (<span class="font-mono">v4.36.0</span>) &bull; Dein interaktiver Trainings- &amp; Platzbegleiter</span>
       <button type="button" onclick="openChangelogModal()" class="md-text-btn" style="height: 1.85rem;">Versionsverlauf ansehen</button>
     </div>
   </footer>
@@ -3461,24 +3496,24 @@
       <div class="md-dialog-body">
         <div style="background-color: var(--md-sys-color-surface-container); border-radius: 1.1rem; padding: 0.95rem 1.05rem; display: flex; flex-direction: column; gap: 0.7rem;">
           <div style="display: flex; align-items: flex-start; gap: 0.65rem; font-size: 0.83rem;">
-            <span class="material-symbols-rounded filled" style="font-size: 20px; color: var(--md-sys-color-primary); margin-top: 1px;">backpack</span>
+            <span class="material-symbols-rounded filled" style="font-size: 20px; color: var(--md-sys-color-primary); margin-top: 1px;">donut_large</span>
             <div>
-              <strong>Das brauchst du heute:</strong>
-              <div style="color: var(--md-sys-color-on-surface-variant); margin-top: 0.1rem;">Jede Challenge-Einheit listet Ort, Schläger, Bälle und Hilfsmittel – zum Abhaken, bevor du losgehst.</div>
+              <strong>Deine Golf-Form im Kreis:</strong>
+              <div style="color: var(--md-sys-color-on-surface-variant); margin-top: 0.1rem;">Ganz oben siehst du, wie fit dein Golfspiel gerade ist – aus deinen Trainings und Runden der letzten 14 Tage. Dein Level bleibt als Abzeichen erhalten.</div>
             </div>
           </div>
           <div style="display: flex; align-items: flex-start; gap: 0.65rem; font-size: 0.83rem;">
-            <span class="material-symbols-rounded filled" style="font-size: 20px; color: var(--md-sys-color-primary); margin-top: 1px;">sports_golf</span>
+            <span class="material-symbols-rounded filled" style="font-size: 20px; color: var(--md-sys-color-primary); margin-top: 1px;">golf_course</span>
             <div>
-              <strong>Echte Golfübungen statt Gymnastik:</strong>
-              <div style="color: var(--md-sys-color-on-surface-variant); margin-top: 0.1rem;">Aufwärmen mit Schläger und Ball, 4 neue Übungen für zuhause (Griff, Halbschwung von der Matte, Tiefpunkt-Drill, Ausrichtung) – Schritt für Schritt und mit Video.</div>
+              <strong>Runden zählen als Training:</strong>
+              <div style="color: var(--md-sys-color-on-surface-variant); margin-top: 0.1rem;">Mit „Runde gespielt?“ trägst du 9 oder 18 Loch ein – gut für Form, Serie und Wochenziel.</div>
             </div>
           </div>
           <div style="display: flex; align-items: flex-start; gap: 0.65rem; font-size: 0.83rem;">
-            <span class="material-symbols-rounded filled" style="font-size: 20px; color: var(--md-sys-color-primary); margin-top: 1px;">list_alt</span>
+            <span class="material-symbols-rounded filled" style="font-size: 20px; color: var(--md-sys-color-primary); margin-top: 1px;">dashboard</span>
             <div>
-              <strong>Klassische Challenge zum Aufklappen:</strong>
-              <div style="color: var(--md-sys-color-on-surface-variant); margin-top: 0.1rem;">Zu den Übungen gibt es jetzt die passende Schritt-für-Schritt-Anleitung samt Video.</div>
+              <strong>Aufgeräumte Startseite:</strong>
+              <div style="color: var(--md-sys-color-on-surface-variant); margin-top: 0.1rem;">Tagestraining, 40-Tage-Challenge und Warm-up mit einem Tipp – ohne langes Formular.</div>
             </div>
           </div>
         </div>
@@ -3558,7 +3593,7 @@
       <div class="md-dialog-header">
         <div>
           <span class="md-assist-badge" style="background-color: var(--md-sys-color-tertiary-container); color: var(--md-sys-color-on-tertiary-container);">Release Notes &amp; Wartung</span>
-          <h2 id="changelogTitle" class="font-display" style="font-size: 1.25rem; font-weight: 800; margin-top: 0.3rem;">Versionsverlauf (v1.0.0 – v4.35.0)</h2>
+          <h2 id="changelogTitle" class="font-display" style="font-size: 1.25rem; font-weight: 800; margin-top: 0.3rem;">Versionsverlauf (v1.0.0 – v4.36.0)</h2>
         </div>
         <button type="button" onclick="closeChangelogModal()" class="md-icon-btn" aria-label="Schließen">
           <span class="material-symbols-rounded">close</span>
@@ -3573,20 +3608,34 @@
   </div>
 
   <!-- ========================================================================
-       COMPLETE SELF-CONTAINED JAVASCRIPT ENGINE (v4.35.0)
+       COMPLETE SELF-CONTAINED JAVASCRIPT ENGINE (v4.36.0)
        ======================================================================== -->
   <div id="appToast" class="md-toast" role="status" aria-live="polite"></div>
   <input type="file" id="backupFileInput" accept="application/json,.json" hidden onchange="handleBackupFile(event)" />
 
   <script>
-    const APP_VERSION = 'v4.35.0';
+    const APP_VERSION = 'v4.36.0';
 
     const CHANGELOG_ENTRIES = [
       {
-        version: 'v4.35.0',
+        version: 'v4.36.0',
         date: 'Aktuell',
-        title: 'Challenge mit echten Golfübungen & Packliste',
+        title: 'Neue Startseite mit Golf-Form & Runden',
         latest: true,
+        notes: [
+          'Ganz oben steht jetzt deine Golf-Form (0–100) groß im Kreis – berechnet aus deinen Trainings und Runden der letzten 14 Tage. Ohne Training sinkt sie langsam, mit dem nächsten Training steigt sie sofort wieder.',
+          'Dein Level bleibt darunter als Abzeichen mit Fortschrittsbalken – es kann nur steigen. Dazu Serie, Wochenziel und Challenge-Stand auf einen Blick.',
+          'Neu: „Runde gespielt?“ – trag 9 oder 18 Loch ein. Eine Runde zählt als Training für Form, Serie und Wochenziel (+25 bzw. +40 XP). Nach einem Warm-up fragt die App auch direkt danach.',
+          'Das Tagestraining ist jetzt eine kompakte Karte mit deiner letzten Auswahl und „Training starten“; das Formular öffnet sich über „Ändern“.',
+          'Die 40-Tage-Challenge zeigt die nächste Einheit samt Fortschritt und Material – ist sie heute fällig, steht sie ganz oben.',
+          'Warm-up direkt von der Startseite: 5, 15 oder 45 Minuten antippen, der Timer startet sofort. Der Motivationsspruch ist in den Fortschritt umgezogen.'
+        ]
+      },
+      {
+        version: 'v4.35.0',
+        date: 'Vorherige Version',
+        title: 'Challenge mit echten Golfübungen & Packliste',
+        latest: false,
         notes: [
           'Jede Challenge-Einheit zeigt oben „Das brauchst du heute“: Ort, Schläger, Bälle und Hilfsmittel auf einen Blick – zum Abhaken beim Packen.',
           'Aufwärmen ist jetzt Golf statt Gymnastik: zuhause Griff, Setup und Schwünge mit dem Wedge, auf der Range vom Wedge zum Eisen 7, am Grün Chips und Putts – Schritt für Schritt und mit Video.',
@@ -3598,7 +3647,7 @@
       },
       {
         version: 'v4.34.0',
-        date: 'Vorherige Version',
+        date: 'Meilenstein 60',
         title: 'Eigene 40-Tage-Challenge & 11 neue Übungen für zuhause',
         latest: false,
         notes: [
@@ -6640,7 +6689,7 @@
     function sanitizeRepLog(raw) {
       const out = {};
       Object.keys(raw).forEach(key => {
-        if (!/^(drill|warmup|chk):./.test(key) || !Array.isArray(raw[key])) return;
+        if (!/^(drill|warmup|chk|round):./.test(key) || !Array.isArray(raw[key])) return;
         const days = [...new Set(raw[key].filter(isValidIsoDate))].sort();
         if (days.length) out[key] = days;
       });
@@ -7109,6 +7158,8 @@
       weeklyGoal: 50,          // Wochenziel erreicht
       weeklyGoalDays: 3,       // … an 3 Tagen pro Woche trainiert
       challenge: 50,           // Challenge-Einheit (einmaliger Programm-Meilenstein)
+      round9: 25,              // Golfrunde über 9 Loch (je Tag)
+      round18: 40,             // Golfrunde über 18 Loch (je Tag)
       scratch: 60              // Scratch-Säule (einmaliger Meilenstein)
     };
 
@@ -7209,7 +7260,8 @@
         checkin: Object.keys(dailyCheckins).length * XP_RULES.checkin,
         weekly: weekly.reached * XP_RULES.weeklyGoal,
         challenge: (completedChallengeDays.size + challengeArchivedSessions) * XP_RULES.challenge,
-        scratch: masteredScratchPillars.size * XP_RULES.scratch
+        scratch: masteredScratchPillars.size * XP_RULES.scratch,
+        round: repDates('round', '9').length * XP_RULES.round9 + repDates('round', '18').length * XP_RULES.round18
       };
       const total = Object.values(parts).reduce((a, b) => a + b, 0);
       return Object.assign({ total, drillReps, warmupReps, checklistDays, weeklyGoalsReached: weekly.reached, weeklyState: weekly }, parts);
@@ -7468,28 +7520,252 @@
         <button type="button" role="tab" class="md-subnav-btn ${key === tabKey ? 'selected' : ''}" aria-selected="${key === tabKey}" onclick="switchMainTab('${key}')">${label}</button>`).join('');
     }
 
-    function renderTodayShortcuts() {
-      const next = getChallengeSessions().find(s => !completedChallengeDays.has(s.day));
-      const lbl = document.getElementById('todayChallengeLabel');
-      const ttl = document.getElementById('todayChallengeTitle');
-      if (lbl && ttl) {
-        if (next) {
-          lbl.textContent = `40-Tage-Challenge · Einheit ${next.sessionNum} von ${challengeTotal()}`;
-          ttl.textContent = next.custom
-            ? `${challengePlaceOf(next.place).icon} ${next.focus}`
-            : (next.levels[challengeLevel] || next.levels.beginner).title;
-        } else {
-          lbl.textContent = '40-Tage-Challenge';
-          ttl.textContent = `Alle ${challengeTotal()} Einheiten geschafft`;
-        }
+    /* ========================================================================
+       GOLF-FORM (v4.36.0): aktuelle Trainingsform aus den letzten 14 Tagen.
+       Das Level (XP) kann nur steigen – die Form sinkt ohne Training.
+       ======================================================================== */
+    const FORM_RULES = {
+      windowDays: 14,   // betrachteter Zeitraum
+      decay: 0.85,      // jeder Tag Abstand zählt 15 % weniger
+      dayCap: 50,       // mehr als 50 Punkte pro Tag zählen nicht
+      target: 100,      // ≈ 3 gute Trainings pro Woche = Form 100
+      points: { challenge: 40, round18: 40, round9: 25, checkinActive: 30, checkinPlan: 10, drill: 12, drillMax: 30, warmup: 10, checklist: 5, scratch: 20 }
+    };
+
+    // Trainingspunkte je Tag (YYYY-MM-DD -> Punkte)
+    function dailyTrainingLoad() {
+      const P = FORM_RULES.points;
+      const load = new Map();
+      const add = (day, pts) => { if (isValidIsoDate(day)) load.set(day, (load.get(day) || 0) + pts); };
+      const drillsPerDay = new Map();
+      const onceFlags = new Set();
+      Object.keys(repLog).forEach(key => {
+        (repLog[key] || []).forEach(day => {
+          if (key.startsWith('drill:')) drillsPerDay.set(day, (drillsPerDay.get(day) || 0) + 1);
+          else if (key.startsWith('warmup:')) { if (!onceFlags.has('w' + day)) { onceFlags.add('w' + day); add(day, P.warmup); } }
+          else if (key.startsWith('chk:')) { if (!onceFlags.has('c' + day)) { onceFlags.add('c' + day); add(day, P.checklist); } }
+          else if (key === 'round:18') add(day, P.round18);
+          else if (key === 'round:9') add(day, P.round9);
+        });
+      });
+      drillsPerDay.forEach((n, day) => add(day, Math.min(P.drillMax, n * P.drill)));
+      Object.keys(dailyCheckins).forEach(day => {
+        const e = dailyCheckins[day];
+        if (!e || !Array.isArray(e.focusKeys)) return;
+        add(day, Array.isArray(e.done) && e.done.length ? P.checkinActive : P.checkinPlan);
+      });
+      activityLog.forEach(item => {
+        if (item.category !== 'challenge' && item.category !== 'scratch') return;
+        add(localDateKey(item.timestamp), item.category === 'challenge' ? P.challenge : P.scratch);
+      });
+      load.forEach((v, k) => load.set(k, Math.min(FORM_RULES.dayCap, v)));
+      return load;
+    }
+
+    function shiftDayKey(day, delta) {
+      const [y, m, d] = day.split('-').map(Number);
+      return localDateKey(new Date(y, m - 1, d + delta));
+    }
+
+    function computeGolfForm(refDay = localDateKey(), load = dailyTrainingLoad()) {
+      let sum = 0;
+      for (let i = 0; i < FORM_RULES.windowDays; i++) sum += (load.get(shiftDayKey(refDay, -i)) || 0) * Math.pow(FORM_RULES.decay, i);
+      const value = Math.min(100, Math.round((sum / FORM_RULES.target) * 100));
+      const lastDay = [...load.keys()].filter(d => d <= refDay && load.get(d) > 0).sort().pop() || null;
+      return { value, lastDay, daysSince: lastDay ? daysBetweenKeys(lastDay, refDay) : null };
+    }
+
+    function golfFormStatus(value) {
+      if (value >= 80) return 'Top in Form';
+      if (value >= 55) return 'In Form';
+      if (value >= 30) return 'Im Aufbau';
+      if (value > 0) return 'Eingerostet';
+      return 'Bereit zum Start';
+    }
+
+    /* --- Golfrunden eintragen (zählen als Training) --- */
+    function roundLoggedToday() {
+      if (hasRepOn('round', '18')) return 18;
+      if (hasRepOn('round', '9')) return 9;
+      return null;
+    }
+
+    function warmupDoneToday() {
+      const today = localDateKey();
+      return Object.keys(repLog).some(k => k.startsWith('warmup:') && repLog[k].includes(today));
+    }
+
+    function logRound(holes) {
+      const today = localDateKey();
+      const current = roundLoggedToday();
+      [9, 18].forEach(h => { removeRep('round', String(h), today); removeActivityEvent(`round-${h}@${today}`); });
+      if (current === holes) {
+        savePersistedState();
+        showToast('Runde wieder ausgetragen.', 2400);
+      } else {
+        withXpFeedback(() => {
+          addRep('round', String(holes), today);
+          recordActivityEvent(`round-${holes}@${today}`, 'round', `Golfrunde gespielt: ${holes} Loch`, 'Zählt als Training für deine Golf-Form', holes === 18 ? 240 : 120);
+        }, () => `${holes} Loch eingetragen ⛳`);
+        savePersistedState();
       }
-      const { totalXp, currentLvl, nextLvl, xpRemaining } = computeGamificationState();
-      const lvLbl = document.getElementById('todayLevelLabel');
-      const lvTtl = document.getElementById('todayLevelTitle');
-      if (lvLbl) lvLbl.textContent = `Level ${currentLvl.level} · ${totalXp} XP`;
-      if (lvTtl) lvTtl.textContent = nextLvl
-        ? `${currentLvl.name} · noch ${xpRemaining} XP bis Level ${nextLvl.level}`
-        : `${currentLvl.name} · höchstes Level erreicht`;
+      renderTodayShortcuts();
+      if (currentMainTab === 'warmup') renderWarmupRoundPrompt();
+    }
+
+    function roundButtonsHtml(current) {
+      return [9, 18].map(h => `<button type="button" class="${current === h ? 'md-filled-btn' : 'md-tonal-btn'}" onclick="event.stopPropagation(); logRound(${h})">
+        ${current === h ? '<span class="material-symbols-rounded" style="font-size: 18px;">check</span>' : ''}<span>${h} Loch</span></button>`).join('');
+    }
+
+    function renderWarmupRoundPrompt() {
+      const el = document.getElementById('warmupRoundPrompt');
+      if (!el) return;
+      const current = roundLoggedToday();
+      if (!warmupDoneToday() && !current) { el.innerHTML = ''; return; }
+      el.innerHTML = `<div class="md-home-card" style="margin-top: 0.2rem;">
+        <div class="md-home-row">
+          <span class="md-today-icon"><span class="material-symbols-rounded filled">golf_course</span></span>
+          <span class="md-today-text">
+            <span class="md-today-label">Nach der Runde</span>
+            <span class="md-today-title">${current ? `${current} Loch eingetragen – zählt für deine Golf-Form` : 'Runde gespielt? Trag sie ein – sie zählt als Training.'}</span>
+          </span>
+        </div>
+        <div class="md-home-btns">${roundButtonsHtml(current)}</div>
+      </div>`;
+    }
+
+    function startWarmupFromHome(key) {
+      switchMainTab('warmup');
+      selectWarmupRoutine(key);
+      startWarmupTimer();
+    }
+
+    function renderTodayFormHero() {
+      const el = document.getElementById('todayFormHero');
+      if (!el) return;
+      const load = dailyTrainingLoad();
+      const today = localDateKey();
+      const form = computeGolfForm(today, load);
+      const before = computeGolfForm(shiftDayKey(today, -7), load).value;
+      const trend = form.value - before;
+      const { currentLvl, nextLvl, xpRemaining, progressPct, totalXp, breakdown } = computeGamificationState();
+      const { streak } = computeActivityStreakAndDays();
+      const w = breakdown.weeklyState;
+      const done = completedChallengeDays.size;
+      const total = challengeTotal();
+
+      let msg;
+      if (form.daysSince === null) msg = 'Starte dein erstes Training – jede Einheit und jede Runde hebt deine Form.';
+      else if (form.daysSince === 0) msg = 'Heute schon trainiert – stark!';
+      else if (form.daysSince <= 2) msg = `Zuletzt trainiert vor ${form.daysSince === 1 ? '1 Tag' : `${form.daysSince} Tagen`}.`;
+      else msg = `${form.daysSince} Tage ohne Training – eine kurze Einheit reicht, um die Form zu halten.`;
+      const trendHtml = form.daysSince !== null && trend !== 0
+        ? ` <span class="md-form-trend ${trend < 0 ? 'down' : ''}">${trend > 0 ? '▲ +' : '▼ '}${trend} zur Vorwoche</span>` : '';
+
+      const r = 72, c = 2 * Math.PI * r;
+      el.setAttribute('aria-label', `Golf-Form ${form.value} von 100, ${golfFormStatus(form.value)}. Level ${currentLvl.level}: ${currentLvl.name}. Zum Fortschritt.`);
+      el.innerHTML = `
+        <div class="md-form-ring">
+          <svg width="168" height="168" viewBox="0 0 168 168" aria-hidden="true">
+            <circle class="track" cx="84" cy="84" r="${r}" stroke-width="14" fill="none"/>
+            <circle class="value" cx="84" cy="84" r="${r}" stroke-width="14" fill="none" stroke-linecap="round" stroke-dasharray="${c.toFixed(1)}" stroke-dashoffset="${(c * (1 - form.value / 100)).toFixed(1)}"/>
+          </svg>
+          <div class="md-form-ring-center">
+            <span class="md-form-ring-label">GOLF-FORM</span>
+            <span class="md-form-ring-num">${form.value}</span>
+            <span class="md-form-ring-status">${golfFormStatus(form.value)}</span>
+          </div>
+        </div>
+        <div class="md-form-msg">${msg}${trendHtml}</div>
+        <div class="md-level-pill">
+          <span class="material-symbols-rounded filled" aria-hidden="true">${currentLvl.icon || 'military_tech'}</span>
+          <span class="md-level-pill-text">
+            <span class="md-level-pill-title">Level ${currentLvl.level} · ${currentLvl.name}</span>
+            <span class="md-mini-bar"><i style="width: ${progressPct}%;"></i></span>
+            <span class="md-level-pill-sub">${nextLvl ? `${totalXp} XP · noch ${xpRemaining} XP bis Level ${nextLvl.level}` : `${totalXp} XP · höchstes Level erreicht`}</span>
+          </span>
+          <span class="material-symbols-rounded" style="color: var(--md-sys-color-on-surface-variant);" aria-hidden="true">chevron_right</span>
+        </div>
+        <div class="md-form-kpis">
+          <div class="md-form-kpi"><strong>${streak > 0 ? '🔥 ' : ''}${streak}</strong><span>Tage Serie</span></div>
+          <div class="md-form-kpi"><strong>${Math.min(w.currentWeekDays, w.target)}/${w.target}</strong><span>Wochenziel</span></div>
+          <div class="md-form-kpi"><strong>${done}/${total}</strong><span>Challenge</span></div>
+        </div>
+        <div class="md-form-help">Golf-Form = deine Trainings & Runden der letzten 14 Tage. Ohne Training sinkt sie – dein Level bleibt.</div>`;
+    }
+
+    function renderTodayChallengeCard() {
+      const card = document.getElementById('todayChallengeCard');
+      if (!card) return false;
+      const sessions = getChallengeSessions();
+      const total = sessions.length;
+      const done = completedChallengeDays.size;
+      const next = sessions.find(s => !completedChallengeDays.has(s.day));
+      const pct = Math.round((done / Math.max(1, total)) * 100);
+      if (!next) {
+        card.innerHTML = `<div class="md-home-row">
+          <span class="md-today-icon"><span class="material-symbols-rounded filled">emoji_events</span></span>
+          <span class="md-today-text"><span class="md-today-label">40-Tage-Challenge</span><span class="md-today-title">Alle ${total} Einheiten geschafft 🎉</span></span>
+          <span class="material-symbols-rounded md-today-chevron" aria-hidden="true">chevron_right</span></div>`;
+        return false;
+      }
+      const today = localDateKey();
+      const iso = getChallengeIsoForDay(challengeStartDate, next.day);
+      const due = iso && iso <= today;
+      const when = !iso ? '' : iso === today ? 'heute fällig' : iso < today ? 'bereit zum Nachholen'
+        : (() => { const n = daysBetweenKeys(today, iso); return n === 1 ? 'morgen' : `in ${n} Tagen`; })();
+      let title, gearCount;
+      if (next.custom) {
+        title = `Tag ${next.day} · ${challengePlaceOf(next.place).icon} ${challengePlaceOf(next.place).label} · ${next.focus}`;
+        gearCount = mergeGear(next.gear || []).length;
+      } else {
+        const lvl = next.levels[challengeLevel] ? challengeLevel : 'beginner';
+        title = next.levels[lvl].title;
+        gearCount = mergeGear((CLASSIC_PLAN_EXTRAS[`${next.day}-${lvl}`] || {}).gear || []).length;
+      }
+      card.innerHTML = `
+        <div class="md-home-row">
+          <span class="md-today-icon"><span class="material-symbols-rounded filled">calendar_month</span></span>
+          <span class="md-today-text">
+            <span class="md-today-label">40-Tage-Challenge${when ? ` · ${when}` : ''}</span>
+            <span class="md-today-title">${title}</span>
+          </span>
+          <span class="material-symbols-rounded md-today-chevron" aria-hidden="true">chevron_right</span>
+        </div>
+        <div class="md-mini-bar"><i style="width: ${pct}%;"></i></div>
+        <div class="md-home-meta">Einheit ${next.sessionNum} von ${total} · ${next.duration}${gearCount ? ` · 🎒 ${gearCount} Dinge bereitlegen` : ''}</div>`;
+      return due;
+    }
+
+    function renderTodayRoundCard() {
+      const card = document.getElementById('todayRoundCard');
+      if (!card) return;
+      const current = roundLoggedToday();
+      const warmed = warmupDoneToday();
+      card.innerHTML = `
+        <div class="md-home-row">
+          <span class="md-today-icon"><span class="material-symbols-rounded filled">golf_course</span></span>
+          <span class="md-today-text">
+            <span class="md-today-label">Runde gespielt? · zählt als Training</span>
+            <span class="md-today-title">${current ? `Heute ${current} Loch eingetragen ✓` : warmed ? 'Heute aufgewärmt – wie viele Löcher hast du gespielt?' : 'Trag deine Runde ein – sie hält deine Form oben.'}</span>
+          </span>
+        </div>
+        <div class="md-home-btns">${roundButtonsHtml(current)}</div>`;
+    }
+
+    function renderTodayShortcuts() {
+      renderTodayFormHero();
+      const due = renderTodayChallengeCard();
+      renderTodayRoundCard();
+      // Fällige Challenge-Einheit steht vor dem Tagestraining
+      const stack = document.getElementById('todayTrainStack');
+      const ch = document.getElementById('todayChallengeCard');
+      const ck = document.getElementById('dailyCheckinCard');
+      if (stack && ch && ck) {
+        if (due && stack.firstElementChild !== ch) stack.insertBefore(ch, ck);
+        if (!due && stack.firstElementChild !== ck) stack.insertBefore(ck, ch);
+      }
     }
 
     function openMenuPage(tabKey) {
@@ -8471,6 +8747,7 @@
       const activeIdx = warmupPhaseIndexAt(routine, totalSeconds - remainingSeconds);
       renderWarmupCurrentPhase(routine, activeIdx, false);
       updateWarmupTimerUI();
+      renderWarmupRoundPrompt();
 
       const timelineEl = document.getElementById('warmupTimelineSvg');
       if (timelineEl) {
@@ -11306,9 +11583,36 @@
         if (last && !checkinUi.touched) {
           checkinUi.place = last.place || checkinUi.place;
           checkinUi.minutes = last.minutes || checkinUi.minutes;
+          if (Array.isArray(last.focusKeys) && last.focusKeys.length) checkinUi.focus = last.focusKeys.slice();
         }
       }
       card.classList.toggle('checked-today', !!entry);
+
+      // Kompakt: letzte Auswahl + „Training starten“, Formular erst über „Ändern“
+      if (!hasPlan && !checkinUi.editing) {
+        const place = CHECKIN_PLACES.find(p => p.key === checkinUi.place) || CHECKIN_PLACES[0];
+        const focusChips = checkinUi.focus.map(k => CHECKIN_FOCUS.find(f => f.key === k)).filter(Boolean)
+          .map(f => `<span class="md-home-chip">${f.icon} ${f.label}</span>`).join('');
+        card.innerHTML = `
+          <div class="md-home-row">
+            <span class="md-today-icon"><span class="material-symbols-rounded filled">auto_awesome</span></span>
+            <span class="md-today-text">
+              <span class="md-today-label">Dein Tagestraining · +${XP_RULES.checkin} XP</span>
+              <span class="md-today-title">Individuell für dich zusammengestellt</span>
+            </span>
+          </div>
+          <div class="md-home-chips">
+            ${focusChips}
+            <span class="md-home-chip">${place.icon} ${place.label}</span>
+            <span class="md-home-chip">${checkinUi.minutes} Min.</span>
+            <button type="button" class="md-text-btn" style="height: 2rem;" onclick="editDailyCheckin()"><span class="material-symbols-rounded" style="font-size: 18px;">tune</span><span>Ändern</span></button>
+          </div>
+          <button type="button" class="md-filled-btn" style="justify-content: center;" onclick="submitDailyCheckin()">
+            <span class="material-symbols-rounded" style="font-size: 20px;">play_arrow</span>
+            <span>Training starten</span>
+          </button>`;
+        return;
+      }
 
       const header = `
         <div class="ck-head">
@@ -11344,7 +11648,7 @@
             <div class="ck-chips">${CHECKIN_MINUTES.map(m => chip(checkinUi.minutes === m, `checkinUi.touched=true;setCheckinMinutes(${m})`, `<span>${m} Min.</span>`)).join('')}</div>
           </div>
           <div class="ck-actions">
-            ${hasPlan ? '<button type="button" class="md-text-btn" onclick="checkinUi.loadedFromEntry=false;cancelEditDailyCheckin()">Abbrechen</button>' : ''}
+            <button type="button" class="md-text-btn" onclick="checkinUi.loadedFromEntry=false;cancelEditDailyCheckin()">Abbrechen</button>
             <button type="button" class="md-filled-btn" onclick="checkinUi.loadedFromEntry=false;submitDailyCheckin()">
               <span class="material-symbols-rounded" style="font-size: 18px;">auto_awesome</span>
               <span>${hasPlan ? 'Plan neu erstellen' : 'Training zusammenstellen (+25 XP)'}</span>
@@ -11417,6 +11721,7 @@
     function renderStatsView() {
       updateStatsMenuBadge();
       renderDailyCheckinCard();
+      renderTodayShortcuts();
 
       // Render Gamification Level Hero & Steps
       const { totalXp, currentLvl, nextLvl, progressPct, xpRemaining } = computeGamificationState();
@@ -11460,7 +11765,8 @@
           [`Warm-up-Phase (je Tag) +${XP_RULES.warmupPhase}`, breakdown.warmup],
           [`Range-Checkliste komplett (je Tag) +${XP_RULES.checklistDay}`, breakdown.checklist],
           [`Challenge-Einheit (einmalig) +${XP_RULES.challenge}`, breakdown.challenge],
-          [`Scratch-Säule (einmalig) +${XP_RULES.scratch}`, breakdown.scratch]
+          [`Scratch-Säule (einmalig) +${XP_RULES.scratch}`, breakdown.scratch],
+          [`Golfrunde gespielt (9 / 18 Loch) +${XP_RULES.round9}/+${XP_RULES.round18}`, breakdown.round]
         ];
         rulesEl.innerHTML = rows.map(([label, xp]) => `<div><span>${label}</span><strong class="font-mono">${xp} XP</strong></div>`).join('');
       }
@@ -11669,7 +11975,8 @@
             scratch: { icon: 'emoji_events', label: 'Scratch (HCP 0)' },
             warmup: { icon: 'timer', label: 'Warm-up' },
             checklist: { icon: 'fact_check', label: 'Checkliste' },
-            checkin: { icon: 'today', label: 'Tages-Check-in' }
+            checkin: { icon: 'today', label: 'Tages-Check-in' },
+            round: { icon: 'golf_course', label: 'Golfrunde' }
           };
 
           listEl.innerHTML = filteredLog.map(item => {
