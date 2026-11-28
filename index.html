@@ -9,8 +9,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="apple-mobile-web-app-title" content="Golf Pocket Trainer" />
   <meta name="application-name" content="Golf Pocket Trainer" />
-  <meta name="description" content="Golf Pocket Trainer v4.40.1 – Material Design 3 Golf Technik-, Trainings-, Rules-, Scratch-Blueprint-, Handicap-Challenge-, Longhitter-, Komparator-, Warm-up-, Video-Analyse-, 40-Tage-Challenge- & Gamification-Statistik-Begleiter" />
-  <title>Golf Pocket Trainer (v4.40.1)</title>
+  <meta name="description" content="Golf Pocket Trainer v4.41.0 – Material Design 3 Golf Technik-, Trainings-, Rules-, Scratch-Blueprint-, Handicap-Challenge-, Longhitter-, Komparator-, Warm-up-, Video-Analyse-, 40-Tage-Challenge- & Gamification-Statistik-Begleiter" />
+  <title>Golf Pocket Trainer (v4.41.0)</title>
 
   <link rel="manifest" href="manifest.webmanifest" />
   <link rel="icon" type="image/png" sizes="48x48" href="icons/favicon-48.png" />
@@ -748,6 +748,7 @@
     .md-lib-hcp { display: flex; flex-direction: column; gap: 0.4rem; padding: 0.8rem 0.9rem; border-radius: 1.1rem; border: 1px solid var(--md-sys-color-outline-variant); }
     .md-lib-hcp-row { display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; }
     .md-lib-hcp-input { width: 7.5rem; }
+    .md-chal-paused .md-challenge-calendar { opacity: 0.55; }
     .md-lib-pillar { display: flex; flex-direction: column; gap: 0.35rem; padding: 0.75rem 0.85rem; border-radius: 1rem; border: 1px solid var(--md-sys-color-outline-variant); background-color: var(--md-sys-color-surface-container); font-size: 0.84rem; }
 
     /* Eigene Challenge: Einrichtung & Einheiten (v4.34.0) */
@@ -2760,7 +2761,7 @@
               <span class="material-symbols-rounded" style="color: var(--md-sys-color-on-surface-variant);">history</span>
               <span>Versionsverlauf</span>
             </span>
-            <span class="font-mono" style="font-size: 0.72rem; color: var(--md-sys-color-on-surface-variant);">v4.40.1</span>
+            <span class="font-mono" style="font-size: 0.72rem; color: var(--md-sys-color-on-surface-variant);">v4.41.0</span>
           </button>
         </div>
       </div>
@@ -3383,7 +3384,7 @@
           </div>
           <div style="display: flex; align-items: center; gap: 0.45rem; flex-wrap: wrap;">
             <span id="challengeProgressBadge" class="md-assist-badge font-mono">0 / 14 Einheiten</span>
-            <button type="button" onclick="resetChallenge40Progress()" class="md-text-btn md-text-btn-quiet">Zurücksetzen</button>
+            <button type="button" onclick="resetChallenge40Progress()" class="md-text-btn md-text-btn-quiet">Fortschritt zurücksetzen</button>
           </div>
         </div>
 
@@ -3395,6 +3396,14 @@
           <button type="button" id="challengeAdjustBtn" onclick="openChallengeSetup()" class="md-text-btn hidden">
             <span class="material-symbols-rounded" style="font-size: 18px;">tune</span>
             <span>Anpassen</span>
+          </button>
+          <button type="button" id="challengePauseBtn" onclick="toggleChallengePause()" class="md-text-btn">
+            <span id="challengePauseIcon" class="material-symbols-rounded" style="font-size: 18px;">pause_circle</span>
+            <span id="challengePauseLabel">Pausieren</span>
+          </button>
+          <button type="button" onclick="stopChallenge()" class="md-text-btn">
+            <span class="material-symbols-rounded" style="font-size: 18px;">stop_circle</span>
+            <span>Beenden</span>
           </button>
         </div>
 
@@ -3416,7 +3425,7 @@
             <span class="material-symbols-rounded filled" style="font-size: 19px;">event_available</span>
             <span id="challengeNextWorkoutText">Nächste Einheit: Tag 1</span>
           </div>
-          <button type="button" onclick="jumpToNextChallengeSession()" class="md-text-btn" style="height: 1.9rem;">Zur nächsten Einheit</button>
+          <button type="button" id="challengeNextBtn" onclick="isChallengePaused() ? resumeChallenge() : jumpToNextChallengeSession()" class="md-text-btn" style="height: 1.9rem;">Zur nächsten Einheit</button>
         </div>
       </article>
 
@@ -3610,7 +3619,7 @@
        ======================================================================== -->
   <footer class="md-footer">
     <div class="md-container" style="display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; flex-wrap: wrap;">
-      <span><strong>Golf Pocket Trainer</strong> (<span class="font-mono">v4.40.1</span>) &bull; Dein interaktiver Trainings- &amp; Platzbegleiter</span>
+      <span><strong>Golf Pocket Trainer</strong> (<span class="font-mono">v4.41.0</span>) &bull; Dein interaktiver Trainings- &amp; Platzbegleiter</span>
       <button type="button" onclick="openChangelogModal()" class="md-text-btn" style="height: 1.85rem;">Versionsverlauf ansehen</button>
     </div>
   </footer>
@@ -3756,7 +3765,7 @@
       <div class="md-dialog-header">
         <div>
           <span class="md-assist-badge" style="background-color: var(--md-sys-color-tertiary-container); color: var(--md-sys-color-on-tertiary-container);">Release Notes &amp; Wartung</span>
-          <h2 id="changelogTitle" class="font-display" style="font-size: 1.25rem; font-weight: 800; margin-top: 0.3rem;">Versionsverlauf (v1.0.0 – v4.40.1)</h2>
+          <h2 id="changelogTitle" class="font-display" style="font-size: 1.25rem; font-weight: 800; margin-top: 0.3rem;">Versionsverlauf (v1.0.0 – v4.41.0)</h2>
         </div>
         <button type="button" onclick="closeChangelogModal()" class="md-icon-btn" aria-label="Schließen">
           <span class="material-symbols-rounded">close</span>
@@ -3771,20 +3780,32 @@
   </div>
 
   <!-- ========================================================================
-       COMPLETE SELF-CONTAINED JAVASCRIPT ENGINE (v4.40.1)
+       COMPLETE SELF-CONTAINED JAVASCRIPT ENGINE (v4.41.0)
        ======================================================================== -->
   <div id="appToast" class="md-toast" role="status" aria-live="polite"></div>
   <input type="file" id="backupFileInput" accept="application/json,.json" hidden onchange="handleBackupFile(event)" />
 
   <script>
-    const APP_VERSION = 'v4.40.1';
+    const APP_VERSION = 'v4.41.0';
 
     const CHANGELOG_ENTRIES = [
       {
-        version: 'v4.40.1',
+        version: 'v4.41.0',
         date: 'Aktuell',
-        title: 'Challenge sauber beenden & zurücksetzen',
+        title: 'Challenge pausieren & beenden',
         latest: true,
+        notes: [
+          'Neu: Challenge pausieren. Beim Fortsetzen verschieben sich die offenen Einheiten um die Pausentage – nichts wird als verpasst angezeigt.',
+          'Neu: Challenge beenden. Danach läuft keine Challenge mehr und du kannst in Ruhe eine neue wählen. Absolvierte Einheiten bleiben als XP und im Verlauf erhalten.',
+          'Ohne aktive Challenge zeigt die Startseite statt einer Einheit den Weg zur Challenge-Auswahl.',
+          '„Zurücksetzen“ heißt jetzt „Fortschritt zurücksetzen“: Es startet dieselbe Challenge neu, beendet sie aber nicht.'
+        ]
+      },
+      {
+        version: 'v4.40.1',
+        date: 'Vorherige Version',
+        title: 'Challenge sauber beenden & zurücksetzen',
+        latest: false,
         notes: [
           'Zurücksetzen startet den Kalender heute neu und leert Testergebnisse und Packliste. Die mit den Einheiten eingetragenen Drill-Wiederholungen werden wieder herausgenommen – wie beim Abwählen einer einzelnen Einheit.',
           'Beim Wechsel zur klassischen Challenge beginnt der Kalender heute statt am alten Starttag.',
@@ -3795,7 +3816,7 @@
       },
       {
         version: 'v4.40.0',
-        date: 'Vorherige Version',
+        date: 'Ältere Version',
         title: 'Challenge-Bibliothek: Handicap-Wege & Themen-Challenges',
         latest: false,
         notes: [
@@ -7084,6 +7105,12 @@
       customChallenge = sanitizeCustomChallenge(data.customChallenge);
       userHcp = sanitizeHcp(data.hcp);
       challengeHistory = sanitizeChallengeHistory(data.challengeHistory);
+      // Ältere Daten ohne Status: Eine Challenge mit Fortschritt oder eine eigene Challenge gilt als aktiv
+      challengeStatus = ['active', 'paused', 'none'].includes(data.challengeStatus)
+        ? data.challengeStatus
+        : (customChallenge || completedChallengeDays.size ? 'active' : 'none');
+      if (challengeStatus === 'none') customChallenge = null;
+      challengePausedOn = challengeStatus === 'paused' ? (isValidIsoDate(data.challengePausedOn) ? data.challengePausedOn : localDateKey()) : '';
       challengeArchivedSessions = Number.isFinite(Number(data.challengeArchived)) ? Math.max(0, Math.round(Number(data.challengeArchived))) : 0;
 
       activityLog = Array.isArray(data.activityLog)
@@ -7147,6 +7174,8 @@
         challengeArchived: challengeArchivedSessions,
         hcp: userHcp,
         challengeHistory,
+        challengeStatus,
+        challengePausedOn,
         activityLog: activityLog.slice(0, 300),
         dailyCheckins
       };
@@ -7174,6 +7203,8 @@
         challengeArchived: readStoredString('gpg_chal_archived'),
         hcp: readStoredString('gpg_hcp'),
         challengeHistory: readStoredJSON('gpg_chal_history', [], Array.isArray),
+        challengeStatus: readStoredString('gpg_chal_status'),
+        challengePausedOn: readStoredString('gpg_chal_paused'),
         activityLog: readStoredJSON('gpg_activity_log', [], Array.isArray),
         dailyCheckins: readStoredJSON('gpg_daily_checkins', {}, isPlainObject)
       });
@@ -7197,6 +7228,9 @@
         else localStorage.removeItem('gpg_custom_challenge');
         localStorage.setItem('gpg_chal_archived', String(snap.challengeArchived));
         localStorage.setItem('gpg_chal_history', JSON.stringify(snap.challengeHistory));
+        localStorage.setItem('gpg_chal_status', snap.challengeStatus);
+        if (snap.challengePausedOn) localStorage.setItem('gpg_chal_paused', snap.challengePausedOn);
+        else localStorage.removeItem('gpg_chal_paused');
         if (snap.hcp === null) localStorage.removeItem('gpg_hcp');
         else localStorage.setItem('gpg_hcp', String(snap.hcp));
         localStorage.setItem('gpg_activity_log', JSON.stringify(snap.activityLog));
@@ -8118,7 +8152,7 @@
         <div class="md-form-kpis">
           <div class="md-form-kpi"><strong>${streak > 0 ? '🔥 ' : ''}${streak}</strong><span>Tage Serie</span></div>
           <div class="md-form-kpi"><strong>${Math.min(w.currentWeekDays, w.target)}/${w.target}</strong><span>Wochenziel</span></div>
-          <div class="md-form-kpi"><strong>${done}/${total}</strong><span>Challenge</span></div>
+          <div class="md-form-kpi"><strong>${challengeStatus === 'none' ? '–' : `${done}/${total}`}</strong><span>${isChallengePaused() ? 'Challenge ⏸' : 'Challenge'}</span></div>
         </div>
         <button type="button" class="md-tonal-btn md-form-share" onclick="shareWeek(event)" onkeydown="event.stopPropagation()">
           <span class="material-symbols-rounded" style="font-size: 18px;">ios_share</span><span>Woche teilen</span>
@@ -8213,7 +8247,7 @@
         days: daysThisWeek, target: XP_RULES.weeklyGoalDays,
         rounds: r9 + r18, holes: r9 * 9 + r18 * 18,
         streak, level: currentLvl,
-        challenge: `${completedChallengeDays.size}/${challengeTotal()}`,
+        challenge: challengeStatus === 'none' ? '' : `${completedChallengeDays.size}/${challengeTotal()}`,
         records
       };
     }
@@ -8312,7 +8346,7 @@
         ctx.fillText(w.records.join(' · '), W / 2, y + 50, W - 120);
       } else {
         ctx.fillStyle = '#CDEBD5'; ctx.font = `400 34px ${F}`;
-        ctx.fillText(`40-Tage-Challenge: ${w.challenge} Einheiten`, W / 2, y + 20);
+        ctx.fillText(w.challenge ? `40-Tage-Challenge: ${w.challenge} Einheiten` : 'Training, das zählt.', W / 2, y + 20);
       }
       ctx.fillStyle = 'rgba(255,255,255,0.65)'; ctx.font = `700 30px ${F}`;
       ctx.fillText('⛳ Golf Pocket Trainer', W / 2, H - 60);
@@ -8409,6 +8443,25 @@
     function renderTodayChallengeCard() {
       const card = document.getElementById('todayChallengeCard');
       if (!card) return false;
+      if (challengeStatus === 'none') {
+        card.innerHTML = `<div class="md-home-row">
+          <span class="md-today-icon"><span class="material-symbols-rounded filled">flag</span></span>
+          <span class="md-today-text"><span class="md-today-label">40-Tage-Challenge · keine aktiv</span><span class="md-today-title">Wähle deine nächste Challenge</span></span>
+          <span class="material-symbols-rounded md-today-chevron" aria-hidden="true">chevron_right</span></div>
+          <div class="md-home-meta">Handicap-Wege, Longhitter, Short Game, Putten, Bunker, Mental, Winter – oder deine eigene.</div>`;
+        return false;
+      }
+      if (isChallengePaused()) {
+        const doneP = completedChallengeDays.size;
+        const totalP = challengeTotal();
+        card.innerHTML = `<div class="md-home-row">
+          <span class="md-today-icon"><span class="material-symbols-rounded filled">pause</span></span>
+          <span class="md-today-text"><span class="md-today-label">${challengeDisplayName()} · pausiert</span><span class="md-today-title">Tippen zum Fortsetzen</span></span>
+          <span class="material-symbols-rounded md-today-chevron" aria-hidden="true">chevron_right</span></div>
+          <div class="md-mini-bar"><i style="width: ${Math.round((doneP / Math.max(1, totalP)) * 100)}%;"></i></div>
+          <div class="md-home-meta">${doneP} von ${totalP} Einheiten geschafft · pausiert seit ${challengePausedOn.split('-').reverse().join('.')}</div>`;
+        return false;
+      }
       const sessions = getChallengeSessions();
       const total = sessions.length;
       const done = completedChallengeDays.size;
@@ -8536,11 +8589,7 @@
       if (tabKey === 'rules') renderRulesView();
       if (tabKey === 'scratch') renderScratchView();
       if (tabKey === 'video') renderVideoSwingTool();
-      if (tabKey === 'challenge') {
-        // Erster Besuch ohne gewählte Challenge: gleich die Bibliothek zeigen
-        if (tabChanged && !customChallenge && completedChallengeDays.size === 0 && !challengeSetupUi) challengeLibraryOpen = true;
-        renderChallenge40View();
-      }
+      if (tabKey === 'challenge') renderChallenge40View();
       if (tabKey === 'stats' || tabKey === 'progress') renderStatsView();
       if (tabKey === 'stats') renderTodayShortcuts();
     }
@@ -11578,7 +11627,63 @@
       renderChallenge40View();
     }
 
+    /* --- Status: aktiv, pausiert oder keine Challenge (v4.41.0) --- */
+    let challengeStatus = 'none';
+    let challengePausedOn = '';
+
+    function isChallengePaused() {
+      return challengeStatus === 'paused';
+    }
+
+    function pauseChallenge() {
+      if (challengeStatus !== 'active') return;
+      challengeStatus = 'paused';
+      challengePausedOn = localDateKey();
+      savePersistedState();
+      renderChallenge40View();
+      showToast('Challenge pausiert. Beim Fortsetzen verschieben sich die offenen Einheiten um die Pausentage.', 3800);
+    }
+
+    // silent: ohne Hinweis (z. B. wenn während der Pause eine Einheit abgehakt wird)
+    function resumeChallenge(silent) {
+      if (challengeStatus !== 'paused') return;
+      const today = localDateKey();
+      const days = isValidIsoDate(challengePausedOn) ? Math.max(0, daysBetweenKeys(challengePausedOn, today)) : 0;
+      if (days > 0) challengeStartDate = getChallengeIsoForDay(challengeStartDate, days + 1);
+      challengeStatus = 'active';
+      challengePausedOn = '';
+      savePersistedState();
+      renderChallenge40View();
+      if (!silent) showToast(days > 0 ? `Weiter geht's! Deine offenen Einheiten sind um ${days} ${days === 1 ? 'Tag' : 'Tage'} verschoben.` : "Weiter geht's!", 3500);
+    }
+
+    function toggleChallengePause() {
+      if (isChallengePaused()) resumeChallenge(); else pauseChallenge();
+    }
+
+    function stopChallenge() {
+      if (challengeStatus === 'none') return;
+      const done = completedChallengeDays.size;
+      const msg = `${challengeDisplayName()} beenden?\n\n` + (done
+        ? `Deine ${done} absolvierten ${done === 1 ? 'Einheit bleibt' : 'Einheiten bleiben'} als XP und im Verlauf erhalten. `
+        : '') + 'Danach kannst du eine neue Challenge wählen.';
+      if (!window.confirm(msg)) return;
+      archiveCurrentChallenge();
+      customChallenge = null;
+      challengeStatus = 'none';
+      challengePausedOn = '';
+      challengeSetupUi = null;
+      challengeLibraryOpen = true;
+      challengeStartDate = localDateKey();
+      selectedChallengeDay = 1;
+      savePersistedState();
+      updateChallengeMenuBadge();
+      renderChallenge40View();
+      showToast('Challenge beendet. Wähle eine neue, wann immer du willst.', 3200);
+    }
+
     function activeProgramKey() {
+      if (challengeStatus === 'none') return null;
       if (!customChallenge) return 'classic';
       return customChallenge.config.program || 'custom';
     }
@@ -11618,6 +11723,7 @@
     function renderChallengeProgramCard(prog, activeKey, recKey) {
       const isActive = activeKey === prog.key;
       const isRec = recKey === prog.key;
+      const activeLabel = isChallengePaused() ? 'Pausiert' : 'Aktiv';
       const focusLabels = prog.focus.map(k => { const f = CHALLENGE_FOCUS.find(x => x.key === k); return `${f.icon} ${f.label}`; }).join(' · ');
       return `<article class="md-lib-card ${isActive ? 'active' : ''} ${isRec ? 'recommended' : ''}">
         <div class="md-lib-card-head">
@@ -11626,7 +11732,7 @@
             <div class="md-lib-range">${prog.range}</div>
             <h3 class="md-lib-title">${prog.title}</h3>
           </div>
-          ${isActive ? '<span class="md-assist-badge">Aktiv</span>' : isRec ? '<span class="md-assist-badge md-lib-rec">Passt zu dir</span>' : ''}
+          ${isActive ? `<span class="md-assist-badge">${activeLabel}</span>` : isRec ? '<span class="md-assist-badge md-lib-rec">Passt zu dir</span>' : ''}
         </div>
         <p class="md-lib-pitch">${prog.pitch}</p>
         <ul class="md-lib-goals">${prog.goals.map(g => `<li>${g}</li>`).join('')}</ul>
@@ -11651,9 +11757,11 @@
             <div>
               <span class="md-assist-badge">Challenge-Bibliothek</span>
               <h2 class="font-display" style="font-size: 1.2rem; font-weight: 800; margin-top: 0.35rem;">Wähle deine 40-Tage-Challenge</h2>
-              <p class="md-chal-block-text" style="margin-top: 0.2rem;">Es läuft immer nur eine Challenge. Aktiv: <strong>${challengeDisplayName()}</strong>.</p>
+              <p class="md-chal-block-text" style="margin-top: 0.2rem;">${activeKey
+                ? `Es läuft immer nur eine Challenge. ${isChallengePaused() ? 'Pausiert' : 'Aktiv'}: <strong>${challengeDisplayName()}</strong>.`
+                : 'Gerade läuft keine Challenge. Wähle eine aus – es läuft immer nur eine.'}</p>
             </div>
-            <button type="button" class="md-icon-btn" onclick="closeChallengeLibrary()" aria-label="Bibliothek schließen" title="Schließen"><span class="material-symbols-rounded">close</span></button>
+            ${activeKey ? `<button type="button" class="md-icon-btn" onclick="closeChallengeLibrary()" aria-label="Bibliothek schließen" title="Schließen"><span class="material-symbols-rounded">close</span></button>` : ''}
           </div>
 
           <div class="md-lib-hcp">
@@ -11676,7 +11784,7 @@
               <div class="md-lib-card-head">
                 <span class="md-lib-icon" aria-hidden="true">🛠️</span>
                 <div style="flex: 1; min-width: 0;"><div class="md-lib-range">Frei kombinierbar</div><h3 class="md-lib-title">Eigene Challenge</h3></div>
-                ${activeKey === 'custom' ? '<span class="md-assist-badge">Aktiv</span>' : ''}
+                ${activeKey === 'custom' ? `<span class="md-assist-badge">${isChallengePaused() ? 'Pausiert' : 'Aktiv'}</span>` : ''}
               </div>
               <p class="md-lib-pitch">Bis zu 3 Bereiche, deine Orte, deine Häufigkeit und Dauer.</p>
               <div class="md-lib-actions"><button type="button" class="${activeKey === 'custom' ? 'md-outlined-btn' : 'md-filled-btn'}" onclick="openChallengeSetup('custom')">${activeKey === 'custom' ? 'Anpassen' : 'Zusammenstellen'}</button></div>
@@ -11685,7 +11793,7 @@
               <div class="md-lib-card-head">
                 <span class="md-lib-icon" aria-hidden="true">📅</span>
                 <div style="flex: 1; min-width: 0;"><div class="md-lib-range">14 Einheiten · alle 3 Tage</div><h3 class="md-lib-title">Klassische Allround-Challenge</h3></div>
-                ${activeKey === 'classic' ? '<span class="md-assist-badge">Aktiv</span>' : ''}
+                ${activeKey === 'classic' ? `<span class="md-assist-badge">${isChallengePaused() ? 'Pausiert' : 'Aktiv'}</span>` : ''}
               </div>
               <p class="md-lib-pitch">Fester Plan für Range und Übungsgrün in drei Stufen.</p>
               ${activeKey === 'classic' ? '' : `<div class="md-lib-actions"><button type="button" class="md-filled-btn" onclick="switchToClassicChallenge()">Auswählen</button></div>`}
@@ -11739,7 +11847,7 @@
     // Beendet die aktive Challenge: Einheiten bleiben als XP und im Verlauf erhalten,
     // alles andere (Kalender, Tests, Packliste) startet bei der nächsten Challenge neu.
     function archiveCurrentChallenge() {
-      const done = completedChallengeDays.size;
+      const done = challengeStatus === 'none' ? 0 : completedChallengeDays.size;
       if (done > 0) {
         challengeHistory.unshift({ name: challengeDisplayName(), done, total: challengeTotal(), ended: localDateKey() });
         challengeHistory = challengeHistory.slice(0, 30);
@@ -11760,6 +11868,8 @@
       archiveCurrentChallenge();
       customChallenge = { id: Date.now().toString(36), config: cfg, tests: {}, doneOn: {} };
       if (isValidIsoDate(challengeSetupUi.start)) challengeStartDate = challengeSetupUi.start;
+      challengeStatus = 'active';
+      challengePausedOn = '';
       challengeLevel = cfg.level;
       challengeSetupUi = null;
       selectedChallengeDay = getChallengeSessions()[0].day;
@@ -11773,6 +11883,8 @@
       archiveCurrentChallenge();
       customChallenge = null;
       challengeStartDate = localDateKey();
+      challengeStatus = 'active';
+      challengePausedOn = '';
       challengeSetupUi = null;
       challengeLibraryOpen = false;
       selectedChallengeDay = 1;
@@ -12003,6 +12115,8 @@
     }
 
     function toggleChallengeDayDone(dayNum) {
+      if (challengeStatus === 'none') return;
+      if (isChallengePaused()) resumeChallenge(true);
       const sessions = getChallengeSessions();
       const session = sessions.find(s => s.day === dayNum);
       const today = localDateKey();
@@ -12106,6 +12220,16 @@
       const calHint = document.getElementById('challengeCalendarHint');
       if (calHint) calHint.textContent = cfg ? `${cfg.perWeek} Trainingstage pro Woche` : 'Alle 3 Tage Training + 2 Tage Pause';
 
+      if (challengeStatus === 'none' && !challengeSetupUi) challengeLibraryOpen = true;
+      const paused = isChallengePaused();
+      const pauseLabel = document.getElementById('challengePauseLabel');
+      if (pauseLabel) pauseLabel.textContent = paused ? 'Fortsetzen' : 'Pausieren';
+      const pauseIcon = document.getElementById('challengePauseIcon');
+      if (pauseIcon) pauseIcon.textContent = paused ? 'play_circle' : 'pause_circle';
+      const nextBtn = document.getElementById('challengeNextBtn');
+      if (nextBtn) nextBtn.textContent = paused ? 'Fortsetzen' : 'Zur nächsten Einheit';
+      document.getElementById('challengeMainLayout')?.classList.toggle('md-chal-paused', paused);
+
       const libraryHost = document.getElementById('challengeLibraryHost');
       if (libraryHost) libraryHost.innerHTML = challengeLibraryOpen && !challengeSetupUi ? renderChallengeLibrary() : '';
       const setupHost = document.getElementById('challengeSetupHost');
@@ -12126,7 +12250,9 @@
       const nextSession = sessions.find(s => !completedChallengeDays.has(s.day));
       const nextBannerText = document.getElementById('challengeNextWorkoutText');
       if (nextBannerText) {
-        if (!nextSession) {
+        if (paused) {
+          nextBannerText.innerHTML = `<strong>Pausiert seit ${challengePausedOn.split('-').reverse().join('.')}</strong> – beim Fortsetzen verschieben sich die offenen Einheiten um die Pausentage.`;
+        } else if (!nextSession) {
           nextBannerText.innerHTML = `<strong>Glückwunsch!</strong> Du hast alle ${total} Einheiten deiner 40-Tage-Challenge abgeschlossen!`;
         } else {
           const nextDateStr = formatChallengeDateLabel(challengeStartDate, nextSession.day);
