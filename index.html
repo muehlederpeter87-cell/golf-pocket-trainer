@@ -9,8 +9,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="apple-mobile-web-app-title" content="Golf Pocket Trainer" />
   <meta name="application-name" content="Golf Pocket Trainer" />
-  <meta name="description" content="Golf Pocket Trainer v4.41.0 – Material Design 3 Golf Technik-, Trainings-, Rules-, Scratch-Blueprint-, Handicap-Challenge-, Longhitter-, Komparator-, Warm-up-, Video-Analyse-, 40-Tage-Challenge- & Gamification-Statistik-Begleiter" />
-  <title>Golf Pocket Trainer (v4.41.0)</title>
+  <meta name="description" content="Golf Pocket Trainer v4.42.0 – Material Design 3 Golf Technik-, Trainings-, Rules-, Scratch-Blueprint-, Handicap-Challenge-, Longhitter-, Komparator-, Warm-up-, Video-Analyse-, 40-Tage-Challenge- & Gamification-Statistik-Begleiter" />
+  <title>Golf Pocket Trainer (v4.42.0)</title>
 
   <link rel="manifest" href="manifest.webmanifest" />
   <link rel="icon" type="image/png" sizes="48x48" href="icons/favicon-48.png" />
@@ -2644,6 +2644,22 @@
     .md-card-elevated .md-drill-card { box-shadow: none; border-color: var(--md-sys-color-outline-variant); }
 
     .md-today-icon { background-color: var(--md-sys-color-primary-container); color: var(--md-sys-color-primary); }
+    /* Challenge-Werbung auf der Startseite */
+    .md-home-card.md-chal-promo { gap: 0.65rem; padding: 1.05rem 1.05rem 0.95rem; border: 1px solid var(--md-sys-color-primary); background: linear-gradient(155deg, var(--md-sys-color-primary-container) 0%, var(--gpt-card-bg) 72%); }
+    .md-promo-top { display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; flex-wrap: wrap; }
+    .md-promo-kicker { display: inline-flex; align-items: center; gap: 0.3rem; font-size: 0.78rem; font-weight: 800; color: var(--md-sys-color-primary); }
+    [data-theme="dark"] .md-promo-kicker { color: var(--gpt-accent); }
+    .md-promo-kicker .material-symbols-rounded { font-size: 17px; }
+    .md-promo-badge { background-color: var(--gpt-accent) !important; color: var(--gpt-on-accent) !important; }
+    .md-promo-head { display: flex; align-items: center; gap: 0.75rem; }
+    .md-promo-icon { font-size: 1.9rem; line-height: 1; width: 3.1rem; height: 3.1rem; flex-shrink: 0; display: inline-flex; align-items: center; justify-content: center; border-radius: 1rem; background-color: var(--gpt-card-bg); box-shadow: var(--gpt-card-shadow); }
+    .md-promo-title { font-family: inherit; font-size: 1.2rem; font-weight: 800; line-height: 1.2; }
+    .md-promo-range { font-size: 0.74rem; font-weight: 600; color: var(--md-sys-color-on-surface-variant); margin-top: 0.15rem; }
+    .md-promo-pitch { font-size: 0.86rem; line-height: 1.45; }
+    .md-promo-goals { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 0.3rem; font-size: 0.8rem; line-height: 1.4; }
+    .md-promo-goals li { display: flex; gap: 0.4rem; align-items: flex-start; }
+    .md-promo-goals .material-symbols-rounded { font-size: 17px; color: var(--md-sys-color-primary); flex-shrink: 0; }
+    .md-promo-focus { font-size: 0.75rem; font-weight: 700; color: var(--md-sys-color-primary); }
     [data-theme="dark"] .md-today-icon { color: var(--md-sys-color-on-primary-container); }
 
     /* Kopfbereiche: dunkler Smaragd-Block. Farben werden im Block umgestellt,
@@ -2761,7 +2777,7 @@
               <span class="material-symbols-rounded" style="color: var(--md-sys-color-on-surface-variant);">history</span>
               <span>Versionsverlauf</span>
             </span>
-            <span class="font-mono" style="font-size: 0.72rem; color: var(--md-sys-color-on-surface-variant);">v4.41.0</span>
+            <span class="font-mono" style="font-size: 0.72rem; color: var(--md-sys-color-on-surface-variant);">v4.42.0</span>
           </button>
         </div>
       </div>
@@ -3619,7 +3635,7 @@
        ======================================================================== -->
   <footer class="md-footer">
     <div class="md-container" style="display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; flex-wrap: wrap;">
-      <span><strong>Golf Pocket Trainer</strong> (<span class="font-mono">v4.41.0</span>) &bull; Dein interaktiver Trainings- &amp; Platzbegleiter</span>
+      <span><strong>Golf Pocket Trainer</strong> (<span class="font-mono">v4.42.0</span>) &bull; Dein interaktiver Trainings- &amp; Platzbegleiter</span>
       <button type="button" onclick="openChangelogModal()" class="md-text-btn" style="height: 1.85rem;">Versionsverlauf ansehen</button>
     </div>
   </footer>
@@ -3765,7 +3781,7 @@
       <div class="md-dialog-header">
         <div>
           <span class="md-assist-badge" style="background-color: var(--md-sys-color-tertiary-container); color: var(--md-sys-color-on-tertiary-container);">Release Notes &amp; Wartung</span>
-          <h2 id="changelogTitle" class="font-display" style="font-size: 1.25rem; font-weight: 800; margin-top: 0.3rem;">Versionsverlauf (v1.0.0 – v4.41.0)</h2>
+          <h2 id="changelogTitle" class="font-display" style="font-size: 1.25rem; font-weight: 800; margin-top: 0.3rem;">Versionsverlauf (v1.0.0 – v4.42.0)</h2>
         </div>
         <button type="button" onclick="closeChangelogModal()" class="md-icon-btn" aria-label="Schließen">
           <span class="material-symbols-rounded">close</span>
@@ -3780,20 +3796,31 @@
   </div>
 
   <!-- ========================================================================
-       COMPLETE SELF-CONTAINED JAVASCRIPT ENGINE (v4.41.0)
+       COMPLETE SELF-CONTAINED JAVASCRIPT ENGINE (v4.42.0)
        ======================================================================== -->
   <div id="appToast" class="md-toast" role="status" aria-live="polite"></div>
   <input type="file" id="backupFileInput" accept="application/json,.json" hidden onchange="handleBackupFile(event)" />
 
   <script>
-    const APP_VERSION = 'v4.41.0';
+    const APP_VERSION = 'v4.42.0';
 
     const CHANGELOG_ENTRIES = [
       {
-        version: 'v4.41.0',
+        version: 'v4.42.0',
         date: 'Aktuell',
-        title: 'Challenge pausieren & beenden',
+        title: 'Challenge-Vorschlag auf der Startseite',
         latest: true,
+        notes: [
+          'Läuft gerade keine Challenge, zeigt die Startseite oben unter „Heute trainieren“ eine Challenge zum Starten – mit Inhalt, Zielen und Umfang.',
+          'Mit Handicap-Angabe wird der passende Handicap-Weg empfohlen, sonst wechselt jede Woche eine Themen-Challenge. Die zuletzt beendete Challenge wird übersprungen.',
+          '„Jetzt starten“ öffnet direkt die Einrichtung, „Anderer Vorschlag“ zeigt die nächste Challenge.'
+        ]
+      },
+      {
+        version: 'v4.41.0',
+        date: 'Vorherige Version',
+        title: 'Challenge pausieren & beenden',
+        latest: false,
         notes: [
           'Neu: Challenge pausieren. Beim Fortsetzen verschieben sich die offenen Einheiten um die Pausentage – nichts wird als verpasst angezeigt.',
           'Neu: Challenge beenden. Danach läuft keine Challenge mehr und du kannst in Ruhe eine neue wählen. Absolvierte Einheiten bleiben als XP und im Verlauf erhalten.',
@@ -3803,7 +3830,7 @@
       },
       {
         version: 'v4.40.1',
-        date: 'Vorherige Version',
+        date: 'Ältere Version',
         title: 'Challenge sauber beenden & zurücksetzen',
         latest: false,
         notes: [
@@ -8440,16 +8467,69 @@
         </div>`;
     }
 
+    /* Werbung für eine neue Challenge, wenn keine aktiv ist (v4.42.0) */
+    let challengePromoOffset = 0;
+
+    function promoProgramKey() {
+      const rec = recommendedProgramKey();
+      if (rec && challengePromoOffset === 0) return rec;
+      // Sonst wöchentlich wechselnd; die zuletzt beendete Challenge wird übersprungen
+      const lastName = challengeHistory[0] ? challengeHistory[0].name : '';
+      // Ohne Handicap-Angabe nur Themen-Challenges (passen zu jedem Handicap)
+      const pool = CHALLENGE_PROGRAMS.filter(p => p.title !== lastName && p.key !== rec && (rec || p.kind === 'theme'));
+      const week = Math.floor(daysBetweenKeys('2026-01-05', localDateKey()) / 7);
+      return pool[((week + challengePromoOffset) % pool.length + pool.length) % pool.length].key;
+    }
+
+    function renderChallengePromo() {
+      const prog = challengeProgramOf(promoProgramKey());
+      const isRec = prog.key === recommendedProgramKey();
+      const units = challengeScheduleDays(prog.perWeek).length;
+      const focus = prog.focus.map(k => { const f = CHALLENGE_FOCUS.find(x => x.key === k); return `${f.icon} ${f.label}`; }).join(' · ');
+      return `
+        <div class="md-promo-top">
+          <span class="md-promo-kicker"><span class="material-symbols-rounded filled" aria-hidden="true">auto_awesome</span>Neue 40-Tage-Challenge</span>
+          <span class="md-assist-badge md-promo-badge">${isRec ? (typeof userHcp === 'number' ? `Passt zu HCP ${formatHcp(userHcp)}` : 'Passt zu dir') : 'Vorschlag der Woche'}</span>
+        </div>
+        <div class="md-promo-head">
+          <span class="md-promo-icon" aria-hidden="true">${prog.icon}</span>
+          <div style="min-width: 0;">
+            <div class="md-promo-title font-display">${prog.title}</div>
+            <div class="md-promo-range">${prog.range} · ${units} Einheiten · ${prog.perWeek}× pro Woche · ${prog.minutes} Min.</div>
+          </div>
+        </div>
+        <p class="md-promo-pitch">${prog.pitch}</p>
+        <ul class="md-promo-goals">${prog.goals.map(g => `<li><span class="material-symbols-rounded" aria-hidden="true">check_circle</span>${g}</li>`).join('')}</ul>
+        <div class="md-promo-focus">${focus}</div>
+        <div class="md-home-btns">
+          <button type="button" class="md-filled-btn" onclick="event.stopPropagation(); startPromoChallenge('${prog.key}')">
+            <span class="material-symbols-rounded" style="font-size: 18px;">flag</span><span>Jetzt starten</span>
+          </button>
+          <button type="button" class="md-tonal-btn" onclick="event.stopPropagation(); nextChallengePromo()">
+            <span class="material-symbols-rounded" style="font-size: 18px;">autorenew</span><span>Anderer Vorschlag</span>
+          </button>
+        </div>
+        <div class="md-home-meta">${userHcp === null ? 'Tipp: Gib in der Auswahl dein Handicap an – dann schlagen wir dir den passenden Weg vor. ' : ''}Tippe auf die Karte für alle Challenges.</div>`;
+    }
+
+    function startPromoChallenge(key) {
+      switchMainTab('challenge');
+      openChallengeSetup(key);
+    }
+
+    function nextChallengePromo() {
+      challengePromoOffset++;
+      const card = document.getElementById('todayChallengeCard');
+      if (card) card.innerHTML = renderChallengePromo();
+    }
+
     function renderTodayChallengeCard() {
       const card = document.getElementById('todayChallengeCard');
       if (!card) return false;
+      card.classList.toggle('md-chal-promo', challengeStatus === 'none');
       if (challengeStatus === 'none') {
-        card.innerHTML = `<div class="md-home-row">
-          <span class="md-today-icon"><span class="material-symbols-rounded filled">flag</span></span>
-          <span class="md-today-text"><span class="md-today-label">40-Tage-Challenge · keine aktiv</span><span class="md-today-title">Wähle deine nächste Challenge</span></span>
-          <span class="material-symbols-rounded md-today-chevron" aria-hidden="true">chevron_right</span></div>
-          <div class="md-home-meta">Handicap-Wege, Longhitter, Short Game, Putten, Bunker, Mental, Winter – oder deine eigene.</div>`;
-        return false;
+        card.innerHTML = renderChallengePromo();
+        return true; // Werbung steht oben in „Heute trainieren“
       }
       if (isChallengePaused()) {
         const doneP = completedChallengeDays.size;
