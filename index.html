@@ -3791,6 +3791,7 @@
           'Der Scratch-Plan ist nicht mehr im Menü versteckt: „Weg zu Scratch“ ist die oberste Stufe. Jede Einheit trainiert eine der 8 Scratch-Säulen.',
           'Neue Themen-Challenge „Short Game Master“: Chippen, Pitchen, Bunker und Putten mit Up-&-Down-Test am ersten und letzten Tag.',
           'Neue Themen-Challenge „Putt-König“: kurze Putts sicher lochen, lange nah ans Loch – mit Putt-Punkte-Test.',
+          'Neue Themen-Challenge „Winter-Indoor-Challenge“: alle Einheiten zuhause – Treffmoment, Putten, Chippen und Beweglichkeit.',
           'Neue Themen-Challenge „Mental & Routine“ mit 2 neuen Drills: Denk-Box & Spiel-Box sowie Fehlschlag-Reset in 3 Schritten.',
           'Neue Themen-Challenge „Bunker-Challenge“ mit 4 neuen Bunker-Drills (Setup, Längenkontrolle, Spiegelei & Hanglage, Bunker-Setup zuhause) und Bunker-Test.',
           'Neue Themen-Challenge „40 Tage zum Longhitter“ mit Speed-Training, Abschlagwinkel und Treffpunkt. Am ersten und letzten Tag misst du deinen längsten Drive im Korridor.',
@@ -10846,6 +10847,14 @@
           course: { out: ['drill-mental-boxes', 'drill-warmup-routine', 'drill-mental-reset', 'drill-warmup-1ball'], home: ['drill-indoor-visualize', 'drill-indoor-metronome'] },
           putting: { out: ['drill-putt-pressure', 'drill-putt-gate'], home: ['drill-indoor-putt-rhythm', 'drill-indoor-putt-gate'] }
         }
+      },
+      {
+        key: 'winter', kind: 'theme', icon: '❄️', title: 'Winter-Indoor-Challenge', range: 'Für jedes Handicap · nur zuhause',
+        pitch: 'Fit durch den Winter ohne Range: Treffmoment, Putten, Chippen und Beweglichkeit im Wohnzimmer.',
+        goals: ['Tiefpunkt und Treffmoment mit Halbschwüngen festigen', 'Putt-Startlinie und Tempo auf dem Teppich', 'Mehr Beweglichkeit für die neue Saison'],
+        note: 'Alle Einheiten finden zuhause statt. Prüfe vor jedem Schwung den Platz zur Decke und zu Möbeln, nutze Schaumstoffbälle und eine Matte.',
+        focus: ['longgame', 'putting', 'shortgame'], level: 'intermediate', perWeek: 3, slots: ['home', 'home', 'home'], minutes: 30,
+        core: { longgame: { home: ['drill-indoor-halfswing', 'drill-indoor-lowpoint', 'drill-indoor-rotation', 'drill-indoor-impact'] } }
       }
     ];
 
