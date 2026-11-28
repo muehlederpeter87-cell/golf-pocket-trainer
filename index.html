@@ -9,8 +9,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="apple-mobile-web-app-title" content="Golf Pocket Trainer" />
   <meta name="application-name" content="Golf Pocket Trainer" />
-  <meta name="description" content="Golf Pocket Trainer v4.43.0 – Material Design 3 Golf Technik-, Trainings-, Rules-, Scratch-Blueprint-, Handicap-Challenge-, Longhitter-, Komparator-, Warm-up-, Video-Analyse-, 40-Tage-Challenge- & Gamification-Statistik-Begleiter" />
-  <title>Golf Pocket Trainer (v4.43.0)</title>
+  <meta name="description" content="Golf Pocket Trainer v4.44.0 – Material Design 3 Golf Technik-, Trainings-, Rules-, Scratch-Blueprint-, Handicap-Challenge-, Longhitter-, Komparator-, Warm-up-, Video-Analyse-, 40-Tage-Challenge- & Gamification-Statistik-Begleiter" />
+  <title>Golf Pocket Trainer (v4.44.0)</title>
 
   <link rel="manifest" href="manifest.webmanifest" />
   <link rel="icon" type="image/png" sizes="48x48" href="icons/favicon-48.png" />
@@ -2780,7 +2780,7 @@
               <span class="material-symbols-rounded" style="color: var(--md-sys-color-on-surface-variant);">history</span>
               <span>Versionsverlauf</span>
             </span>
-            <span class="font-mono" style="font-size: 0.72rem; color: var(--md-sys-color-on-surface-variant);">v4.43.0</span>
+            <span class="font-mono" style="font-size: 0.72rem; color: var(--md-sys-color-on-surface-variant);">v4.44.0</span>
           </button>
         </div>
       </div>
@@ -3208,7 +3208,7 @@
         <div class="md-pro-fix-box" style="justify-content: space-between; align-items: center; flex-wrap: wrap;">
           <div style="display: flex; align-items: center; gap: 0.5rem;">
             <span class="material-symbols-rounded filled" style="font-size: 19px;">stairs</span>
-            <span>Oberste Stufe der Handicap-Wege: Die 40-Tage-Challenge „Weg zu Scratch“ baut jede Einheit um eine dieser Säulen.</span>
+            <span>Oberste Stufe der Handicap-Wege: Die 14-Tage-Challenge „Weg zu Scratch“ trainiert in 6 Einheiten alle 8 Säulen.</span>
           </div>
           <button type="button" onclick="startProgramFromScratchPage()" class="md-text-btn" style="height: 1.9rem;">Als Challenge starten</button>
         </div>
@@ -3398,12 +3398,12 @@
         <div id="challengeHeaderArt"></div>
         <div style="display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; flex-wrap: wrap;">
           <div>
-            <span id="challengeModeBadge" class="md-assist-badge">Klassisch · 14 Einheiten · alle 3 Tage</span>
-            <h2 id="challengeTitle" class="font-display" style="font-size: 1.25rem; font-weight: 800; margin-top: 0.35rem;">40-Tage Golf-Challenge</h2>
+            <span id="challengeModeBadge" class="md-assist-badge">Klassisch · 6 Einheiten · 3× pro Woche</span>
+            <h2 id="challengeTitle" class="font-display" style="font-size: 1.25rem; font-weight: 800; margin-top: 0.35rem;">Golf-Challenge</h2>
             <p id="challengeModeInfo" style="font-size: 0.8rem; color: var(--md-sys-color-on-surface-variant); margin-top: 0.15rem;">Allround-Programm für Range und Übungsgrün.</p>
           </div>
           <div style="display: flex; align-items: center; gap: 0.45rem; flex-wrap: wrap;">
-            <span id="challengeProgressBadge" class="md-assist-badge font-mono">0 / 14 Einheiten</span>
+            <span id="challengeProgressBadge" class="md-assist-badge font-mono">0 / 6 Einheiten</span>
             <button type="button" onclick="resetChallenge40Progress()" class="md-text-btn md-text-btn-quiet">Fortschritt zurücksetzen</button>
           </div>
         </div>
@@ -3455,7 +3455,7 @@
       <div id="challengeMainLayout" class="md-challenge-layout">
         <article class="md-card-outlined md-card-pad" style="display: flex; flex-direction: column; gap: 0.75rem;">
           <div style="display: flex; align-items: center; justify-content: space-between;">
-            <h3 class="font-display" style="font-size: 1rem; font-weight: 800;">40-Tage Trainingskalender</h3>
+            <h3 id="challengeCalendarTitle" class="font-display" style="font-size: 1rem; font-weight: 800;">Trainingskalender</h3>
             <span id="challengeCalendarHint" style="font-size: 0.74rem; color: var(--md-sys-color-on-surface-variant);">Alle 3 Tage Training + 2 Tage Pause</span>
           </div>
           <div id="challengeCalendarGrid" class="md-challenge-calendar"></div>
@@ -3641,7 +3641,7 @@
        ======================================================================== -->
   <footer class="md-footer">
     <div class="md-container" style="display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; flex-wrap: wrap;">
-      <span><strong>Golf Pocket Trainer</strong> (<span class="font-mono">v4.43.0</span>) &bull; Dein interaktiver Trainings- &amp; Platzbegleiter</span>
+      <span><strong>Golf Pocket Trainer</strong> (<span class="font-mono">v4.44.0</span>) &bull; Dein interaktiver Trainings- &amp; Platzbegleiter</span>
       <button type="button" onclick="openChangelogModal()" class="md-text-btn" style="height: 1.85rem;">Versionsverlauf ansehen</button>
     </div>
   </footer>
@@ -3787,7 +3787,7 @@
       <div class="md-dialog-header">
         <div>
           <span class="md-assist-badge" style="background-color: var(--md-sys-color-tertiary-container); color: var(--md-sys-color-on-tertiary-container);">Release Notes &amp; Wartung</span>
-          <h2 id="changelogTitle" class="font-display" style="font-size: 1.25rem; font-weight: 800; margin-top: 0.3rem;">Versionsverlauf (v1.0.0 – v4.43.0)</h2>
+          <h2 id="changelogTitle" class="font-display" style="font-size: 1.25rem; font-weight: 800; margin-top: 0.3rem;">Versionsverlauf (v1.0.0 – v4.44.0)</h2>
         </div>
         <button type="button" onclick="closeChangelogModal()" class="md-icon-btn" aria-label="Schließen">
           <span class="material-symbols-rounded">close</span>
@@ -3802,20 +3802,33 @@
   </div>
 
   <!-- ========================================================================
-       COMPLETE SELF-CONTAINED JAVASCRIPT ENGINE (v4.43.0)
+       COMPLETE SELF-CONTAINED JAVASCRIPT ENGINE (v4.44.0)
        ======================================================================== -->
   <div id="appToast" class="md-toast" role="status" aria-live="polite"></div>
   <input type="file" id="backupFileInput" accept="application/json,.json" hidden onchange="handleBackupFile(event)" />
 
   <script>
-    const APP_VERSION = 'v4.43.0';
+    const APP_VERSION = 'v4.44.0';
 
     const CHANGELOG_ENTRIES = [
       {
-        version: 'v4.43.0',
+        version: 'v4.44.0',
         date: 'Aktuell',
-        title: 'Titelbilder für alle Challenges',
+        title: 'Kürzere Challenges: 14 und 30 Tage',
         latest: true,
+        notes: [
+          'Alle vordefinierten Challenges dauern jetzt 14 Tage mit 3 Einheiten pro Woche (6 Einheiten) – Handicap-Wege, Themen-Challenges und die klassische Challenge.',
+          'Die eigene Challenge dauert 30 Tage. Häufigkeit (2–4× pro Woche), Orte und Dauer stellst du weiterhin selbst ein.',
+          'Die klassische Challenge bündelt ihre 6 Kernthemen: Fundament, Putten, Eisen, Kurzspiel, Driver und Abschluss-Challenge.',
+          '„Weg zu Scratch“ trainiert in 6 Einheiten alle 8 Säulen – an zwei Tagen sind es je zwei Säulen.',
+          'Laufende Challenges werden automatisch umgestellt: Erledigte Einheiten, die es im neuen Plan gibt, bleiben abgehakt. Alle anderen bleiben als XP und im Verlauf erhalten.'
+        ]
+      },
+      {
+        version: 'v4.43.0',
+        date: 'Vorherige Version',
+        title: 'Titelbilder für alle Challenges',
+        latest: false,
         notes: [
           'Jede Challenge hat jetzt ein eigenes Titelbild: vom Keimling für die Platzreife über den Pokal für Scratch bis zum Schneehaus für die Winter-Challenge.',
           'Die Bilder erscheinen in der Challenge-Bibliothek, im Vorschlag auf der Startseite, bei der Einrichtung und oben bei deiner aktiven Challenge.',
@@ -3824,7 +3837,7 @@
       },
       {
         version: 'v4.42.1',
-        date: 'Vorherige Version',
+        date: 'Ältere Version',
         title: 'Challenge-Vorschlag auch bei Pause',
         latest: false,
         notes: [
@@ -7186,6 +7199,42 @@
         ? sanitizeRepLog(data.repLog)
         : migrateLegacyChecksToRepLog(data);
       refreshDerivedRepSets();
+
+      // Daten aus der Zeit der 40-Tage-Pläne einmalig auf die kürzeren Pläne umstellen
+      if (Number(data.challengePlan) !== CHALLENGE_PLAN_VERSION) migrateChallengePlanToShort();
+    }
+
+    /* Plan-Version 2 (v4.44.0): Vorlagen 14 Tage, eigene Challenge 30 Tage, klassische Challenge 6 Einheiten.
+       Erledigte Einheiten, die es im neuen Plan noch gibt, bleiben erhalten (klassisch: über CLASSIC_DAY_MAP).
+       Alle anderen bleiben als XP erhalten und landen im Verlauf. */
+    const CHALLENGE_PLAN_VERSION = 2;
+
+    function migrateChallengePlanToShort() {
+      if (challengeStatus === 'none' || !completedChallengeDays.size) return;
+      const validDays = new Set(getChallengeSessions().map(x => x.day));
+      const kept = new Set();
+      const renames = new Map();
+      let dropped = 0;
+      completedChallengeDays.forEach(d => {
+        const oldRef = customChallenge ? `chal-${customChallenge.id}-${d}` : `chal-${d}`;
+        const newDay = customChallenge ? d : CLASSIC_DAY_MAP[d];
+        if (newDay && validDays.has(newDay)) {
+          kept.add(newDay);
+          renames.set(oldRef, customChallenge ? oldRef : `chal-${newDay}`);
+        } else {
+          dropped++;
+          renames.set(oldRef, `chal-archplan-${d}`);
+        }
+      });
+      // Erst alle Ziel-Referenzen bestimmen, dann umbenennen (alte und neue Tagesnummern überschneiden sich)
+      const targets = activityLog.map(a => renames.get(a.refId));
+      activityLog.forEach((a, i) => { if (targets[i]) a.refId = targets[i]; });
+      completedChallengeDays = kept;
+      challengeArchivedSessions += dropped;
+      if (customChallenge) {
+        Object.keys(customChallenge.doneOn).forEach(k => { if (!kept.has(Number(k))) delete customChallenge.doneOn[k]; });
+        Object.keys(customChallenge.tests).forEach(k => { if (!validDays.has(Number(k.split(':')[0]))) delete customChallenge.tests[k]; });
+      }
     }
 
     function sanitizeRepLog(raw) {
@@ -7231,6 +7280,7 @@
         challengeHistory,
         challengeStatus,
         challengePausedOn,
+        challengePlan: CHALLENGE_PLAN_VERSION,
         activityLog: activityLog.slice(0, 300),
         dailyCheckins
       };
@@ -7260,6 +7310,7 @@
         challengeHistory: readStoredJSON('gpg_chal_history', [], Array.isArray),
         challengeStatus: readStoredString('gpg_chal_status'),
         challengePausedOn: readStoredString('gpg_chal_paused'),
+        challengePlan: readStoredString('gpg_chal_plan'),
         activityLog: readStoredJSON('gpg_activity_log', [], Array.isArray),
         dailyCheckins: readStoredJSON('gpg_daily_checkins', {}, isPlainObject)
       });
@@ -7267,6 +7318,8 @@
       try { syncLegacyItemsIntoActivityLog(); } catch (e) {}
       // Migration auf Schema 2 sofort festschreiben, damit sie nur einmal läuft.
       if (storedSchema < 2 && readStoredString('gpg_rep_log') === null) savePersistedState();
+      // Umstellung auf die kürzeren Challenge-Pläne nur einmal ausführen
+      if (readStoredString('gpg_chal_plan') !== String(CHALLENGE_PLAN_VERSION)) savePersistedState();
     }
 
     // Gibt true zurück, wenn alles gespeichert werden konnte.
@@ -7284,6 +7337,7 @@
         localStorage.setItem('gpg_chal_archived', String(snap.challengeArchived));
         localStorage.setItem('gpg_chal_history', JSON.stringify(snap.challengeHistory));
         localStorage.setItem('gpg_chal_status', snap.challengeStatus);
+        localStorage.setItem('gpg_chal_plan', String(snap.challengePlan));
         if (snap.challengePausedOn) localStorage.setItem('gpg_chal_paused', snap.challengePausedOn);
         else localStorage.removeItem('gpg_chal_paused');
         if (snap.hcp === null) localStorage.removeItem('gpg_hcp');
@@ -7552,7 +7606,7 @@
             id: `sync-${ref}`,
             refId: ref,
             category: 'challenge',
-            title: `40-Tage Challenge · Tag ${dayNum}`,
+            title: `${challengeDisplayName()} · Tag ${dayNum}`,
             detail: s ? s.focus : 'Trainingseinheit abgeschlossen',
             minutes: 35,
             timestamp: fallbackTs
@@ -7896,14 +7950,14 @@
           id: 'ach-chal-half',
           icon: 'calendar_month',
           title: 'Challenge-Halbzeit',
-          desc: `Mindestens die Hälfte der Einheiten deiner 40-Tage-Challenge geschafft (${completedChallengeDays.size}/${Math.ceil(challengeTotal() / 2)}).`,
+          desc: `Mindestens die Hälfte der Einheiten deiner Challenge geschafft (${completedChallengeDays.size}/${Math.ceil(challengeTotal() / 2)}).`,
           earned: completedChallengeDays.size >= Math.ceil(challengeTotal() / 2) || challengeHistory.some(h => h.done >= Math.ceil(h.total / 2))
         },
         {
           id: 'ach-chal-finisher',
           icon: 'verified',
-          title: '40-Tage Finisher',
-          desc: `Alle ${challengeTotal()} Einheiten deiner 40-Tage-Challenge abgeschlossen.`,
+          title: 'Challenge-Finisher',
+          desc: `Alle ${challengeTotal()} Einheiten einer Challenge abgeschlossen.`,
           earned: completedChallengeDays.size >= challengeTotal() || challengeHistory.some(h => h.done >= h.total)
         },
         {
@@ -8401,7 +8455,7 @@
         ctx.fillText(w.records.join(' · '), W / 2, y + 50, W - 120);
       } else {
         ctx.fillStyle = '#CDEBD5'; ctx.font = `400 34px ${F}`;
-        ctx.fillText(w.challenge ? `40-Tage-Challenge: ${w.challenge} Einheiten` : 'Training, das zählt.', W / 2, y + 20);
+        ctx.fillText(w.challenge ? `Challenge: ${w.challenge} Einheiten` : 'Training, das zählt.', W / 2, y + 20);
       }
       ctx.fillStyle = 'rgba(255,255,255,0.65)'; ctx.font = `700 30px ${F}`;
       ctx.fillText('⛳ Golf Pocket Trainer', W / 2, H - 60);
@@ -8512,19 +8566,19 @@
     function renderChallengePromo() {
       const prog = challengeProgramOf(promoProgramKey());
       const isRec = prog.key === recommendedProgramKey();
-      const units = challengeScheduleDays(prog.perWeek).length;
+      const units = challengeScheduleDays(3, CHALLENGE_PROGRAM_DAYS).length;
       const focus = prog.focus.map(k => { const f = CHALLENGE_FOCUS.find(x => x.key === k); return `${f.icon} ${f.label}`; }).join(' · ');
       return `
         ${challengeArtBox(prog.key, 'md-art-tall')}
         <div class="md-promo-top">
-          <span class="md-promo-kicker"><span class="material-symbols-rounded filled" aria-hidden="true">auto_awesome</span>Neue 40-Tage-Challenge</span>
+          <span class="md-promo-kicker"><span class="material-symbols-rounded filled" aria-hidden="true">auto_awesome</span>Neue ${CHALLENGE_PROGRAM_DAYS}-Tage-Challenge</span>
           <span class="md-assist-badge md-promo-badge">${isRec ? (typeof userHcp === 'number' ? `Passt zu HCP ${formatHcp(userHcp)}` : 'Passt zu dir') : 'Vorschlag der Woche'}</span>
         </div>
         <div class="md-promo-head">
           <span class="md-promo-icon" aria-hidden="true">${prog.icon}</span>
           <div style="min-width: 0;">
             <div class="md-promo-title font-display">${prog.title}</div>
-            <div class="md-promo-range">${prog.range} · ${units} Einheiten · ${prog.perWeek}× pro Woche · ${prog.minutes} Min.</div>
+            <div class="md-promo-range">${prog.range} · ${CHALLENGE_PROGRAM_DAYS} Tage · ${units} Einheiten · 3× pro Woche · ${prog.minutes} Min.</div>
           </div>
         </div>
         <p class="md-promo-pitch">${prog.pitch}</p>
@@ -8610,7 +8664,7 @@
       } else {
         const lvl = next.levels[challengeLevel] ? challengeLevel : 'beginner';
         title = next.levels[lvl].title;
-        gearCount = mergeGear((CLASSIC_PLAN_EXTRAS[`${next.day}-${lvl}`] || {}).gear || []).length;
+        gearCount = mergeGear((CLASSIC_PLAN_EXTRAS[`${next.origDay}-${lvl}`] || {}).gear || []).length;
       }
       card.innerHTML = `
         <div class="md-home-row">
@@ -9718,7 +9772,7 @@
       const sess = getChallengeSessions().find(x => x.sessionNum === sessionNum);
       if (!sess) return;
       const meta = TRAINING_DRILLS.find(d => d.videoId === sess.videoId);
-      openVideoModal(sess.videoId, meta ? meta.videoTitle : sess.focus, `40-Tage Challenge · Tag ${sess.day}`, meta ? meta.videoChannel : 'YouTube');
+      openVideoModal(sess.videoId, meta ? meta.videoTitle : sess.focus, `${challengeDisplayName()} · Tag ${sess.day}`, meta ? meta.videoChannel : 'YouTube');
     }
 
     // Trägt das heutige Training eines Drills ein (eine Wiederholung pro Tag zählt).
@@ -10982,15 +11036,15 @@
       },
       {
         key: 'scratch', kind: 'hcp', icon: '🏆', title: 'Weg zu Scratch', range: 'HCP 9 und besser',
-        pitch: 'Die 8 Scratch-Säulen als 40-Tage-Plan: Jede Einheit trainiert eine Säule unter Druck.',
-        goals: ['Jede Einheit verknüpft eine der 8 Scratch-Säulen', 'Training unter Wettkampfdruck', 'Benchmarks auf Scratch-Niveau'],
+        pitch: 'Die 8 Scratch-Säulen als 14-Tage-Plan: Jede Einheit trainiert ein bis zwei Säulen unter Druck.',
+        goals: ['Alle 8 Scratch-Säulen in 6 Einheiten', 'Training unter Wettkampfdruck', 'Benchmarks auf Scratch-Niveau'],
         focus: ['course', 'longgame', 'shortgame'], level: 'advanced', perWeek: 3, slots: ['range', 'green', 'both'], minutes: 60, pillars: true
       },
       {
-        key: 'longhitter', kind: 'theme', icon: '🚀', title: '40 Tage zum Longhitter', range: 'Für jedes Handicap',
+        key: 'longhitter', kind: 'theme', icon: '🚀', title: '14 Tage zum Longhitter', range: 'Für jedes Handicap',
         pitch: 'Mehr Schlägerkopf-Tempo, aufwärts treffen, Mitte der Schlagfläche – und der Ball bleibt im Spiel.',
         goals: ['Speed-Training mit Pausentagen dazwischen', 'Abschlagwinkel, Tee-Höhe und Treffpunkt optimieren', 'Am ersten und letzten Tag misst du deinen längsten Drive im Korridor'],
-        note: 'Realistisch sind in 40 Tagen oft 5–8 % mehr Schlägerkopf-Tempo – jeder km/h mehr bringt grob 1,5 m Carry. Speed-Training nie an zwei Tagen hintereinander, immer erst aufwärmen und bei Schmerzen sofort aufhören.',
+        note: 'In 14 Tagen sind erste 2–3 % mehr Schlägerkopf-Tempo realistisch, vor allem durch bessere Technik und Treffpunkt – jeder km/h mehr bringt grob 1,5 m Carry. Speed-Training nie an zwei Tagen hintereinander, immer erst aufwärmen und bei Schmerzen sofort aufhören.',
         focus: ['speed'], level: 'intermediate', perWeek: 3, slots: ['range', 'home', 'range'], minutes: 45
       },
       {
@@ -11590,7 +11644,7 @@
       const c = isPlainObject(raw) ? raw : {};
       const prog = challengeProgramOf(c.program);
       const focus = prog ? [...prog.focus] : cleanIdList(c.focus).filter(k => CHALLENGE_FOCUS.some(f => f.key === k)).slice(0, CHALLENGE_MAX_FOCUS);
-      const perWeek = [2, 3, 4].includes(c.perWeek) ? c.perWeek : 3;
+      const perWeek = prog ? 3 : [2, 3, 4].includes(c.perWeek) ? c.perWeek : 3;
       const slots = Array.from({ length: perWeek }, (_, i) => {
         const v = Array.isArray(c.slots) ? c.slots[i] : null;
         return CHECKIN_PLACES.some(p => p.key === v) ? v : 'both';
@@ -11606,15 +11660,25 @@
       };
     }
 
-    function challengeScheduleDays(perWeek) {
+    // Dauer (v4.44.0): vordefinierte Challenges 14 Tage mit 3 Einheiten pro Woche, eigene Challenge 30 Tage
+    const CHALLENGE_PROGRAM_DAYS = 14;
+    const CHALLENGE_CUSTOM_DAYS = 30;
+
+    function challengeScheduleDays(perWeek, lengthDays = CHALLENGE_CUSTOM_DAYS) {
       const days = [];
-      for (let w = 0; w < 6; w++) {
+      for (let w = 0; w * 7 < lengthDays; w++) {
         (CHALLENGE_WEEK_PATTERN[perWeek] || CHALLENGE_WEEK_PATTERN[3]).forEach(o => {
           const d = 1 + w * 7 + o;
-          if (d <= 40) days.push(d);
+          if (d <= lengthDays) days.push(d);
         });
       }
       return days;
+    }
+
+    // Dauer der aktiven bzw. einer konfigurierten Challenge in Tagen
+    function challengeLengthDays(cfg) {
+      const c = cfg === undefined ? (customChallenge ? customChallenge.config : null) : cfg;
+      return c && !c.program ? CHALLENGE_CUSTOM_DAYS : CHALLENGE_PROGRAM_DAYS;
     }
 
     // Drills eines Fokus, die an einem Ort möglich sind
@@ -11643,7 +11707,7 @@
     function buildCustomChallengeSessions(rawConfig) {
       const cfg = normalizeChallengeConfig(rawConfig);
       const rand = checkinSeedRandom(`chal|${cfg.seed}|${cfg.focus.join(',')}|${cfg.slots.join(',')}|${cfg.minutes}|${cfg.level}`);
-      const days = challengeScheduleDays(cfg.perWeek);
+      const days = challengeScheduleDays(cfg.perWeek, challengeLengthDays(cfg));
       const total = days.length;
       const coreSize = cfg.level === 'advanced' ? 3 : 2;
       const progCfg = challengeProgramOf(cfg.program);
@@ -11765,7 +11829,9 @@
         return {
           custom: true,
           program: cfg.program,
-          pillar: prog && prog.pillars ? SCRATCH_PILLARS[Math.min(SCRATCH_PILLARS.length - 1, Math.floor((i * SCRATCH_PILLARS.length) / total))].id : null,
+          pillars: prog && prog.pillars
+            ? SCRATCH_PILLARS.slice(Math.floor((i * SCRATCH_PILLARS.length) / total), Math.floor(((i + 1) * SCRATCH_PILLARS.length) / total)).map(x => x.id)
+            : [],
           day,
           sessionNum: i + 1,
           place: placeKey,
@@ -11784,9 +11850,29 @@
       });
     }
 
+    // Klassische Challenge (v4.44.0): 6 Kerneinheiten aus dem früheren 40-Tage-Plan, verteilt auf 14 Tage.
+    // Alter Tag -> neuer Tag (Fundament, Putten, Eisen, Kurzspiel, Driver, Abschluss)
+    const CLASSIC_DAY_MAP = { 1: 1, 4: 3, 7: 5, 10: 8, 13: 10, 40: 12 };
+    const CLASSIC_SESSIONS = CHALLENGE_40_SESSIONS
+      .filter(s => CLASSIC_DAY_MAP[s.day])
+      .map((s, i) => {
+        const day = CLASSIC_DAY_MAP[s.day];
+        const levels = {};
+        Object.keys(s.levels).forEach(k => {
+          levels[k] = Object.assign({}, s.levels[k], { title: s.levels[k].title.replace(/^Tag \d+:/, `Tag ${day}:`) });
+        });
+        return Object.assign({}, s, {
+          origDay: s.day,
+          day,
+          sessionNum: i + 1,
+          focus: s.focus.replace('40-Tage-Abschluss-Challenge', 'Abschluss-Challenge'),
+          levels
+        });
+      });
+
     // Einheiten der aktiven Challenge (eigene oder klassische)
     function getChallengeSessions() {
-      if (!customChallenge) return CHALLENGE_40_SESSIONS;
+      if (!customChallenge) return CLASSIC_SESSIONS;
       const key = JSON.stringify(customChallenge.config);
       if (customChallengeCache.key !== key) {
         customChallengeCache = { key, sessions: buildCustomChallengeSessions(customChallenge.config) };
@@ -11924,8 +12010,8 @@
 
     function challengeDisplayName() {
       const k = activeProgramKey();
-      if (k === 'classic') return '40-Tage-Challenge';
-      if (k === 'custom') return 'Eigene 40-Tage-Challenge';
+      if (k === 'classic') return 'Klassische Challenge';
+      if (k === 'custom') return 'Eigene 30-Tage-Challenge';
       return challengeProgramOf(k).title;
     }
 
@@ -11974,6 +12060,7 @@
         <p class="md-lib-pitch">${prog.pitch}</p>
         <ul class="md-lib-goals">${prog.goals.map(g => `<li>${g}</li>`).join('')}</ul>
         <div class="md-lib-focus">${focusLabels}</div>
+        <div class="md-lib-range">${CHALLENGE_PROGRAM_DAYS} Tage · ${challengeScheduleDays(3, CHALLENGE_PROGRAM_DAYS).length} Einheiten · 3× pro Woche</div>
         <div class="md-lib-actions">
           ${prog.pillars ? `<button type="button" class="md-text-btn" onclick="openMenuPage('scratch')">8 Säulen ansehen</button>` : ''}
           <button type="button" class="${isActive ? 'md-outlined-btn' : 'md-filled-btn'}" onclick="openChallengeSetup('${prog.key}')">${isActive ? 'Anpassen' : 'Auswählen'}</button>
@@ -11993,7 +12080,7 @@
           <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 0.6rem;">
             <div>
               <span class="md-assist-badge">Challenge-Bibliothek</span>
-              <h2 class="font-display" style="font-size: 1.2rem; font-weight: 800; margin-top: 0.35rem;">Wähle deine 40-Tage-Challenge</h2>
+              <h2 class="font-display" style="font-size: 1.2rem; font-weight: 800; margin-top: 0.35rem;">Wähle deine Challenge</h2>
               <p class="md-chal-block-text" style="margin-top: 0.2rem;">${activeKey
                 ? `Es läuft immer nur eine Challenge. ${isChallengePaused() ? 'Pausiert' : 'Aktiv'}: <strong>${challengeDisplayName()}</strong>.`
                 : 'Gerade läuft keine Challenge. Wähle eine aus – es läuft immer nur eine.'}</p>
@@ -12021,7 +12108,7 @@
               ${challengeArtBox('custom')}
               <div class="md-lib-card-head">
                 <span class="md-lib-icon" aria-hidden="true">🛠️</span>
-                <div style="flex: 1; min-width: 0;"><div class="md-lib-range">Frei kombinierbar</div><h3 class="md-lib-title">Eigene Challenge</h3></div>
+                <div style="flex: 1; min-width: 0;"><div class="md-lib-range">${CHALLENGE_CUSTOM_DAYS} Tage · frei kombinierbar</div><h3 class="md-lib-title">Eigene Challenge</h3></div>
                 ${activeKey === 'custom' ? `<span class="md-assist-badge">${isChallengePaused() ? 'Pausiert' : 'Aktiv'}</span>` : ''}
               </div>
               <p class="md-lib-pitch">Bis zu 3 Bereiche, deine Orte, deine Häufigkeit und Dauer.</p>
@@ -12031,7 +12118,7 @@
               ${challengeArtBox('classic')}
               <div class="md-lib-card-head">
                 <span class="md-lib-icon" aria-hidden="true">📅</span>
-                <div style="flex: 1; min-width: 0;"><div class="md-lib-range">14 Einheiten · alle 3 Tage</div><h3 class="md-lib-title">Klassische Allround-Challenge</h3></div>
+                <div style="flex: 1; min-width: 0;"><div class="md-lib-range">${CHALLENGE_PROGRAM_DAYS} Tage · ${CLASSIC_SESSIONS.length} Einheiten · 3× pro Woche</div><h3 class="md-lib-title">Klassische Allround-Challenge</h3></div>
                 ${activeKey === 'classic' ? `<span class="md-assist-badge">${isChallengePaused() ? 'Pausiert' : 'Aktiv'}</span>` : ''}
               </div>
               <p class="md-lib-pitch">Fester Plan für Range und Übungsgrün in drei Stufen.</p>
@@ -12115,7 +12202,7 @@
       savePersistedState();
       updateChallengeMenuBadge();
       renderChallenge40View();
-      showToast(`${challengeDisplayName()} ist bereit: ${challengeTotal()} Einheiten in 40 Tagen.`, 3500);
+      showToast(`${challengeDisplayName()} ist bereit: ${challengeTotal()} Einheiten in ${challengeLengthDays()} Tagen.`, 3500);
     }
 
     function switchToClassicChallenge() {
@@ -12167,7 +12254,7 @@
           ${challengeArtBox(prog ? prog.key : 'custom', 'md-art-tall')}
           <div>
             <span class="md-assist-badge">${prog ? `${prog.icon} ${prog.kind === 'hcp' ? 'Handicap-Weg' : 'Themen-Challenge'}` : 'Eigene Challenge'}</span>
-            <h2 class="font-display" style="font-size: 1.2rem; font-weight: 800; margin-top: 0.35rem;">${prog ? `${prog.title}: Plane deine 40 Tage` : 'Stell dir deine 40 Tage zusammen'}</h2>
+            <h2 class="font-display" style="font-size: 1.2rem; font-weight: 800; margin-top: 0.35rem;">${prog ? `${prog.title}: Plane deine ${CHALLENGE_PROGRAM_DAYS} Tage` : `Stell dir deine ${CHALLENGE_CUSTOM_DAYS} Tage zusammen`}</h2>
           </div>
 
           ${prog ? `
@@ -12175,15 +12262,15 @@
             <p>${prog.pitch}</p>
             <p><strong>Inhalte:</strong> ${prog.focus.map(k => { const f = CHALLENGE_FOCUS.find(x => x.key === k); return `${f.icon} ${f.label}`; }).join(' · ')} · Niveau ${({ beginner: 'Einsteiger', intermediate: 'Fortgeschritten', advanced: 'Ambitioniert' })[prog.level]}</p>
             ${prog.note ? `<p class="md-chal-note"><span class="material-symbols-rounded" aria-hidden="true">health_and_safety</span>${prog.note}</p>` : ''}
-            <p class="md-chal-block-text">Inhalte und Niveau sind fest. Wo, wie oft und wie lange du trainierst, stellst du hier ein.</p>
+            <p class="md-chal-block-text">${CHALLENGE_PROGRAM_DAYS} Tage mit 3 Einheiten pro Woche. Inhalte und Niveau sind fest – wo und wie lange du trainierst, stellst du hier ein.</p>
           </div>` : `
           <div class="md-chal-q">
             <div class="md-chal-q-title">${q()} Worauf legst du den Fokus? <span>(bis zu ${CHALLENGE_MAX_FOCUS})</span></div>
             <div class="md-chal-chips">${CHALLENGE_FOCUS.map(f => chip(ui.focus.includes(f.key), `toggleSetupFocus('${f.key}')`, `${f.icon} ${f.label}`)).join('')}</div>
           </div>`}
 
-          <div class="md-chal-q">
-            <div class="md-chal-q-title">${q()} Wie oft pro Woche?</div>
+          <div class="md-chal-q ${prog ? 'hidden' : ''}">
+            <div class="md-chal-q-title">${prog ? '' : q()} Wie oft pro Woche?</div>
             <div class="md-segmented-group">${[2, 3, 4].map(n => `<button type="button" class="md-segmented-btn ${ui.perWeek === n ? 'selected' : ''}" onclick="setSetupPerWeek(${n})">${n}× pro Woche</button>`).join('')}</div>
           </div>
 
@@ -12213,7 +12300,7 @@
 
           <div class="md-chal-preview">
             <div class="md-chal-q-title">Vorschau</div>
-            <p><strong>${preview.length} Einheiten</strong> in 40 Tagen · ${Object.entries(placeCount).map(([k, n]) => `${n}× ${challengePlaceOf(k).icon} ${challengePlaceOf(k).label}`).join(' · ')} · ${drillIds.size} verschiedene Drills</p>
+            <p><strong>${preview.length} Einheiten</strong> in ${challengeLengthDays(ui)} Tagen · ${Object.entries(placeCount).map(([k, n]) => `${n}× ${challengePlaceOf(k).icon} ${challengePlaceOf(k).label}`).join(' · ')} · ${drillIds.size} verschiedene Drills</p>
             <p>Phasen: Fundament → Variation → Druck & Test. Am ersten und letzten Tag misst ein kurzer Test deinen Fortschritt.</p>
             ${notes.map(n => `<p class="md-chal-note"><span class="material-symbols-rounded" aria-hidden="true">info</span>${n}</p>`).join('')}
             <div class="md-chal-sample">
@@ -12321,7 +12408,10 @@
 
     // Weg zu Scratch: Säule dieser Einheit
     function renderPillarOfSession(s) {
-      const p = s.pillar ? SCRATCH_PILLARS.find(x => x.id === s.pillar) : null;
+      return (s.pillars || []).map(id => renderOnePillar(SCRATCH_PILLARS.find(x => x.id === id))).join('');
+    }
+
+    function renderOnePillar(p) {
       if (!p) return '';
       const done = masteredScratchPillars.has(p.id);
       return `<div class="md-lib-pillar">
@@ -12448,7 +12538,7 @@
       const modeBadge = document.getElementById('challengeModeBadge');
       if (modeBadge) modeBadge.textContent = cfg
         ? `${prog ? (prog.kind === 'hcp' ? 'Handicap-Weg' : 'Themen-Challenge') : 'Eigene Challenge'} · ${total} Einheiten · ${cfg.perWeek}× pro Woche`
-        : `Klassisch · ${total} Einheiten · alle 3 Tage`;
+        : `Klassisch · ${total} Einheiten · 3× pro Woche`;
       const headerArt = document.getElementById('challengeHeaderArt');
       const artKey = activeProgramKey();
       if (headerArt && artKey && headerArt.dataset.key !== artKey) {
@@ -12456,7 +12546,7 @@
         headerArt.dataset.key = artKey;
       }
       const titleEl = document.getElementById('challengeTitle');
-      if (titleEl) titleEl.textContent = prog ? `${prog.icon} ${prog.title}` : cfg ? 'Eigene 40-Tage-Challenge' : '40-Tage Golf-Challenge';
+      if (titleEl) titleEl.textContent = prog ? `${prog.icon} ${prog.title}` : cfg ? 'Eigene 30-Tage-Challenge' : 'Klassische Allround-Challenge';
       const modeInfo = document.getElementById('challengeModeInfo');
       if (modeInfo) modeInfo.textContent = cfg
         ? `${cfg.focus.map(k => CHALLENGE_FOCUS.find(f => f.key === k).label).join(', ')} · ${[...new Set(cfg.slots)].map(k => challengePlaceOf(k).icon + ' ' + challengePlaceOf(k).label).join(', ')} · ${cfg.minutes} Min.`
@@ -12464,7 +12554,9 @@
       document.getElementById('challengeLevelGroup')?.classList.toggle('hidden', !!cfg);
       document.getElementById('challengeAdjustBtn')?.classList.toggle('hidden', !cfg);
       const calHint = document.getElementById('challengeCalendarHint');
-      if (calHint) calHint.textContent = cfg ? `${cfg.perWeek} Trainingstage pro Woche` : 'Alle 3 Tage Training + 2 Tage Pause';
+      if (calHint) calHint.textContent = `${cfg ? cfg.perWeek : 3} Trainingstage pro Woche`;
+      const calTitle = document.getElementById('challengeCalendarTitle');
+      if (calTitle) calTitle.textContent = `${challengeLengthDays()}-Tage-Trainingskalender`;
 
       if (challengeStatus === 'none' && !challengeSetupUi) challengeLibraryOpen = true;
       const paused = isChallengePaused();
@@ -12499,7 +12591,7 @@
         if (paused) {
           nextBannerText.innerHTML = `<strong>Pausiert seit ${challengePausedOn.split('-').reverse().join('.')}</strong> – beim Fortsetzen verschieben sich die offenen Einheiten um die Pausentage.`;
         } else if (!nextSession) {
-          nextBannerText.innerHTML = `<strong>Glückwunsch!</strong> Du hast alle ${total} Einheiten deiner 40-Tage-Challenge abgeschlossen!`;
+          nextBannerText.innerHTML = `<strong>Glückwunsch!</strong> Du hast alle ${total} Einheiten deiner Challenge abgeschlossen!`;
         } else {
           const nextDateStr = formatChallengeDateLabel(challengeStartDate, nextSession.day);
           const nextIso = getChallengeIsoForDay(challengeStartDate, nextSession.day);
@@ -12520,7 +12612,7 @@
       if (calGrid) {
         const sessionByDay = new Map(sessions.map(s => [s.day, s]));
         let html = '';
-        for (let d = 1; d <= 40; d++) {
+        for (let d = 1; d <= challengeLengthDays(); d++) {
           const session = sessionByDay.get(d);
           const dateLabel = formatChallengeDateLabel(challengeStartDate, d);
           const dayIso = getChallengeIsoForDay(challengeStartDate, d);
@@ -12556,10 +12648,11 @@
         const activeSession = sessions.find(s => s.day === selectedChallengeDay) || sessions[0];
         if (activeSession.custom) { detailCard.innerHTML = renderCustomSessionDetail(activeSession); return; }
         const plan = activeSession.levels[challengeLevel] || activeSession.levels.beginner;
-        const extras = CLASSIC_PLAN_EXTRAS[`${activeSession.day}-${activeSession.levels[challengeLevel] ? challengeLevel : 'beginner'}`] || {};
+        const extras = CLASSIC_PLAN_EXTRAS[`${activeSession.origDay}-${activeSession.levels[challengeLevel] ? challengeLevel : 'beginner'}`] || {};
         const isDone = completedChallengeDays.has(activeSession.day);
         const dateLabel = formatChallengeDateLabel(challengeStartDate, activeSession.day);
-        const nextDayNum = activeSession.day + 3 <= 40 ? activeSession.day + 3 : null;
+        const nextClassic = sessions.find(x => x.day > activeSession.day);
+        const nextDayNum = nextClassic ? nextClassic.day : null;
         const nextDayLabel = nextDayNum ? `Tag ${nextDayNum} (${formatChallengeDateLabel(challengeStartDate, nextDayNum)})` : 'Challenge-Abschluss!';
 
         detailCard.innerHTML = `
@@ -12758,7 +12851,7 @@
         `• Aktuelles Level: Level ${currentLvl.level} – ${currentLvl.name} (${totalXp} XP)`,
         `• Gesamt-Fortschritt: ${pct}% (${doneModules}/${totalModules} Meilensteine)`,
         `• Tägliche Check-ins: ${Object.keys(dailyCheckins).length} Tage eingecheckt`,
-        `• 40-Tage Challenge: ${completedChallengeDays.size}/${challengeTotal()} Einheiten`,
+        `• Challenge: ${completedChallengeDays.size}/${challengeTotal()} Einheiten`,
         `• Trainings-Drills: ${completedDrills.size}/${TRAINING_DRILLS.length} trainiert · ${breakdown.drillReps} Wiederholungen · ${bronzePlus} auf Bronze oder höher`,
         `• Wochenziel (${XP_RULES.weeklyGoalDays} Trainingstage): ${breakdown.weeklyGoalsReached}× erreicht · diese Woche ${breakdown.weeklyState.currentWeekDays}/${XP_RULES.weeklyGoalDays}`,
         `• Scratch (HCP 0) Säulen: ${masteredScratchPillars.size}/${SCRATCH_PILLARS.length} gemeistert`,
@@ -13390,7 +13483,7 @@
 
       // 2. Module Progress Breakdown
       const moduleRows = [
-        { label: '40-Tage Golf-Challenge', done: completedChallengeDays.size, total: challengeTotal(), color: '#0B7A43', tab: 'challenge' },
+        { label: challengeStatus === 'none' ? 'Challenge (keine aktiv)' : challengeDisplayName(), done: completedChallengeDays.size, total: challengeTotal(), color: '#0B7A43', tab: 'challenge' },
         { label: 'Trainings-Drills (mind. 1× trainiert)', done: completedDrills.size, total: TRAINING_DRILLS.length, color: '#2F6FED', tab: 'drills' },
         { label: 'Drills auf 🥉 Bronze oder höher', done: TRAINING_DRILLS.filter(d => drillMastery(d.id).tier).length, total: TRAINING_DRILLS.length, color: '#B7791F', tab: 'drills' },
         { label: 'Scratch (HCP 0) Säulen', done: masteredScratchPillars.size, total: SCRATCH_PILLARS.length, color: '#E08A00', tab: 'scratch' },
@@ -13469,7 +13562,7 @@
           `;
         } else {
           const catMeta = {
-            challenge: { icon: 'calendar_month', label: '40-Tage Challenge' },
+            challenge: { icon: 'calendar_month', label: 'Challenge' },
             drill: { icon: 'play_circle', label: 'Trainings-Drill' },
             scratch: { icon: 'emoji_events', label: 'Scratch (HCP 0)' },
             warmup: { icon: 'timer', label: 'Warm-up' },
