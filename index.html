@@ -3783,13 +3783,15 @@
       {
         version: 'v4.40.0',
         date: 'Aktuell',
-        title: 'Challenge-Bibliothek: Handicap-Wege, Short Game & Longhitter',
+        title: 'Challenge-Bibliothek: Handicap-Wege & Themen-Challenges',
         latest: true,
         notes: [
           'Neu unter Training → Challenge: eine Bibliothek mit fertigen 40-Tage-Challenges. Deine eigene, frei zusammengestellte Challenge bleibt als Option erhalten. Es läuft immer nur eine Challenge, absolvierte Einheiten bleiben beim Wechsel als XP erhalten.',
           'Fünf Handicap-Wege: Platzreife, HCP 36, HCP 18, Single-Handicap und Scratch. Jeder Weg hat passende Schwerpunkte und ein festes Niveau. Ort, Häufigkeit und Dauer stellst du selbst ein.',
           'Der Scratch-Plan ist nicht mehr im Menü versteckt: „Weg zu Scratch“ ist die oberste Stufe. Jede Einheit trainiert eine der 8 Scratch-Säulen.',
           'Neue Themen-Challenge „Short Game Master“: Chippen, Pitchen, Bunker und Putten mit Up-&-Down-Test am ersten und letzten Tag.',
+          'Neue Themen-Challenge „Putt-König“: kurze Putts sicher lochen, lange nah ans Loch – mit Putt-Punkte-Test.',
+          'Neue Themen-Challenge „Bunker-Challenge“ mit 4 neuen Bunker-Drills (Setup, Längenkontrolle, Spiegelei & Hanglage, Bunker-Setup zuhause) und Bunker-Test.',
           'Neue Themen-Challenge „40 Tage zum Longhitter“ mit Speed-Training, Abschlagwinkel und Treffpunkt. Am ersten und letzten Tag misst du deinen längsten Drive im Korridor.',
           '4 neue Drills mit Video: Speed-Sätze, Aufwärts treffen, Release-Schwünge und Mobilität für Brustwirbelsäule & Hüfte.',
           'Dein Handicap kannst du freiwillig angeben – dann schlägt die App den passenden Weg vor.',
@@ -5485,6 +5487,63 @@
         videoDuration: ''
       },
       {
+        id: 'drill-bunker-setup',
+        discipline: 'wedges',
+        disciplineLabel: 'Wedges',
+        places: ['green'],
+        title: 'Bunker-Grundlage: Setup & offene Schlagfläche',
+        durationBalls: '12 Bälle · ca. 10 Min.',
+        setupMaterial: 'Sand Wedge, Übungsbunker',
+        steps: [
+          'Öffne zuerst die Schlagfläche und greife erst dann – so bleibt sie im Schwung offen. Drehe die Füße leicht in den Sand ein, damit du sicher stehst.',
+          'Breiter Stand, Ball etwas vor der Standmitte, Gewicht ca. 60 % auf dem linken Fuß. Setze den Schläger nicht direkt hinter dem Ball im Sand auf – das ist nach den Regeln verboten.',
+          'Schwinge etwa drei Viertel zurück und lass den Schläger 3–5 cm hinter dem Ball in den Sand eintauchen. Schwinge unbedingt bis ins Finish durch – der Sand trägt den Ball heraus.'
+        ],
+        successGoal: '9 von 12 Bällen landen beim ersten Versuch auf dem Grün.',
+        videoId: 'zPSsqtnvc08',
+        videoTitle: 'Der Bunkerschlag – die einfachste Technik',
+        videoChannel: 'Florian Raggl Golf',
+        videoDuration: ''
+      },
+      {
+        id: 'drill-bunker-distance',
+        discipline: 'wedges',
+        disciplineLabel: 'Wedges',
+        places: ['green'],
+        title: 'Längenkontrolle im Bunker: 3 Ziele',
+        durationBalls: '15 Bälle · ca. 12 Min.',
+        setupMaterial: 'Sand Wedge, Übungsbunker, 3 Tees oder Ballmarker als Ziele auf dem Grün',
+        steps: [
+          'Markiere auf dem Grün drei Ziele in ca. 5, 10 und 15 m Entfernung vom Bunkerrand.',
+          'Setup und Eintrittspunkt im Sand bleiben immer gleich. Die Länge steuerst du nur über die Größe von Rück- und Durchschwung (z. B. 9, 10 und 11 Uhr).',
+          'Spiele je 5 Bälle auf jedes Ziel – zuerst der Reihe nach, dann in zufälliger Reihenfolge.'
+        ],
+        successGoal: '8 von 15 Bällen bleiben innerhalb von 3 m um das jeweilige Ziel liegen.',
+        videoId: 'l7Dc8g1gQeU',
+        videoTitle: 'Längenkontrolle & Steckschuss im Bunker – kurzer & langer Bunkerschlag einfach erklärt',
+        videoChannel: 'PGA Patrick Limbecker',
+        videoDuration: ''
+      },
+      {
+        id: 'drill-bunker-lies',
+        discipline: 'wedges',
+        disciplineLabel: 'Wedges',
+        places: ['green'],
+        title: 'Schwierige Lagen: Spiegelei & Hanglage',
+        durationBalls: '12 Bälle · ca. 10 Min.',
+        setupMaterial: 'Sand Wedge, Übungsbunker',
+        steps: [
+          'Drücke 4 Bälle leicht in den Sand (Spiegelei). Die Schlagfläche bleibt hier gerade oder leicht geschlossen, der Ball liegt mittig, das Gewicht deutlich links.',
+          'Hole steil aus und schlage den Schläger kräftig direkt hinter dem Ball in den Sand. Der Durchschwung bleibt kurz, der Ball rollt länger aus – Ziel ist nur: raus aufs Grün.',
+          'Danach je 4 Bälle aus Bergauf- und Bergab-Lage: Stelle die Schultern parallel zum Hang und schwinge mit dem Hang.'
+        ],
+        successGoal: '8 von 12 Bällen kommen beim ersten Versuch aus dem Bunker.',
+        videoId: '12jBh_I_cQ0',
+        videoTitle: 'Golf Training Bunker: Das Spiegelei',
+        videoChannel: 'Golf.de',
+        videoDuration: ''
+      },
+      {
         id: 'drill-putt-clock',
         discipline: 'putting',
         disciplineLabel: 'Putten',
@@ -5824,6 +5883,24 @@
         videoId: 'KtEAyAGLX5k',
         videoTitle: 'Mobility-Übungen Brustwirbelsäule – Rotation verbessern',
         videoChannel: 'Gino Lazzaro',
+        videoDuration: ''
+      },
+      {
+        id: 'drill-indoor-bunker-setup',
+        discipline: 'indoor',
+        disciplineLabel: 'Winter & Indoor',
+        title: 'Bunker-Setup & Schwungform im Wohnzimmer',
+        durationBalls: '15 Wiederholungen · ca. 8 Min.',
+        setupMaterial: 'Sand Wedge, Spiegel – ohne Ball, vorher Platz zur Decke prüfen',
+        steps: [
+          'Öffne die Schlagfläche und greife erst dann. Prüfe im Spiegel: Die Schlagfläche zeigt leicht nach oben, der Griff bleibt neutral.',
+          'Breiter Stand, gedachter Ball etwas vor der Standmitte, Gewicht ca. 60 % links. Baue das Setup 5-mal neu auf und kontrolliere es im Spiegel.',
+          '10 langsame Dreiviertel-Schwünge ohne Bodenkontakt mit vollem Finish: Die Schlagfläche zeigt im Durchschwung zum Himmel und bleibt offen.'
+        ],
+        successGoal: '10 Schwünge mit offener Schlagfläche im Durchschwung und gehaltenem Finish.',
+        videoId: 'prKV9CpaRO4',
+        videoTitle: 'Aus dem Bunker spielen – Golf-Grundlagen',
+        videoChannel: 'GOLFSTUN.DE',
         videoDuration: ''
       },
       {
@@ -10635,6 +10712,11 @@
         drills: {
           home: ['drill-indoor-speed', 'drill-indoor-rotation', 'drill-indoor-release', 'drill-indoor-pump'],
           out: ['drill-driver-speedsets', 'drill-driver-launch', 'drill-driver-teeheight', 'drill-driver-step', 'drill-driver-tempo', 'drill-driver-fairway']
+        } },
+      { key: 'bunker', icon: '🏖️', label: 'Bunker', checkin: ['shortgame'],
+        drills: {
+          home: ['drill-indoor-bunker-setup', 'drill-indoor-chip-towels'],
+          out: ['drill-bunker-setup', 'drill-bunker-line', 'drill-bunker-distance', 'drill-bunker-lies']
         } }
     ];
     const CHALLENGE_MAX_FOCUS = 3;
@@ -10695,6 +10777,27 @@
             out: { title: 'Up-&-Down-Test: 9 Bälle rund ums Grün', how: 'Lege 9 Bälle an verschiedene Stellen rund ums Grün: 3 kurze Chips, 3 Pitches aus 15–25 m und 3 aus dem Bunker (ohne Bunker: 3 Lob-Schläge über ein Hindernis). Spiele jeden Ball mit voller Routine und putte ihn ein. Zähle, wie oft du mit höchstens 2 Schlägen eingelocht hast.', max: 9, gear: ['wedge', 'sw', 'putter', 'balls', 'green', 'bunker'] }
           }
         }
+      },
+      {
+        key: 'puttking', kind: 'theme', icon: '👑', title: 'Putt-König', range: 'Für jedes Handicap',
+        pitch: 'Rund 40 % aller Schläge sind Putts: kurze sicher lochen, lange nah ans Loch legen.',
+        goals: ['Aus 1 bis 2 m fast alles lochen', 'Lange Putts in die 1-m-Zone legen – 3-Putts abschaffen', 'Feste Routine, die auch unter Druck hält'],
+        note: 'Am ersten und letzten Tag spielst du einen Putt-Punkte-Test: Ein-Putt = 2 Punkte, Zwei-Putt = 1, Drei-Putt = 0.',
+        focus: ['putting'], level: 'intermediate', perWeek: 3, slots: ['green', 'home', 'green'], minutes: 30,
+        core: { putting: { out: ['drill-putt-gate', 'drill-putt-lagzone', 'drill-putt-ladder', 'drill-putt-clock'] } },
+        tests: {
+          putting: {
+            out: { title: 'Putt-Punkte-Test: 9 Löcher', how: '9 Putts auf dem Übungsgrün, jeweils auf ein anderes Loch und zu Ende geputtet: 3 aus 1,5 m, 3 aus 5 m und 3 aus 10 m. Punkte: Ein-Putt = 2, Zwei-Putt = 1, Drei-Putt oder mehr = 0. Trage deine Punktzahl ein.', max: 18, gear: ['putter', 'balls', 'green'] },
+            home: { title: 'Putt-Punkte-Test: 9 Putts auf dem Teppich', how: '9 Putts auf ein Ziel (liegendes Glas oder Putt-Becher), jeweils zu Ende geputtet: 3 aus 1 m, 3 aus 2 m und 3 aus 4 m. Punkte: Ein-Putt = 2, Zwei-Putt = 1, mehr = 0. Trage deine Punktzahl ein.', max: 18, gear: ['putter', 'balls', 'cup'] }
+          }
+        }
+      },
+      {
+        key: 'bunker', kind: 'theme', icon: '🏖️', title: 'Bunker-Challenge', range: 'Für jedes Handicap',
+        pitch: 'Nie wieder Bunker-Angst: beim ersten Versuch raus und nah an die Fahne.',
+        goals: ['Sicheres Setup mit offener Schlagfläche', 'Länge über die Größe des Schwungs steuern', 'Spiegelei und Hanglagen meistern'],
+        note: 'Für 2 von 3 Einheiten pro Woche brauchst du einen Übungsbunker. Zuhause trainierst du Setup und Schwungform ohne Ball.',
+        focus: ['bunker'], level: 'intermediate', perWeek: 3, slots: ['green', 'home', 'green'], minutes: 30
       }
     ];
 
@@ -10763,6 +10866,10 @@
       course: {
         home: { title: 'Routine-Test: 10 Probeschläge', how: '10 Probeschwünge mit kompletter Pre-Shot-Routine (hinter dem Ball, Zwischenziel, Setup, Schwung), gestoppt mit dem Handy. Zähle die Routinen, die 15–25 Sekunden dauern.', max: 10, gear: ['anyclub', 'phone'] },
         out: { title: '9-Ball-Test', how: '9 Bälle mit 9 verschiedenen Schlägern auf wechselnde Ziele, jeweils mit voller Routine. Zähle die Bälle im Zielkorridor.', max: 9, gear: ['fullbag', 'rangeballs', 'tees'] }
+      },
+      bunker: {
+        home: { title: 'Setup-Test: 10 Bunker-Setups', how: 'Baue 10-mal dein Bunker-Setup vor dem Spiegel auf: Schlagfläche erst öffnen, dann greifen, breiter Stand, Ball etwas vor der Standmitte, Gewicht leicht links. Zähle die Setups, die ohne Korrektur stimmen.', max: 10, gear: ['sw', 'mirror'] },
+        out: { title: 'Bunker-Test: 10 Bälle aus dem Grünbunker', how: '10 Bälle aus normaler Lage im Grünbunker auf eine Fahne in 10–15 m, jeder mit voller Routine. Zähle die Bälle, die beim ersten Versuch herauskommen und höchstens 3 m von der Fahne liegen bleiben.', max: 10, gear: ['sw', 'balls', 'bunker', 'green'] }
       },
       speed: {
         home: { title: 'Speed-Test: 10 Tempo-Schwünge', how: 'Greife den Driver am Kopf und mache 10 Schwünge ohne Ball mit vollem Tempo. Zähle die Schwünge, bei denen das lauteste „Whoosh“ klar nach der Ballposition kommt und du das Finish 3 Sekunden ruhig hältst.', max: 10, gear: ['driver'] },
@@ -10857,6 +10964,10 @@
       'drill-chip-ladder': ['iron9', 'pw', 'sw', 'balls', 'towel', 'green'],
       'drill-chip-updown': ['wedge', 'putter', 'balls', 'green'],
       'drill-bunker-line': ['sw', 'balls', 'bunker'],
+      'drill-bunker-setup': ['sw', 'balls', 'bunker'],
+      'drill-bunker-distance': ['sw', 'balls', 'tees', 'bunker'],
+      'drill-bunker-lies': ['sw', 'balls', 'bunker'],
+      'drill-indoor-bunker-setup': ['sw', 'mirror'],
       'drill-putt-clock': ['putter', 'balls', 'tees', 'green'],
       'drill-putt-lagzone': ['putter', 'balls', 'tees', 'green'],
       'drill-putt-pressure': ['putter', 'balls', 'green'],
@@ -10983,7 +11094,8 @@
       basics: { home: ['drill-indoor-grip', 'drill-indoor-alignment', 'drill-indoor-mirror'], out: ['drill-basics-gripcheck', 'drill-basics-rails', 'drill-basics-ballpos'] },
       shaping: { home: ['drill-indoor-slowmo', 'drill-indoor-impact', 'drill-indoor-alignment'], out: ['drill-shaping-startline', 'drill-shaping-height', 'drill-shaping-9window'] },
       course: { home: ['drill-indoor-visualize', 'drill-indoor-alignment', 'drill-indoor-metronome'], out: ['drill-warmup-routine', 'drill-warmup-1ball', 'drill-warmup-par4'] },
-      speed: { home: ['drill-indoor-speed', 'drill-indoor-rotation'], out: ['drill-driver-speedsets', 'drill-driver-launch'] }
+      speed: { home: ['drill-indoor-speed', 'drill-indoor-rotation'], out: ['drill-driver-speedsets', 'drill-driver-launch'] },
+      bunker: { home: ['drill-indoor-bunker-setup'], out: ['drill-bunker-setup', 'drill-bunker-line'] }
     };
 
     /* Klassische Challenge: Material je Einheit & Stufe sowie passende Drills (Schritt für Schritt) je Übung */
@@ -12209,6 +12321,7 @@
       'drill-indoor-speed': ['driver'],
       'drill-indoor-release': ['driver', 'irons'],
       'drill-indoor-rotation': ['driver', 'irons', 'basics'],
+      'drill-indoor-bunker-setup': ['shortgame'],
       'drill-indoor-impact': ['irons', 'shortgame', 'basics', 'shaping', 'mix'],
       'drill-indoor-chip-basket': ['shortgame', 'mix'],
       'drill-indoor-chip-towels': ['shortgame'],
