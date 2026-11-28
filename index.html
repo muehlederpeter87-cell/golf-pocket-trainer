@@ -9,8 +9,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="apple-mobile-web-app-title" content="Golf Pocket Trainer" />
   <meta name="application-name" content="Golf Pocket Trainer" />
-  <meta name="description" content="Golf Pocket Trainer v4.40.0 – Material Design 3 Golf Technik-, Trainings-, Rules-, Scratch-Blueprint-, Handicap-Challenge-, Longhitter-, Komparator-, Warm-up-, Video-Analyse-, 40-Tage-Challenge- & Gamification-Statistik-Begleiter" />
-  <title>Golf Pocket Trainer (v4.40.0)</title>
+  <meta name="description" content="Golf Pocket Trainer v4.40.1 – Material Design 3 Golf Technik-, Trainings-, Rules-, Scratch-Blueprint-, Handicap-Challenge-, Longhitter-, Komparator-, Warm-up-, Video-Analyse-, 40-Tage-Challenge- & Gamification-Statistik-Begleiter" />
+  <title>Golf Pocket Trainer (v4.40.1)</title>
 
   <link rel="manifest" href="manifest.webmanifest" />
   <link rel="icon" type="image/png" sizes="48x48" href="icons/favicon-48.png" />
@@ -2760,7 +2760,7 @@
               <span class="material-symbols-rounded" style="color: var(--md-sys-color-on-surface-variant);">history</span>
               <span>Versionsverlauf</span>
             </span>
-            <span class="font-mono" style="font-size: 0.72rem; color: var(--md-sys-color-on-surface-variant);">v4.40.0</span>
+            <span class="font-mono" style="font-size: 0.72rem; color: var(--md-sys-color-on-surface-variant);">v4.40.1</span>
           </button>
         </div>
       </div>
@@ -3610,7 +3610,7 @@
        ======================================================================== -->
   <footer class="md-footer">
     <div class="md-container" style="display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; flex-wrap: wrap;">
-      <span><strong>Golf Pocket Trainer</strong> (<span class="font-mono">v4.40.0</span>) &bull; Dein interaktiver Trainings- &amp; Platzbegleiter</span>
+      <span><strong>Golf Pocket Trainer</strong> (<span class="font-mono">v4.40.1</span>) &bull; Dein interaktiver Trainings- &amp; Platzbegleiter</span>
       <button type="button" onclick="openChangelogModal()" class="md-text-btn" style="height: 1.85rem;">Versionsverlauf ansehen</button>
     </div>
   </footer>
@@ -3756,7 +3756,7 @@
       <div class="md-dialog-header">
         <div>
           <span class="md-assist-badge" style="background-color: var(--md-sys-color-tertiary-container); color: var(--md-sys-color-on-tertiary-container);">Release Notes &amp; Wartung</span>
-          <h2 id="changelogTitle" class="font-display" style="font-size: 1.25rem; font-weight: 800; margin-top: 0.3rem;">Versionsverlauf (v1.0.0 – v4.40.0)</h2>
+          <h2 id="changelogTitle" class="font-display" style="font-size: 1.25rem; font-weight: 800; margin-top: 0.3rem;">Versionsverlauf (v1.0.0 – v4.40.1)</h2>
         </div>
         <button type="button" onclick="closeChangelogModal()" class="md-icon-btn" aria-label="Schließen">
           <span class="material-symbols-rounded">close</span>
@@ -3771,20 +3771,33 @@
   </div>
 
   <!-- ========================================================================
-       COMPLETE SELF-CONTAINED JAVASCRIPT ENGINE (v4.40.0)
+       COMPLETE SELF-CONTAINED JAVASCRIPT ENGINE (v4.40.1)
        ======================================================================== -->
   <div id="appToast" class="md-toast" role="status" aria-live="polite"></div>
   <input type="file" id="backupFileInput" accept="application/json,.json" hidden onchange="handleBackupFile(event)" />
 
   <script>
-    const APP_VERSION = 'v4.40.0';
+    const APP_VERSION = 'v4.40.1';
 
     const CHANGELOG_ENTRIES = [
       {
-        version: 'v4.40.0',
+        version: 'v4.40.1',
         date: 'Aktuell',
-        title: 'Challenge-Bibliothek: Handicap-Wege & Themen-Challenges',
+        title: 'Challenge sauber beenden & zurücksetzen',
         latest: true,
+        notes: [
+          'Zurücksetzen startet den Kalender heute neu und leert Testergebnisse und Packliste. Die mit den Einheiten eingetragenen Drill-Wiederholungen werden wieder herausgenommen – wie beim Abwählen einer einzelnen Einheit.',
+          'Beim Wechsel zur klassischen Challenge beginnt der Kalender heute statt am alten Starttag.',
+          'Abgehakte Packlisten einer beendeten Challenge tauchen nicht mehr in einer späteren Runde auf.',
+          'Verlaufseinträge beendeter Challenges bleiben erhalten und werden von einer neuen Runde nicht mehr überschrieben.',
+          'Die Abzeichen „Challenge-Halbzeit“ und „40-Tage Finisher“ bleiben nach einem Wechsel erhalten. Die Bibliothek zeigt deine früheren Challenges.'
+        ]
+      },
+      {
+        version: 'v4.40.0',
+        date: 'Vorherige Version',
+        title: 'Challenge-Bibliothek: Handicap-Wege & Themen-Challenges',
+        latest: false,
         notes: [
           'Neu unter Training → Challenge: eine Bibliothek mit fertigen 40-Tage-Challenges. Deine eigene, frei zusammengestellte Challenge bleibt als Option erhalten. Es läuft immer nur eine Challenge, absolvierte Einheiten bleiben beim Wechsel als XP erhalten.',
           'Fünf Handicap-Wege: Platzreife, HCP 36, HCP 18, Single-Handicap und Scratch. Jeder Weg hat passende Schwerpunkte und ein festes Niveau. Ort, Häufigkeit und Dauer stellst du selbst ein.',
@@ -3802,7 +3815,7 @@
       },
       {
         version: 'v4.39.0',
-        date: 'Vorherige Version',
+        date: 'Ältere Version',
         title: 'Neue Farben: Fairway Fresh',
         latest: false,
         notes: [
@@ -7070,6 +7083,7 @@
       if (isValidIsoDate(data.challengeStart)) challengeStartDate = data.challengeStart;
       customChallenge = sanitizeCustomChallenge(data.customChallenge);
       userHcp = sanitizeHcp(data.hcp);
+      challengeHistory = sanitizeChallengeHistory(data.challengeHistory);
       challengeArchivedSessions = Number.isFinite(Number(data.challengeArchived)) ? Math.max(0, Math.round(Number(data.challengeArchived))) : 0;
 
       activityLog = Array.isArray(data.activityLog)
@@ -7132,6 +7146,7 @@
         customChallenge,
         challengeArchived: challengeArchivedSessions,
         hcp: userHcp,
+        challengeHistory,
         activityLog: activityLog.slice(0, 300),
         dailyCheckins
       };
@@ -7158,6 +7173,7 @@
         customChallenge: readStoredJSON('gpg_custom_challenge', null, isPlainObject),
         challengeArchived: readStoredString('gpg_chal_archived'),
         hcp: readStoredString('gpg_hcp'),
+        challengeHistory: readStoredJSON('gpg_chal_history', [], Array.isArray),
         activityLog: readStoredJSON('gpg_activity_log', [], Array.isArray),
         dailyCheckins: readStoredJSON('gpg_daily_checkins', {}, isPlainObject)
       });
@@ -7180,6 +7196,7 @@
         if (snap.customChallenge) localStorage.setItem('gpg_custom_challenge', JSON.stringify(snap.customChallenge));
         else localStorage.removeItem('gpg_custom_challenge');
         localStorage.setItem('gpg_chal_archived', String(snap.challengeArchived));
+        localStorage.setItem('gpg_chal_history', JSON.stringify(snap.challengeHistory));
         if (snap.hcp === null) localStorage.removeItem('gpg_hcp');
         else localStorage.setItem('gpg_hcp', String(snap.hcp));
         localStorage.setItem('gpg_activity_log', JSON.stringify(snap.activityLog));
@@ -7791,14 +7808,14 @@
           icon: 'calendar_month',
           title: 'Challenge-Halbzeit',
           desc: `Mindestens die Hälfte der Einheiten deiner 40-Tage-Challenge geschafft (${completedChallengeDays.size}/${Math.ceil(challengeTotal() / 2)}).`,
-          earned: completedChallengeDays.size >= Math.ceil(challengeTotal() / 2)
+          earned: completedChallengeDays.size >= Math.ceil(challengeTotal() / 2) || challengeHistory.some(h => h.done >= Math.ceil(h.total / 2))
         },
         {
           id: 'ach-chal-finisher',
           icon: 'verified',
           title: '40-Tage Finisher',
           desc: `Alle ${challengeTotal()} Einheiten deiner 40-Tage-Challenge abgeschlossen.`,
-          earned: completedChallengeDays.size >= challengeTotal()
+          earned: completedChallengeDays.size >= challengeTotal() || challengeHistory.some(h => h.done >= h.total)
         },
         {
           id: 'ach-scratch-mind',
@@ -11267,6 +11284,18 @@
     let customChallenge = null;
     // Absolvierte Einheiten aus früheren Challenges (bleiben als XP erhalten)
     let challengeArchivedSessions = 0;
+    // Beendete Challenges mit Fortschritt: { name, done, total, ended }
+    let challengeHistory = [];
+
+    function sanitizeChallengeHistory(raw) {
+      if (!Array.isArray(raw)) return [];
+      return raw.filter(isPlainObject).map(h => ({
+        name: typeof h.name === 'string' ? h.name.slice(0, 80) : 'Challenge',
+        done: Number.isFinite(Number(h.done)) ? Math.max(0, Math.round(Number(h.done))) : 0,
+        total: Number.isFinite(Number(h.total)) ? Math.max(1, Math.round(Number(h.total))) : 1,
+        ended: isValidIsoDate(h.ended) ? h.ended : ''
+      })).slice(0, 30);
+    }
     let challengeSetupUi = null;
     let customChallengeCache = { key: '', sessions: [] };
 
@@ -11662,6 +11691,10 @@
               ${activeKey === 'classic' ? '' : `<div class="md-lib-actions"><button type="button" class="md-filled-btn" onclick="switchToClassicChallenge()">Auswählen</button></div>`}
             </article>
           </div>
+          ${challengeHistory.length ? `<div class="md-lib-hcp">
+            <div class="md-chal-q-title">Frühere Challenges</div>
+            ${challengeHistory.slice(0, 5).map(h => `<div class="md-chal-block-text">${h.name} · ${h.done}/${h.total} Einheiten${h.ended ? ` · beendet am ${h.ended.split('-').reverse().join('.')}` : ''}</div>`).join('')}
+          </div>` : ''}
           ${hasProgress ? `<p class="md-chal-note"><span class="material-symbols-rounded" aria-hidden="true">info</span>Beim Wechsel bleiben deine ${completedChallengeDays.size} absolvierten Einheiten als XP erhalten. Der Kalender beginnt neu.</p>` : ''}
         </article>`;
     }
@@ -11696,11 +11729,35 @@
       renderChallenge40View();
     }
 
+    // Löscht die Packliste der aktiven Challenge (alle Tage)
+    function clearChallengeGear() {
+      const prefix = customChallenge ? `${customChallenge.id}|` : 'classic-';
+      Object.keys(challengeGearChecked).forEach(k => { if (k.startsWith(prefix)) delete challengeGearChecked[k]; });
+      try { localStorage.setItem('gpg_chal_gear', JSON.stringify(challengeGearChecked)); } catch (e) { /* nur Komfort */ }
+    }
+
+    // Beendet die aktive Challenge: Einheiten bleiben als XP und im Verlauf erhalten,
+    // alles andere (Kalender, Tests, Packliste) startet bei der nächsten Challenge neu.
+    function archiveCurrentChallenge() {
+      const done = completedChallengeDays.size;
+      if (done > 0) {
+        challengeHistory.unshift({ name: challengeDisplayName(), done, total: challengeTotal(), ended: localDateKey() });
+        challengeHistory = challengeHistory.slice(0, 30);
+        challengeArchivedSessions += done;
+        // Verlaufseinträge eindeutig umbenennen, damit eine spätere Runde derselben Challenge sie nicht überschreibt
+        const tag = `arch${Date.now().toString(36)}`;
+        completedChallengeDays.forEach(d => {
+          const ref = challengeActivityRef(d);
+          activityLog.forEach(a => { if (a.refId === ref) a.refId = `chal-${tag}-${d}`; });
+        });
+      }
+      clearChallengeGear();
+      completedChallengeDays = new Set();
+    }
+
     function startCustomChallenge() {
       const cfg = normalizeChallengeConfig(Object.assign({}, challengeSetupUi, { seed: Date.now().toString(36) }));
-      // Absolvierte Einheiten der bisherigen Challenge bleiben als XP erhalten
-      challengeArchivedSessions += completedChallengeDays.size;
-      completedChallengeDays = new Set();
+      archiveCurrentChallenge();
       customChallenge = { id: Date.now().toString(36), config: cfg, tests: {}, doneOn: {} };
       if (isValidIsoDate(challengeSetupUi.start)) challengeStartDate = challengeSetupUi.start;
       challengeLevel = cfg.level;
@@ -11713,9 +11770,9 @@
     }
 
     function switchToClassicChallenge() {
-      challengeArchivedSessions += completedChallengeDays.size;
-      completedChallengeDays = new Set();
+      archiveCurrentChallenge();
       customChallenge = null;
+      challengeStartDate = localDateKey();
       challengeSetupUi = null;
       challengeLibraryOpen = false;
       selectedChallengeDay = 1;
@@ -11995,10 +12052,24 @@
     }
 
     function resetChallenge40Progress() {
-      if (!confirmReset('Deinen Challenge-Fortschritt')) return;
-      completedChallengeDays.forEach(d => removeActivityEvent(challengeActivityRef(d)));
+      if (!confirmReset('Deinen Challenge-Fortschritt (Einheiten, Testergebnisse und Packliste – der Kalender startet heute neu)')) return;
+      const sessions = getChallengeSessions();
+      completedChallengeDays.forEach(d => {
+        removeActivityEvent(challengeActivityRef(d));
+        // Wie beim Abwählen einer Einheit: die mit ihr eingetragenen Drill-Wiederholungen wieder herausnehmen
+        const doneDay = customChallenge ? customChallenge.doneOn[d] : null;
+        const s = sessions.find(x => x.day === d);
+        if (doneDay && s && s.custom) {
+          [...new Set(s.blocks.filter(b => b.type === 'drill').map(b => b.id))].forEach(id => {
+            removeRep('drill', id, doneDay);
+            removeActivityEvent(`drill-${id}@${doneDay}`);
+          });
+        }
+      });
       completedChallengeDays.clear();
       if (customChallenge) { customChallenge.tests = {}; customChallenge.doneOn = {}; }
+      clearChallengeGear();
+      challengeStartDate = localDateKey();
       selectedChallengeDay = getChallengeSessions()[0].day;
       savePersistedState();
       updateChallengeMenuBadge();
