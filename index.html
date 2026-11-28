@@ -3783,12 +3783,13 @@
       {
         version: 'v4.40.0',
         date: 'Aktuell',
-        title: 'Challenge-Bibliothek: Handicap-Wege & Longhitter',
+        title: 'Challenge-Bibliothek: Handicap-Wege, Short Game & Longhitter',
         latest: true,
         notes: [
-          'Neu unter Training → Challenge: eine Bibliothek mit fertigen 40-Tage-Challenges. Es läuft immer nur eine Challenge, absolvierte Einheiten bleiben beim Wechsel als XP erhalten.',
+          'Neu unter Training → Challenge: eine Bibliothek mit fertigen 40-Tage-Challenges. Deine eigene, frei zusammengestellte Challenge bleibt als Option erhalten. Es läuft immer nur eine Challenge, absolvierte Einheiten bleiben beim Wechsel als XP erhalten.',
           'Fünf Handicap-Wege: Platzreife, HCP 36, HCP 18, Single-Handicap und Scratch. Jeder Weg hat passende Schwerpunkte und ein festes Niveau. Ort, Häufigkeit und Dauer stellst du selbst ein.',
           'Der Scratch-Plan ist nicht mehr im Menü versteckt: „Weg zu Scratch“ ist die oberste Stufe. Jede Einheit trainiert eine der 8 Scratch-Säulen.',
+          'Neue Themen-Challenge „Short Game Master“: Chippen, Pitchen, Bunker und Putten mit Up-&-Down-Test am ersten und letzten Tag.',
           'Neue Themen-Challenge „40 Tage zum Longhitter“ mit Speed-Training, Abschlagwinkel und Treffpunkt. Am ersten und letzten Tag misst du deinen längsten Drive im Korridor.',
           '4 neue Drills mit Video: Speed-Sätze, Aufwärts treffen, Release-Schwünge und Mobilität für Brustwirbelsäule & Hüfte.',
           'Dein Handicap kannst du freiwillig angeben – dann schlägt die App den passenden Weg vor.',
@@ -10680,6 +10681,20 @@
         goals: ['Speed-Training mit Pausentagen dazwischen', 'Abschlagwinkel, Tee-Höhe und Treffpunkt optimieren', 'Am ersten und letzten Tag misst du deinen längsten Drive im Korridor'],
         note: 'Realistisch sind in 40 Tagen oft 5–8 % mehr Schlägerkopf-Tempo – jeder km/h mehr bringt grob 1,5 m Carry. Speed-Training nie an zwei Tagen hintereinander, immer erst aufwärmen und bei Schmerzen sofort aufhören.',
         focus: ['speed'], level: 'intermediate', perWeek: 3, slots: ['range', 'home', 'range'], minutes: 45
+      },
+      {
+        key: 'shortgame', kind: 'theme', icon: '✨', title: 'Short Game Master', range: 'Für jedes Handicap',
+        pitch: 'Die meisten Schläge liegen rund ums Grün: Chippen, Pitchen, Bunker und Putten mit System.',
+        goals: ['Öfter Up & Down: Chip oder Pitch plus ein Putt', 'Feste Längen mit dem Wedge-Uhrsystem, sicher aus dem Bunker', 'Putts bis 2 m unter Druck lochen'],
+        note: 'Am ersten und letzten Tag spielst du 9 Bälle rund ums Grün – dein Up-&-Down-Wert zeigt direkt, wie viele Schläge du pro Runde sparst.',
+        focus: ['shortgame', 'putting'], level: 'intermediate', perWeek: 3, slots: ['green', 'home', 'both'], minutes: 45,
+        // Kern-Drills und Test speziell für diese Challenge
+        core: { shortgame: { out: ['drill-chip-updown', 'drill-bunker-line', 'drill-chip-ladder', 'drill-wedge-clock'] } },
+        tests: {
+          shortgame: {
+            out: { title: 'Up-&-Down-Test: 9 Bälle rund ums Grün', how: 'Lege 9 Bälle an verschiedene Stellen rund ums Grün: 3 kurze Chips, 3 Pitches aus 15–25 m und 3 aus dem Bunker (ohne Bunker: 3 Lob-Schläge über ein Hindernis). Spiele jeden Ball mit voller Routine und putte ihn ein. Zähle, wie oft du mit höchstens 2 Schlägen eingelocht hast.', max: 9, gear: ['wedge', 'sw', 'putter', 'balls', 'green', 'bunker'] }
+          }
+        }
       }
     ];
 
@@ -11148,6 +11163,7 @@
       const days = challengeScheduleDays(cfg.perWeek);
       const total = days.length;
       const coreSize = cfg.level === 'advanced' ? 3 : 2;
+      const progCfg = challengeProgramOf(cfg.program);
 
       // Pro Ort und Fokus: gemischte Drill-Liste, Druck-Drills nach hinten sortiert für Phase 1
       const pools = {};
@@ -11156,7 +11172,8 @@
         cfg.focus.forEach(fk => {
           const pool = challengePool(fk, pk);
           // Kern-Drills (echte Golfübungen mit Schläger und Ball) stehen vorne, der Rest gemischt dahinter
-          const coreIds = (CHALLENGE_CORE[fk] || {})[pk === 'home' ? 'home' : 'out'] || [];
+          const coreSrc = Object.assign({}, CHALLENGE_CORE[fk] || {}, (progCfg && progCfg.core && progCfg.core[fk]) || {});
+          const coreIds = coreSrc[pk === 'home' ? 'home' : 'out'] || [];
           const core = coreIds.map(id => pool.find(d => d.id === id)).filter(Boolean);
           const shuffled = seededShuffle(pool.filter(d => !core.includes(d)), rand);
           pools[pk][fk] = [
@@ -11187,7 +11204,7 @@
         if (isFirst || isLast) {
           cfg.focus.forEach(fk => {
             const variant = placeKey === 'home' ? 'home' : 'out';
-            const t = CHALLENGE_TESTS[fk]?.[variant];
+            const t = progCfg?.tests?.[fk]?.[variant] || CHALLENGE_TESTS[fk]?.[variant];
             if (!t) return;
             const min = 5;
             blocks.push({ type: 'test', min, focus: fk, testKey: `${fk}-${variant}`, title: (isFirst ? 'Eingangstest · ' : 'Abschlusstest · ') + t.title, text: t.how, max: t.max, unit: t.unit || '', gear: t.gear || [] });
