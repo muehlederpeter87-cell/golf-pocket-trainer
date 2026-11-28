@@ -9,8 +9,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="apple-mobile-web-app-title" content="Golf Pocket Trainer" />
   <meta name="application-name" content="Golf Pocket Trainer" />
-  <meta name="description" content="Golf Pocket Trainer v4.42.0 – Material Design 3 Golf Technik-, Trainings-, Rules-, Scratch-Blueprint-, Handicap-Challenge-, Longhitter-, Komparator-, Warm-up-, Video-Analyse-, 40-Tage-Challenge- & Gamification-Statistik-Begleiter" />
-  <title>Golf Pocket Trainer (v4.42.0)</title>
+  <meta name="description" content="Golf Pocket Trainer v4.42.1 – Material Design 3 Golf Technik-, Trainings-, Rules-, Scratch-Blueprint-, Handicap-Challenge-, Longhitter-, Komparator-, Warm-up-, Video-Analyse-, 40-Tage-Challenge- & Gamification-Statistik-Begleiter" />
+  <title>Golf Pocket Trainer (v4.42.1)</title>
 
   <link rel="manifest" href="manifest.webmanifest" />
   <link rel="icon" type="image/png" sizes="48x48" href="icons/favicon-48.png" />
@@ -2777,7 +2777,7 @@
               <span class="material-symbols-rounded" style="color: var(--md-sys-color-on-surface-variant);">history</span>
               <span>Versionsverlauf</span>
             </span>
-            <span class="font-mono" style="font-size: 0.72rem; color: var(--md-sys-color-on-surface-variant);">v4.42.0</span>
+            <span class="font-mono" style="font-size: 0.72rem; color: var(--md-sys-color-on-surface-variant);">v4.42.1</span>
           </button>
         </div>
       </div>
@@ -3474,6 +3474,8 @@
         <article id="dailyCheckinCard" class="md-checkin-card"></article>
         <!-- 40-Tage-Challenge: nächste Einheit -->
         <article id="todayChallengeCard" class="md-home-card" role="button" tabindex="0" onclick="openTodayChallenge()" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openTodayChallenge();}"></article>
+        <!-- Challenge-Vorschlag, solange die aktive Challenge pausiert ist -->
+        <article id="todayPromoCard" class="md-home-card md-chal-promo hidden" role="button" tabindex="0" onclick="openChallengeLibraryFromToday()" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openChallengeLibraryFromToday();}"></article>
       </div>
 
       <div class="md-home-section">Rund um die Runde</div>
@@ -3635,7 +3637,7 @@
        ======================================================================== -->
   <footer class="md-footer">
     <div class="md-container" style="display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; flex-wrap: wrap;">
-      <span><strong>Golf Pocket Trainer</strong> (<span class="font-mono">v4.42.0</span>) &bull; Dein interaktiver Trainings- &amp; Platzbegleiter</span>
+      <span><strong>Golf Pocket Trainer</strong> (<span class="font-mono">v4.42.1</span>) &bull; Dein interaktiver Trainings- &amp; Platzbegleiter</span>
       <button type="button" onclick="openChangelogModal()" class="md-text-btn" style="height: 1.85rem;">Versionsverlauf ansehen</button>
     </div>
   </footer>
@@ -3781,7 +3783,7 @@
       <div class="md-dialog-header">
         <div>
           <span class="md-assist-badge" style="background-color: var(--md-sys-color-tertiary-container); color: var(--md-sys-color-on-tertiary-container);">Release Notes &amp; Wartung</span>
-          <h2 id="changelogTitle" class="font-display" style="font-size: 1.25rem; font-weight: 800; margin-top: 0.3rem;">Versionsverlauf (v1.0.0 – v4.42.0)</h2>
+          <h2 id="changelogTitle" class="font-display" style="font-size: 1.25rem; font-weight: 800; margin-top: 0.3rem;">Versionsverlauf (v1.0.0 – v4.42.1)</h2>
         </div>
         <button type="button" onclick="closeChangelogModal()" class="md-icon-btn" aria-label="Schließen">
           <span class="material-symbols-rounded">close</span>
@@ -3796,20 +3798,31 @@
   </div>
 
   <!-- ========================================================================
-       COMPLETE SELF-CONTAINED JAVASCRIPT ENGINE (v4.42.0)
+       COMPLETE SELF-CONTAINED JAVASCRIPT ENGINE (v4.42.1)
        ======================================================================== -->
   <div id="appToast" class="md-toast" role="status" aria-live="polite"></div>
   <input type="file" id="backupFileInput" accept="application/json,.json" hidden onchange="handleBackupFile(event)" />
 
   <script>
-    const APP_VERSION = 'v4.42.0';
+    const APP_VERSION = 'v4.42.1';
 
     const CHANGELOG_ENTRIES = [
       {
-        version: 'v4.42.0',
+        version: 'v4.42.1',
         date: 'Aktuell',
-        title: 'Challenge-Vorschlag auf der Startseite',
+        title: 'Challenge-Vorschlag auch bei Pause',
         latest: true,
+        notes: [
+          'Ist deine Challenge pausiert, schlägt die Startseite jetzt zusätzlich eine neue Challenge vor. Startest du sie, endet die pausierte – absolvierte Einheiten bleiben als XP erhalten.',
+          'Die pausierte Challenge selbst wird nicht vorgeschlagen.',
+          'Nach der Handicap-Angabe zeigt der Vorschlag sofort den passenden Weg.'
+        ]
+      },
+      {
+        version: 'v4.42.0',
+        date: 'Vorherige Version',
+        title: 'Challenge-Vorschlag auf der Startseite',
+        latest: false,
         notes: [
           'Läuft gerade keine Challenge, zeigt die Startseite oben unter „Heute trainieren“ eine Challenge zum Starten – mit Inhalt, Zielen und Umfang.',
           'Mit Handicap-Angabe wird der passende Handicap-Weg empfohlen, sonst wechselt jede Woche eine Themen-Challenge. Die zuletzt beendete Challenge wird übersprungen.',
@@ -3818,7 +3831,7 @@
       },
       {
         version: 'v4.41.0',
-        date: 'Vorherige Version',
+        date: 'Ältere Version',
         title: 'Challenge pausieren & beenden',
         latest: false,
         notes: [
@@ -8472,9 +8485,9 @@
 
     function promoProgramKey() {
       const rec = recommendedProgramKey();
-      if (rec && challengePromoOffset === 0) return rec;
+      if (rec && challengePromoOffset === 0 && activeProgramKey() !== rec) return rec;
       // Sonst wöchentlich wechselnd; die zuletzt beendete Challenge wird übersprungen
-      const lastName = challengeHistory[0] ? challengeHistory[0].name : '';
+      const lastName = isChallengePaused() ? challengeDisplayName() : challengeHistory[0] ? challengeHistory[0].name : '';
       // Ohne Handicap-Angabe nur Themen-Challenges (passen zu jedem Handicap)
       const pool = CHALLENGE_PROGRAMS.filter(p => p.title !== lastName && p.key !== rec && (rec || p.kind === 'theme'));
       const week = Math.floor(daysBetweenKeys('2026-01-05', localDateKey()) / 7);
@@ -8509,7 +8522,21 @@
             <span class="material-symbols-rounded" style="font-size: 18px;">autorenew</span><span>Anderer Vorschlag</span>
           </button>
         </div>
-        <div class="md-home-meta">${userHcp === null ? 'Tipp: Gib in der Auswahl dein Handicap an – dann schlagen wir dir den passenden Weg vor. ' : ''}Tippe auf die Karte für alle Challenges.</div>`;
+        <div class="md-home-meta">${isChallengePaused() ? `Startest du sie, endet deine pausierte Challenge – absolvierte Einheiten bleiben als XP erhalten. ` : ''}${userHcp === null ? 'Tipp: Gib in der Auswahl dein Handicap an – dann schlagen wir dir den passenden Weg vor. ' : ''}Tippe auf die Karte für alle Challenges.</div>`;
+    }
+
+    // Vorschlag-Karte bei pausierter Challenge (bei keiner Challenge übernimmt die Challenge-Karte den Vorschlag)
+    function renderTodayPromoCard() {
+      const card = document.getElementById('todayPromoCard');
+      if (!card) return;
+      const show = isChallengePaused();
+      card.classList.toggle('hidden', !show);
+      card.innerHTML = show ? renderChallengePromo() : '';
+    }
+
+    function openChallengeLibraryFromToday() {
+      switchMainTab('challenge');
+      openChallengeLibrary();
     }
 
     function startPromoChallenge(key) {
@@ -8519,6 +8546,7 @@
 
     function nextChallengePromo() {
       challengePromoOffset++;
+      if (isChallengePaused()) { renderTodayPromoCard(); return; }
       const card = document.getElementById('todayChallengeCard');
       if (card) card.innerHTML = renderChallengePromo();
     }
@@ -8536,7 +8564,7 @@
         const totalP = challengeTotal();
         card.innerHTML = `<div class="md-home-row">
           <span class="md-today-icon"><span class="material-symbols-rounded filled">pause</span></span>
-          <span class="md-today-text"><span class="md-today-label">${challengeDisplayName()} · pausiert</span><span class="md-today-title">Tippen zum Fortsetzen</span></span>
+          <span class="md-today-text"><span class="md-today-label">${challengeDisplayName()} · pausiert</span><span class="md-today-title">Öffnen und fortsetzen</span></span>
           <span class="material-symbols-rounded md-today-chevron" aria-hidden="true">chevron_right</span></div>
           <div class="md-mini-bar"><i style="width: ${Math.round((doneP / Math.max(1, totalP)) * 100)}%;"></i></div>
           <div class="md-home-meta">${doneP} von ${totalP} Einheiten geschafft · pausiert seit ${challengePausedOn.split('-').reverse().join('.')}</div>`;
@@ -8601,6 +8629,7 @@
     function renderTodayShortcuts() {
       renderTodayFormHero();
       const due = renderTodayChallengeCard();
+      renderTodayPromoCard();
       renderTodayRoundCard();
       // Fällige Challenge-Einheit steht vor dem Tagestraining
       const stack = document.getElementById('todayTrainStack');
@@ -11785,12 +11814,14 @@
         if (h === null) { showToast('Bitte ein Handicap zwischen +10 und 54 eingeben.', 2800); renderChallenge40View(); return; }
         userHcp = h;
       }
+      challengePromoOffset = 0;
       savePersistedState();
       renderChallenge40View();
     }
 
     function setUserHcpNone() {
       userHcp = userHcp === 'none' ? null : 'none';
+      challengePromoOffset = 0;
       savePersistedState();
       renderChallenge40View();
     }
