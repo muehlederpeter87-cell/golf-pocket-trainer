@@ -3791,6 +3791,7 @@
           'Der Scratch-Plan ist nicht mehr im Menü versteckt: „Weg zu Scratch“ ist die oberste Stufe. Jede Einheit trainiert eine der 8 Scratch-Säulen.',
           'Neue Themen-Challenge „Short Game Master“: Chippen, Pitchen, Bunker und Putten mit Up-&-Down-Test am ersten und letzten Tag.',
           'Neue Themen-Challenge „Putt-König“: kurze Putts sicher lochen, lange nah ans Loch – mit Putt-Punkte-Test.',
+          'Neue Themen-Challenge „Mental & Routine“ mit 2 neuen Drills: Denk-Box & Spiel-Box sowie Fehlschlag-Reset in 3 Schritten.',
           'Neue Themen-Challenge „Bunker-Challenge“ mit 4 neuen Bunker-Drills (Setup, Längenkontrolle, Spiegelei & Hanglage, Bunker-Setup zuhause) und Bunker-Test.',
           'Neue Themen-Challenge „40 Tage zum Longhitter“ mit Speed-Training, Abschlagwinkel und Treffpunkt. Am ersten und letzten Tag misst du deinen längsten Drive im Korridor.',
           '4 neue Drills mit Video: Speed-Sätze, Aufwärts treffen, Release-Schwünge und Mobilität für Brustwirbelsäule & Hüfte.',
@@ -5685,6 +5686,42 @@
         videoId: 'DFgsG6MXJW0',
         videoTitle: 'Die einfachste Lösung gegen Nervosität: die Pre-Shot-Routine',
         videoChannel: 'Golfen mit Freude',
+        videoDuration: ''
+      },
+      {
+        id: 'drill-mental-boxes',
+        discipline: 'warmup',
+        disciplineLabel: 'Warm-up & Platz',
+        title: 'Denk-Box & Spiel-Box: Entscheiden, dann vertrauen',
+        durationBalls: '10 Bälle · ca. 10 Min.',
+        setupMaterial: 'Beliebiger Schläger, ein zweiter Schläger oder Alignment-Stick als Linie am Boden',
+        steps: [
+          'Lege einen Schläger quer ca. einen Schritt hinter deinen Ball: Dahinter ist die Denk-Box, davor die Spiel-Box.',
+          'In der Denk-Box entscheidest du alles: Ziel, Schläger, Schlagart. Erst wenn du dir sicher bist, gehst du über die Linie.',
+          'In der Spiel-Box wird nicht mehr nachgedacht: Setup, ein Blick zum Ziel, schlagen. Kommt ein Zweifel, gehst du zurück in die Denk-Box und beginnst neu.'
+        ],
+        successGoal: '10 Bälle, bei denen du in der Spiel-Box keinen Zweifel mehr zugelassen hast – egal, wie der Ball fliegt.',
+        videoId: 'r8ojdNNYKFc',
+        videoTitle: 'Routine – Mentale Stärke auf dem Golfplatz mit der Boxen-Strategie',
+        videoChannel: 'GOLFSTUN.DE',
+        videoDuration: ''
+      },
+      {
+        id: 'drill-mental-reset',
+        discipline: 'warmup',
+        disciplineLabel: 'Warm-up & Platz',
+        title: 'Fehlschlag-Reset: Abhaken in 3 Schritten',
+        durationBalls: '12 Bälle · ca. 10 Min.',
+        setupMaterial: 'Driver, Eisen 7 und Wedge',
+        steps: [
+          'Spiele 12 Bälle mit wechselnden Schlägern und Zielen, jeden mit voller Routine. Bewerte jeden Schlag sofort: gut oder Fehlschlag.',
+          'Nach einem Fehlschlag darfst du dich 10 Sekunden ärgern. Dann atmest du einmal tief durch: 4 Sekunden ein, 6 Sekunden aus.',
+          'Sag dir ein festes Stichwort (z. B. „Nächster“) und benenne das neue Ziel. Erst dann beginnt die Routine für den nächsten Ball.'
+        ],
+        successGoal: 'Nach jedem Fehlschlag ein vollständiger Reset – der nächste Ball bekommt dieselbe Routine wie nach einem guten Schlag.',
+        videoId: 'KljGFOcLLE0',
+        videoTitle: 'Golf Mentaltraining – Mentale und emotionale Stärke beim Golfspielen',
+        videoChannel: 'Antje Heimsoeth',
         videoDuration: ''
       },
       {
@@ -10798,6 +10835,17 @@
         goals: ['Sicheres Setup mit offener Schlagfläche', 'Länge über die Größe des Schwungs steuern', 'Spiegelei und Hanglagen meistern'],
         note: 'Für 2 von 3 Einheiten pro Woche brauchst du einen Übungsbunker. Zuhause trainierst du Setup und Schwungform ohne Ball.',
         focus: ['bunker'], level: 'intermediate', perWeek: 3, slots: ['green', 'home', 'green'], minutes: 30
+      },
+      {
+        key: 'mental', kind: 'theme', icon: '🧘', title: 'Mental & Routine', range: 'Für jedes Handicap',
+        pitch: 'Ruhig bleiben, klar entscheiden, Fehlschläge abhaken – mit einer Routine, die auch unter Druck hält.',
+        goals: ['Feste Pre-Shot-Routine von 15 bis 25 Sekunden', 'Fehlschläge in 3 Schritten abhaken', 'Unter Druck dieselbe Routine wie im Training'],
+        note: 'Mentale Stärke trainierst du mit Schläger und Ball: Jede Übung hat eine klare Konsequenz, damit sich der Druck echt anfühlt.',
+        focus: ['course', 'putting'], level: 'intermediate', perWeek: 3, slots: ['both', 'home', 'both'], minutes: 45,
+        core: {
+          course: { out: ['drill-mental-boxes', 'drill-warmup-routine', 'drill-mental-reset', 'drill-warmup-1ball'], home: ['drill-indoor-visualize', 'drill-indoor-metronome'] },
+          putting: { out: ['drill-putt-pressure', 'drill-putt-gate'], home: ['drill-indoor-putt-rhythm', 'drill-indoor-putt-gate'] }
+        }
       }
     ];
 
@@ -10976,6 +11024,8 @@
       'drill-shaping-height': ['iron7', 'rangeballs'],
       'drill-warmup-random': ['driver', 'hybrid', 'iron7', 'wedge', 'rangeballs', 'tees'],
       'drill-warmup-routine': ['anyclub', 'rangeballs', 'phone'],
+      'drill-mental-boxes': ['anyclub', 'rangeballs', 'sticks'],
+      'drill-mental-reset': ['driver', 'iron7', 'wedge', 'rangeballs', 'tees'],
       'drill-indoor-towelarms': ['iron9', 'towel'],
       'drill-indoor-slowmo': ['iron9', 'mirror'],
       'drill-indoor-putt-gate': ['putter', 'balls', 'books', 'cup'],
