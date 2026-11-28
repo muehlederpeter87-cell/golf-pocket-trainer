@@ -9,8 +9,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="apple-mobile-web-app-title" content="Golf Pocket Trainer" />
   <meta name="application-name" content="Golf Pocket Trainer" />
-  <meta name="description" content="Golf Pocket Trainer v4.42.1 – Material Design 3 Golf Technik-, Trainings-, Rules-, Scratch-Blueprint-, Handicap-Challenge-, Longhitter-, Komparator-, Warm-up-, Video-Analyse-, 40-Tage-Challenge- & Gamification-Statistik-Begleiter" />
-  <title>Golf Pocket Trainer (v4.42.1)</title>
+  <meta name="description" content="Golf Pocket Trainer v4.43.0 – Material Design 3 Golf Technik-, Trainings-, Rules-, Scratch-Blueprint-, Handicap-Challenge-, Longhitter-, Komparator-, Warm-up-, Video-Analyse-, 40-Tage-Challenge- & Gamification-Statistik-Begleiter" />
+  <title>Golf Pocket Trainer (v4.43.0)</title>
 
   <link rel="manifest" href="manifest.webmanifest" />
   <link rel="icon" type="image/png" sizes="48x48" href="icons/favicon-48.png" />
@@ -749,6 +749,9 @@
     .md-lib-hcp-row { display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; }
     .md-lib-hcp-input { width: 7.5rem; }
     .md-chal-paused .md-challenge-calendar { opacity: 0.55; }
+    .md-chal-art-box { position: relative; width: 100%; aspect-ratio: 320 / 108; border-radius: 0.95rem; overflow: hidden; line-height: 0; flex-shrink: 0; }
+    .md-chal-art-box .md-chal-art { display: block; width: 100%; height: 100%; }
+    .md-chal-art-box.md-art-tall { aspect-ratio: 320 / 120; }
     .md-lib-pillar { display: flex; flex-direction: column; gap: 0.35rem; padding: 0.75rem 0.85rem; border-radius: 1rem; border: 1px solid var(--md-sys-color-outline-variant); background-color: var(--md-sys-color-surface-container); font-size: 0.84rem; }
 
     /* Eigene Challenge: Einrichtung & Einheiten (v4.34.0) */
@@ -2777,7 +2780,7 @@
               <span class="material-symbols-rounded" style="color: var(--md-sys-color-on-surface-variant);">history</span>
               <span>Versionsverlauf</span>
             </span>
-            <span class="font-mono" style="font-size: 0.72rem; color: var(--md-sys-color-on-surface-variant);">v4.42.1</span>
+            <span class="font-mono" style="font-size: 0.72rem; color: var(--md-sys-color-on-surface-variant);">v4.43.0</span>
           </button>
         </div>
       </div>
@@ -3392,6 +3395,7 @@
          ====================================================================== -->
     <section id="tabChallenge" class="hidden" style="display: flex; flex-direction: column; gap: 1.15rem;">
       <article id="challengeHeaderCard" class="md-card-elevated md-card-pad" style="display: flex; flex-direction: column; gap: 0.9rem;">
+        <div id="challengeHeaderArt"></div>
         <div style="display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; flex-wrap: wrap;">
           <div>
             <span id="challengeModeBadge" class="md-assist-badge">Klassisch · 14 Einheiten · alle 3 Tage</span>
@@ -3637,7 +3641,7 @@
        ======================================================================== -->
   <footer class="md-footer">
     <div class="md-container" style="display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; flex-wrap: wrap;">
-      <span><strong>Golf Pocket Trainer</strong> (<span class="font-mono">v4.42.1</span>) &bull; Dein interaktiver Trainings- &amp; Platzbegleiter</span>
+      <span><strong>Golf Pocket Trainer</strong> (<span class="font-mono">v4.43.0</span>) &bull; Dein interaktiver Trainings- &amp; Platzbegleiter</span>
       <button type="button" onclick="openChangelogModal()" class="md-text-btn" style="height: 1.85rem;">Versionsverlauf ansehen</button>
     </div>
   </footer>
@@ -3783,7 +3787,7 @@
       <div class="md-dialog-header">
         <div>
           <span class="md-assist-badge" style="background-color: var(--md-sys-color-tertiary-container); color: var(--md-sys-color-on-tertiary-container);">Release Notes &amp; Wartung</span>
-          <h2 id="changelogTitle" class="font-display" style="font-size: 1.25rem; font-weight: 800; margin-top: 0.3rem;">Versionsverlauf (v1.0.0 – v4.42.1)</h2>
+          <h2 id="changelogTitle" class="font-display" style="font-size: 1.25rem; font-weight: 800; margin-top: 0.3rem;">Versionsverlauf (v1.0.0 – v4.43.0)</h2>
         </div>
         <button type="button" onclick="closeChangelogModal()" class="md-icon-btn" aria-label="Schließen">
           <span class="material-symbols-rounded">close</span>
@@ -3798,20 +3802,31 @@
   </div>
 
   <!-- ========================================================================
-       COMPLETE SELF-CONTAINED JAVASCRIPT ENGINE (v4.42.1)
+       COMPLETE SELF-CONTAINED JAVASCRIPT ENGINE (v4.43.0)
        ======================================================================== -->
   <div id="appToast" class="md-toast" role="status" aria-live="polite"></div>
   <input type="file" id="backupFileInput" accept="application/json,.json" hidden onchange="handleBackupFile(event)" />
 
   <script>
-    const APP_VERSION = 'v4.42.1';
+    const APP_VERSION = 'v4.43.0';
 
     const CHANGELOG_ENTRIES = [
       {
-        version: 'v4.42.1',
+        version: 'v4.43.0',
         date: 'Aktuell',
-        title: 'Challenge-Vorschlag auch bei Pause',
+        title: 'Titelbilder für alle Challenges',
         latest: true,
+        notes: [
+          'Jede Challenge hat jetzt ein eigenes Titelbild: vom Keimling für die Platzreife über den Pokal für Scratch bis zum Schneehaus für die Winter-Challenge.',
+          'Die Bilder erscheinen in der Challenge-Bibliothek, im Vorschlag auf der Startseite, bei der Einrichtung und oben bei deiner aktiven Challenge.',
+          'Alle Bilder sind in der App gezeichnet – sie laden sofort und funktionieren auch offline.'
+        ]
+      },
+      {
+        version: 'v4.42.1',
+        date: 'Vorherige Version',
+        title: 'Challenge-Vorschlag auch bei Pause',
+        latest: false,
         notes: [
           'Ist deine Challenge pausiert, schlägt die Startseite jetzt zusätzlich eine neue Challenge vor. Startest du sie, endet die pausierte – absolvierte Einheiten bleiben als XP erhalten.',
           'Die pausierte Challenge selbst wird nicht vorgeschlagen.',
@@ -3820,7 +3835,7 @@
       },
       {
         version: 'v4.42.0',
-        date: 'Vorherige Version',
+        date: 'Ältere Version',
         title: 'Challenge-Vorschlag auf der Startseite',
         latest: false,
         notes: [
@@ -8500,6 +8515,7 @@
       const units = challengeScheduleDays(prog.perWeek).length;
       const focus = prog.focus.map(k => { const f = CHALLENGE_FOCUS.find(x => x.key === k); return `${f.icon} ${f.label}`; }).join(' · ');
       return `
+        ${challengeArtBox(prog.key, 'md-art-tall')}
         <div class="md-promo-top">
           <span class="md-promo-kicker"><span class="material-symbols-rounded filled" aria-hidden="true">auto_awesome</span>Neue 40-Tage-Challenge</span>
           <span class="md-assist-badge md-promo-badge">${isRec ? (typeof userHcp === 'number' ? `Passt zu HCP ${formatHcp(userHcp)}` : 'Passt zu dir') : 'Vorschlag der Woche'}</span>
@@ -11033,6 +11049,115 @@
       }
     ];
 
+    /* ========================================================================
+       TITELBILDER DER CHALLENGES (v4.43.0): eigene SVG-Illustrationen,
+       offline verfügbar und ohne Bildrechte. viewBox 320 × 120.
+       ======================================================================== */
+    let challengeArtSeq = 0;
+    const CHALLENGE_ART_PALETTES = {
+      platzreife: { sky: ['#E6F7E4', '#BFE8C3'], hill: '#9BD49A', ground: '#5DB66B', green: '#86DB91' },
+      hcp36: { sky: ['#E4F0FF', '#BCD8F8'], hill: '#9CCFA8', ground: '#56AE69', green: '#7FD28E' },
+      hcp18: { sky: ['#FFF4DB', '#F9D99B'], hill: '#A9D08C', ground: '#5BAA5E', green: '#86D48A', sun: '#FFC14D' },
+      hcp9: { sky: ['#E9E4FF', '#C9BFF5'], hill: '#93C9A0', ground: '#4FA463', green: '#7ACB88' },
+      scratch: { sky: ['#123A27', '#06190F'], hill: '#1E5A3A', ground: '#13432A', green: '#2C7A4E', dark: true },
+      longhitter: { sky: ['#FFE6D2', '#FFB98C'], hill: '#E0A77E', ground: '#5DA75E', green: '#7CCB7F', sun: '#FF8A3D' },
+      shortgame: { sky: ['#DDF6F1', '#ABE5DA'], hill: '#8FCCA4', ground: '#53A86A', green: '#7DD495' },
+      puttking: { sky: ['#FFF8D6', '#F8E29A'], hill: '#AFD38C', ground: '#5BAA5E', green: '#7FD48C' },
+      bunker: { sky: ['#FFF1DE', '#F6D9AE'], hill: '#A6CF8F', ground: '#5AA862', green: '#80D18A' },
+      mental: { sky: ['#ECE7FA', '#CFC5F0'], hill: '#A9BFD8', ground: '#6EA88A', green: '#8ACCA2' },
+      winter: { sky: ['#E8F3FC', '#C3DDF3'], hill: '#F4F9FD', ground: '#E3EEF7', green: '#D4E6F2' },
+      custom: { sky: ['#E8F6EC', '#C6E9D0'], hill: '#9DD2A8', ground: '#56AE69', green: '#7FD28E' },
+      classic: { sky: ['#EEF5E8', '#D3E8C2'], hill: '#A3D193', ground: '#5DAE63', green: '#82D38B' }
+    };
+
+    function challengeArt(key, extraClass) {
+      const p = CHALLENGE_ART_PALETTES[key] || CHALLENGE_ART_PALETTES.custom;
+      const id = `cart${++challengeArtSeq}`;
+      const ball = (x, y, r = 4.2) => `<circle cx="${x}" cy="${y}" r="${r}" fill="#FFFFFF" stroke="rgba(0,0,0,0.18)" stroke-width="0.8"/>`;
+      const flag = (x, y, c = '#E5484D') => `<ellipse cx="${x}" cy="${y}" rx="5" ry="1.8" fill="rgba(0,0,0,0.45)"/><line x1="${x}" y1="${y}" x2="${x}" y2="${y - 36}" stroke="#F5F5F5" stroke-width="1.6"/><path d="M${x} ${y - 36} L${x + 16} ${y - 31} L${x} ${y - 26} Z" fill="${c}"/>`;
+      const dash = (d, c = '#FFFFFF', o = 0.9) => `<path d="${d}" fill="none" stroke="${c}" stroke-opacity="${o}" stroke-width="2" stroke-dasharray="4 5" stroke-linecap="round"/>`;
+      const spark = (x, y, s = 5, c = '#FFFFFF') => `<path d="M${x} ${y - s} Q${x} ${y} ${x + s} ${y} Q${x} ${y} ${x} ${y + s} Q${x} ${y} ${x - s} ${y} Q${x} ${y} ${x} ${y - s} Z" fill="${c}"/>`;
+      const greenPad = (cx, cy, rx = 46, ry = 8) => `<ellipse cx="${cx}" cy="${cy}" rx="${rx}" ry="${ry}" fill="${p.green}"/>`;
+      const tee = (x, y) => `<path d="M${x - 3} ${y} L${x + 3} ${y} L${x + 0.8} ${y + 7} L${x - 0.8} ${y + 7} Z" fill="#F4E6C8"/>`;
+
+      const motifs = {
+        platzreife: () => `${greenPad(248, 93)}${flag(252, 93)}
+          <path d="M112 96 Q114 80 113 66" stroke="#3E8E4A" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+          <path d="M113 74 Q96 70 92 56 Q108 56 113 72 Z" fill="#4FB35F"/><path d="M113 68 Q128 60 136 48 Q118 48 113 66 Z" fill="#6CCB78"/>
+          ${tee(160, 94)}${ball(160, 89.5)}`,
+        hcp36: () => `<ellipse cx="200" cy="92" rx="70" ry="13" fill="${p.green}"/><ellipse cx="200" cy="92" rx="48" ry="9" fill="#FFFFFF" fill-opacity="0.55"/>
+          <ellipse cx="200" cy="92" rx="28" ry="5.4" fill="${p.green}"/><ellipse cx="200" cy="92" rx="11" ry="2.4" fill="#FFFFFF" fill-opacity="0.7"/>
+          ${flag(200, 92)}${ball(226, 93)}${dash('M70 100 Q140 26 222 90')}`,
+        hcp18: () => `<circle cx="70" cy="44" r="16" fill="${p.sun}" fill-opacity="0.85"/>${greenPad(222, 92, 54, 10)}${flag(232, 92)}
+          ${dash('M60 102 Q140 22 220 90')}${ball(221, 91)}`,
+        hcp9: () => `<path d="M0 116 C90 104 130 90 200 90 C240 90 280 86 320 84 L320 96 C270 98 230 101 200 102 C130 104 90 120 0 124 Z" fill="#FFFFFF" fill-opacity="0.28"/>
+          <circle cx="44" cy="72" r="9" fill="#3F8F54"/><circle cx="58" cy="70" r="7" fill="#4A9C5E"/><circle cx="292" cy="66" r="8" fill="#3F8F54"/>
+          ${greenPad(258, 87, 34, 6)}${flag(262, 87)}${ball(120, 104)}`,
+        scratch: () => {
+          const stars = [[30, 18], [62, 34], [96, 14], [140, 26], [282, 20], [304, 40], [250, 12], [190, 16]].map(([x, y]) => `<circle cx="${x}" cy="${y}" r="1.2" fill="#FFFFFF" fill-opacity="0.8"/>`).join('');
+          const steps = [0, 1, 2, 3].map(i => `<rect x="${132 + i * 24}" y="${96 - i * 10}" width="24" height="${24 + i * 10}" fill="#2E8A57" fill-opacity="${0.55 + i * 0.12}"/>`).join('');
+          return `${stars}${steps}<g transform="translate(216 72)">
+            <path d="M-13 -30 H13 Q13 -9 0 -5 Q-13 -9 -13 -30 Z" fill="#F3C03E"/>
+            <path d="M-13 -26 Q-22 -26 -20 -18 Q-18 -12 -10 -12" fill="none" stroke="#F3C03E" stroke-width="2.6"/>
+            <path d="M13 -26 Q22 -26 20 -18 Q18 -12 10 -12" fill="none" stroke="#F3C03E" stroke-width="2.6"/>
+            <rect x="-2.5" y="-6" width="5" height="7" fill="#E0A928"/><rect x="-9" y="0" width="18" height="4" rx="1" fill="#E0A928"/></g>
+            ${spark(244, 30, 4, '#F3C03E')}${spark(186, 38, 3, '#F3C03E')}`;
+        },
+        longhitter: () => `<circle cx="272" cy="58" r="20" fill="${p.sun}" fill-opacity="0.85"/>
+          ${dash('M42 96 Q168 -6 300 88')}${tee(40, 101)}${ball(40, 96.5)}${ball(300, 88, 3.4)}
+          <line x1="20" y1="88" x2="32" y2="88" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"/>
+          <line x1="16" y1="95" x2="30" y2="95" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"/>
+          <line x1="20" y1="102" x2="31" y2="102" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"/>`,
+        shortgame: () => `${greenPad(232, 94, 58, 10)}${flag(244, 94)}${dash('M110 102 Q168 40 236 92')}${ball(237, 93)}
+          ${ball(110, 103)}${spark(168, 36, 5)}${spark(196, 28, 3.5)}${spark(140, 44, 3)}`,
+        puttking: () => `<ellipse cx="170" cy="104" rx="170" ry="20" fill="${p.green}"/>
+          <ellipse cx="236" cy="100" rx="7" ry="2.6" fill="rgba(0,0,0,0.5)"/>${dash('M76 108 Q160 96 230 100')}${ball(76, 107)}
+          <g transform="translate(236 70)"><path d="M-16 8 L-16 -8 L-8 0 L0 -12 L8 0 L16 -8 L16 8 Z" fill="#F3C03E"/>
+          <circle cx="-16" cy="-9" r="2" fill="#F3C03E"/><circle cx="0" cy="-13" r="2" fill="#F3C03E"/><circle cx="16" cy="-9" r="2" fill="#F3C03E"/></g>`,
+        bunker: () => `${greenPad(262, 86, 38, 7)}${flag(266, 86)}
+          <ellipse cx="160" cy="102" rx="78" ry="15" fill="#E7C98B"/><ellipse cx="160" cy="100" rx="72" ry="12" fill="#F4DDA8"/>
+          ${[[-22, -6], [-14, -13], [-4, -17], [8, -14], [18, -8], [-28, -1], [26, -2]].map(([dx, dy]) => `<circle cx="${160 + dx}" cy="${92 + dy}" r="2.2" fill="#E9CF95"/>`).join('')}
+          ${dash('M160 92 Q206 28 260 84')}${ball(160, 92)}`,
+        mental: () => `<circle cx="200" cy="62" r="40" fill="none" stroke="#FFFFFF" stroke-opacity="0.35" stroke-width="2"/>
+          <circle cx="200" cy="62" r="27" fill="none" stroke="#FFFFFF" stroke-opacity="0.55" stroke-width="2"/>
+          <circle cx="200" cy="62" r="14" fill="#FFFFFF" fill-opacity="0.6"/>
+          <ellipse cx="90" cy="100" rx="56" ry="7" fill="#B9D7EE" fill-opacity="0.8"/>${tee(200, 98)}${ball(200, 93.5)}`,
+        winter: () => {
+          const flake = (x, y, s) => `<g stroke="#FFFFFF" stroke-width="1.4" stroke-linecap="round"><line x1="${x - s}" y1="${y}" x2="${x + s}" y2="${y}"/><line x1="${x - s / 2}" y1="${y - s * 0.87}" x2="${x + s / 2}" y2="${y + s * 0.87}"/><line x1="${x - s / 2}" y1="${y + s * 0.87}" x2="${x + s / 2}" y2="${y - s * 0.87}"/></g>`;
+          return `${flake(40, 26, 5)}${flake(88, 48, 4)}${flake(140, 20, 6)}${flake(270, 30, 5)}${flake(300, 56, 3.5)}${flake(110, 78, 3)}
+            <g transform="translate(212 98)"><rect x="-30" y="-30" width="60" height="30" fill="#8FA9C4"/><path d="M-36 -28 L0 -54 L36 -28 Z" fill="#6E89A6"/>
+            <path d="M-38 -27 L0 -56 L38 -27" fill="none" stroke="#FFFFFF" stroke-width="4" stroke-linejoin="round"/>
+            <rect x="-20" y="-22" width="14" height="12" fill="#FFD66B"/><rect x="6" y="-22" width="14" height="12" fill="#FFD66B"/><rect x="-5" y="-16" width="10" height="16" fill="#55708C"/></g>
+            ${ball(150, 104)}`;
+        },
+        custom: () => {
+          const slider = (y, pos) => `<line x1="150" y1="${y}" x2="270" y2="${y}" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" stroke-opacity="0.75"/><circle cx="${150 + pos * 120}" cy="${y}" r="7" fill="#1F8A4C" stroke="#FFFFFF" stroke-width="2.5"/>`;
+          return `${slider(34, 0.25)}${slider(54, 0.7)}${slider(74, 0.45)}${ball(90, 100)}${flag(110, 100)}`;
+        },
+        classic: () => {
+          const cells = [];
+          for (let r = 0; r < 3; r++) for (let c = 0; c < 5; c++) {
+            const done = r * 5 + c < 6;
+            cells.push(`<rect x="${172 + c * 13}" y="${44 + r * 13}" width="10" height="10" rx="2" fill="${done ? '#1F8A4C' : '#FFFFFF'}" fill-opacity="${done ? 0.9 : 0.75}"/>`);
+          }
+          return `<rect x="164" y="24" width="80" height="66" rx="8" fill="#FFFFFF" fill-opacity="0.55"/><rect x="164" y="24" width="80" height="14" rx="7" fill="#E5484D"/>
+            ${cells.join('')}${ball(110, 102)}${flag(286, 98)}`;
+        }
+      };
+
+      return `<svg class="md-chal-art ${extraClass || ''}" viewBox="0 0 320 120" preserveAspectRatio="xMidYMid slice" role="img" aria-hidden="true" focusable="false">
+        <defs><linearGradient id="${id}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${p.sky[0]}"/><stop offset="1" stop-color="${p.sky[1]}"/></linearGradient></defs>
+        <rect width="320" height="120" fill="url(#${id})"/>
+        <path d="M0 80 Q60 60 130 74 T260 68 T320 72 V120 H0 Z" fill="${p.hill}"/>
+        <path d="M0 96 Q90 84 170 94 T320 90 V120 H0 Z" fill="${p.ground}"/>
+        ${(motifs[key] || motifs.custom)()}
+      </svg>`;
+    }
+
+    function challengeArtBox(key, cls) {
+      return `<div class="md-chal-art-box ${cls || ''}">${challengeArt(key)}</div>`;
+    }
+
     function challengeProgramOf(key) {
       return CHALLENGE_PROGRAMS.find(p => p.key === key) || null;
     }
@@ -11837,6 +11962,7 @@
       const activeLabel = isChallengePaused() ? 'Pausiert' : 'Aktiv';
       const focusLabels = prog.focus.map(k => { const f = CHALLENGE_FOCUS.find(x => x.key === k); return `${f.icon} ${f.label}`; }).join(' · ');
       return `<article class="md-lib-card ${isActive ? 'active' : ''} ${isRec ? 'recommended' : ''}">
+        ${challengeArtBox(prog.key)}
         <div class="md-lib-card-head">
           <span class="md-lib-icon" aria-hidden="true">${prog.icon}</span>
           <div style="flex: 1; min-width: 0;">
@@ -11892,6 +12018,7 @@
           <div class="md-lib-grid">
             ${themeProgs.map(p => renderChallengeProgramCard(p, activeKey, recKey)).join('')}
             <article class="md-lib-card ${activeKey === 'custom' ? 'active' : ''}">
+              ${challengeArtBox('custom')}
               <div class="md-lib-card-head">
                 <span class="md-lib-icon" aria-hidden="true">🛠️</span>
                 <div style="flex: 1; min-width: 0;"><div class="md-lib-range">Frei kombinierbar</div><h3 class="md-lib-title">Eigene Challenge</h3></div>
@@ -11901,6 +12028,7 @@
               <div class="md-lib-actions"><button type="button" class="${activeKey === 'custom' ? 'md-outlined-btn' : 'md-filled-btn'}" onclick="openChallengeSetup('custom')">${activeKey === 'custom' ? 'Anpassen' : 'Zusammenstellen'}</button></div>
             </article>
             <article class="md-lib-card ${activeKey === 'classic' ? 'active' : ''}">
+              ${challengeArtBox('classic')}
               <div class="md-lib-card-head">
                 <span class="md-lib-icon" aria-hidden="true">📅</span>
                 <div style="flex: 1; min-width: 0;"><div class="md-lib-range">14 Einheiten · alle 3 Tage</div><h3 class="md-lib-title">Klassische Allround-Challenge</h3></div>
@@ -12036,6 +12164,7 @@
 
       return `
         <article id="challengeSetupCard" class="md-card-elevated md-card-pad md-chal-setup">
+          ${challengeArtBox(prog ? prog.key : 'custom', 'md-art-tall')}
           <div>
             <span class="md-assist-badge">${prog ? `${prog.icon} ${prog.kind === 'hcp' ? 'Handicap-Weg' : 'Themen-Challenge'}` : 'Eigene Challenge'}</span>
             <h2 class="font-display" style="font-size: 1.2rem; font-weight: 800; margin-top: 0.35rem;">${prog ? `${prog.title}: Plane deine 40 Tage` : 'Stell dir deine 40 Tage zusammen'}</h2>
@@ -12320,6 +12449,12 @@
       if (modeBadge) modeBadge.textContent = cfg
         ? `${prog ? (prog.kind === 'hcp' ? 'Handicap-Weg' : 'Themen-Challenge') : 'Eigene Challenge'} · ${total} Einheiten · ${cfg.perWeek}× pro Woche`
         : `Klassisch · ${total} Einheiten · alle 3 Tage`;
+      const headerArt = document.getElementById('challengeHeaderArt');
+      const artKey = activeProgramKey();
+      if (headerArt && artKey && headerArt.dataset.key !== artKey) {
+        headerArt.innerHTML = challengeArtBox(artKey, 'md-art-tall');
+        headerArt.dataset.key = artKey;
+      }
       const titleEl = document.getElementById('challengeTitle');
       if (titleEl) titleEl.textContent = prog ? `${prog.icon} ${prog.title}` : cfg ? 'Eigene 40-Tage-Challenge' : '40-Tage Golf-Challenge';
       const modeInfo = document.getElementById('challengeModeInfo');
